@@ -2,12 +2,10 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
-
+gsap.registerPlugin(ScrollTrigger);
 function ScrollSection() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
-
-  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const pin = gsap.fromTo(
