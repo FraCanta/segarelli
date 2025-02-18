@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "@/public/assets/logo_segarelli.svg";
 import Image from "next/image";
 import Mobile from "./Mobile";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonSecondary from "./ButtonSecondary";
 function Menu() {
   return (
     <>
@@ -12,7 +12,7 @@ function Menu() {
           <Image src={Logo} alt="Logo" className="w-[240px] h-full" />
         </div>
         <div>
-          <ButtonPrimary>Prenota</ButtonPrimary>
+          <ButtonSecondary>Prenota</ButtonSecondary>
         </div>
       </div>
       <Mobile />

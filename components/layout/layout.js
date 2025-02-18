@@ -10,7 +10,7 @@ const Layout = (props) => {
       <LenisScroll />
       <Menu />
       <main>{props.children}</main>
-      <ButtonBook />
+      <ButtonBook>Prenota</ButtonBook>
       <Footer />
     </>
   );
