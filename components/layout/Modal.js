@@ -13,23 +13,45 @@ function Modal({ content, onClose }) {
           onClick={onClose}
         >
           <motion.div
-            className="w-full h-screen bg-white p-6 flex flex-col overflow-y-auto"
+            className="w-full h-screen bg-white p-6 flex flex-col  overflow-auto"
             initial={{ y: "100%" }}
             animate={{ y: 0, transition: { duration: 0.4, ease: "easeOut" } }}
             exit={{ y: "100%", transition: { duration: 0.3 } }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-4 right-4 text-primary bg-gray-300 px-4 py-2 rounded-full"
+              className=" text-primary bg-white flex justify-end sticky inset-0 p-4 w-full"
               onClick={onClose}
             >
               ✖ Chiudi
             </button>
-            <div className="mt-10">
-              <h2 className="text-xl font-semibold">{content}</h2>
-              <p className="mt-4 text-gray-700">
-                Questo è il contenuto della modale per "{content}".
-              </p>
+            <div className="mt-4 ">
+              {content === "storia" && (
+                <>
+                  <img
+                    src="/assets/segarelli.jpg"
+                    alt="appartamenti"
+                    className="rounded-lg"
+                  />
+                  <div>
+                    <h2>Ciccio</h2>
+                  </div>
+                </>
+              )}
+              {content === "appartamenti" && (
+                <img
+                  src="/assets/appartamenti.jpg"
+                  alt="servizi"
+                  className="rounded-lg"
+                />
+              )}
+              {content === "toscana" && (
+                <img
+                  src="/assets/toscana.jpg"
+                  alt="toscana"
+                  className="rounded-lg"
+                />
+              )}
             </div>
           </motion.div>
         </motion.div>

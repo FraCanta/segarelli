@@ -46,9 +46,7 @@ function ScrollSection() {
               <p className="text-xl lg:text-3xl font-regular text-body max-w-2xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
-              <ButtonPrimary
-                onClick={() => setModalContent("La nostra storia")}
-              >
+              <ButtonPrimary onClick={() => setModalContent("storia")}>
                 La nostra storia
               </ButtonPrimary>
             </div>
@@ -59,7 +57,7 @@ function ScrollSection() {
                 fill
                 className="object-cover object-top rounded-tl-[600px]"
               />
-              <div className="absolute inset-0 bg-primary/25 rounded-tl-[600px]"></div>
+              <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>
             </div>
           </div>
 
@@ -72,9 +70,7 @@ function ScrollSection() {
               <p className="text-xl lg:text-3xl font-regular text-body max-w-2xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
-              <ButtonPrimary
-                onClick={() => setModalContent("I nostri appartamenti")}
-              >
+              <ButtonPrimary onClick={() => setModalContent("appartamenti")}>
                 Scopri di più
               </ButtonPrimary>
             </div>
@@ -85,7 +81,7 @@ function ScrollSection() {
                 fill
                 className="object-cover object-top rounded-tl-[600px]"
               />
-              <div className="absolute inset-0 bg-primary/25 rounded-tl-[600px]"></div>
+              <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>
             </div>
           </div>
 
@@ -98,9 +94,7 @@ function ScrollSection() {
               <p className="text-xl lg:text-3xl font-regular text-body max-w-2xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
-              <ButtonPrimary
-                onClick={() => setModalContent("Toscana da vivere")}
-              >
+              <ButtonPrimary onClick={() => setModalContent("toscana")}>
                 Scopri di più
               </ButtonPrimary>
             </div>
@@ -111,7 +105,7 @@ function ScrollSection() {
                 fill
                 className="object-cover object-top rounded-tl-[600px]"
               />
-              <div className="absolute inset-0 bg-primary/25 rounded-tl-[600px]"></div>
+              <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>
             </div>
           </div>
         </div>

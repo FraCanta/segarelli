@@ -1,57 +1,75 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import { useEffect } from "react";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollSection from "@/components/ScrollSection";
-import Footer from "@/components/layout/Footer";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Head from "next/head";
 
 export default function Home() {
-  // useEffect(() => {
-  //   const sections = gsap.utils.toArray(".panel");
-
-  //   gsap.to(sections, {
-  //     xPercent: -100 * (sections.length - 1),
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: ".container",
-  //       pin: true,
-  //       invalidateOnRefresh: true,
-  //       anticipatePin: 1,
-  //       scrub: 1.23,
-  //       end: () => "+=" + document.querySelector(".container").offsetWidth,
-  //     },
-  //   });
-  // }, []);
   return (
-    // <div className="container">
-    //   <section className="panel">
-    //     <h1>SCROLL DOWN</h1>
-    //   </section>
-    //   <section className="panel">
-    //     <h2>ONE</h2>
-    //   </section>
-    //   <section className="panel">
-    //     <h2>TWO</h2>
-    //   </section>
-    //   <section className="panel">
-    //     <h2>THREE</h2>
-    //   </section>
-    // </div>
     <>
-      {" "}
+      <Head>
+        <title>Vacanze in Toscana - Agriturismo Segarelli</title>
+        <meta
+          name="description"
+          content="Vacanze in Toscana - Agriturismo Segarelli. Conduzione familiare, vicino Volterra. Piscina,tre appartamenti indipendenti, colazione, free wi-fi."
+        />
+        <link rel="canonical" href="https://agriturismosegarelli.it/" />
+        <link
+          rel="publisher"
+          href="https://plus.google.com/106924514725907056377/posts"
+        />
+        <meta property="og:locale" content="it_IT" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Vacanze in Toscana - Agriturismo Segarelli"
+        />
+        <meta
+          property="og:description"
+          content="Vacanze in Toscana - Agriturismo Segarelli. Conduzione familiare, vicino Volterra. Piscina,tre appartamenti indipendenti, colazione, free wi-fi."
+        />
+        <meta property="og:url" content="https://agriturismosegarelli.it/" />
+        <meta property="og:site_name" content="Agriturismo Segarelli" />
+        <meta
+          property="og:image"
+          content="https://agriturismosegarelli.it/wp-content/uploads/2016/02/512x512.png"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://agriturismosegarelli.it/wp-content/uploads/2016/02/512x512.png"
+        />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Vacanze in Toscana - Agriturismo Segarelli. Conduzione familiare, vicino Volterra. Piscina,tre appartamenti indipendenti, colazione, free wi-fi."
+        />
+        <meta
+          name="twitter:title"
+          content="Vacanze in Toscana - Agriturismo Segarelli"
+        />
+        <meta name="twitter:site" content="@segarelli" />
+        <meta
+          name="twitter:image"
+          content="http://agriturismosegarelli.it/wp-content/uploads/2016/02/testata-gallery-300x300.jpg"
+        />
+        <meta name="twitter:creator" content="@segarelli" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "website",
+              name: "Agriturismo Segarelli",
+              id: "https://agriturismosegarelli.it/#website",
+              url: "https://agriturismosegarelli.it/",
+              logo: "/favicon.ico",
+            }),
+          }}
+        />
+        {/* <meta
+          name="google-site-verification"
+          content="ZD2Fp_Z5kdRO9gux6tlilo0hsXbWWi3VyhHly9f_7O0"
+        /> */}
+      </Head>{" "}
       <ScrollSection />
     </>
   );
