@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 function ScrollSection() {
   const sectionRef = useRef(null);
   const [modalContent, setModalContent] = useState(null);
-  const scrollTween = useRef(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -18,7 +17,7 @@ function ScrollSection() {
     let sections = gsap.utils.toArray(sectionRef.current.children);
     let sectionsCount = sections.length;
 
-    scrollTween.current = gsap.to(sections, {
+    const scrollTween = gsap.to(sections, {
       xPercent: -100 * (sectionsCount - 1),
       ease: "none",
       scrollTrigger: {
@@ -35,44 +34,8 @@ function ScrollSection() {
       },
     });
 
-    return () => scrollTween.current?.kill();
-  }, []);
-
-  useEffect(() => {
-    if (modalContent) {
-      // Disabilita lo scroll GSAP quando la modale è aperta
-      scrollTween.current?.kill();
-      document.body.style.overflow = "hidden"; // Evita lo scroll della pagina
-    } else {
-      // Riabilita lo scroll GSAP quando la modale è chiusa
-      if (sectionRef.current) {
-        let sections = gsap.utils.toArray(sectionRef.current.children);
-        let sectionsCount = sections.length;
-
-        scrollTween.current = gsap.to(sections, {
-          xPercent: -100 * (sectionsCount - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: () => "+=" + sectionRef.current.scrollWidth,
-            scrub: 1,
-            pin: true,
-            snap: {
-              snapTo: 1 / (sectionsCount - 1),
-              duration: 0.5,
-              ease: "power2.inOut",
-            },
-          },
-        });
-      }
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [modalContent]);
+    return () => scrollTween.kill();
+  }, [sectionRef]);
 
   return (
     <section className="overflow-hidden">
@@ -151,7 +114,10 @@ function ScrollSection() {
       </div>
 
       {/* Modale */}
-      <Modal content={modalContent} onClose={() => setModalContent(null)} />
+      <div className="">
+        {" "}
+        <Modal content={modalContent} onClose={() => setModalContent(null)} />
+      </div>
     </section>
   );
 }
