@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 function ScrollSection() {
   const sectionRef = useRef(null);
   const [modalContent, setModalContent] = useState(null);
+  const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -17,32 +18,42 @@ function ScrollSection() {
     let sections = gsap.utils.toArray(sectionRef.current.children);
     let sectionsCount = sections.length;
 
-    const scrollTween = gsap.to(sections, {
+    scrollTriggerRef.current = gsap.to(sections, {
       xPercent: -100 * (sectionsCount - 1),
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
+        start: "top top+=" + 80, // ← distanza dal top equal all’altezza navbar
         end: () => "+=" + sectionRef.current.scrollWidth,
         scrub: 1,
         pin: true,
         snap: {
           snapTo: 1 / (sectionsCount - 1),
-          duration: 0.5,
+          duration: 0.05,
           ease: "power2.inOut",
         },
       },
     });
 
-    return () => scrollTween.kill();
+    return () => scrollTriggerRef.current?.kill();
   }, [sectionRef]);
+
+  useEffect(() => {
+    if (modalContent) {
+      document.body.style.overflow = "hidden"; // Disabilita lo scroll della pagina
+      ScrollTrigger.getAll().forEach((st) => st.disable()); // Disabilita GSAP ScrollTrigger
+    } else {
+      document.body.style.overflow = ""; // Riabilita lo scroll della pagina
+      ScrollTrigger.getAll().forEach((st) => st.enable()); // Riabilita GSAP ScrollTrigger
+    }
+  }, [modalContent]);
 
   return (
     <section className="overflow-hidden">
       <div ref={sectionRef} className="relative flex w-[300vw] h-screen">
         {/* Sezione 1 */}
-        <div className="w-screen h-screen flex flex-col lg:flex-row items-center justify-center">
-          <div className="mx-6 lg:ml-10 flex flex-col gap-4 lg:gap-6 my-10 lg:my-0">
+        <div className="w-screen h-[calc(100vh-100px)] flex flex-col lg:flex-row items-center justify-center">
+          <div className="mx-6 lg:ml-10 flex flex-col gap-4 lg:gap-6 my-10 lg:my-0 lg:w-1/2">
             <h1 className="text-4xl lg:text-7xl 2xl:text-8xl font-semibold text-primary lg:max-w-xl 2xl:max-w-max">
               Agriturismo Segarelli
             </h1>
@@ -66,11 +77,11 @@ function ScrollSection() {
 
         {/* Sezione 2 */}
         <div className="w-screen h-screen flex flex-col lg:flex-row items-center justify-center">
-          <div className="mx-6 lg:ml-10 flex flex-col gap-6 my-6">
-            <h1 className="text-4xl lg:text-8xl font-semibold text-primary">
+          <div className="mx-6 lg:ml-10 flex flex-col gap-4 lg:gap-6 my-10 lg:my-0 lg:w-1/2">
+            <h1 className="text-4xl lg:text-7xl 2xl:text-8xl font-semibold text-primary lg:max-w-xl 2xl:max-w-max">
               I nostri appartamenti
             </h1>
-            <p className="text-xl lg:text-3xl font-regular text-body max-w-2xl">
+            <p className="text-xl lg:text-3xl font-regular text-body lg:max-w-lg 2xl:max-w-2xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <ButtonPrimary onClick={() => setModalContent("appartamenti")}>
@@ -90,11 +101,11 @@ function ScrollSection() {
 
         {/* Sezione 3 */}
         <div className="w-screen h-screen flex flex-col lg:flex-row items-center justify-center">
-          <div className="mx-6 lg:ml-10 flex flex-col gap-6 my-6">
-            <h1 className="text-4xl lg:text-8xl font-semibold text-primary">
-              Toscana da vivere
+          <div className="mx-6 lg:ml-10 flex flex-col gap-4 lg:gap-6 my-10 lg:my-0 lg:w-1/2">
+            <h1 className="text-4xl lg:text-7xl 2xl:text-8xl font-semibold text-primary lg:max-w-xl 2xl:max-w-max">
+              Toscana <br /> da vivere
             </h1>
-            <p className="text-xl lg:text-3xl font-regular text-body max-w-2xl">
+            <p className="text-xl lg:text-3xl font-regular text-body lg:max-w-lg 2xl:max-w-2xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <ButtonPrimary onClick={() => setModalContent("toscana")}>
@@ -104,7 +115,7 @@ function ScrollSection() {
           <div className="relative w-full h-full lg:w-1/2">
             <Image
               src="/assets/toscana.jpg"
-              alt="vivere la toscana"
+              alt="appartamenti"
               fill
               className="object-cover object-top rounded-tl-[600px]"
             />
@@ -112,12 +123,8 @@ function ScrollSection() {
           </div>
         </div>
       </div>
-
       {/* Modale */}
-      <div className="">
-        {" "}
-        <Modal content={modalContent} onClose={() => setModalContent(null)} />
-      </div>
+      {/* <Modal content={modalContent} onClose={() => setModalContent(null)} /> */}
     </section>
   );
 }

@@ -1,21 +1,64 @@
+import { Icon } from "@iconify/react";
+import SectionBreakWhite from "../SectionBreak/SectionBreakWhite";
+
 export default function Footer() {
   return (
-    <div
-      className="relative h-[500px] lg:h-[300px] bg-primary"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="relative h-[calc(100vh+500px)] lg:h-[calc(100vh+300px)] -top-[100vh]">
-        <div className="h-[500px] top-[calc(100vh-500px)] lg:h-[300px] sticky lg:top-[calc(100vh-300px)] flex items-center justify-center">
-          <div className="flex items-center justify-center text-white ">
-            {/* Posizionamento assoluto per h2, p e Cta2 */}
-            <div className=" flex flex-col md:items-center justify-center w-full lg:w-[90%] min-h-full px-4 mx-auto gap-4">
-              <h2 className="text-3xl font-bold text-white md:text-center sm:text-4xl md:text-5xl">
-                Footer
-              </h2>
+    <footer className="bg-primary text-white pt-12">
+      <SectionBreakWhite />
+      <div className="text-center mt-6 text-3xl text-white/40 mb-20">
+        <h3>Tradizione, comfort e natura nel cuore della Toscana</h3>
+      </div>
+      <div className="container mx-auto px-4 text-center">
+        menu
+        <div className="bg-white/20 w-full px-6 h-[1px] mt-10"></div>
+        <div className="flex flex-wrap items-center w-full px-6 py-6 justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-4">
+            {" "}
+            <div className="flex items-center gap-2 ">
+              {/* 5 stelle piene */}
+              <Icon
+                className="text-siena"
+                icon="mdi:star"
+                width="20"
+                height="20"
+              />
+              <Icon
+                className="text-siena"
+                icon="mdi:star"
+                width="20"
+                height="20"
+              />
+              <Icon
+                className="text-siena"
+                icon="mdi:star"
+                width="20"
+                height="20"
+              />
+              <Icon
+                className="text-siena"
+                icon="mdi:star"
+                width="20"
+                height="20"
+              />
+              <Icon
+                className="text-siena"
+                icon="mdi:star"
+                width="20"
+                height="20"
+              />
+
+              {/* Valutazione numerica */}
+              <span className="text-white font-semibold ml-2">5.0</span>
+            </div>
+            <div className="flex items-center gap-2">
+              &bull; <span>Facebook</span> &bull; <span>Instagram</span>
             </div>
           </div>
+          <p className=" text-sm">
+            &copy; {new Date().getFullYear()} Agriturismo Segarelli.
+          </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

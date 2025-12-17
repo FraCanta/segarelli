@@ -1,0 +1,118 @@
+/* Wrapper principale */
+.swiper-pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Light variant */
+.swiper-pagination-wrapper.light
+  .swiper-pagination
+  .swiper-pagination-bullet
+  .swiper-pagination-bullet-base {
+  background: white; /* base semi-trasparente */
+  opacity: 0.5;
+}
+
+.swiper-pagination-wrapper.light .swiper-pagination-bullet {
+  background: transparent; /* rimuove il blu di default */
+}
+
+.swiper-pagination-wrapper.light .swiper-numbers {
+  color: white;
+}
+
+.swiper-pagination-wrapper.light .swiper-numbers-current {
+  color: white;
+}
+
+/* Container dei bullets */
+.swiper-pagination-wrapper .swiper-pagination {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Singolo bullet */
+.swiper-pagination-wrapper .swiper-pagination .swiper-pagination-bullet {
+  width: 8rem;
+  height: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base e overlay */
+.swiper-pagination-wrapper
+  .swiper-pagination
+  .swiper-pagination-bullet
+  .swiper-pagination-bullet-base,
+.swiper-pagination-wrapper
+  .swiper-pagination
+  .swiper-pagination-bullet
+  .swiper-pagination-bullet-overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+/* Overlay del bullet */
+.swiper-pagination-wrapper
+  .swiper-pagination
+  .swiper-pagination-bullet
+  .swiper-pagination-bullet-overlay {
+  background: white; /* colore overlay quando riempito */
+  transform-origin: left;
+  transform: scaleX(0); /* parte vuoto */
+  z-index: 1;
+  transition: transform 0.3s ease; /* animazione fluida */
+}
+
+/* Overlay attivo */
+.swiper-pagination-wrapper
+  .swiper-pagination
+  .swiper-pagination-bullet.swiper-pagination-bullet-active
+  .swiper-pagination-bullet-overlay {
+  transform: scaleX(1); /* riempie completamente quando attivo */
+}
+
+/* Contatore numerico */
+.swiper-pagination-wrapper .swiper-numbers {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.swiper-pagination-wrapper .swiper-numbers-total {
+  opacity: 0.7;
+}
+
+.swiper-pagination-wrapper .slash {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 880px) {
+  /* Singolo bullet */
+  .swiper-pagination-wrapper .swiper-pagination .swiper-pagination-bullet {
+    width: 5rem;
+  }
+}
+
+/* Stato base */
+.swiper-slide .slide-content {
+  opacity: 0.8;
+}
+
+/* Slide attiva */
+.swiper-slide-active .slide-content {
+  opacity: 1;
+}
+
+/* Opzionale: ancora più soft per le laterali */
+.swiper-slide-prev .slide-content,
+.swiper-slide-next .slide-content {
+  opacity: 0.6;
+}

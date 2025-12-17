@@ -37,6 +37,8 @@ module.exports = {
       body: "#8F8F8F",
       white: "#ffffff",
       siena: "#BF7116",
+      blu: "#151D25",
+      yellow: "#f8f6ec",
     },
   },
   plugins: [],
