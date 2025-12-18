@@ -2,7 +2,7 @@ import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarous
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import React from "react";
 
-function DintorniPage({ page }) {
+function DintorniPage({}) {
   return (
     <>
       <div className="h-[60svh] bg-primary/90 flex items-center px-6">
