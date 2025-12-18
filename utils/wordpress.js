@@ -126,17 +126,14 @@ export async function getCategories(lang, onlyFull = true) {
 export async function getSlugs(type) {
   let elements = [];
   elements = await getPosts();
-  const myTag = await getTagId("thalliondev"); //prendo id del tag sideffect
   // const myTag = 133; //provvisorio da cambiare
-  const elementsIds = elements
-    .filter((el) => el?.tags?.includes(myTag)) //filtro solo quelli che contengono il mytag
-    .map((element) => {
-      return {
-        params: {
-          slug: element.slug,
-        },
-      };
-    });
+  const elementsIds = elements.map((element) => {
+    return {
+      params: {
+        slug: element.slug,
+      },
+    };
+  });
   return elementsIds;
 }
 
@@ -201,4 +198,64 @@ export function listToTree(list) {
   } else {
     return null;
   }
+}
+
+export async function getPagesByIds(ids = []) {
+  if (!ids.length) return [];
+
+  const res = await fetch(`${BASE_URL}/pages?include=${ids.join(",")}&_embed`, {
+    cache: "force-cache",
+    next: { revalidate: 900 },
+  });
+
+  // Mappa ID -> immagine di fallback
+  const fallbackImages = {
+    2026: "/assets/borghi.jpg",
+    1997: "/assets/natura.jpg",
+  };
+
+  const pages = await res.json();
+
+  return ids.map((id) => {
+    const p = pages.find((el) => el.id === id);
+
+    if (!p) return { id, title: "", image: null, alt: "" };
+
+    const media = p._embedded?.["wp:featuredmedia"]?.[0];
+
+    return {
+      id,
+      title: p.title?.rendered || "",
+      image:
+        media?.media_details?.sizes?.large?.source_url ||
+        media?.source_url ||
+        fallbackImages[id] || // fallback specifico per quell'ID
+        null,
+      alt: media?.alt_text || "",
+      content: p.content.rendered,
+      excerpt: p.excerpt.rendered,
+      slug: p.slug,
+    };
+  });
+}
+
+export async function getPagesBySlug(slug) {
+  const res = await fetch(`${BASE_URL}/pages?slug=${slug}&_embed`);
+  const pages = await res.json();
+
+  return pages.map((p) => {
+    const media = p._embedded?.["wp:featuredmedia"]?.[0];
+
+    return {
+      id: p.id,
+      slug: p.slug,
+      title: p.title?.rendered || "",
+      content: p.content?.rendered || "",
+      image:
+        media?.media_details?.sizes?.large?.source_url ||
+        media?.source_url ||
+        "/images/fallback.jpg",
+      alt: media?.alt_text || "",
+    };
+  });
 }

@@ -3,12 +3,13 @@ import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
-import { getPosts, getTagId } from "../utils/wordpress";
+import { getPagesByIds, getPosts, getTagId } from "../utils/wordpress";
 import BlogSection from "@/components/blogSection/blogSection";
 import { StaggerImages } from "@/components/StaggerImages";
 import React from "react";
 import { MaskText } from "@/components/layout/MaskText";
+import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
+import { ParagraphText } from "@/components/layout/ParagraphText";
 
 const features = [
   {
@@ -57,43 +58,8 @@ function FeatureItem({ title, src, desktopOnly = false }) {
   );
 }
 
-// Paragrafo animato
-export function ParagraphText({ children }) {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
-  const animate = inView || isMobile;
-
-  const animation = {
-    initial: { y: "100%", opacity: 0 },
-    enter: (i) => ({
-      y: "0%",
-      opacity: 1,
-      transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1], delay: 0.05 * i },
-    }),
-  };
-
-  const lines = children.split(". ");
-
-  return (
-    <div ref={ref} className="overflow-hidden">
-      {lines.map((line, i) => (
-        <motion.p
-          key={i}
-          variants={animation}
-          initial="initial"
-          animate={animate ? "enter" : "initial"}
-          custom={i}
-          className="max-w-4xl p-2 lg:mt-4 text-sm text-center lg:text-lg text-blu/80"
-        >
-          {line.trim()}.
-        </motion.p>
-      ))}
-    </div>
-  );
-}
-
-export default function Home({ post }) {
-  console.log(post);
+export default function Home({ post, pages }) {
+  console.log(pages);
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5], {
     clamp: true,
@@ -102,7 +68,7 @@ export default function Home({ post }) {
   const spacerHeight = useTransform(
     scrollYProgress,
     [0, 0.4],
-    ["0px", "300px"]
+    ["0px", "250px"]
   );
   const titleOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0.35, 0.45], [40, 0]);
@@ -126,7 +92,7 @@ export default function Home({ post }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       {/* HERO SCROLL */}
-      <section className="h-[200vh] relative">
+      <section className="h-[140vh] lg:h-[200vh] relative">
         <motion.div
           style={{ scale, y }}
           className="sticky top-0 h-screen w-full lg:aspect-video  overflow-x-hidden"
@@ -181,15 +147,14 @@ export default function Home({ post }) {
       <SectionBreak />
       <StaggerImages />
 
-      <section className="bg-primary/30  w-full flex flex-col gap-10 items-center overflow-hidden my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
+      <section className="bg-primary/30 text-center  w-full flex flex-col gap-10 items-center overflow-hidden my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
         <MaskText>
           <h2 className="text-blu text-3xl lg:text-5xl lg:my-10 leading-snug p-1">
             Esperienze all'Agriturismo Segarelli
           </h2>
         </MaskText>
-        <script src="https://elfsightcdn.com/platform.js" async></script>
         <div
-          class="elfsight-app-89aabd6e-f658-4c8a-84c4-59bc7c67227e"
+          className="elfsight-app-89aabd6e-f658-4c8a-84c4-59bc7c67227e"
           data-elfsight-app-lazy
         ></div>
       </section>
@@ -198,7 +163,7 @@ export default function Home({ post }) {
         <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" />
       </div>
       <SectionBreak />
-      <div className="h-screen"></div>
+      <AttivitaSection pages={pages} />
       <div className="bg-primary/10 w-full flex items-center py-8">
         {" "}
         <BlogSection post={post} />
@@ -210,11 +175,13 @@ export default function Home({ post }) {
 export async function getStaticProps({ locale }) {
   const idLocale = await getTagId(locale); // recupera id della lingua attuale
   const post = await getPosts(idLocale); //recupera post nella lingua attuale
-
+  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
+  const pages = await getPagesByIds(HOME_PAGE_IDS);
   return {
     props: {
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
       // instagramPosts: posts,
+      pages,
     },
     revalidate: 60,
   };

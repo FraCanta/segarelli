@@ -19,28 +19,27 @@ function Mobile() {
   }, []);
   return (
     <div
-      className={`lg:hidden flex justify-between border-b px-4 items-center uppercase p-4 top-0 left-0 w-full fixed z-50 transition-all duration-500 ${
+      className={`lg:hidden flex justify-between border-b px-4 items-center w-full uppercase p-4 top-0 left-0  fixed z-50 transition-all duration-500 ${
         scrolled
           ? "bg-yellow border-b-blu/20 "
           : "bg-transparent border-b-white/20"
       }`}
     >
       {" "}
-      <div className="flex-1">menu</div>
       {/* LOGO */}
       <Link
         href="/"
-        className="lg:hidden flex-1 flex justify-center transition-all duration-500 z-50"
+        className="lg:hidden flex justify-center transition-all duration-500 z-50"
       >
         <Image
           src={scrolled ? LogoBlack : LogoWhite}
           alt="Logo"
           className={`transition-all duration-500 ${
-            scrolled ? "w-[150px] lg:w-[200px]" : "w-[180px] lg:w-[240px]"
+            scrolled ? "w-[160px] " : "w-[180px] "
           }`}
         />
       </Link>
-      <div className="flex-1"></div>
+      <div className="">menu</div>
     </div>
   );
 }

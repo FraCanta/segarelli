@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import IntroLoader from "@/components/IntroLoader/IntroLoader";
+import Script from "next/script";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -29,10 +30,18 @@ function App({ Component, pageProps }) {
   }, [router]);
 
   return (
-    <Layout>
-      <IntroLoader isVisible={loading} />
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Layout>
+        <IntroLoader isVisible={loading} />
+        <Component {...pageProps} />
+      </Layout>
+
+      <Script
+        src="https://elfsightcdn.com/platform.js"
+        data-use-service-core
+        strategy="afterInteractive"
+      ></Script>
+    </>
   );
 }
 
