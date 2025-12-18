@@ -30,7 +30,7 @@ function Mobile() {
       {/* LOGO */}
       <Link
         href="/"
-        className="lg:hidden flex-2 flex justify-center transition-all duration-500 z-50"
+        className="lg:hidden flex-1 flex justify-center transition-all duration-500 z-50"
       >
         <Image
           src={scrolled ? LogoBlack : LogoWhite}

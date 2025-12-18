@@ -129,7 +129,7 @@ export default function Home({ post }) {
       <section className="h-[200vh] relative">
         <motion.div
           style={{ scale, y }}
-          className="sticky top-0 h-screen w-full lg:aspect-video"
+          className="sticky top-0 h-screen w-full lg:aspect-video  overflow-x-hidden"
         >
           <Image
             src="/assets/hero.jpg"
