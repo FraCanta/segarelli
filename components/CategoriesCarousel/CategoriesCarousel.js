@@ -103,7 +103,7 @@ export default function CategoriesCarousel() {
       </Swiper>
 
       {/* Custom pagination */}
-      <div className="swiper-pagination-wrapper light  absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 z-20">
+      <div className="swiper-pagination-wrapper light  absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6 z-20">
         <div className="swiper-pagination  flex gap-2">
           {slides.map((_, index) => (
             <span
@@ -127,7 +127,12 @@ export default function CategoriesCarousel() {
           ))}
         </div>
 
-        <div className="swiper-numbers flex items-center gap-2 text-white text-lg md:text-xl font-medium">
+        <div
+          className="swiper-numbers flex items-center gap-2 text-white text-lg md:text-xl font-medium"
+          style={{
+            marginTop: "60px",
+          }}
+        >
           <span className="swiper-numbers-current">{currentSlide}</span>
           <span className="slash">/</span>
           <span className="swiper-numbers-total">{slides.length}</span>

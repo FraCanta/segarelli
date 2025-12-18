@@ -181,7 +181,7 @@ export default function Home({ post }) {
       <SectionBreak />
       <StaggerImages />
 
-      <section className="bg-primary/30  w-full flex flex-col gap-10 items-center my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
+      <section className="bg-primary/30  w-full flex flex-col gap-10 items-center overflow-hidden my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
         <MaskText>
           <h2 className="text-blu text-3xl lg:text-5xl lg:my-10 leading-snug p-1">
             Esperienze all'Agriturismo Segarelli
