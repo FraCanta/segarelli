@@ -10,6 +10,8 @@ import {
   getTagId,
   getTagNameList,
 } from "@/utils/wordpress";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 function PostPage({ post, featuredMedia }) {
@@ -25,25 +27,40 @@ function PostPage({ post, featuredMedia }) {
   }, [post]);
   return (
     <>
-      <div className=" bg-primary/70 flex items-center px-20 w-full h-[80vh]">
+      <div className=" bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-y-10">
-          <div>
-            <h1 className="max-w-2xl text-5xl lg:text-6xl text-white leading-none">
-              {post.title.rendered}
-            </h1>
-            <div className="flex items-center  w-full pt-2">
-              <small className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
-                {getDate(post?.date)}
-              </small>
+          <div className="h-full flex flex-col gap-10 justify-between">
+            <div>
+              <Link
+                href="/blog"
+                className="flex items-center gap-2 mb-6 text-white uppercase hover:underline"
+              >
+                <Icon
+                  icon="iconoir:arrow-left"
+                  className="text-white text-lg"
+                />
+                Back
+              </Link>
+            </div>
+            <div>
+              {" "}
+              <h1 className="max-w-2xl text-3xl md:text-5xl lg:text-6xl text-white leading-none">
+                {post.title.rendered}
+              </h1>
+              <div className="flex items-center  w-full pt-2">
+                <small className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
+                  {getDate(post?.date)}
+                </small>
 
-              <div className="flex items-center text-white text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-lg  ml-6">
-                <span className=" text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl flex ">
-                  - {minutiLettura}min read
-                </span>
+                <div className="flex items-center text-white text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-lg  ml-6">
+                  <span className=" text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl flex ">
+                    - {minutiLettura}min read
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-          <div className="relative aspect-video h-auto  lg:h-[500px] w-full lg:w-2/3  ml-auto">
+          <div className="relative aspect-square lg:aspect-video h-auto  lg:h-[500px] w-full lg:w-2/3  ml-auto">
             <RevealImage
               src={featuredMedia?.source_url || "/assets/hero.jpg"} // fallback se non c'è immagine
               alt={featuredMedia?.alt_text || post.title.rendered}
@@ -54,7 +71,7 @@ function PostPage({ post, featuredMedia }) {
         </div>
       </div>
       <div
-        className="w-[70%] mx-auto my-20 text-lg"
+        className="px-4 lg:w-[70%] lg:mx-auto my-20 text-lg"
         dangerouslySetInnerHTML={{
           __html: post.content.rendered,
         }}

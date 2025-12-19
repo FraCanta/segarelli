@@ -15,17 +15,17 @@ function Blog({ post, pages, currentP }) {
 
   return (
     <>
-      <div className="h-[60svh] bg-primary/60 flex items-center">
+      <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
-            <h1 className="text-blu text-3xl lg:text-6xl text-center p-1">
+            <h1 className="text-blu text-3xl lg:text-6xl text-center p-1 mt-20 lg:mt-0">
               Il Blog dell'Agriturismo Segarelli
             </h1>
           </MaskText>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 px-6 my-20 gap-4">
+      <div className="grid lg:grid-cols-3 px-6 my-20 gap-4">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -54,34 +54,22 @@ function Blog({ post, pages, currentP }) {
 
               <div className="flex flex-col justify-between mt-4">
                 <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
-                  <p
-                    className="pb-2 text-xl font-bold underline capitalize underline-offset-4 decoration-second/60 decoration-2 text-pink hover:text-second"
+                  <h3
+                    className="pb-2 text-xl  "
                     dangerouslySetInnerHTML={{ __html: p?.title?.rendered }}
-                  ></p>
+                  ></h3>
                 </Link>
-
-                <div
-                  dangerouslySetInnerHTML={{ __html: p?.excerpt?.rendered }}
-                  className="mb-4 text-xs lg:text-base line-clamp2 text-pink/80"
-                ></div>
 
                 <div className="w-full h-[1px] bg-second/30 "></div>
 
                 <div className="flex items-center justify-between w-full py-2">
-                  <small className=" text-pink text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl">
+                  <small className=" text-blu text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl">
                     {getDate(p?.date)}
                   </small>
 
-                  <div className=" text-pink text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-lg flex font-bold ml-6">
-                    <Icon
-                      icon="tabler:clock-hour-3"
-                      color="#749a97"
-                      className="mr-2"
-                    />
-                    <span className=" text-pink text-xs md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl flex font-bold">
-                      {minutiLettura} min read
-                    </span>
-                  </div>
+                  <span className=" text-blu text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl flex">
+                    {minutiLettura} min read
+                  </span>
                 </div>
               </div>
             </div>
