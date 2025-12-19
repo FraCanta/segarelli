@@ -93,7 +93,7 @@ function Menu({ translation }) {
           scrolled ? "text-blu" : "text-white"
         }`}
       >
-        <ul className="flex gap-10 items-center">
+        <ul className="flex gap-4 2xl:gap-10 items-center">
           {/* Appartamenti */}
           <li
             className="relative group"
@@ -115,7 +115,7 @@ function Menu({ translation }) {
           </li>
 
           {/* Altri menu */}
-          <li>
+          <li className="flex">
             <Link href="/chi-siamo" className="split-hover block relative">
               <span className="line line-normal block pl-[0.1rem]">
                 Chi siamo
@@ -125,13 +125,13 @@ function Menu({ translation }) {
               </span>
             </Link>
           </li>
-          <li>
+          <li className="flex">
             <Link href="/contatti" className="split-hover block relative">
               <span className="line line-normal block">Contatti</span>
               <span className="line line-hover block">Contatti</span>
             </Link>
           </li>
-          <li>
+          <li className="flex">
             <Link href="/blog" className="split-hover block relative">
               <span className="line line-normal block">Blog</span>
               <span className="line line-hover block">Blog</span>
@@ -149,7 +149,9 @@ function Menu({ translation }) {
           src={scrolled ? LogoBlack : LogoWhite}
           alt="Logo"
           className={`transition-all duration-500 ${
-            scrolled ? "w-[150px] lg:w-[200px]" : "w-[180px] lg:w-[240px]"
+            scrolled
+              ? "w-[150px] xl:w-[180px] 2xl:w-[200px]"
+              : "w-[180px] xl:w-[200px] 2xl:w-[240px]"
           }`}
         />
       </Link>

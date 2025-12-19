@@ -26,7 +26,7 @@ export function ParagraphText({ children }) {
           initial="initial"
           animate={animate ? "enter" : "initial"}
           custom={i}
-          className="max-w-4xl p-2 lg:mt-4 text-lg  text-blu/80"
+          className="2xl:max-w-4xl p-2 lg:mt-4 text-lg  text-blu/80"
         >
           {line.trim()}.
         </motion.p>

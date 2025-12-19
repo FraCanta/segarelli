@@ -52,12 +52,27 @@ iframe {
 }
 
 .grid__item {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   gap: 20px;
 }
 
-#gallery-0 {
+.wp-block-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.wp-block-gallery figure > a > img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1/1 !important;
+  object-fit: cover !important;
+  gap: 20px;
+}
+
+.wp-content > #gallery-0 {
   display: flex !important;
   width: 100% !important;
   gap: 12px;
@@ -82,5 +97,9 @@ iframe {
   .wp-content img {
     aspect-ratio: 1/1 !important;
     width: 100% !important;
+  }
+
+  .wp-block-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
   }
 }

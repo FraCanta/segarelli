@@ -18,14 +18,14 @@ function Blog({ post, pages, currentP }) {
       <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
-            <h1 className="text-blu text-3xl lg:text-6xl text-center p-1 mt-20 lg:mt-0">
+            <h1 className="text-blu text-3xl xl:text-5xl 2xl:text-6xl text-center p-1 mt-20 ">
               Il Blog dell'Agriturismo Segarelli
             </h1>
           </MaskText>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 px-6 my-20 gap-4">
+      <div className="w-[80%] mx-auto grid lg:grid-cols-4 px-6 my-20 gap-4">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -55,7 +55,7 @@ function Blog({ post, pages, currentP }) {
               <div className="flex flex-col justify-between mt-4">
                 <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
                   <h3
-                    className="pb-2 text-xl  "
+                    className="pb-2 text-xl capitalize  "
                     dangerouslySetInnerHTML={{ __html: p?.title?.rendered }}
                   ></h3>
                 </Link>
@@ -63,11 +63,11 @@ function Blog({ post, pages, currentP }) {
                 <div className="w-full h-[1px] bg-second/30 "></div>
 
                 <div className="flex items-center justify-between w-full py-2">
-                  <small className=" text-blu text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl">
+                  <small className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
                     {getDate(p?.date)}
                   </small>
 
-                  <span className=" text-blu text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl flex">
+                  <span className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-2xl flex">
                     {minutiLettura} min read
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export async function getServerSideProps(context) {
   let { page = 1, categories = 0, search = null } = query;
   page = page || 1;
   categories = categories || 0;
-  const itemPerPage = 6;
+  const itemPerPage = 10;
 
   const idLocale = await getTagId(locale); // es. "it" -> 123
   const post = await getPosts(idLocale, search);

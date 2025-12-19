@@ -14,8 +14,10 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import "glightbox/dist/css/glightbox.css";
+import ShareButtons from "@/components/ShareButtons/ShareButtons";
+import Image from "next/image";
 
-function PostPage({ post, featuredMedia }) {
+function PostPage({ post, featuredMedia, recent }) {
   console.log(post);
   const [minutiLettura, setMinutiLettura] = useState(0);
 
@@ -77,7 +79,7 @@ function PostPage({ post, featuredMedia }) {
             <div>
               {" "}
               <h1
-                className="max-w-2xl text-3xl md:text-5xl lg:text-6xl text-white leading-none"
+                className="max-w-3xl text-3xl md:text-5xl 2xl:text-6xl text-white leading-none capitalize"
                 dangerouslySetInnerHTML={{
                   __html: post.title.rendered,
                 }}
@@ -93,9 +95,16 @@ function PostPage({ post, featuredMedia }) {
                   </span>
                 </div>
               </div>
+              <ShareButtons
+                title={post.title.rendered}
+                link={`https://agriturismosegarelli.it/blog/${post.slug.replace(
+                  /^\/|\/$/g,
+                  ""
+                )}`}
+              />
             </div>
           </div>
-          <div className="relative aspect-square lg:aspect-video h-auto  lg:h-[500px] w-full lg:w-2/3  ml-auto">
+          <div className="relative aspect-square xl:aspect-video h-auto xl:h-[400px]  fxl:h-[500px] w-full fxl:w-2/3  ml-auto">
             <RevealImage
               src={featuredMedia?.source_url || "/assets/hero.jpg"} // fallback se non c'è immagine
               alt={featuredMedia?.alt_text || post.title.rendered}
@@ -112,8 +121,68 @@ function PostPage({ post, featuredMedia }) {
         }}
       ></div>
 
-      <div className="px-6 my-20 text-center">
-        <div>related attività</div>
+      <div className="px-4 lg:px-6 my-20 ">
+        <div>
+          {recent.length > 0 && (
+            <>
+              <h2 className="text-blu text-3xl mb-10">Recent Posts</h2>
+              <div className="grid lg:grid-cols-3 gap-6">
+                {recent.map((p, i) => {
+                  const featuredMedia = p?._embedded?.[
+                    "wp:featuredmedia"
+                  ]?.[0] || {
+                    source_url: "/assets/hero.jpg",
+                    alt_text: "Immagine di default",
+                  };
+
+                  return (
+                    <div key={i} className="w-full h-full">
+                      <Link
+                        href={`/blog/${p?.slug}`}
+                        title={`${p?.title?.rendered}`}
+                      >
+                        <figure>
+                          <Image
+                            src={
+                              featuredMedia?.media_details?.sizes?.full
+                                ?.source_url || "/assets/hero.jpg"
+                            }
+                            width={461}
+                            height={420}
+                            alt={featuredMedia?.alt_text || p?.title?.rendered}
+                            className="object-cover w-full aspect-video"
+                          />
+                        </figure>
+                      </Link>
+
+                      <div className="flex flex-col justify-between mt-4">
+                        <Link
+                          href={`/blog/${p?.slug}`}
+                          title={`${p?.title?.rendered}`}
+                        >
+                          <h3
+                            className="pb-2 text-xl capitalize"
+                            dangerouslySetInnerHTML={{
+                              __html: p?.title?.rendered,
+                            }}
+                          ></h3>
+                        </Link>
+
+                        <div className="w-full h-[1px] bg-second/30 "></div>
+
+                        <div className="flex items-center justify-between w-full py-2">
+                          <small className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl">
+                            {getDate(p?.date)}
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </div>
       </div>
       <SectionBreak />
       <CategoriesCarousel />

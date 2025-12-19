@@ -36,7 +36,7 @@ const BlogSection = ({ post }) => {
 
   return (
     <div className="pl-4 lg:px-6 w-full flex flex-col justify-center items-center my-10">
-      <div className="flex flex-col w-full h-full gap-10 fxl:gap-20 lg:items-center">
+      <div className="flex flex-col w-full h-full gap-10 2xl:gap-20 lg:items-center">
         <div className="flex flex-col items-end justify-between w-full lg:flex-row">
           <div className="flex flex-col gap-3 items-center w-full justify-center relative">
             <div className="relative h-[100px] w-[100px]">
@@ -48,7 +48,7 @@ const BlogSection = ({ post }) => {
             </div>
 
             <MaskText>
-              <h3 className="text-blu text-3xl lg:text-5xl text-center p-1">
+              <h3 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl text-center p-1">
                 Il Blog dell'Agriturismo Segarelli
               </h3>
             </MaskText>

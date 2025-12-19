@@ -20,16 +20,16 @@ function AttivitaSection({ pages }) {
     setIsEnd(swiper.isEnd);
   };
   return (
-    <section className="flex flex-wrap lg:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 px-4 lg:px-6">
-      <div className="max-w-4xl  lg:w-1/2 flex flex-col h-full gap-6">
+    <section className="flex flex-wrap 2xl:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 px-4 lg:px-6">
+      <div className="2xl:max-w-4xl xl:w-full 2xl:w-1/2 flex flex-col h-full 2xl:gap-6">
         <div>
           <MaskText>
-            <h2 className="text-blu text-3xl lg:text-5xl  leading-snug p-1">
+            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug p-1">
               Cultura:
             </h2>
           </MaskText>
           <MaskText>
-            <h2 className="text-blu text-3xl lg:text-5xl  leading-snug p-1">
+            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug p-1">
               Tra Colli, Valli e Mare
             </h2>
           </MaskText>
@@ -42,7 +42,7 @@ function AttivitaSection({ pages }) {
           ogni domenica, si svolgono le feste paesane e alle rievocazioni
           storiche si accompagna sempre la degustazione dei prodotti tipici
           locali. Inoltre durante il periodo primavera-estate-autunno
-          organizzano escursioni, trakking e altre attività.
+          organizzano escursioni, trakking e altre attività
         </ParagraphText>
         <div className="s-swiper-nav w-full flex gap-6 mt-4 lg:mt-10">
           <div
@@ -85,14 +85,14 @@ function AttivitaSection({ pages }) {
           280: { slidesPerView: 1.25, spaceBetween: 20 },
           768: { slidesPerView: 1.25, spaceBetween: 40 },
           1024: { slidesPerView: 1, spaceBetween: 20 },
-          1280: { slidesPerView: 3, spaceBetween: 20 },
+          1280: { slidesPerView: 2.5, spaceBetween: 20 },
         }}
       >
         {pages.map((p) => (
           <SwiperSlide key={p.id}>
             <Link href={`/dintorni/${p.slug}`}>
               {p.image && (
-                <div className="relative h-[20rem] lg:h-[30rem]  w-full mb-6">
+                <div className="relative h-[20rem] 2xl:h-[30rem]  w-full mb-6">
                   <RevealImage
                     src={p.image}
                     alt={p.imageAlt}

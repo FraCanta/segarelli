@@ -41,7 +41,7 @@ export default function PostSection({ post, featuredMedia }) {
 
         {/* Titolo */}
         <div className="flex-grow flex flex-col justify-between pt-4">
-          <Link href={`/posts/${post?.slug}`} title={post?.title?.rendered}>
+          <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
             <h3
               className="text-blu hover:underline text-xl  lg:text-[22px] leading-[120%] transition-all 3xl:text-3xl"
               dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
