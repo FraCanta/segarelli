@@ -31,6 +31,20 @@ iframe {
   margin-left: 0 !important;
 }
 
+.wp-content .wp-image-2179 {
+  object-fit: cover !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.wp-content .wp-image-2178 {
+  object-fit: cover !important;
+  object-position: bottom !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+}
+
 .wp-content {
   display: flex;
   flex-direction: column;
