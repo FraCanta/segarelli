@@ -238,24 +238,3 @@ export async function getPagesByIds(ids = []) {
     };
   });
 }
-
-export async function getPagesBySlug(slug) {
-  const res = await fetch(`${BASE_URL}/pages?slug=${slug}&_embed`);
-  const pages = await res.json();
-
-  return pages.map((p) => {
-    const media = p._embedded?.["wp:featuredmedia"]?.[0];
-
-    return {
-      id: p.id,
-      slug: p.slug,
-      title: p.title?.rendered || "",
-      content: p.content?.rendered || "",
-      image:
-        media?.media_details?.sizes?.large?.source_url ||
-        media?.source_url ||
-        "/images/fallback.jpg",
-      alt: media?.alt_text || "",
-    };
-  });
-}

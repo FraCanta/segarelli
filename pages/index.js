@@ -113,7 +113,7 @@ export default function Home({ post, pages }) {
         <MaskText>
           <h1
             style={{ opacity: titleOpacity, y: titleY }}
-            className="text-blu text-sm lg:text-[1.2rem] uppercase"
+            className="text-blu text-base lg:text-[1.2rem] uppercase"
           >
             Agriturismo Segarelli
           </h1>
@@ -149,7 +149,7 @@ export default function Home({ post, pages }) {
 
       <section className="bg-primary/30 text-center  w-full flex flex-col gap-10 items-center overflow-hidden my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
         <MaskText>
-          <h2 className="text-blu text-3xl lg:text-5xl lg:my-10 leading-snug p-1">
+          <h2 className="text-blu text-[1.60rem] 2xs:text-[1.75rem] sm:text-3xl lg:text-5xl lg:my-10 leading-snug p-1">
             Esperienze all'Agriturismo Segarelli
           </h2>
         </MaskText>
