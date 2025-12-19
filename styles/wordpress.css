@@ -20,6 +20,15 @@ iframe {
   height: 500px !important;
   object-fit: cover !important;
   margin-top: 20px;
+  margin-left: 0 !important;
+}
+
+.wp-content .wp-image-2213 {
+  aspect-ratio: 1/1 !important;
+  height: 500px !important;
+  object-fit: cover !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
 }
 
 .wp-content {
