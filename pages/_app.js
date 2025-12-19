@@ -3,6 +3,8 @@ import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
 import "@/styles/swiper_bullet.css";
 import "@/styles/split.css";
+import "@/styles/wordpress.css";
+
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";

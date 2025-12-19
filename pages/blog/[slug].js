@@ -13,6 +13,7 @@ import {
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import "glightbox/dist/css/glightbox.css";
 
 function PostPage({ post, featuredMedia }) {
   console.log(post);
@@ -25,6 +26,37 @@ function PostPage({ post, featuredMedia }) {
       .filter((p) => p.trim() !== "").length;
     setMinutiLettura(Math.ceil(parole / 250));
   }, [post]);
+
+  useEffect(() => {
+    let lightbox;
+
+    const initLightbox = async () => {
+      if (typeof window === "undefined") return;
+
+      const GLightbox = (await import("glightbox")).default;
+      await import("glightbox/dist/css/glightbox.css");
+
+      const links = document.querySelectorAll(".gallery a");
+      if (!links.length) return;
+
+      links.forEach((link) => {
+        link.classList.add("glightbox");
+      });
+
+      lightbox = GLightbox({
+        selector: ".gallery a",
+        loop: true,
+        touchNavigation: true,
+      });
+    };
+
+    initLightbox();
+
+    return () => {
+      if (lightbox) lightbox.destroy();
+    };
+  }, [post]);
+
   return (
     <>
       <div className=" bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
@@ -44,9 +76,12 @@ function PostPage({ post, featuredMedia }) {
             </div>
             <div>
               {" "}
-              <h1 className="max-w-2xl text-3xl md:text-5xl lg:text-6xl text-white leading-none">
-                {post.title.rendered}
-              </h1>
+              <h1
+                className="max-w-2xl text-3xl md:text-5xl lg:text-6xl text-white leading-none"
+                dangerouslySetInnerHTML={{
+                  __html: post.title.rendered,
+                }}
+              ></h1>
               <div className="flex items-center  w-full pt-2">
                 <small className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
                   {getDate(post?.date)}
@@ -71,7 +106,7 @@ function PostPage({ post, featuredMedia }) {
         </div>
       </div>
       <div
-        className="px-4 lg:w-[70%] lg:mx-auto my-20 text-lg"
+        className="px-4 lg:w-[70%] lg:mx-auto my-20 text-lg wp-title wp-content"
         dangerouslySetInnerHTML={{
           __html: post.content.rendered,
         }}

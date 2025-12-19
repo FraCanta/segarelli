@@ -1658,6 +1658,11 @@ get-tsconfig@^4.10.0:
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
+glightbox@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/glightbox/-/glightbox-3.3.1.tgz#01d4c01394e437ac61792dc88fadca2e3f433eae"
+  integrity sha512-nXoKfJRnQTDaAFAw5799hjpfAAHx5aLvOLG0SIGudeMCwtHgO3P2/avNYapJ+SL4UEZxO2YNBPtq6pzMhSx42g==
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
