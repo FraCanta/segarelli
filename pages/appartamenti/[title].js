@@ -7,27 +7,28 @@ import { MaskText } from "@/components/layout/MaskText";
 import { getPagesByIds } from "@/utils/wordpress";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
+import SectionBreak from "@/components/SectionBreak/SectionBreak";
 
 const AppartamentoPage = ({ appartamento, pages }) => {
   console.log("appartamento:", appartamento);
   return (
     <>
-      <div className="min-h-screen bg-primary/60 flex flex-col items-center  py-10">
+      <div className="min-h-[100svh] lg:min-h-screen bg-primary/60 flex flex-col items-center  lg:py-10">
         <div className="text-center mt-20">
-          <div className="py-32 h-full">
+          <div className="py-16 lg:py-32 h-full">
             <MaskText>
-              <h1 className="text-white text-base lg:text-[2rem] uppercase p-4">
+              <h1 className="text-white text-base lg:text-[2rem] uppercase lg:p-4">
                 {appartamento.name}
               </h1>
             </MaskText>
             <MaskText>
-              <h2 className="text-white text-4xl lg:text-[96px] leading-[1.2] max-w-3xl mx-auto">
+              <h2 className="text-white text-5xl lg:text-[96px] leading-[1.2]  lg:max-w-3xl mx-auto">
                 {appartamento?.title}
               </h2>
             </MaskText>
           </div>
 
-          <div className="relative w-[calc(100vw-3rem)] h-[800px]  ">
+          <div className="relative px-4 lg:px-0 lg:w-[calc(100vw-3rem)] aspect-square lg:h-[800px]  ">
             <RevealImage
               src={appartamento.img}
               alt={appartamento.name}
@@ -36,6 +37,8 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           </div>
         </div>
       </div>
+      <div className="h-screen">Dettagli dell'appartamento + gallery</div>
+      <SectionBreak />
       <Reviews />
       <AttivitaSection pages={pages} />
 
