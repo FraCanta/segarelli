@@ -9,21 +9,21 @@
     "apartments": [
       {
         "name": "Acacia",
-        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "description": "Appartamento raccolto e accogliente, pensato per coppie che desiderano un soggiorno pratico e rilassante, senza rinunciare a privacy e calore domestico",
         "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
         "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" }
       },
       {
         "name": "Edera",
-        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "description": "Ampio appartamento ideale per coppie, al piano superiore e con terrazzo panoramico sul parco di Monte Rufoli. Perfetto per chi cerca comfort, luminosità e momenti di relax con vista",
         "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
         "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" }
       },
       {
         "name": "Gelsomino",
-        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "description": "Un appartamento su due piani pensato per amici o famiglie, con soggiorno ampio e luminoso, cucina attrezzata e due camere matrimoniali. Ogni dettaglio è studiato per unire momenti di convivialità e spazi privati, per un soggiorno rilassante e senza stress",
         "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
         "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" }
@@ -31,13 +31,19 @@
     ],
     "singleApartment": {
       "acacia": {
-        "name": "Acacia"
+        "name": "Acacia",
+        "title": "Intimità e comfort in ogni angolo",
+        "img": "/assets/appartamenti/acacia/acacia.jpg"
       },
       "edera": {
-        "name": "Edera"
+        "name": "Edera",
+        "title": "Luce, spazio e vista sul parco",
+        "img": "/assets/appartamenti/edera/edera.jpg"
       },
       "gelsomino": {
-        "name": "Gelsomino"
+        "name": "Gelsomino",
+        "title": "Spazio e comfort per tutti",
+        "img": "/assets/appartamenti/gelsomino/gelsomino.jpg"
       }
     }
   }
