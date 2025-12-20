@@ -1,0 +1,44 @@
+{
+  "appartamenti": {
+    "title": "Sleep",
+    "herobg": "/assets/sleep2.jpg",
+    "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
+    "subtitle1": "I nostri appartamenti",
+    "title1": "Un soggiorno da vivere, non solo da raccontare",
+    "paragraph1": "All’Agriturismo Segarelli accogliamo i nostri ospiti dal 2008, condividendo il piacere di una vacanza autentica in Toscana.\nTre appartamenti indipendenti, natura intorno e una storia che continua con chi sceglie di viverla\n",
+    "apartments": [
+      {
+        "name": "Acacia",
+        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" }
+      },
+      {
+        "name": "Edera",
+        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" }
+      },
+      {
+        "name": "Gelsomino",
+        "description": "Ideale per una coppia, con una camera matrimoniale che garantisce comfort e privacy. Il vano cucina-soggiorno è perfetto per condividere momenti semplici e piacevoli insieme. Un soggiorno rilassante, senza rinunciare a praticità e intimità",
+        "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" }
+      }
+    ],
+    "singleApartment": {
+      "acacia": {
+        "name": "Acacia"
+      },
+      "edera": {
+        "name": "Edera"
+      },
+      "gelsomino": {
+        "name": "Gelsomino"
+      }
+    }
+  }
+}

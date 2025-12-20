@@ -5,31 +5,37 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import ButtonSecondary from "../layout/ButtonSecondary";
+import ButtonPrimary from "../layout/ButtonPrimary";
 
 const slides = [
   {
     title: "Sleep",
-    tagline: "Your oasis of calm in Cape Town",
-    text: "Nature, luxury, and service beyond expectation come together at The Vineyard.",
+    tagline: "Dove il tempo rallenta",
+    text: "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
     bg: "/assets/sleep2.jpg",
+    link: "/appartamenti",
+    cta: "Scopri di più",
   },
   {
     title: "Eat",
     tagline: "Food is our love language",
     text: "Seasonally driven, carefully considered, generously presented, and served with pride and purpose.",
     bg: "/assets/eat2.jpg",
+    link: "/mangiare-in-agriturismo",
   },
   {
     title: "Play",
     tagline: "Share in your surroundings",
     text: "Lose track of time amid the lush greenery and unexpected corners.",
     bg: "/assets/pool3.jpg",
+    link: "/appartamenti",
   },
   {
     title: "Meet",
     tagline: "Versatile venues for every occasion",
     text: "Host your next event in a space where creativity flows, ideas thrive, and connections come standard.",
     bg: "/assets/meet.jpg",
+    link: "/appartamenti",
   },
 ];
 
@@ -72,7 +78,7 @@ export default function CategoriesCarousel() {
         {slides.map((slide, index) => (
           <SwiperSlide
             key={index}
-            className="!w-full lg:!w-[45%] h-full flex items-center justify-center"
+            className="!w-full lg:!w-[45%] h-full flex items-center justify-center px-4 lg:px-0"
           >
             <div
               className="
@@ -94,7 +100,9 @@ export default function CategoriesCarousel() {
                 {slide.text}
               </p>
 
-              <ButtonSecondary>Scopri i nostri appartamenti</ButtonSecondary>
+              <ButtonPrimary link={slide.link} title={slide.title}>
+                {slide.cta || "Scopri di più"}
+              </ButtonPrimary>
             </div>
           </SwiperSlide>
         ))}

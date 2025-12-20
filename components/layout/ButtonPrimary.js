@@ -1,13 +1,16 @@
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 
-function ButtonPrimary({ children, onClick }) {
+function ButtonPrimary({ children, link, title }) {
   return (
-    <button
-      className="px-10 py-4 bg-primary rounded-full text-white text-[10px] font-semibold lg:text-base uppercase max-w-max flex items-center gap-2"
-      onClick={onClick}
+    <Link
+      className="px-10 py-4 bg-primary rounded-full text-white w-full font-semibold text-base uppercase justify-center lg:max-w-max flex items-center gap-2"
+      href={link}
+      rel="noopener noreferrer"
+      title={title}
     >
       {children} <Icon icon="prime:arrow-up-right" width="24" height="24" />
-    </button>
+    </Link>
   );
 }
 

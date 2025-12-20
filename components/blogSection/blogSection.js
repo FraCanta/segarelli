@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { Icon } from "@iconify/react";
+import ButtonPrimary from "../layout/ButtonPrimary";
 
 const PostSection = dynamic(() => import("./postSection"), { ssr: false });
 
@@ -105,7 +106,9 @@ const BlogSection = ({ post }) => {
           </div>
         </div>
 
-        <ButtonSecondary>Leggi tutti gli articoli</ButtonSecondary>
+        <ButtonPrimary link="/blog" title="Leggi le nostre notizie">
+          Leggi tutti gli articoli
+        </ButtonPrimary>
       </div>
     </div>
   );

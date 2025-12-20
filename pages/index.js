@@ -10,25 +10,30 @@ import React from "react";
 import { MaskText } from "@/components/layout/MaskText";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import { ParagraphText } from "@/components/layout/ParagraphText";
+import Reviews from "@/components/Reviews";
 
 const features = [
   {
     title: ["Grande", "Giardino"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Expansive-Gardens-icon.svg",
+    src: "/assets/garden.svg",
   },
 
   {
     title: ["Vicino", "alle attrazioni"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Close-to-Attractions-icon.svg",
+    src: "/assets/attraction.svg",
   },
 
   {
     title: ["Design", "senza tempo"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/TIme-Honouored-Design-icon.svg",
+    src: "/assets/design.svg",
+  },
+  {
+    title: ["Eco", "friendly"],
+    src: "/assets/green.svg",
   },
   {
     title: ["Amato", "dai locals"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Loved-By-Locals-icon.svg",
+    src: "/assets/locals.svg",
   },
 ];
 
@@ -121,7 +126,7 @@ export default function Home({ post, pages }) {
         <MaskText>
           <h2
             style={{ opacity: titleOpacity, y: titleY }}
-            className="text-blu text-4xl lg:text-[46px]"
+            className="text-blu text-4xl lg:text-[46px] leading-[1.2]"
           >
             Riscopri il piacere di fermarti
           </h2>
@@ -135,7 +140,7 @@ export default function Home({ post, pages }) {
           godersi ciò che c’è intorno
         </ParagraphText>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full justify-evenly max-w-6xl mt-10 ">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 w-full justify-evenly max-w-6xl mt-10 ">
           {features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
@@ -147,17 +152,7 @@ export default function Home({ post, pages }) {
       <SectionBreak />
       <StaggerImages />
 
-      <section className="bg-primary/30 text-center  w-full flex flex-col gap-10 items-center overflow-hidden my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
-        <MaskText>
-          <h2 className="text-blu text-[1.60rem] 2xs:text-[1.75rem] sm:text-3xl xl:text-4xl 2xl:text-5xl lg:my-10 leading-snug p-1">
-            Esperienze all'Agriturismo Segarelli
-          </h2>
-        </MaskText>
-        <div
-          className="elfsight-app-89aabd6e-f658-4c8a-84c4-59bc7c67227e"
-          data-elfsight-app-lazy
-        ></div>
-      </section>
+      <Reviews />
       <SectionBreak />
       <div className="h-screen w-full relative">
         <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" />

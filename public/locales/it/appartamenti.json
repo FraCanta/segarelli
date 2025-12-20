@@ -1,0 +1,50 @@
+{
+  "appartamenti": {
+    "title": "Sleep",
+    "herobg": "/assets/sleep2.jpg",
+    "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
+    "subtitle1": "I nostri appartamenti",
+    "title1": "Un soggiorno da vivere, non solo da raccontare",
+    "paragraph1": "All’Agriturismo Segarelli accogliamo i nostri ospiti dal 2008, condividendo il piacere di una vacanza autentica in Toscana.\nTre appartamenti indipendenti, natura intorno e una storia che continua con chi sceglie di viverla\n",
+    "apartments": [
+      {
+        "name": "Acacia",
+        "description": "Appartamento raccolto e accogliente, pensato per coppie che desiderano un soggiorno pratico e rilassante, senza rinunciare a privacy e calore domestico",
+        "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" }
+      },
+      {
+        "name": "Edera",
+        "description": "Ampio appartamento ideale per coppie, al piano superiore e con terrazzo panoramico sul parco di Monte Rufoli. Perfetto per chi cerca comfort, luminosità e momenti di relax con vista",
+        "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" }
+      },
+      {
+        "name": "Gelsomino",
+        "description": "Un appartamento su due piani pensato per amici o famiglie, con soggiorno ampio e luminoso, cucina attrezzata e due camere matrimoniali. Ogni dettaglio è studiato per unire momenti di convivialità e spazi privati, per un soggiorno rilassante e senza stress",
+        "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" }
+      }
+    ],
+    "singleApartment": {
+      "acacia": {
+        "name": "Acacia",
+        "title": "Intimità e comfort in ogni angolo",
+        "img": "/assets/appartamenti/acacia/acacia.jpg"
+      },
+      "edera": {
+        "name": "Edera",
+        "title": "Luce, spazio e vista sul parco",
+        "img": "/assets/appartamenti/edera/edera.jpg"
+      },
+      "gelsomino": {
+        "name": "Gelsomino",
+        "title": "Spazio e comfort per tutti",
+        "img": "/assets/appartamenti/gelsomino/gelsomino.jpg"
+      }
+    }
+  }
+}

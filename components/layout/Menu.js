@@ -71,6 +71,10 @@ function Menu({ translation }) {
     }
   }, [showMegaMenu]);
 
+  const handleLinkClick = () => {
+    setShowMegaMenu(false);
+  };
+
   const handleEnter = () => {
     clearTimeout(timeoutRef.current);
     setShowMegaMenu(true);
@@ -174,7 +178,11 @@ function Menu({ translation }) {
           <div className="grid grid-cols-3 gap-6 px-6 pt-4 w-full">
             {/* Colonna 1 */}
             <div className="flex flex-col gap-2 ">
-              <Link href="/" className="overflow-hidden image-wrapper relative">
+              <Link
+                href="/appartamenti/acacia"
+                className="overflow-hidden image-wrapper relative"
+                onClick={handleLinkClick}
+              >
                 <Image
                   src="/assets/appartamenti/acacia/acacia.jpg"
                   width={400}
@@ -188,6 +196,7 @@ function Menu({ translation }) {
                 className={`menu-item hover:underline ${
                   scrolled ? "text-blu" : "text-white"
                 }`}
+                onClick={handleLinkClick}
               >
                 Acacia
               </Link>
@@ -195,7 +204,11 @@ function Menu({ translation }) {
 
             {/* Colonna 2 */}
             <div className="flex flex-col gap-2">
-              <Link href="/" className="overflow-hidden image-wrapper relative">
+              <Link
+                href="/appartamenti/edera"
+                className="overflow-hidden image-wrapper relative"
+                onClick={handleLinkClick}
+              >
                 <Image
                   src="/assets/appartamenti/edera/edera.jpg"
                   width={400}
@@ -209,6 +222,7 @@ function Menu({ translation }) {
                 className={`menu-item hover:underline ${
                   scrolled ? "text-blu" : "text-white"
                 }`}
+                onClick={handleLinkClick}
               >
                 Edera
               </Link>
@@ -216,7 +230,11 @@ function Menu({ translation }) {
 
             {/* Colonna 3 */}
             <div className="flex flex-col gap-2">
-              <Link href="/" className="overflow-hidden image-wrapper relative">
+              <Link
+                href="/appartamenti/gelsomino"
+                className="overflow-hidden image-wrapper relative"
+                onClick={handleLinkClick}
+              >
                 <Image
                   src="/assets/appartamenti/gelsomino/gelsomino.jpg"
                   width={400}
@@ -230,6 +248,7 @@ function Menu({ translation }) {
                 className={`menu-item hover:underline ${
                   scrolled ? "text-blu" : "text-white"
                 }`}
+                onClick={handleLinkClick}
               >
                 Gelsomino
               </Link>

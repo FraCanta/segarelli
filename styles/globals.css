@@ -7,6 +7,7 @@ body,
 * {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -29,7 +30,7 @@ h2,
 h3,
 span,
 small {
-  font-family: "Optima";
+  font-family: "Opulent Regular", serif;
 }
 
 button,
@@ -40,13 +41,10 @@ a {
 }
 
 @font-face {
-  font-family: "Optima";
-  src: url("/fonts/optimaBold.TTF") format("truetype");
-}
-
-@font-face {
-  font-family: "Optima";
-  src: url("/fonts/optima.TTF") format("truetype");
+  font-family: "Opulent Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/OPN.woff") format("woff");
 }
 
 html::-webkit-scrollbar {

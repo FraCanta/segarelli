@@ -18,14 +18,14 @@ function Blog({ post, pages, currentP }) {
       <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
-            <h1 className="text-blu text-3xl xl:text-5xl 2xl:text-6xl text-center p-1 mt-20 ">
+            <h1 className="text-white text-3xl xl:text-5xl 2xl:text-6xl text-center p-1 mt-20 ">
               Il Blog dell'Agriturismo Segarelli
             </h1>
           </MaskText>
         </div>
       </div>
 
-      <div className="w-[80%] mx-auto grid lg:grid-cols-4 px-6 my-20 gap-4">
+      <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
