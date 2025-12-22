@@ -18,7 +18,7 @@ function Blog({ post, pages, currentP }) {
       <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
-            <h1 className="text-white text-3xl xl:text-5xl 2xl:text-6xl text-center p-1 mt-20 ">
+            <h1 className="text-white text-4xl xl:text-5xl 2xl:text-6xl text-center py-2 mt-20 ">
               Il Blog dell'Agriturismo Segarelli
             </h1>
           </MaskText>

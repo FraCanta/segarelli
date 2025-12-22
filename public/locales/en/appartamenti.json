@@ -9,21 +9,21 @@
     "apartments": [
       {
         "name": "Acacia",
-        "description": "Appartamento raccolto e accogliente, pensato per coppie che desiderano un soggiorno pratico e rilassante, senza rinunciare a privacy e calore domestico",
+        "description": "Appartamento ( 42mq ) raccolto e accogliente, pensato per coppie che desiderano un soggiorno pratico e rilassante, senza rinunciare a privacy e calore domestico",
         "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
         "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" }
       },
       {
         "name": "Edera",
-        "description": "Ampio appartamento ideale per coppie, al piano superiore e con terrazzo panoramico sul parco di Monte Rufoli. Perfetto per chi cerca comfort, luminosità e momenti di relax con vista",
+        "description": "Ampio appartamento ( 70mq ) ideale per coppie, al piano superiore e con terrazzo panoramico sul parco di Monte Rufoli. Perfetto per chi cerca comfort, luminosità e momenti di relax con vista",
         "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
         "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" }
       },
       {
         "name": "Gelsomino",
-        "description": "Un appartamento su due piani pensato per amici o famiglie, con soggiorno ampio e luminoso, cucina attrezzata e due camere matrimoniali. Ogni dettaglio è studiato per unire momenti di convivialità e spazi privati, per un soggiorno rilassante e senza stress",
+        "description": "Un appartamento ( 80mq ) su due piani pensato per amici o famiglie, con soggiorno ampio e luminoso, cucina attrezzata e due camere matrimoniali. Ogni dettaglio è studiato per unire momenti di convivialità e spazi privati, per un soggiorno rilassante e senza stress",
         "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
         "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" }
@@ -33,17 +33,234 @@
       "acacia": {
         "name": "Acacia",
         "title": "Intimità e comfort in ogni angolo",
-        "img": "/assets/appartamenti/acacia/acacia.jpg"
+        "img": "/assets/appartamenti/acacia/acacia.jpg",
+        "SezionePiano0": {
+          "subTitle": "Zona giorno",
+          "title": "Un living caldo e luminoso",
+          "description": "Un ambiente unico con cucina e soggiorno e spazio esterno "
+        },
+
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/acacia/fuori.jpg" },
+          { "src": "/assets/appartamenti/acacia/door2.jpg" },
+          { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery1.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery2.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery4.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery5.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery6.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery7.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery8.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery9.jpg" }
+        ],
+        "SezionePiano1": {
+          "subTitle": "Zona notte",
+          "title": "Camera matrimoniale e bagno privato",
+          "description": "Nell'appartamento Acacia troverai una camera matrimoniale accogliente e tranquilla, dove ti godrai sonni rigeneranti"
+        },
+
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/acacia/gallery10.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery11.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery12.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery13.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery14.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery15.jpg" }
+        ],
+        "titleAmeneties": "Cosa troverai in Acacia",
+        "size": "42 mq · Appartamento per 2 persone",
+        "amenetiesItems": [
+          {
+            "name": "Bagno con box doccia",
+            "icon": "mdi:shower"
+          },
+          {
+            "name": "Ferro da stiro",
+            "icon": "lucide-lab:iron"
+          },
+          {
+            "name": "Stendibiancheria",
+            "icon": "game-icons:clothesline"
+          },
+          {
+            "name": "Frigorifero",
+            "icon": "solar:fridge-outline"
+          },
+          {
+            "name": "Microonde",
+            "icon": "streamline:microwave"
+          },
+          {
+            "name": "Divano",
+            "icon": "iconoir:sofa"
+          },
+          {
+            "name": "Wi-Fi",
+            "icon": "material-symbols:wifi"
+          }
+        ]
       },
       "edera": {
         "name": "Edera",
         "title": "Luce, spazio e vista sul parco",
-        "img": "/assets/appartamenti/edera/edera.jpg"
+        "img": "/assets/appartamenti/edera/edera.jpg",
+        "SezionePiano0": {
+          "subTitle": "Momenti di relax",
+          "title": "Vivi la tua zona giorno",
+          "description": "Godetevi la quiete e la luce naturale mentre vi rilassate nel soggiorno e nella zona pranzo, con affaccio sul parco di Monte Rufoli"
+        },
+
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/edera/fuori2.jpg" },
+
+          { "src": "/assets/appartamenti/edera/fuori3.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori4.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori5.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori6.jpg" },
+          { "src": "/assets/appartamenti/edera/edera.jpg" },
+
+          { "src": "/assets/appartamenti/edera/gallery1.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery2.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery3.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery4.jpg" }
+        ],
+        "SezionePiano1": {
+          "subTitle": "Intimità con vista",
+          "title": "La camera matrimoniale",
+          "description": "Un rifugio privato per la coppia, con panorama sul parco e atmosfera romantica, ideale per momenti di totale relax"
+        },
+
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/edera/gallery5.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery6.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery7.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery8.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery9.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery10.jpg" }
+        ],
+        "titleAmeneties": "Cosa troverai in Edera",
+        "size": "70 mq · Appartamento per 2 persone",
+        "amenetiesItems": [
+          {
+            "name": "Bagno con box doccia",
+            "icon": "mdi:shower"
+          },
+          {
+            "name": "Ferro da stiro",
+            "icon": "lucide-lab:iron"
+          },
+          {
+            "name": "Stendibiancheria",
+            "icon": "game-icons:clothesline"
+          },
+          {
+            "name": "Frigorifero",
+            "icon": "solar:fridge-outline"
+          },
+          {
+            "name": "Microonde",
+            "icon": "streamline:microwave"
+          },
+          {
+            "name": "Divano",
+            "icon": "iconoir:sofa"
+          },
+          {
+            "name": "Wi-Fi",
+            "icon": "material-symbols:wifi"
+          }
+        ]
       },
       "gelsomino": {
         "name": "Gelsomino",
         "title": "Spazio e comfort per tutti",
-        "img": "/assets/appartamenti/gelsomino/gelsomino.jpg"
+        "img": "/assets/appartamenti/gelsomino/gelsomino.jpg",
+        "SezionePiano0": {
+          "subTitle": "Vivi la tua zona giorno",
+          "title": "Spazi ampi e funzionali",
+          "description": "Al piano terra si trovano la cucina, la sala da pranzo e il soggiorno in un unico ambiente conviviale, un bagno di servizio con lavanderia e un comodo accesso al giardino privato"
+        },
+
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori2.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori3.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori4.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori5.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori6.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" },
+
+          { "src": "/assets/appartamenti/gelsomino/gallery1.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery2.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery3.jpg" },
+
+          { "src": "/assets/appartamenti/gelsomino/gallery4.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery5.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery6.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery7.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery8.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery9.jpg" }
+        ],
+
+        "SezionePiano1": {
+          "subTitle": "Zona notte",
+          "title": "Camere e bagni",
+          "description": "Al piano superiore sono presenti due camere da letto matrimoniali e due bagni, ideali per una gestione comoda e funzionale degli spazi"
+        },
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/gelsomino/door.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery10.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery11.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery12.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery13.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery14.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery15.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery16.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery17.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery18.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery19.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery20.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery21.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery22.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery23.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery24.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery25.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery26.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery27.jpg" }
+        ],
+        "titleAmeneties": "Cosa troverai in Gelsomino",
+        "size": "80 mq · Appartamento per gruppi o famiglie",
+        "amenetiesItems": [
+          {
+            "name": "Bagno con box doccia",
+            "icon": "mdi:shower"
+          },
+          {
+            "name": "Ferro da stiro",
+            "icon": "lucide-lab:iron"
+          },
+          {
+            "name": "Stendibiancheria",
+            "icon": "game-icons:clothesline"
+          },
+          {
+            "name": "Frigorifero",
+            "icon": "solar:fridge-outline"
+          },
+          {
+            "name": "Microonde",
+            "icon": "streamline:microwave"
+          },
+          {
+            "name": "Divano",
+            "icon": "iconoir:sofa"
+          },
+          {
+            "name": "Wi-Fi",
+            "icon": "material-symbols:wifi"
+          }
+        ]
       }
     }
   }

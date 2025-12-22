@@ -5,7 +5,6 @@ import "@/styles/swiper_bullet.css";
 import "@/styles/split.css";
 import "@/styles/wordpress.css";
 
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -17,17 +16,29 @@ function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const start = () => setLoading(true);
-    const end = () => setLoading(false);
+    const handleStart = () => setLoading(true);
+    const handleComplete = () => setLoading(false);
 
-    router.events.on("routeChangeStart", start);
-    router.events.on("routeChangeComplete", end);
-    router.events.on("routeChangeError", end);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
 
     return () => {
-      router.events.off("routeChangeStart", start);
-      router.events.off("routeChangeComplete", end);
-      router.events.off("routeChangeError", end);
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
+
+  // Scroll to top on every route change
+  useEffect(() => {
+    const handleScrollTop = () => {
+      window.scrollTo(0, 0);
+    };
+
+    router.events.on("routeChangeComplete", handleScrollTop);
+    return () => {
+      router.events.off("routeChangeComplete", handleScrollTop);
     };
   }, [router]);
 

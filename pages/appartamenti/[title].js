@@ -8,6 +8,10 @@ import { getPagesByIds } from "@/utils/wordpress";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
+import { ParagraphText } from "@/components/layout/ParagraphText";
+import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
+import ButtonSecondary from "@/components/layout/ButtonSecondary";
+import { Icon } from "@iconify/react";
 
 const AppartamentoPage = ({ appartamento, pages }) => {
   console.log("appartamento:", appartamento);
@@ -22,7 +26,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </h1>
             </MaskText>
             <MaskText>
-              <h2 className="text-white text-5xl lg:text-[96px] leading-[1.2]  lg:max-w-3xl mx-auto">
+              <h2 className="text-white text-4xl xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento?.title}
               </h2>
             </MaskText>
@@ -37,7 +41,85 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           </div>
         </div>
       </div>
-      <div className="h-screen">Dettagli dell'appartamento + gallery</div>
+      {/* <div className="text-center max-w-3xl mx-auto my-16 px-4">
+        <ParagraphText>{appartamento?.description}</ParagraphText>
+      </div> */}
+
+      {appartamento?.galleryPiano0 && (
+        <div className="my-20 flex flex-col gap-20">
+          <div className="flex flex-col gap-2 text-center">
+            <MaskText>
+              <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
+                {appartamento.SezionePiano0.subTitle &&
+                  appartamento.SezionePiano0.subTitle}
+              </h3>
+            </MaskText>
+            <MaskText>
+              <h2 className="text-blu text-3xl xl:text-5xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+                {appartamento.SezionePiano0.title &&
+                  appartamento.SezionePiano0.title}
+              </h2>
+            </MaskText>
+            <div className="text-center max-w-3xl mx-auto px-4">
+              <ParagraphText>
+                {appartamento.SezionePiano0.description &&
+                  appartamento.SezionePiano0.description}
+              </ParagraphText>
+            </div>
+            <div className="w-full flex justify-center mt-10">
+              <ButtonSecondary>Check Availability</ButtonSecondary>
+            </div>
+          </div>
+
+          <SliderAppartamento slides={appartamento?.galleryPiano0} />
+        </div>
+      )}
+      {appartamento?.galleryPiano1 && (
+        <div className="my-20 flex flex-col gap-20  py-20 bg-primary/10">
+          <div className="flex flex-col gap-2 text-center">
+            <MaskText>
+              <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
+                {appartamento.SezionePiano1.subTitle &&
+                  appartamento.SezionePiano1.subTitle}
+              </h3>
+            </MaskText>
+            <MaskText>
+              <h2 className="text-blu text-3xl xl:text-5xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+                {appartamento.SezionePiano1.title &&
+                  appartamento.SezionePiano1.title}
+              </h2>
+            </MaskText>
+            <div className="text-center max-w-3xl mx-auto px-4">
+              <ParagraphText>
+                {appartamento.SezionePiano1.description &&
+                  appartamento.SezionePiano1.description}
+              </ParagraphText>
+            </div>
+            <div className="w-full flex justify-center mt-10">
+              <ButtonSecondary>Check Availability</ButtonSecondary>
+            </div>
+          </div>
+          <SliderAppartamento slides={appartamento?.galleryPiano1} />
+        </div>
+      )}
+      <div className="my-20 px-4 lg:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <MaskText>
+            <h2 className="text-blu text-3xl lg:text-5xl leading-[1.2]">
+              {appartamento.titleAmeneties}
+            </h2>
+          </MaskText>
+          <ParagraphText>{appartamento.size}</ParagraphText>
+        </div>
+        <div className="w-full flex items-center justify-center gap-8 max-w-3xl lg:gap-10 flex-wrap mt-10 lg:max-w-4xl mx-auto">
+          {appartamento.amenetiesItems.map((item) => (
+            <div key={item.name} className="flex items-center gap-2 text-blu">
+              <Icon icon={item.icon} width={24} />
+              <span className="uppercase">{item.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
       <SectionBreak />
       <Reviews />
       <AttivitaSection pages={pages} />
