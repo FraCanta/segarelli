@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import LogoWhite from "@/public/assets/logo_segarelli_white.svg";
 import LogoBlack from "@/public/assets/logo_segarelli.svg";
 import Image from "next/image";
@@ -16,8 +16,18 @@ function Menu({ translation }) {
   const timeoutRef = useRef(null);
   const megaMenuRef = useRef(null);
 
+  useLayoutEffect(() => {
+    if (megaMenuRef.current) {
+      gsap.set(megaMenuRef.current, {
+        display: "none",
+        height: 0,
+        opacity: 0,
+      });
+    }
+  }, []);
+
   // Scroll handler
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
