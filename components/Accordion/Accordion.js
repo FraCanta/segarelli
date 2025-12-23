@@ -47,7 +47,7 @@ export default function Accordion() {
             className="accordion-header flex justify-between items-center cursor-pointer px-4 py-4 transition-transform duration-300 hover:translate-x-2"
             onClick={() => toggleAccordion(index)}
           >
-            <h4 className="accordion-title split-text text-blu text-lg uppercase">
+            <h4 className="accordion-title split-text text-blu text-xl ">
               <div className="line line1">
                 <div className="line-inner">{item.title}</div>
               </div>
