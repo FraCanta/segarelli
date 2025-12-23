@@ -178,7 +178,7 @@ function Menu({ translation }) {
       {/* Megamenu */}
       <div
         ref={megaMenuRef}
-        className={`absolute top-0 left-0 right-0 w-full  z-40 overflow-hidden transition-colors duration-300 ${
+        className={`absolute top-0 left-0 right-0 w-full  z-40 overflow-hidden hidden transition-colors duration-300 ${
           scrolled ? "bg-yellow" : "bg-blu"
         }`}
         onMouseEnter={handleEnter}
