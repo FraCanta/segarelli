@@ -12,6 +12,7 @@ import { ParagraphText } from "@/components/layout/ParagraphText";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
 import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import { Icon } from "@iconify/react";
+import Accordion from "@/components/Accordion/Accordion";
 
 const AppartamentoPage = ({ appartamento, pages }) => {
   console.log("appartamento:", appartamento);
@@ -156,6 +157,15 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           <SliderAppartamento slides={appartamento?.galleryPiano1} />
         </div>
       )}
+      <SectionBreak />
+      <div className="flex flex-col gap-20 py-20  px-4">
+        <MaskText>
+          <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+            Informazioni utili
+          </h2>
+        </MaskText>
+        <Accordion />
+      </div>
 
       <SectionBreak />
       <Reviews />

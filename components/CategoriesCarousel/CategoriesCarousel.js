@@ -31,7 +31,7 @@ const slides = [
     link: "/appartamenti",
   },
   {
-    title: "Meet",
+    title: "Discover",
     tagline: "Versatile venues for every occasion",
     text: "Host your next event in a space where creativity flows, ideas thrive, and connections come standard.",
     bg: "/assets/meet.jpg",
