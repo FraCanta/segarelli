@@ -128,7 +128,10 @@ function Mobile() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      onClick={() => setShowMenu(false)}
+                      onClick={() => {
+                        setShowMenu(false); // chiude menu principale
+                        setAppartamentiOpen(false); // chiude dropdown
+                      }}
                       className={`${
                         pathname === link.href
                           ? "font-semibold transition-all ease-linear"
