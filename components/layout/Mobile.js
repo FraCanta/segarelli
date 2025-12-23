@@ -89,7 +89,7 @@ function Mobile() {
                 onClick={() => setShowMenu(false)}
                 className="flex-1"
               >
-                Appartamenti
+                <span>Appartamenti</span>
               </Link>
 
               <button
@@ -138,7 +138,7 @@ function Mobile() {
                           : ""
                       }`}
                     >
-                      {link.name}
+                      <span>{link.name}</span>
                     </Link>
                   ))}
                 </motion.div>
@@ -149,17 +149,17 @@ function Mobile() {
           {/* Altri link */}
           <li>
             <Link href="/chi-siamo" onClick={() => setShowMenu(false)}>
-              Chi siamo
+              <span>Chi siamo</span>
             </Link>
           </li>
           <li>
             <Link href="/contatti" onClick={() => setShowMenu(false)}>
-              Contatti
+              <span>Contatti</span>
             </Link>
           </li>
           <li>
             <Link href="/blog" onClick={() => setShowMenu(false)}>
-              Blog
+              <span>Blog</span>
             </Link>
           </li>
           <li>
