@@ -100,8 +100,8 @@ const AppartamentoPage = ({ appartamento, pages }) => {
       </div>
 
       {appartamento?.galleryPiano0 && (
-        <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10">
-          <div className="flex flex-col gap-2 text-center ">
+        <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10 ">
+          <div className="flex flex-col gap-2 text-center px-4">
             <MaskText>
               <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
                 {appartamento.SezionePiano0.subTitle &&
@@ -114,13 +114,13 @@ const AppartamentoPage = ({ appartamento, pages }) => {
                   appartamento.SezionePiano0.title}
               </h2>
             </MaskText>
-            <div className="text-center max-w-3xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto ">
               <ParagraphText>
                 {appartamento.SezionePiano0.description &&
                   appartamento.SezionePiano0.description}
               </ParagraphText>
             </div>
-            <div className="w-full flex justify-center mt-10">
+            <div className="w-full flex justify-center mt-10 px-4">
               <ButtonSecondary>Check Availability</ButtonSecondary>
             </div>
           </div>
@@ -129,8 +129,8 @@ const AppartamentoPage = ({ appartamento, pages }) => {
         </div>
       )}
       {appartamento?.galleryPiano1 && (
-        <div className="my-20 flex flex-col gap-20  px-4">
-          <div className="flex flex-col gap-2 text-center">
+        <div className="my-20 flex flex-col gap-20  ">
+          <div className="flex flex-col gap-2 text-center px-4">
             <MaskText>
               <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
                 {appartamento.SezionePiano1.subTitle &&
