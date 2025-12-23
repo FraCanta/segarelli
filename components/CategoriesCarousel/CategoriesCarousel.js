@@ -87,7 +87,7 @@ export default function CategoriesCarousel() {
         mx-auto
         text-center
         flex flex-col items-center gap-4 h-full justify-center
-        transition-opacity duration-700
+        transition-opacity duration-700 px-4
       "
             >
               <h2 className="text-5xl md:text-7xl font-light tracking-wide text-white">

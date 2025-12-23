@@ -21,15 +21,15 @@ function AttivitaSection({ pages }) {
   };
   return (
     <section className="flex flex-wrap 2xl:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 px-4 lg:px-6">
-      <div className="2xl:max-w-4xl xl:w-full 2xl:w-1/2 flex flex-col h-full 2xl:gap-6">
+      <div className="2xl:max-w-4xl xl:w-full 2xl:w-1/2 flex flex-col gap-6 h-full">
         <div>
           <MaskText>
-            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug p-1">
+            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug lg:p-1">
               Cultura:
             </h2>
           </MaskText>
           <MaskText>
-            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug p-1">
+            <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug lg:p-1">
               Tra Colli, Valli e Mare
             </h2>
           </MaskText>

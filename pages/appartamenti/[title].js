@@ -41,13 +41,67 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           </div>
         </div>
       </div>
-      {/* <div className="text-center max-w-3xl mx-auto my-16 px-4">
-        <ParagraphText>{appartamento?.description}</ParagraphText>
-      </div> */}
+      <div className="my-20 lg:my-32 px-4 lg:px-6 grid lg:grid-cols-2 gap-20 lg:gap-10 max-w-[1400px] fxl:max-w-[1600px] mx-auto">
+        <div className="py-4">
+          <div>
+            <MaskText>
+              <h2 className="text-blu text-3xl lg:text-5xl leading-[1.2]">
+                {appartamento.titleAmeneties}
+              </h2>
+            </MaskText>
+            <ParagraphText>{appartamento.size}</ParagraphText>
+          </div>
+          <div className="w-full flex items-start justify-start gap-x-10 gap-y-5 lg:gap-10 max-w-max flex-wrap mt-10 lg:max-w-2xl">
+            {appartamento.amenetiesItems.map((item) => (
+              <div key={item.name} className="flex items-center gap-2 text-blu">
+                <Icon icon={item.icon} width={24} />
+                <span className="text-lg">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className=" flex flex-col gap-6 bg-primary/10 p-6 ">
+          <div className="flex flex-wrap w-full gap-4 justify-between items-center">
+            {" "}
+            <MaskText>
+              <h2 className="text-blu text-3xl lg:text-5xl ">
+                {appartamento.prezzi.title}
+              </h2>
+            </MaskText>
+            <ButtonSecondary>Prenota </ButtonSecondary>
+          </div>
+
+          <div className="grid gap-6 mt-6">
+            {appartamento.prezzi.list.map((item, index) => (
+              <div
+                key={index}
+                className="border border-primary/60 p-4 flex flex-col lg:flex-row justify-between items-start gap-10"
+              >
+                <div>
+                  <MaskText>
+                    <h3 className="text-blu uppercase text-xl">{item.name}</h3>
+                  </MaskText>
+                  <p className="text-blu/70 text-sm">{item.period}</p>
+                </div>
+                <div className="flex flex-col lg:flex-row gap-4 mt-2 lg:mt-0 text-blu">
+                  <div>
+                    <span className="uppercase">{item.nightTitle}:</span>{" "}
+                    {item.price}
+                  </div>
+                  <div>
+                    <span className="uppercase">{item.weekTitle}:</span>{" "}
+                    {item.weekPrice}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {appartamento?.galleryPiano0 && (
-        <div className="my-20 flex flex-col gap-20">
-          <div className="flex flex-col gap-2 text-center">
+        <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10">
+          <div className="flex flex-col gap-2 text-center ">
             <MaskText>
               <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
                 {appartamento.SezionePiano0.subTitle &&
@@ -55,7 +109,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </h3>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-3xl xl:text-5xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento.SezionePiano0.title &&
                   appartamento.SezionePiano0.title}
               </h2>
@@ -75,7 +129,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
         </div>
       )}
       {appartamento?.galleryPiano1 && (
-        <div className="my-20 flex flex-col gap-20  py-20 bg-primary/10">
+        <div className="my-20 flex flex-col gap-20  px-4">
           <div className="flex flex-col gap-2 text-center">
             <MaskText>
               <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
@@ -84,7 +138,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </h3>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-3xl xl:text-5xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento.SezionePiano1.title &&
                   appartamento.SezionePiano1.title}
               </h2>
@@ -102,24 +156,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           <SliderAppartamento slides={appartamento?.galleryPiano1} />
         </div>
       )}
-      <div className="my-20 px-4 lg:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <MaskText>
-            <h2 className="text-blu text-3xl lg:text-5xl leading-[1.2]">
-              {appartamento.titleAmeneties}
-            </h2>
-          </MaskText>
-          <ParagraphText>{appartamento.size}</ParagraphText>
-        </div>
-        <div className="w-full flex items-center justify-center gap-8 max-w-3xl lg:gap-10 flex-wrap mt-10 lg:max-w-4xl mx-auto">
-          {appartamento.amenetiesItems.map((item) => (
-            <div key={item.name} className="flex items-center gap-2 text-blu">
-              <Icon icon={item.icon} width={24} />
-              <span className="uppercase">{item.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+
       <SectionBreak />
       <Reviews />
       <AttivitaSection pages={pages} />

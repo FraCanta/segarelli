@@ -67,7 +67,7 @@
           { "src": "/assets/appartamenti/acacia/gallery14.jpg" },
           { "src": "/assets/appartamenti/acacia/gallery15.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Acacia",
+        "titleAmeneties": "Cosa troverai",
         "size": "42 mq · Appartamento per 2 persone",
         "amenetiesItems": [
           {
@@ -98,7 +98,29 @@
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "70€",
+              "weekTitle": "A settimana",
+              "weekPrice": "480€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "80€",
+              "weekTitle": "A settimana",
+              "weekPrice": "540€"
+            }
+          ]
+        }
       },
       "edera": {
         "name": "Edera",
@@ -139,7 +161,7 @@
           { "src": "/assets/appartamenti/edera/gallery9.jpg" },
           { "src": "/assets/appartamenti/edera/gallery10.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Edera",
+        "titleAmeneties": "Cosa troverai",
         "size": "70 mq · Appartamento per 2 persone",
         "amenetiesItems": [
           {
@@ -155,7 +177,7 @@
             "icon": "game-icons:clothesline"
           },
           {
-            "name": "Frigorifero",
+            "name": "Frigorifero con congelatore",
             "icon": "solar:fridge-outline"
           },
           {
@@ -163,14 +185,48 @@
             "icon": "streamline:microwave"
           },
           {
-            "name": "Divano",
+            "name": "Forno",
+            "icon": "fluent:oven-48-regular"
+          },
+          {
+            "name": "Lavastoviglie",
+            "icon": "iconoir:dishwasher"
+          },
+          {
+            "name": "Lavatrice",
+            "icon": "fluent:washer-32-regular"
+          },
+          {
+            "name": "Divano letto",
             "icon": "iconoir:sofa"
           },
           {
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "90€",
+              "weekTitle": "A settimana",
+              "weekPrice": "610€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "100€",
+              "weekTitle": "A settimana",
+              "weekPrice": "680€"
+            }
+          ]
+        }
       },
       "gelsomino": {
         "name": "Gelsomino",
@@ -229,11 +285,11 @@
           { "src": "/assets/appartamenti/gelsomino/gallery26.jpg" },
           { "src": "/assets/appartamenti/gelsomino/gallery27.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Gelsomino",
+        "titleAmeneties": "Cosa troverai",
         "size": "80 mq · Appartamento per gruppi o famiglie",
         "amenetiesItems": [
           {
-            "name": "Bagno con box doccia",
+            "name": "Bagni con box doccia",
             "icon": "mdi:shower"
           },
           {
@@ -241,16 +297,24 @@
             "icon": "lucide-lab:iron"
           },
           {
-            "name": "Stendibiancheria",
+            "name": "Stendi biancheria",
             "icon": "game-icons:clothesline"
           },
           {
-            "name": "Frigorifero",
+            "name": "Frigorifero con congelatore",
             "icon": "solar:fridge-outline"
           },
           {
             "name": "Microonde",
             "icon": "streamline:microwave"
+          },
+          {
+            "name": "Lavastoviglie",
+            "icon": "iconoir:dishwasher"
+          },
+          {
+            "name": "Lavatrice",
+            "icon": "fluent:washer-32-regular"
           },
           {
             "name": "Divano",
@@ -260,7 +324,29 @@
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "120€",
+              "weekTitle": "A settimana",
+              "weekPrice": "820€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "140€",
+              "weekTitle": "A settimana",
+              "weekPrice": "950€"
+            }
+          ]
+        }
       }
     }
   }

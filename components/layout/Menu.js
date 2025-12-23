@@ -13,9 +13,12 @@ function Menu({ translation }) {
   const [scrolled, setScrolled] = useState(false);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
 
-  const timeoutRef = useRef(null);
   const megaMenuRef = useRef(null);
+  const timeoutRef = useRef(null);
+  const openTimer = useRef(null);
+  const closeTimer = useRef(null);
 
+  // Impostazioni iniziali GSAP per evitare il flash
   useLayoutEffect(() => {
     if (megaMenuRef.current) {
       gsap.set(megaMenuRef.current, {
@@ -81,16 +84,25 @@ function Menu({ translation }) {
     }
   }, [showMegaMenu]);
 
-  const handleLinkClick = () => {
-    setShowMegaMenu(false);
+  // Intent-based hover
+  const handleEnter = () => {
+    clearTimeout(closeTimer.current);
+    openTimer.current = setTimeout(() => {
+      setShowMegaMenu(true);
+    }, 180); // delay in ms per UX
   };
 
-  const handleEnter = () => {
-    clearTimeout(timeoutRef.current);
-    setShowMegaMenu(true);
-  };
   const handleLeave = () => {
-    timeoutRef.current = setTimeout(() => setShowMegaMenu(false), 100);
+    clearTimeout(openTimer.current);
+    closeTimer.current = setTimeout(() => {
+      setShowMegaMenu(false);
+    }, 100);
+  };
+
+  const handleLinkClick = () => {
+    clearTimeout(openTimer.current);
+    clearTimeout(closeTimer.current);
+    setShowMegaMenu(false);
   };
 
   return (

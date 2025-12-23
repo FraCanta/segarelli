@@ -98,7 +98,30 @@
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe Edera",
+          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "70€",
+              "weekTitle": "A settimana",
+              "weekPrice": "480€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "80€",
+              "weekTitle": "A settimana",
+              "weekPrice": "540€"
+            }
+          ]
+        }
       },
       "edera": {
         "name": "Edera",
@@ -155,7 +178,7 @@
             "icon": "game-icons:clothesline"
           },
           {
-            "name": "Frigorifero",
+            "name": "Frigorifero con congelatore",
             "icon": "solar:fridge-outline"
           },
           {
@@ -163,14 +186,49 @@
             "icon": "streamline:microwave"
           },
           {
-            "name": "Divano",
+            "name": "Forno",
+            "icon": "fluent:oven-48-regular"
+          },
+          {
+            "name": "Lavastoviglie",
+            "icon": "iconoir:dishwasher"
+          },
+          {
+            "name": "Lavatrice",
+            "icon": "fluent:washer-32-regular"
+          },
+          {
+            "name": "Divano letto",
             "icon": "iconoir:sofa"
           },
           {
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe Edera",
+          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "90€",
+              "weekTitle": "A settimana",
+              "weekPrice": "610€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "100€",
+              "weekTitle": "A settimana",
+              "weekPrice": "680€"
+            }
+          ]
+        }
       },
       "gelsomino": {
         "name": "Gelsomino",
@@ -260,7 +318,30 @@
             "name": "Wi-Fi",
             "icon": "material-symbols:wifi"
           }
-        ]
+        ],
+        "prezzi": {
+          "title": "Tariffe Edera",
+          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "list": [
+            {
+              "name": "Bassa stagione",
+              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
+              "nightTitle": "A notte",
+              "price": "120€",
+              "weekTitle": "A settimana",
+              "weekPrice": "820€"
+            },
+
+            {
+              "name": "Alta stagione",
+              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
+              "nightTitle": "A notte",
+              "price": "140€",
+              "weekTitle": "A settimana",
+              "weekPrice": "950€"
+            }
+          ]
+        }
       }
     }
   }
