@@ -162,9 +162,9 @@ function Mobile() {
               <span>Blog</span>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <ButtonSecondary>Prenota</ButtonSecondary>
-          </li>
+          </li> */}
         </ul>
 
         {/* Footer */}
