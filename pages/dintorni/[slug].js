@@ -64,23 +64,25 @@ function DintorniPage({ pages, currentPage }) {
       />
 
       <section className="my-20 grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
-        {pages.slice(1).map((p) => (
-          <Link href={`/dintorni/${p.slug}`} key={p.id} className="group">
-            <div>
-              <RevealImage
-                src={p.image}
-                alt={p.alt}
-                fill
-                className="object-cover w-full aspect-video"
-              />
-            </div>
+        {pages
+          .filter((p) => p.id !== currentPage.id) // esclude la pagina corrente
+          .map((p) => (
+            <Link href={`/dintorni/${p.slug}`} key={p.id} className="group">
+              <div>
+                <RevealImage
+                  src={p.image}
+                  alt={p.alt}
+                  fill
+                  className="object-cover w-full aspect-video"
+                />
+              </div>
 
-            <h3
-              className="pt-2 text-xl capitalize"
-              dangerouslySetInnerHTML={{ __html: p.title }}
-            />
-          </Link>
-        ))}
+              <h3
+                className="pt-2 text-xl capitalize"
+                dangerouslySetInnerHTML={{ __html: p.title }}
+              />
+            </Link>
+          ))}
       </section>
 
       <SectionBreak />
