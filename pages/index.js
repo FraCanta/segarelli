@@ -140,7 +140,7 @@ export default function Home({ post, pages }) {
           godersi ciò che c’è intorno
         </ParagraphText>
 
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 w-full justify-evenly max-w-6xl mt-10 ">
+        <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
           {features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}

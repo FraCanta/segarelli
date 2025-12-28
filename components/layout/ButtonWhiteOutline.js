@@ -1,24 +1,25 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-function ButtonPrimary({ children, link, title }) {
+function ButtonWhiteOutline({ children, link, title, icon, target }) {
   return (
     <Link
-      scroll={false}
-      className="px-8 py-4 bg-primary rounded-full text-white w-full text-base tracking-wide uppercase justify-center lg:max-w-max flex items-center gap-2"
+      className="px-8 py-4 border border-white rounded-full text-white text-[10px] tracking-wide text-base justify-center uppercase w-full lg:max-w-max flex items-center gap-2 group relative overflow-hidden"
       href={link}
       rel="noopener noreferrer"
       title={title}
+      target={target}
     >
       <span className="split-hover flex flex-col justify-center relative">
         <span className="line line-normal block p-1">{children}</span>
         <span className="line line-hover block absolute top-0 left-0 w-full p-1">
           {children}
         </span>
-      </span>{" "}
-      <Icon icon="prime:arrow-up-right" width="24" height="24" />
+      </span>
+
+      <Icon icon={icon} width="24" height="24" className="flex-shrink-0" />
     </Link>
   );
 }
 
-export default ButtonPrimary;
+export default ButtonWhiteOutline;

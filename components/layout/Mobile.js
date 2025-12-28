@@ -8,7 +8,7 @@ import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import ButtonSecondary from "./ButtonSecondary";
 
-function Mobile() {
+function Mobile({ isDarkHero = true }) {
   const { locale, pathname } = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -24,18 +24,37 @@ function Mobile() {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // inizializza correttamente al mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Gestione classi dinamiche
+  const logoSrc = isDarkHero
+    ? scrolled || showMenu
+      ? LogoBlack
+      : LogoWhite
+    : LogoBlack;
+  const navbarBgClass = isDarkHero
+    ? scrolled || showMenu
+      ? "bg-yellow"
+      : "bg-transparent"
+    : "bg-yellow";
+  const navbarBorderClass = isDarkHero
+    ? scrolled || showMenu
+      ? "border-b-blu/20"
+      : "border-b-white/20"
+    : "border-b-blu/20";
+  const textColorClass = isDarkHero
+    ? scrolled || showMenu
+      ? "text-blu"
+      : "text-white"
+    : "text-blu";
 
   return (
     <div className="lg:hidden fixed top-0 left-0 w-full z-50">
       {/* Navbar */}
       <div
-        className={`flex justify-between border-b px-4 items-center w-full uppercase p-4 transition-all duration-500 ${
-          scrolled
-            ? "bg-yellow border-b-blu/20"
-            : "bg-transparent border-b-white/20"
-        }`}
+        className={`flex justify-between border-b px-4 items-center w-full uppercase p-4 transition-all duration-500 ${navbarBgClass} ${navbarBorderClass}`}
       >
         {/* LOGO */}
         <Link
@@ -43,7 +62,7 @@ function Mobile() {
           className="flex justify-center transition-all duration-500 z-50"
         >
           <Image
-            src={scrolled || showMenu ? LogoBlack : LogoWhite}
+            src={logoSrc}
             alt="Logo"
             className={`transition-all duration-500 ${
               scrolled || showMenu ? "w-[160px]" : "w-[180px]"
@@ -76,11 +95,13 @@ function Mobile() {
 
       {/* Menu Fullscreen */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-yellow text-blu flex flex-col items-start justify-between transform transition-transform duration-500 ${
+        className={`fixed top-0 left-0 w-full h-screen ${navbarBgClass} ${textColorClass} flex flex-col items-start justify-between transform transition-transform duration-500 ${
           showMenu ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <ul className="flex flex-col gap-6 text-2xl uppercase px-6 mt-32 w-full">
+        <ul
+          className={`flex flex-col gap-6 text-2xl uppercase px-6 mt-32 w-full ${textColorClass}`}
+        >
           {/* Appartamenti dropdown */}
           <li className="w-full">
             <div className="flex items-center justify-between w-full">
@@ -129,8 +150,8 @@ function Mobile() {
                       key={link.href}
                       href={link.href}
                       onClick={() => {
-                        setShowMenu(false); // chiude menu principale
-                        setAppartamentiOpen(false); // chiude dropdown
+                        setShowMenu(false);
+                        setAppartamentiOpen(false);
                       }}
                       className={`${
                         pathname === link.href
@@ -162,9 +183,6 @@ function Mobile() {
               <span>Blog</span>
             </Link>
           </li>
-          {/* <li>
-            <ButtonSecondary>Prenota</ButtonSecondary>
-          </li> */}
         </ul>
 
         {/* Footer */}

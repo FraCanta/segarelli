@@ -18,16 +18,16 @@ const AppartamentoPage = ({ appartamento, pages }) => {
   console.log("appartamento:", appartamento);
   return (
     <>
-      <div className="min-h-[100svh] lg:min-h-screen bg-primary/60 flex flex-col items-center  lg:py-10">
+      <div className="min-h-[100svh] lg:min-h-screen  flex flex-col items-center  lg:py-10">
         <div className="text-center mt-20">
           <div className="py-16 lg:py-32 h-full">
             <MaskText>
-              <h1 className="text-white text-base lg:text-[2rem] uppercase lg:p-4">
+              <h1 className="text-blu text-base lg:text-[2rem] uppercase lg:p-4">
                 {appartamento.name}
               </h1>
             </MaskText>
             <MaskText>
-              <h2 className="text-white text-4xl xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-4xl xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento?.title}
               </h2>
             </MaskText>

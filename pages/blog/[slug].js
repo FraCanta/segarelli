@@ -115,7 +115,7 @@ function PostPage({ post, featuredMedia, recent }) {
         </div>
       </div>
       <div
-        className="px-4 lg:w-[70%] lg:mx-auto my-20 text-lg wp-title wp-content text-blu"
+        className="px-4 lg:w-[70%] lg:mx-auto my-20 text-lg wp-title wp-content text-blu/80"
         dangerouslySetInnerHTML={{
           __html: post.content.rendered,
         }}

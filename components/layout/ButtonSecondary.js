@@ -8,10 +8,15 @@ function ButtonSecondary({ children }) {
   return (
     <>
       <button
-        className="px-10 py-4 bg-siena rounded-full text-white uppercase font-semibold   text-base w-full justify-center lg:max-w-max flex items-center gap-2"
+        className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide  text-base w-full justify-center lg:max-w-max flex items-center gap-2"
         onClick={() => setIsOpen(true)}
       >
-        {children}
+        <span className="split-hover flex flex-col justify-center relative">
+          <span className="line line-normal block p-1">{children}</span>
+          <span className="line line-hover block absolute top-0 left-0 w-full p-1">
+            {children}
+          </span>
+        </span>
         <Icon icon="prime:arrow-up-right" width="24" height="24" />
       </button>
 
@@ -20,7 +25,7 @@ function ButtonSecondary({ children }) {
           <>
             {/* Overlay */}
             <motion.div
-              className="fixed inset-0 bg-primary/40 z-40"
+              className="fixed inset-0 bg-blu/40 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

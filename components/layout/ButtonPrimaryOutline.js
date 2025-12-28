@@ -1,15 +1,22 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-function ButtonPrimaryOutline({ children, link, title }) {
+function ButtonPrimaryOutline({ children, link, title, icon, target }) {
   return (
     <Link
-      className="px-10 py-4 border border-primary rounded-full  text-primary text-[10px] font-semibold text-base justify-center uppercase w-full lg:max-w-max flex items-center gap-2"
+      className="px-8 py-4 border border-primary rounded-full tracking-wide   text-primary text-[10px] font-semibold text-base justify-center uppercase w-full lg:max-w-max flex items-center gap-2"
       href={link}
       rel="noopener noreferrer"
       title={title}
+      target={target}
     >
-      {children} <Icon icon="prime:arrow-up-right" width="24" height="24" />
+      <span className="split-hover flex flex-col justify-center relative">
+        <span className="line line-normal block p-1">{children}</span>
+        <span className="line line-hover block absolute top-0 left-0 w-full p-1">
+          {children}
+        </span>
+      </span>{" "}
+      <Icon icon={icon} width="24" height="24" />
     </Link>
   );
 }

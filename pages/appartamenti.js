@@ -120,7 +120,7 @@ function Appartamenti({ pages, post, translation }) {
           </MaskText>
 
           <ParagraphText>{translation?.paragraph1}</ParagraphText>
-          <div className="grid grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 w-full justify-evenly max-w-6xl mt-10">
+          <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
             {features.map((feature, index) => (
               <FeatureItem key={index} {...feature} />
             ))}
@@ -146,6 +146,7 @@ function Appartamenti({ pages, post, translation }) {
                 <ButtonPrimaryOutline
                   link={`/appartamenti/${apt.name.toLowerCase()}`}
                   title="Scopri di più"
+                  target="_self"
                 >
                   Scopri di più
                 </ButtonPrimaryOutline>

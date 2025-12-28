@@ -20,7 +20,7 @@ function AttivitaSection({ pages }) {
     setIsEnd(swiper.isEnd);
   };
   return (
-    <section className="flex flex-wrap 2xl:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 px-4 lg:px-6">
+    <section className="flex flex-wrap 2xl:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 pl-4 lg:pl-6">
       <div className="2xl:max-w-4xl xl:w-full 2xl:w-1/2 flex flex-col gap-6 h-full">
         <div>
           <MaskText>
