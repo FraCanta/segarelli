@@ -1,0 +1,51 @@
+{
+  "play": {
+    "title": "Play",
+    "herobg": "/assets/pool.jpg",
+    "description": "Il nostro invito a fermarti. respirare, goderti il momento. Lasciati sorprendere dalla bellezza delle cose semplici. ",
+    "subtitle1": "Relax in giardino e piscina",
+    "title1": "Offriamo qualcosa di raro",
+    "paragraph1": "Da noi puoi assaporare il gusto della vera vacanza immerso nella natura e nel silenzio della campagna toscana, fatta di convivialità e passeggiate",
+    "SezioneGallery": {
+      "subTitle": "Piscina nell'Aia",
+      "title": "Un tuffo nel relax",
+      "description": [
+        "La piscina si trova in quella parte del podere dove un tempo veniva lavorato il grano, l’Aia. E’ grande 12 metri x 6. Riservata solo ai nostri ospiti"
+      ]
+    },
+
+    "gallery": [
+      { "src": "/assets/pool.jpg" },
+      { "src": "/assets/pool2.jpg" },
+      { "src": "/assets/pool3.jpg" },
+      { "src": "/assets/pool4.jpg" },
+      { "src": "/assets/pool5.jpg" },
+      { "src": "/assets/pool6.jpg" },
+      { "src": "/assets/pool7.jpg" },
+      { "src": "/assets/pool8.jpg" },
+      { "src": "/assets/pool9.jpg" }
+    ],
+    "SezioneGallery2": {
+      "subTitle": "Passeggiate nel verde",
+      "title": "Il giardino e la campagna toscana",
+      "description": [
+        "Non è una vera vacanza da noi se non ti immergi tra i profumi della campagna"
+      ]
+    },
+
+    "gallery2": [
+      { "src": "/assets/dintorni5.jpg" },
+      { "src": "/assets/dintorni6.jpg" },
+      { "src": "/assets/dintorni7.jpg" },
+      { "src": "/assets/dintorni4.jpg" },
+      { "src": "/assets/dintorni3.jpg" },
+
+      { "src": "/assets/dintorni8.jpg" },
+      { "src": "/assets/dintorni9.jpg" },
+      { "src": "/assets/dintorni10.jpg" },
+      { "src": "/assets/dintorni11.jpg" },
+      { "src": "/assets/dintorni12.jpg" },
+      { "src": "/assets/dintorni.jpg" }
+    ]
+  }
+}

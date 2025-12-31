@@ -8,7 +8,7 @@ function ButtonSecondary({ children }) {
   return (
     <>
       <button
-        className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide  text-base w-full justify-center lg:max-w-max flex items-center gap-2"
+        className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 bg-siena rounded-full text-white uppercase tracking-wide xl:text-sm 2xl:text-base w-full justify-center lg:max-w-max flex items-center gap-2"
         onClick={() => setIsOpen(true)}
       >
         <span className="split-hover flex flex-col justify-center relative">

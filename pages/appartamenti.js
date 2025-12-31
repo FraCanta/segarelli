@@ -83,7 +83,7 @@ function Appartamenti({ pages, post, translation }) {
         >
           <div className="z-40 flex flex-col items-center justify-center text-center px-4 gap-4">
             <MaskText>
-              <h2 className="text-white text-6xl  md:text-5xl lg:text-[128px]   px-4 py-2 rounded">
+              <h2 className="text-white text-6xl  md:text-5xl lg:text-[92px] 2xl:text-[128px]   px-4 py-2 rounded">
                 {translation?.title}
               </h2>
             </MaskText>
@@ -109,17 +109,18 @@ function Appartamenti({ pages, post, translation }) {
       <div className="my-20 text-center">
         <div className="flex flex-col items-center justify-center gap-4 px-4">
           <MaskText>
-            <h1 className="text-blu text-base lg:text-[1.2rem] uppercase">
+            <h1 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
               {translation?.subtitle1}
             </h1>
           </MaskText>
           <MaskText>
-            <h2 className="text-blu text-4xl lg:text-[46px] leading-[1.2]">
+            <h2 className="text-blu text-4xl 2xl:text-[46px] leading-[1.2]">
               {translation?.title1}
             </h2>
           </MaskText>
-
-          <ParagraphText>{translation?.paragraph1}</ParagraphText>
+          <div className="max-w-5xl">
+            <ParagraphText>{translation?.paragraph1}</ParagraphText>
+          </div>
           <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
             {features.map((feature, index) => (
               <FeatureItem key={index} {...feature} />
@@ -134,12 +135,13 @@ function Appartamenti({ pages, post, translation }) {
             <div className="flex flex-col items-center justify-center gap-10 px-4 mb-0 lg:mb-20">
               <div className="flex flex-col gap-4 lg:gap-1">
                 <MaskText>
-                  <h2 className="text-blu text-4xl lg:text-[46px] p-1.5">
+                  <h2 className="text-blu text-4xl 2xl:text-[46px] p-1.5">
                     {apt.name}
                   </h2>
                 </MaskText>
-
-                <ParagraphText>{apt.description}</ParagraphText>
+                <div className="max-w-3xl">
+                  <ParagraphText>{apt.description}</ParagraphText>
+                </div>
               </div>
               <div className="flex flex-wrap items-center gap-4">
                 <ButtonSecondary>Book Now</ButtonSecondary>

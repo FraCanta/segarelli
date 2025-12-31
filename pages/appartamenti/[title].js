@@ -22,12 +22,12 @@ const AppartamentoPage = ({ appartamento, pages }) => {
         <div className="text-center mt-20">
           <div className="py-16 lg:py-32 h-full">
             <MaskText>
-              <h1 className="text-blu text-base lg:text-[2rem] uppercase lg:p-4">
+              <h1 className="text-blu text-base lg:text-[1.5rem] uppercase lg:p-4">
                 {appartamento.name}
               </h1>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-4xl xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-4xl sm:text-[2.5rem] xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden lg:max-w-xl lg:mx-auto">
                 {appartamento?.title}
               </h2>
             </MaskText>
@@ -42,11 +42,11 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           </div>
         </div>
       </div>
-      <div className="my-20 lg:my-32 px-4 lg:px-6 grid lg:grid-cols-2 gap-20 lg:gap-10 max-w-[1400px] fxl:max-w-[1600px] mx-auto">
-        <div className="py-4">
+      <div className="my-0 mb-20 lg:my-32 px-4 lg:px-6 grid lg:grid-cols-2 gap-20 lg:gap-10 max-w-[1400px] fxl:max-w-[1600px] mx-auto">
+        <div className="lg:py-4">
           <div>
             <MaskText>
-              <h2 className="text-blu text-3xl lg:text-5xl leading-[1.2]">
+              <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl leading-[1.2]">
                 {appartamento.titleAmeneties}
               </h2>
             </MaskText>
@@ -65,7 +65,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
           <div className="flex flex-wrap w-full gap-4 justify-between items-center">
             {" "}
             <MaskText>
-              <h2 className="text-blu text-3xl lg:text-5xl ">
+              <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl ">
                 {appartamento.prezzi.title}
               </h2>
             </MaskText>
@@ -76,21 +76,27 @@ const AppartamentoPage = ({ appartamento, pages }) => {
             {appartamento.prezzi.list.map((item, index) => (
               <div
                 key={index}
-                className="border border-primary/60 p-4 flex flex-col lg:flex-row justify-between items-start gap-10"
+                className="border border-primary/60 p-4 flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-5 2xl:gap-10"
               >
                 <div>
                   <MaskText>
-                    <h3 className="text-blu uppercase text-xl">{item.name}</h3>
+                    <h3 className="text-blu uppercase text-lg 2xl:text-xl">
+                      {item.name}
+                    </h3>
                   </MaskText>
                   <p className="text-blu/70 text-sm">{item.period}</p>
                 </div>
-                <div className="flex flex-col lg:flex-row gap-4 mt-2 lg:mt-0 text-blu">
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-2 2xl:gap-4 mt-2 lg:mt-0 text-blu">
                   <div>
-                    <span className="uppercase">{item.nightTitle}:</span>{" "}
+                    <span className="uppercase text-sm 2xl:text-base">
+                      {item.nightTitle}:
+                    </span>{" "}
                     {item.price}
                   </div>
                   <div>
-                    <span className="uppercase">{item.weekTitle}:</span>{" "}
+                    <span className="uppercase text-sm 2xl:text-base">
+                      {item.weekTitle}:
+                    </span>{" "}
                     {item.weekPrice}
                   </div>
                 </div>
@@ -104,13 +110,13 @@ const AppartamentoPage = ({ appartamento, pages }) => {
         <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10 ">
           <div className="flex flex-col gap-2 text-center px-4">
             <MaskText>
-              <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
+              <h3 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
                 {appartamento.SezionePiano0.subTitle &&
                   appartamento.SezionePiano0.subTitle}
               </h3>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento.SezionePiano0.title &&
                   appartamento.SezionePiano0.title}
               </h2>
@@ -133,13 +139,13 @@ const AppartamentoPage = ({ appartamento, pages }) => {
         <div className="my-20 flex flex-col gap-20  ">
           <div className="flex flex-col gap-2 text-center px-4">
             <MaskText>
-              <h3 className="text-blu text-base lg:text-[1.2rem] uppercase">
+              <h3 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
                 {appartamento.SezionePiano1.subTitle &&
                   appartamento.SezionePiano1.subTitle}
               </h3>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+              <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
                 {appartamento.SezionePiano1.title &&
                   appartamento.SezionePiano1.title}
               </h2>
@@ -160,7 +166,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
       <SectionBreak />
       <div className="flex flex-col gap-20 py-20  px-4">
         <MaskText>
-          <h2 className="text-blu text-3xl xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
+          <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
             Informazioni utili
           </h2>
         </MaskText>

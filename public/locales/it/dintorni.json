@@ -1,0 +1,26 @@
+{
+  "dintorni": {
+    "title": "Discover",
+    "herobg": "/assets/meet.jpg",
+    "description": "Un'esperienza fatta di emozioni e scoperte.",
+    "SezioneGallery": {
+      "subTitle": "Borghi, eventi e natura",
+      "title": "Una terra che non smette di sorprenderti",
+      "description": [
+        "L'Agriturismo Segarelli si trova in una posizione strategica dalla quale puoi raggiungere diverse località e saremo felici di guidarvi nel scegliere cosa fare e vedere"
+      ]
+    },
+
+    "gallery": [
+      { "src": "/assets/pool.jpg" },
+      { "src": "/assets/pool2.jpg" },
+      { "src": "/assets/pool3.jpg" },
+      { "src": "/assets/pool4.jpg" },
+      { "src": "/assets/pool5.jpg" },
+      { "src": "/assets/pool6.jpg" },
+      { "src": "/assets/pool7.jpg" },
+      { "src": "/assets/pool8.jpg" },
+      { "src": "/assets/pool9.jpg" }
+    ]
+  }
+}

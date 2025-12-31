@@ -5,7 +5,7 @@ function ButtonPrimary({ children, link, title }) {
   return (
     <Link
       scroll={false}
-      className="px-8 py-4 bg-primary rounded-full text-white w-full text-base tracking-wide uppercase justify-center lg:max-w-max flex items-center gap-2"
+      className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 bg-primary rounded-full text-white w-full xl:text-sm 2xl:text-base tracking-wide uppercase justify-center lg:max-w-max flex items-center gap-2"
       href={link}
       rel="noopener noreferrer"
       title={title}

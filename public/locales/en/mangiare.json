@@ -1,0 +1,31 @@
+{
+  "mangiare": {
+    "title": "Eat",
+    "herobg": "/assets/eat2.jpg",
+    "description": "Mangiare bene, in un luogo pensato per stare bene.",
+    "subtitle1": "Mangiare in Agriturismo",
+    "title1": "Il gusto semplice della campagna toscana",
+    "paragraph1": " La cena, come la colazione, la serviamo solo per gli ospiti dell’agriturismo. La colazione è quella tipica italiana con latte e caffè (orzo e/o cacao), biscotti, fette biscottate con marmellata, burro da spalmare, dolce fatto in casa, succo di arancia e yogurt. La cena è preparata con prodotti rigorosamente freschi e genuini in quanto provengono dalla nostra campagna e/o dai dintorni. Le pietanze sono quelle tipiche della zona e il menu lo scegliamo in base ai prodotti disponibili giorno per giorno. Siamo un agriturismo piccolo e questo non ci consente (almeno per ora) di avere un ristorante vero e proprio, con i suoi spazi e attrezzatura. Questo significa che i nostri piatti sono molto semplici: tagliatelle al ragù, carne alla brace, salumi, formaggi, crostini, verdure al forno o alla griglia e il dolce. Se invece preferite qualcosa di più sostanzioso ed elaborato vi sapremo consigliare degli ottimi ristoranti della zona",
+    "SezioneGallery": {
+      "subTitle": "Zona ristorante e relax",
+      "title": "Capanna, camino e convivialità",
+      "description": [
+        "Infatti, come potete vedere dalle foto, serviamo da mangiare nel giardino, all’interno di una caratteristica capanna. C’è un tavolo grande per otto persone ma, se avete bisogno di maggiore spazio, accanto c’è una tettoia nuova di zecca. Lì potete aspettare la cena,  rilassarvi con un caffè,  prendere un tea nel pomeriggio o ancora meglio, un aperitivo prima di cena",
+        "Nel caso in cui siate in tanti e volete prepararvi da mangiare in agriturismo, la capanna e la tettoia sono sempre a vostra a disposizione. All’interno c’è anche un camino dove potete preparare della carne e/o verdure alla brace. Gli aromi li trovate nel nostro giardino",
+        "Insomma se siete stanchi e non avete voglia di uscire, qui a Segarelli qualcosa da mangiare si trova sempre"
+      ],
+      "nota": "Per prenotare la cena o la colazione abbiamo bisogno che ce lo comunichiate almeno un giorno prima."
+    },
+
+    "gallery": [
+      { "src": "/assets/eat1.jpg" },
+      { "src": "/assets/eat2.jpg" },
+      { "src": "/assets/eat3.jpg" },
+      { "src": "/assets/eat4.jpg" },
+      { "src": "/assets/eat5.jpg" },
+      { "src": "/assets/eat6.jpg" },
+      { "src": "/assets/eat7.jpg" },
+      { "src": "/assets/eat8.jpg" }
+    ]
+  }
+}

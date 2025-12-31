@@ -1,6 +1,6 @@
 import React from "react";
-import mangiareIT from "../public/locales/it/mangiare.json";
-import mangiareEN from "../public/locales/en/mangiare.json";
+import playIT from "../public/locales/it/play.json";
+import playEN from "../public/locales/en/play.json";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskText } from "@/components/layout/MaskText";
 import { ParagraphText } from "@/components/layout/ParagraphText";
@@ -21,8 +21,8 @@ const features = [
   },
 
   {
-    title: ["Coffee", "time"],
-    src: "/assets/coffee.svg",
+    title: ["Outdoor", "pool"],
+    src: "/assets/pool.svg",
   },
 
   {
@@ -30,12 +30,12 @@ const features = [
     src: "/assets/dining.svg",
   },
   {
-    title: ["Eco", "friendly"],
-    src: "/assets/green.svg",
+    title: ["Vicino", "alle attrazioni"],
+    src: "/assets/attraction.svg",
   },
   {
-    title: ["Prodotti", "dell'orto"],
-    src: "/assets/orto.svg",
+    title: ["Amato", "dai local"],
+    src: "/assets/locals.svg",
   },
 ];
 
@@ -64,7 +64,7 @@ function FeatureItem({ title, src, desktopOnly = false }) {
     </div>
   );
 }
-function Mangiare({ pages, post, translation }) {
+function Piscina({ pages, post, translation }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);
 
@@ -100,37 +100,30 @@ function Mangiare({ pages, post, translation }) {
           <div className="absolute inset-0 w-full h-full bg-blu/30"></div>
         </motion.div>
       </div>
-      <div className="flex flex-col items-center">
-        <div className="my-20 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2  gap-10">
-          <div className="relative">
-            <Image
-              src="/assets/coffee.jpg"
-              alt="Agriturismo Segarelli"
-              className="mx-auto mb-6 object-cover aspect-square"
-              fill
-            />
-          </div>
-          <div className="flex flex-col  justify-center gap-4 px-4">
-            <MaskText>
-              <h1 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
-                {translation?.subtitle1}
-              </h1>
-            </MaskText>
-            <MaskText>
-              <h2 className="text-blu text-4xl 2xl:text-[46px] leading-[1.2]">
-                {translation?.title1}
-              </h2>
-            </MaskText>
-
+      <div className="my-20 max-w-7xl mx-auto  text-center  gap-10">
+        <div className="flex flex-col  justify-center gap-4 px-4">
+          <MaskText>
+            <h1 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
+              {translation?.subtitle1}
+            </h1>
+          </MaskText>
+          <MaskText>
+            <h2 className="text-blu text-4xl 2xl:text-[46px] leading-[1.2]">
+              {translation?.title1}
+            </h2>
+          </MaskText>
+          <div className="max-w-3xl mx-auto">
+            {" "}
             <ParagraphText>{translation?.paragraph1}</ParagraphText>
           </div>
         </div>
-        <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
+        <div className="flex flex-wrap gap-8 lg:gap-0 w-full  mt-10 justify-center lg:justify-evenly">
           {features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
         </div>
       </div>
+
       <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10 ">
         <div className="flex flex-col gap-2 text-center px-4">
           <MaskText>
@@ -145,21 +138,38 @@ function Mangiare({ pages, post, translation }) {
           </MaskText>
           {translation.SezioneGallery.description.map((p, i) => {
             return (
-              <div key={i} className="text-center mx-auto">
+              <div key={i} className="text-center  mx-auto">
                 <ParagraphText>{p}</ParagraphText>
               </div>
             );
           })}
-          <div className="my-6 text-blu/80 uppercase">
-            <p>*{translation.SezioneGallery.nota}</p>
-          </div>
-
-          <div className="w-full flex justify-center mt-10 px-4">
-            <ButtonSecondary>Prenota</ButtonSecondary>
-          </div>
         </div>
 
         <SliderAppartamento slides={translation?.gallery} />
+      </div>
+
+      <div className="my-20 flex flex-col gap-20 py-20   ">
+        <div className="flex flex-col gap-2 text-center px-4">
+          <MaskText>
+            <h3 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
+              {translation.SezioneGallery2.subTitle}
+            </h3>
+          </MaskText>
+          <MaskText>
+            <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-3xl mx-auto">
+              {translation.SezioneGallery2.title}
+            </h2>
+          </MaskText>
+          {translation.SezioneGallery2.description.map((p, i) => {
+            return (
+              <div key={i} className="text-center  mx-auto">
+                <ParagraphText>{p}</ParagraphText>
+              </div>
+            );
+          })}
+        </div>
+
+        <SliderAppartamento slides={translation?.gallery2} />
       </div>
       <SectionBreak />
       <AttivitaSection pages={pages} post={post} />
@@ -169,7 +179,7 @@ function Mangiare({ pages, post, translation }) {
   );
 }
 
-export default Mangiare;
+export default Piscina;
 
 export async function getStaticProps({ locale }) {
   const idLocale = await getTagId(locale); // recupera id della lingua attuale
@@ -180,19 +190,19 @@ export async function getStaticProps({ locale }) {
   let obj;
   switch (locale) {
     case "it":
-      obj = mangiareIT;
+      obj = playIT;
       break;
     case "en":
-      obj = mangiareEN;
+      obj = playEN;
       break;
     default:
-      obj = mangiareIT;
+      obj = playIT;
       break;
   }
 
   return {
     props: {
-      translation: obj?.mangiare,
+      translation: obj?.play,
 
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
       // instagramPosts: posts,

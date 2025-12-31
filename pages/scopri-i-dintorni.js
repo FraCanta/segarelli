@@ -1,6 +1,6 @@
 import React from "react";
-import mangiareIT from "../public/locales/it/mangiare.json";
-import mangiareEN from "../public/locales/en/mangiare.json";
+import dintorniIT from "../public/locales/it/dintorni.json";
+import dintorniEN from "../public/locales/en/dintorni.json";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskText } from "@/components/layout/MaskText";
 import { ParagraphText } from "@/components/layout/ParagraphText";
@@ -10,61 +10,11 @@ import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import { Icon } from "@iconify/react";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
-import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import BlogSection from "@/components/blogSection/blogSection";
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "/assets/garden.svg",
-  },
 
-  {
-    title: ["Coffee", "time"],
-    src: "/assets/coffee.svg",
-  },
-
-  {
-    title: ["Godersi", "il panorama"],
-    src: "/assets/dining.svg",
-  },
-  {
-    title: ["Eco", "friendly"],
-    src: "/assets/green.svg",
-  },
-  {
-    title: ["Prodotti", "dell'orto"],
-    src: "/assets/orto.svg",
-  },
-];
-
-function FeatureItem({ title, src, desktopOnly = false }) {
-  return (
-    <div
-      className={`flex flex-col items-center ${
-        desktopOnly ? "hidden lg:flex" : ""
-      }`}
-    >
-      <figure className="w-24 h-24 relative mb-4">
-        <Image
-          src={src}
-          alt={title.join(" ")}
-          fill
-          className="object-contain"
-        />
-      </figure>
-      <div className="text-center">
-        {title.map((line, i) => (
-          <div key={i} className="block">
-            <div className="inline-block text-sm">{line}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-function Mangiare({ pages, post, translation }) {
+function Dintorni({ pages, post, translation }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);
 
@@ -100,38 +50,11 @@ function Mangiare({ pages, post, translation }) {
           <div className="absolute inset-0 w-full h-full bg-blu/30"></div>
         </motion.div>
       </div>
-      <div className="flex flex-col items-center">
-        <div className="my-20 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2  gap-10">
-          <div className="relative">
-            <Image
-              src="/assets/coffee.jpg"
-              alt="Agriturismo Segarelli"
-              className="mx-auto mb-6 object-cover aspect-square"
-              fill
-            />
-          </div>
-          <div className="flex flex-col  justify-center gap-4 px-4">
-            <MaskText>
-              <h1 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
-                {translation?.subtitle1}
-              </h1>
-            </MaskText>
-            <MaskText>
-              <h2 className="text-blu text-4xl 2xl:text-[46px] leading-[1.2]">
-                {translation?.title1}
-              </h2>
-            </MaskText>
-
-            <ParagraphText>{translation?.paragraph1}</ParagraphText>
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
-          {features.map((feature, index) => (
-            <FeatureItem key={index} {...feature} />
-          ))}
-        </div>
+      <div className="py-10">
+        <AttivitaSection pages={pages} post={post} />
       </div>
-      <div className="my-20 flex flex-col gap-20 py-20  bg-primary/10 ">
+
+      <div className="py-20 flex flex-col gap-20 bg-primary/10">
         <div className="flex flex-col gap-2 text-center px-4">
           <MaskText>
             <h3 className="text-blu text-base 2xl:text-[1.2rem] uppercase">
@@ -145,31 +68,26 @@ function Mangiare({ pages, post, translation }) {
           </MaskText>
           {translation.SezioneGallery.description.map((p, i) => {
             return (
-              <div key={i} className="text-center mx-auto">
+              <div key={i} className="text-center max-w-3xl  mx-auto">
                 <ParagraphText>{p}</ParagraphText>
               </div>
             );
           })}
-          <div className="my-6 text-blu/80 uppercase">
-            <p>*{translation.SezioneGallery.nota}</p>
-          </div>
-
-          <div className="w-full flex justify-center mt-10 px-4">
-            <ButtonSecondary>Prenota</ButtonSecondary>
-          </div>
         </div>
 
         <SliderAppartamento slides={translation?.gallery} />
       </div>
+
       <SectionBreak />
-      <AttivitaSection pages={pages} post={post} />
       <CategoriesCarousel />
-      <BlogSection post={post} />
+      <div className="py-20">
+        <BlogSection post={post} />
+      </div>
     </>
   );
 }
 
-export default Mangiare;
+export default Dintorni;
 
 export async function getStaticProps({ locale }) {
   const idLocale = await getTagId(locale); // recupera id della lingua attuale
@@ -180,19 +98,19 @@ export async function getStaticProps({ locale }) {
   let obj;
   switch (locale) {
     case "it":
-      obj = mangiareIT;
+      obj = dintorniIT;
       break;
     case "en":
-      obj = mangiareEN;
+      obj = dintorniEN;
       break;
     default:
-      obj = mangiareIT;
+      obj = dintorniIT;
       break;
   }
 
   return {
     props: {
-      translation: obj?.mangiare,
+      translation: obj?.dintorni,
 
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
       // instagramPosts: posts,

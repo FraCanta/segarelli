@@ -4,7 +4,7 @@ import Link from "next/link";
 function ButtonWhiteOutline({ children, link, title, icon, target }) {
   return (
     <Link
-      className="px-8 py-4 border border-white rounded-full text-white text-[10px] tracking-wide text-base justify-center uppercase w-full lg:max-w-max flex items-center gap-2 group relative overflow-hidden"
+      className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 border border-white rounded-full text-white xl:text-sm tracking-wide 2xl:text-base justify-center uppercase w-full lg:max-w-max flex items-center gap-2 group relative overflow-hidden"
       href={link}
       rel="noopener noreferrer"
       title={title}

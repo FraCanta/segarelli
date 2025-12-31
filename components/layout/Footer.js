@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div className="border-b border-r-0 lg:border-b-0 lg:border-r border-white/20 md:col-span-1">
-            <h3 className="text-white/50 uppercase mb-4">
+            <h3 className="text-white/50 uppercase mb-4 text-base lg:text-sm 2xl:text-base">
               Scopri l'Agriturismo Segarelli
             </h3>
             <div>
@@ -23,7 +23,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti"
-                    className="text-white text-4xl lg:text-6xl"
+                    className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
                       <span className="line line-normal block">Sleep</span>
@@ -36,7 +36,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti"
-                    className="text-white text-4xl lg:text-6xl"
+                    className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
                       <span className="line line-normal block">Eat</span>
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti"
-                    className="text-white text-4xl lg:text-6xl"
+                    className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
                       <span className="line line-normal block">Play</span>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti"
-                    className="text-white text-4xl lg:text-6xl"
+                    className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
                       <span className="line line-normal block">Discover</span>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti/acacia"
-                    className="text-white text-lg"
+                    className="text-white text-base 2xl:text-lg"
                   >
                     Acacia
                   </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti/edera"
-                    className="text-white text-lg"
+                    className="text-white text-base 2xl:text-lg"
                   >
                     Edera
                   </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/appartamenti/gelsomino"
-                    className="text-white text-lg"
+                    className="text-white text-base 2xl:text-lg"
                   >
                     Gelsomino
                   </Link>
@@ -110,7 +110,10 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">Eat</h3>
               <ul className="flex flex-col gap-2 ">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/mangiare-in-agriturismo"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Mangiare in Agriturismo
                   </Link>
                 </li>
@@ -120,7 +123,10 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">Play</h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/relax-e-natura-da-segarelli"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Relax e natura da Segarelli
                   </Link>
                 </li>
@@ -130,22 +136,34 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">Discover</h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/dintorni/relax"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Relax
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contatti" className="text-white text-lg">
+                  <Link
+                    href="/dintorni/luoghi-da-visitare"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Borghi
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-white text-lg">
+                  <Link
+                    href="/dintorni/escursioni-toscana"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Natura
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-white text-lg">
+                  <Link
+                    href="/dintorni/citta-da-visitare-toscana"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Città d'arte
                   </Link>
                 </li>
@@ -155,7 +173,10 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">chi siamo</h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/chi-siamo"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     La nostra storia
                   </Link>
                 </li>
@@ -165,7 +186,10 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">Contatti</h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/contatti"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Come contattarci e raggiungerci
                   </Link>
                 </li>
@@ -175,7 +199,10 @@ export default function Footer() {
               <h3 className="text-white/50 uppercase mb-4">Blog</h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
-                  <Link href="/chi-siamo" className="text-white text-lg">
+                  <Link
+                    href="/blog"
+                    className="text-white text-base 2xl:text-lg"
+                  >
                     Notizie e curiosità
                   </Link>
                 </li>
@@ -185,13 +212,17 @@ export default function Footer() {
           <div className="flex flex-col gap-10 md:col-span-1">
             <div className="flex flex-col gap-2">
               <h3 className="text-white/50 uppercase mb-4">Vieni a trovarci</h3>
-              <p className="text-white text-lg">
+              <p className="text-white text-base 2xl:text-lg">
                 Via Podere Segarelli n°6, <br /> 56045 Pomarance – Pisa (Italy)
               </p>
             </div>
 
-            <p className="text-white text-lg">agriturismosegarelli@gmail.com</p>
-            <p className="text-white text-lg">t: +39 347 7447180</p>
+            <p className="text-white text-base 2xl:text-lg">
+              agriturismosegarelli@gmail.com
+            </p>
+            <p className="text-white text-base 2xl:text-lg">
+              t: +39 347 7447180
+            </p>
             <ButtonWhiteOutline
               link="/contatti"
               title="Contatti"

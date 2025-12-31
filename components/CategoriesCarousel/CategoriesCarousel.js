@@ -18,24 +18,24 @@ const slides = [
   },
   {
     title: "Eat",
-    tagline: "Food is our love language",
-    text: "Seasonally driven, carefully considered, generously presented, and served with pride and purpose.",
+    tagline: "La semplicità del buon cibo",
+    text: "Un’esperienza autentica, naturale e senza fronzoli.",
     bg: "/assets/eat2.jpg",
     link: "/mangiare-in-agriturismo",
   },
   {
     title: "Play",
-    tagline: "Share in your surroundings",
-    text: "Lose track of time amid the lush greenery and unexpected corners.",
+    tagline: "Vivi l’ambiente intorno a te",
+    text: "Passeggia, scopri, rilassati: ogni angolo sorprende.",
     bg: "/assets/pool3.jpg",
-    link: "/appartamenti",
+    link: "/relax-e-natura-da-segarelli",
   },
   {
     title: "Discover",
-    tagline: "Versatile venues for every occasion",
-    text: "Host your next event in a space where creativity flows, ideas thrive, and connections come standard.",
+    tagline: "Non perdere l'occasione",
+    text: "Scopri i borghi medievali e non perdere eventi tipici.",
     bg: "/assets/meet.jpg",
-    link: "/appartamenti",
+    link: "/scopri-i-dintorni",
   },
 ];
 
