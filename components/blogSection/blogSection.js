@@ -72,7 +72,7 @@ const BlogSection = ({ post }) => {
               280: { slidesPerView: 1.25, spaceBetween: 20 },
               768: { slidesPerView: 1.25, spaceBetween: 40 },
               1024: { slidesPerView: 1, spaceBetween: 20 },
-              1280: { slidesPerView: 3, spaceBetween: 20 },
+              1280: { slidesPerView: 3, spaceBetween: 30 },
             }}
           >
             {jsxPosts}

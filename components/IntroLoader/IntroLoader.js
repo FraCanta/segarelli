@@ -16,14 +16,14 @@ export default function IntroLoader({ isVisible }) {
         {
           scale: 1,
           opacity: 1,
-          duration: 2,
+          duration: 3.5,
           ease: "power2.out",
         }
       );
     } else {
       gsap.to(loaderRef.current, {
         autoAlpha: 0,
-        duration: 0.6,
+        duration: 1.5,
         ease: "power2.inOut",
       });
     }

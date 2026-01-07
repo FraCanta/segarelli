@@ -9,6 +9,10 @@ body,
   margin: 0;
 }
 
+.air-input {
+  background: transparent !important;
+}
+
 :root {
   --backgroundColor: #f8f6ec;
   --primaryColor: #5f6738;

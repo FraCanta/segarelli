@@ -21,7 +21,7 @@ export default function PostSection({ post, featuredMedia }) {
     "/assets/hero.jpg";
 
   return (
-    <div className="flex flex-col w-full h-[350px] lg:h-auto fxl:h-[380px]  ">
+    <div className="flex flex-col w-full h-[350px] lg:h-auto ">
       {/* contenitore flessibile verticale che occupa tutta l’altezza */}
       <div className="flex flex-col h-full justify-between overflow-hidden ">
         {/* Immagine */}
@@ -32,7 +32,7 @@ export default function PostSection({ post, featuredMedia }) {
               width={461}
               height={420}
               alt={featuredMedia?.alt_text || "Don't Call It Blog"}
-              className="w-full h-[240px] md:h-[350px] lg:h-[300px] 3xl:h-[380px] object-cover"
+              className="w-full h-[240px] md:h-[350px] lg:h-[375px] 3xl:h-[380px] object-cover"
               priority
               quality={70}
             />
@@ -43,7 +43,7 @@ export default function PostSection({ post, featuredMedia }) {
         <div className="flex-grow flex flex-col justify-between pt-4">
           <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
             <h3
-              className="text-blu hover:underline text-xl  lg:text-[22px] leading-[120%] transition-all 3xl:text-3xl"
+              className="text-blu hover:underline text-xl  lg:text-[20px] leading-[120%] transition-all 3xl:text-3xl"
               dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
             />
           </Link>
