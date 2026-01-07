@@ -25,7 +25,7 @@ function Blog({ post, pages, currentP }) {
         </div>
       </div>
 
-      {/* <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
+      <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -75,7 +75,7 @@ function Blog({ post, pages, currentP }) {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </>
   );
 }
@@ -92,7 +92,7 @@ export async function getServerSideProps(context) {
   const itemPerPage = 10;
 
   const idLocale = await getTagId(locale); // es. "it" -> 123
-  const post = await getPosts(idLocale, search);
+  const post = (await getPosts(idLocale, search)) || [];
 
   const filteredPosts = post.filter((el) => {
     return parseInt(categories) !== 0
@@ -109,7 +109,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      post: paginationTrim,
+      post: paginationTrim || [],
       pages: Math.ceil(filteredPosts.length / itemPerPage),
       category,
       currentP: page,
