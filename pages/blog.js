@@ -25,7 +25,7 @@ function Blog({ post, pages, currentP }) {
         </div>
       </div>
 
-      <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
+      {/* <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -75,7 +75,7 @@ function Blog({ post, pages, currentP }) {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 }
