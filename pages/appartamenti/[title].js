@@ -213,26 +213,19 @@ export async function getStaticProps({ params, locale }) {
   };
 }
 
-export async function getStaticPaths({ locale }) {
-  let obj;
+export async function getStaticPaths() {
+  const locales = ["it", "en"];
 
-  switch (locale) {
-    case "it":
-      obj = appartamentiIT;
-      break;
-    case "en":
-      obj = appartamentiEN;
-      break;
-    default:
-      obj = appartamentiIT;
-  }
+  const paths = locales.flatMap((locale) => {
+    const obj = locale === "en" ? appartamentiEN : appartamentiIT;
 
-  const apartments = Object.keys(obj?.appartamenti?.singleApartment || {});
+    const apartments = Object.keys(obj?.appartamenti?.singleApartment || {});
 
-  const paths = apartments.map((el) => ({
-    params: { title: el },
-    locale,
-  }));
+    return apartments.map((title) => ({
+      params: { title },
+      locale,
+    }));
+  });
 
   return {
     paths,

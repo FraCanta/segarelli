@@ -18,10 +18,10 @@ export default function BookingForm({ lang = "it" }) {
   const [notes, setNotes] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
+  const [contactOpen, setContactOpen] = useState(false);
 
-  // Datepicker setup
+  /* Datepicker setup */
   useEffect(() => {
     const today = new Date();
     const tomorrow = new Date();
@@ -60,13 +60,13 @@ export default function BookingForm({ lang = "it" }) {
   }, [lang]);
 
   const increment = (type) => {
-    if (type === "adults") setAdults((prev) => prev + 1);
-    if (type === "children") setChildren((prev) => prev + 1);
+    if (type === "adults") setAdults((p) => p + 1);
+    if (type === "children") setChildren((p) => p + 1);
   };
 
   const decrement = (type) => {
-    if (type === "adults") setAdults((prev) => Math.max(1, prev - 1));
-    if (type === "children") setChildren((prev) => Math.max(0, prev - 1));
+    if (type === "adults") setAdults((p) => Math.max(1, p - 1));
+    if (type === "children") setChildren((p) => Math.max(0, p - 1));
   };
 
   const handleSubmit = async (e) => {
@@ -85,7 +85,6 @@ export default function BookingForm({ lang = "it" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           firstName,
-          lastName,
           phone,
           checkIn: checkInRef.current.value,
           checkOut: checkOutRef.current.value,
@@ -99,214 +98,153 @@ export default function BookingForm({ lang = "it" }) {
       const data = await res.json();
       if (data.message) {
         alert(lang === "it" ? "Prenotazione inviata!" : "Booking sent!");
-        // reset form
         setAdults(1);
         setChildren(0);
         setNotes("");
         setEmail("");
+        setFirstName("");
+        setPhone("");
       } else {
         alert(lang === "it" ? "Errore nell'invio" : "Error sending booking");
       }
     } catch (error) {
-      console.error(error);
-      alert(lang === "it" ? "Errore nella connessione" : "Connection error");
+      alert(lang === "it" ? "Errore di connessione" : "Connection error");
     }
   };
 
   return (
-    <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
-      {/* Date Pickers */}
-      <div className="grid grid-cols-2 gap-6">
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1 normal-case text-left">
+    <form className="flex flex-col gap-6 mb-8" onSubmit={handleSubmit}>
+      {/* Date pickers */}
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <label className="text-md font-medium mb-2 text-primary normal-case">
             {lang === "it" ? "Data di arrivo" : "Check-in Date"}
           </label>
-          <div className="flex items-center justify-between border border-blu/20 px-2 text-blu">
-            <input
-              ref={checkInRef}
-              className="flex-1 air-input py-2 focus:outline-none"
-              placeholder={
-                lang === "it" ? "Seleziona una data" : "Select a date"
-              }
-            />
-            <Icon
-              icon="clarity:calendar-line"
-              width="18"
-              height="18"
-              className="text-blu"
-            />
+          <div className="flex items-center border border-blu/20 px-2">
+            <input ref={checkInRef} className="flex-1 py-2 air-input" />
+            <Icon icon="clarity:calendar-line" width="18" />
           </div>
         </div>
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1 normal-case text-left">
+
+        <div>
+          <label className="text-md font-medium mb-2 text-primary normal-case">
             {lang === "it" ? "Data di partenza" : "Check-out Date"}
           </label>
-          <div className="flex items-center justify-between border border-blu/20 px-2 text-blu">
-            <input
-              ref={checkOutRef}
-              className="flex-1 air-input py-2 focus:outline-none"
-              placeholder={
-                lang === "it" ? "Seleziona una data" : "Select a date"
-              }
-            />
-            <Icon
-              icon="clarity:calendar-line"
-              width="18"
-              height="18"
-              className="text-blu"
-            />
+          <div className="flex items-center border border-blu/20 px-2">
+            <input ref={checkOutRef} className="flex-1 py-2 air-input" />
+            <Icon icon="clarity:calendar-line" width="18" />
           </div>
         </div>
       </div>
-
-      {/* Guests Picker */}
+      <div className="w-full bg-primary/30 h-[0.1px]" />
+      {/* Guests */}
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <span className="text-lg text-blu font-medium">
-            {lang === "it" ? "Adulti" : "Adults"}
-          </span>
-          <div className="flex items-center gap-2 border border-blu/20 text-blu px-2">
-            <button
-              type="button"
-              onClick={() => decrement("adults")}
-              className="text-lg p-1"
-            >
-              <Icon icon="mdi-light:minus" width="20px" height="20px" />
-            </button>
-            <span className="w-6 text-center">{adults}</span>
-            <button
-              type="button"
-              onClick={() => increment("adults")}
-              className="text-lg p-1"
-            >
-              <Icon icon="mdi-light:plus" width="20px" height="20px" />
-            </button>
+        {[
+          {
+            key: "adults",
+            labelIt: "Adulti",
+            labelEn: "Adults",
+            value: adults,
+          },
+          {
+            key: "children",
+            labelIt: "Bambini",
+            labelEn: "Children",
+            value: children,
+          },
+        ].map((item) => (
+          <div key={item.key} className="flex justify-between">
+            <label className="text-md font-medium normal-case text-primary">
+              {lang === "it" ? item.labelIt : item.labelEn}
+            </label>
+            <div className="flex items-center gap-2 border border-blu/20 px-2">
+              <button type="button" onClick={() => decrement(item.key)}>
+                <Icon icon="mdi-light:minus" width="20" />
+              </button>
+              <span className="w-6 text-center">{item.value}</span>
+              <button type="button" onClick={() => increment(item.key)}>
+                <Icon icon="mdi-light:plus" width="20" />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center justify-between">
-          <span className="text-lg text-blu font-medium">
-            {lang === "it" ? "Bambini" : "Children"}
-          </span>
-          <div className="flex items-center gap-2 border border-blu/20 text-blu px-2">
-            <button
-              type="button"
-              onClick={() => decrement("children")}
-              className="text-lg p-1"
-            >
-              <Icon icon="mdi-light:minus" width="20px" height="20px" />
-            </button>
-            <span className="w-6 text-center">{children}</span>
-            <button
-              type="button"
-              onClick={() => increment("children")}
-              className="text-lg p-1"
-            >
-              <Icon icon="mdi-light:plus" width="20px" height="20px" />
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
-      <div className="flex gap-2">
-        {/* Nome */}
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1">
-            {lang === "it" ? "Nome" : "First Name"}
-          </label>
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            className="border border-blu/20 p-2 focus:outline-none focus:ring-1 focus:ring-blu/50 air-input"
-            placeholder={
-              lang === "it" ? "Inserisci il nome" : "Enter first name"
-            }
-            required
-          />
-        </div>
-        {/* Cognome */}
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1">
-            {lang === "it" ? "Cognome" : "Last Name"}
-          </label>
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            className="border border-blu/20 p-2 focus:outline-none focus:ring-1 focus:ring-blu/50 air-input"
-            placeholder={
-              lang === "it" ? "Inserisci il cognome" : "Enter last name"
-            }
-            required
-          />
-        </div>
-      </div>
-      <div className="flex gap-2">
-        {/* Telefono */}
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1">
-            {lang === "it" ? "Telefono" : "Phone"}
-          </label>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="border border-blu/20 p-2 focus:outline-none focus:ring-1 focus:ring-blu/50 air-input"
-            placeholder={
-              lang === "it"
-                ? "Inserisci il numero di telefono"
-                : "Enter phone number"
-            }
-            required
-          />
-        </div>
+      <div className="w-full bg-primary/30 h-[0.1px]" />
 
-        {/* Email */}
-        <div className="flex flex-col">
-          <label className="text-lg font-medium text-primary mb-1 normal-case text-left">
-            {lang === "it" ? "Email" : "Email"}
-          </label>
-          <input
-            type="email"
-            className="border border-blu/20 p-2 text-blu focus:outline-none focus:ring-1 focus:ring-blu/50 air-input"
-            placeholder={
-              lang === "it" ? "Inserisci la tua email" : "Enter your email"
-            }
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+      {/* ACCORDION – DATI CONTATTO */}
+      <div className="">
+        <button
+          type="button"
+          onClick={() => setContactOpen(!contactOpen)}
+          className="w-full flex items-center justify-between py-3 text-left"
+        >
+          <div>
+            <p className="font-medium text-primary text-md">
+              {lang === "it" ? "Dati di contatto*" : "Contact details*"}
+            </p>
+            <p className="text-sm text-blu/60">
+              {lang === "it"
+                ? "Servono solo per ricontattarti e confermare la richiesta"
+                : "Used only to contact you and confirm the request"}
+            </p>
+          </div>
+          <Icon
+            icon="mdi:chevron-down"
+            className={`transition-transform text-blu/80 ${
+              contactOpen ? "rotate-180" : ""
+            }`}
+            width="24"
           />
-        </div>
+        </button>
+
+        {contactOpen && (
+          <div className="py-4 flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder={lang === "it" ? "Nome e cognome*" : "Full name*"}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className="border border-blu/20 p-2 air-input"
+            />
+
+            <input
+              type="tel"
+              placeholder={lang === "it" ? "Telefono*" : "Phone*"}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className="border border-blu/20 p-2 air-input"
+            />
+
+            <input
+              type="email"
+              placeholder="Email*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="border border-blu/20 p-2 air-input"
+            />
+          </div>
+        )}
       </div>
+
       {/* Notes */}
-      <div className="flex flex-col">
-        <label className="text-lg font-medium text-primary mb-1 normal-case text-left">
-          {lang === "it" ? "Note" : "Notes"}
-        </label>
-        <textarea
-          className="border border-blu/20 p-2 text-blu focus:outline-none focus:ring-1 focus:ring-blu/50 air-input"
-          placeholder={
-            lang === "it" ? "Inserisci eventuali note..." : "Enter any notes..."
-          }
-          rows={4}
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-        />
-      </div>
+      <textarea
+        className="border border-blu/20 p-2 air-input"
+        placeholder={lang === "it" ? "Note..." : "Notes..."}
+        rows={4}
+        value={notes}
+        onChange={(e) => setNotes(e.target.value)}
+      />
 
-      {/* Submit Button */}
+      {/* Submit */}
       <button
         type="submit"
-        className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 bg-siena rounded-full text-white uppercase tracking-wide xl:text-sm 2xl:text-base w-full justify-center lg:max-w-max flex items-center gap-2"
+        className="px-6 py-4 bg-siena rounded-full text-white uppercase flex justify-center gap-2"
       >
-        <span className="split-hover flex flex-col justify-center relative">
-          <span className="line line-normal block p-1">
-            {lang === "it" ? "Prenota" : "Book"}
-          </span>
-          <span className="line line-hover block absolute top-0 left-0 w-full p-1">
-            {lang === "it" ? "Prenota" : "Book"}
-          </span>
-        </span>
-        <Icon icon="prime:arrow-up-right" width="24" height="24" />
+        {lang === "it" ? "Prenota" : "Book"}
+        <Icon icon="prime:arrow-up-right" width="24" />
       </button>
     </form>
   );

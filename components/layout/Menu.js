@@ -9,6 +9,7 @@ import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import ButtonPrimaryOutline from "./ButtonPrimaryOutline";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
+import GoogleTranslate from "next-google-translate-widget";
 
 function Menu({ translation, isDarkHero = true }) {
   const { locale } = useRouter();
@@ -185,7 +186,6 @@ function Menu({ translation, isDarkHero = true }) {
           </li>
         </ul>
       </nav>
-
       {/* LOGO */}
       <Link
         href="/"
@@ -201,7 +201,6 @@ function Menu({ translation, isDarkHero = true }) {
           }`}
         />
       </Link>
-
       {/* CTA */}
       <div className="hidden lg:flex items-center gap-4 flex-1 justify-end z-50">
         {isDarkHero && !scrolled ? (
@@ -222,8 +221,7 @@ function Menu({ translation, isDarkHero = true }) {
           </ButtonPrimaryOutline>
         )}
         <ButtonSecondary>{translation?.[locale]?.book}</ButtonSecondary>
-      </div>
-
+      </div>{" "}
       {/* Megamenu */}
       <div
         ref={megaMenuRef}
@@ -331,7 +329,6 @@ function Menu({ translation, isDarkHero = true }) {
           </div>
         </div>
       </div>
-
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-primary/30 transition-opacity duration-500 ${

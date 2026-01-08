@@ -2270,6 +2270,11 @@ next-compose-plugins@^2.2.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
   integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
+next-google-translate-widget@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/next-google-translate-widget/-/next-google-translate-widget-1.0.1.tgz#9880dc58f3b56b5d535f3e6baf04112b1ba9ef20"
+  integrity sha512-56RMXg86U3ybh6TtB0MB/wjql2niM35cMZqnzqaDRwRJjRcqXWmk1lm8e0MkZJjLT58eUZgh94+yP+FrGG5+vQ==
+
 next-i18next@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-15.4.2.tgz#b2bc80ad77e92433e6bf2821bbb76c2630347495"

@@ -5,7 +5,7 @@ import { getPagesByIds } from "@/utils/wordpress";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import "glightbox/dist/css/glightbox.css";
-
+import GoogleTranslate from "next-google-translate-widget";
 function DintorniPage({ pages, currentPage }) {
   useEffect(() => {
     let lightbox;
@@ -62,6 +62,10 @@ function DintorniPage({ pages, currentPage }) {
           __html: currentPage.content,
         }}
       />
+      {/* Widget traduzione solo se slug o campo meta soddisfa la condizione */}
+      <div className="my-10">
+        <GoogleTranslate pageLanguage="en" includedLanguages="bn,en" />
+      </div>
 
       <section className="my-20 grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
         {pages
@@ -94,12 +98,16 @@ function DintorniPage({ pages, currentPage }) {
 export default DintorniPage;
 
 export async function getStaticPaths() {
+  const locales = ["it", "en"];
   const PAGE_IDS = [2248, 2026, 1997, 1957];
   const pages = await getPagesByIds(PAGE_IDS);
 
-  const paths = pages.map((page) => ({
-    params: { slug: page.slug },
-  }));
+  const paths = locales.flatMap((locale) =>
+    pages.map((page) => ({
+      params: { slug: page.slug },
+      locale,
+    }))
+  );
 
   return {
     paths,

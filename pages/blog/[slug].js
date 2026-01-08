@@ -193,7 +193,14 @@ function PostPage({ post, featuredMedia, recent }) {
 export default PostPage;
 
 export async function getStaticPaths() {
-  const paths = await getSlugs("posts");
+  const slugs = await getSlugs("posts"); // una volta sola
+
+  const paths = ["it", "en"].flatMap((locale) =>
+    slugs.map((p) => ({
+      params: { slug: p.params.slug },
+      locale,
+    }))
+  );
 
   return {
     paths,

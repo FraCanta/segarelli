@@ -11,6 +11,7 @@ import { MaskText } from "@/components/layout/MaskText";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import Reviews from "@/components/Reviews";
+import GoogleTranslate from "next-google-translate-widget";
 
 const features = [
   {
@@ -146,6 +147,7 @@ export default function Home({ post, pages }) {
           ))}
         </div>
       </section>
+
       <section>
         <CategoriesCarousel />
       </section>
