@@ -105,10 +105,12 @@ const BlogSection = ({ post }) => {
             </div>
           </div>
         </div>
-
-        <ButtonPrimary link="/blog" title="Leggi le nostre notizie">
-          Leggi tutti gli articoli
-        </ButtonPrimary>
+        <div className="pr-4">
+          {" "}
+          <ButtonPrimary link="/blog" title="Leggi le nostre notizie">
+            Leggi tutti gli articoli
+          </ButtonPrimary>
+        </div>
       </div>
     </div>
   );
