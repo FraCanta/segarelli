@@ -4,26 +4,36 @@ import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 import { createPortal } from "react-dom";
 import BookingForm from "../Book/BookingForm";
+import BookingFormMeals from "../Book/BookingFormMeals";
 
 function ButtonSecondary({ children, onClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("sleep");
-  const { locale } = useRouter();
+  const { locale, pathname } = useRouter();
   const [mounted, setMounted] = useState(false);
 
   // evita problemi SSR con Next.js
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
+
+  // gestisce apertura drawer e scelta tab
+  const handleOpen = () => {
+    onClick?.(); // chiude il menu mobile se presente
+
+    // se siamo nella pagina /eat apriamo Eat, altrimenti Sleep
+    if (pathname.startsWith("/mangiare-in-agriturismo")) {
+      setActiveTab("eat");
+    } else {
+      setActiveTab("sleep");
+    }
+
+    setIsOpen(true);
+  };
 
   return (
     <>
       <button
         className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 bg-siena rounded-full text-white uppercase tracking-wide text-base xl:text-sm 2xl:text-base w-full justify-center lg:max-w-max flex items-center gap-2"
-        onClick={() => {
-          onClick?.(); // chiude il menu mobile
-          setIsOpen(true); // apre il drawer
-        }}
+        onClick={handleOpen}
       >
         <span className="split-hover flex flex-col justify-center relative">
           <span className="line line-normal block p-1">{children}</span>
@@ -50,8 +60,7 @@ function ButtonSecondary({ children, onClick }) {
 
                 {/* Drawer */}
                 <motion.div
-                  className="fixed top-0 right-0 h-full w-full md:w-[500px]
-                             bg-[#f8f6ec] z-[100] shadow-xl flex flex-col overflow-hidden"
+                  className="fixed top-0 right-0 h-full w-full md:w-[500px] bg-[#f8f6ec] z-[100] shadow-xl flex flex-col overflow-hidden"
                   initial={{ x: "100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
@@ -118,9 +127,25 @@ function ButtonSecondary({ children, onClick }) {
                     )}
 
                     {activeTab === "eat" && (
-                      <div className="text-gray-500 italic">
-                        (Contenuto Eat — placeholder per ora)
-                      </div>
+                      <>
+                        {/* Titolo */}
+                        <div className="text-2xl sm:text-3xl normal-case mb-4 text-left">
+                          <h2>
+                            {locale === "it"
+                              ? "Prenota la tua colazione"
+                              : "Book your breakfast"}
+                          </h2>
+                        </div>
+
+                        {/* Introduzione */}
+                        <p className="text-base text-blu/70 mb-8 leading-relaxed">
+                          {locale === "it"
+                            ? "La colazione è riservata agli ospiti e va prenotata entro le 17 del giorno precedente."
+                            : "Breakfast is only for guests and must be booked by 5 PM the day before."}
+                        </p>
+
+                        <BookingFormMeals />
+                      </>
                     )}
                   </div>
                 </motion.div>

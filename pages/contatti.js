@@ -1,10 +1,58 @@
 import AccordionContatti from "@/components/Accordion/AccordionContatti";
+import ContattiForm from "@/components/Book/ContattiForm";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 
 function Contatti() {
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    apartment: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState(null); // 'success', 'error', null
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch("/api/contatti", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Errore invio form");
+
+      setStatus("success");
+      setFormData({
+        name: "",
+        surname: "",
+        email: "",
+        apartment: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <div className="my-20 lg:my-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -28,147 +76,18 @@ function Contatti() {
           width="600"
           height="850"
           style={{ border: "0" }}
-          allowfullscreen=""
+          allowFullScreen
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
           className="!h-[650px]"
         ></iframe>
       </div>
+
       <SectionBreak />
-      {/* WRAPPER FORM */}
-      <div className="my-32 px-6 sm:px-10 max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-5xl my-10 text-center">
-          Preferisci mandarci un messaggio?
-        </h2>
 
-        <form action="https://" method="POST" className="space-y-5">
-          {/* NOME + COGNOME */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm  text-blu/80 uppercase"
-              >
-                Nome
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-                required
-              />
-            </div>
+      {/* FORM */}
+      <ContattiForm />
 
-            <div>
-              <label
-                htmlFor="surname"
-                className="block text-sm  text-blu/80 uppercase"
-              >
-                Cognome
-              </label>
-              <input
-                type="text"
-                id="surname"
-                name="surname"
-                className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-                required
-              />
-            </div>
-          </div>
-
-          {/* EMAIL */}
-          <div>
-            <label
-              className="block text-sm  text-blu/80 uppercase"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-              required
-            />
-          </div>
-
-          {/* APPARTAMENTO */}
-          <div>
-            <label
-              className="block text-sm  text-blu/80 uppercase"
-              htmlFor="apartment"
-            >
-              Appartamento
-            </label>
-            <select
-              id="apartment"
-              name="apartment"
-              className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-              defaultValue=""
-              required
-            >
-              <option value="" disabled>
-                Seleziona un appartamento
-              </option>
-              <option value="mare-aurora">Mare Aurora</option>
-              <option value="residenza-oliva">Residenza Oliva</option>
-              <option value="villa-luna">Villa Luna</option>
-            </select>
-          </div>
-
-          {/* SUBJECT */}
-          <div>
-            <label
-              className="block text-sm text-blu/80 uppercase"
-              htmlFor="subject"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-              required
-            />
-          </div>
-
-          {/* MESSAGGIO */}
-          <div>
-            <label
-              className="block text-sm text-blu/80 uppercase"
-              htmlFor="message"
-            >
-              Messaggio
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              className="w-full p-2.5 border border-blu/60 mt-1 focus:outline-none focus:ring-1 focus:ring-primary/50"
-              required
-            ></textarea>
-          </div>
-
-          {/* CTA */}
-          <button
-            type="submit"
-            className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide text-base w-full justify-center lg:max-w-max flex items-center gap-2"
-          >
-            <span className="split-hover flex flex-col justify-center relative">
-              <span className="line line-normal block p-1">
-                Invia richiesta
-              </span>
-              <span className="line line-hover block absolute top-0 left-0 w-full p-1">
-                Invia richiesta
-              </span>
-            </span>
-            <Icon icon="prime:arrow-up-right" width="24" height="24" />
-          </button>
-        </form>
-      </div>
       <CategoriesCarousel />
     </div>
   );

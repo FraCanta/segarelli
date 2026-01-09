@@ -30,31 +30,47 @@ function PostPage({ post, featuredMedia, recent }) {
   }, [post]);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     let lightbox;
 
     const initLightbox = async () => {
-      if (typeof window === "undefined") return;
-
       const GLightbox = (await import("glightbox")).default;
       await import("glightbox/dist/css/glightbox.css");
 
-      const links = document.querySelectorAll(".gallery a");
+      // Trova tutti i link delle gallerie
+      const links = document.querySelectorAll(
+        ".gallery a, .wp-block-gallery a"
+      );
       if (!links.length) return;
 
-      links.forEach((link) => {
-        link.classList.add("glightbox");
-      });
+      // Assicura che abbiano la classe glightbox
+      links.forEach((link) => link.classList.add("glightbox"));
 
+      // Distruggi eventuali lightbox già inizializzati
+      if (lightbox) lightbox.destroy();
+
+      // Inizializza GLightbox con la classe corretta
       lightbox = GLightbox({
-        selector: ".gallery a",
+        selector: ".glightbox",
         loop: true,
         touchNavigation: true,
       });
+
+      // Ricollega tutti i link al lightbox per il primo click
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          lightbox.openAt(Array.from(links).indexOf(link));
+        });
+      });
     };
 
-    initLightbox();
+    // Piccolo delay per assicurarsi che il DOM sia completamente montato
+    const timeout = setTimeout(initLightbox, 50);
 
     return () => {
+      clearTimeout(timeout);
       if (lightbox) lightbox.destroy();
     };
   }, [post]);

@@ -5,34 +5,49 @@ import { getPagesByIds } from "@/utils/wordpress";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import "glightbox/dist/css/glightbox.css";
-import GoogleTranslate from "next-google-translate-widget";
 function DintorniPage({ pages, currentPage }) {
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     let lightbox;
 
     const initLightbox = async () => {
-      if (typeof window === "undefined") return;
-
       const GLightbox = (await import("glightbox")).default;
       await import("glightbox/dist/css/glightbox.css");
 
-      const links = document.querySelectorAll(".wp-block-gallery a");
+      // Trova tutti i link delle gallerie
+      const links = document.querySelectorAll(
+        ".wp-block-gallery a, .gallery a"
+      );
       if (!links.length) return;
 
-      links.forEach((link) => {
-        link.classList.add("glightbox");
-      });
+      // Assicura che abbiano la classe glightbox
+      links.forEach((link) => link.classList.add("glightbox"));
 
+      // Distruggi eventuali lightbox già inizializzati
+      if (lightbox) lightbox.destroy();
+
+      // Inizializza GLightbox con la classe corretta
       lightbox = GLightbox({
-        selector: ".wp-block-gallery a",
+        selector: ".glightbox",
         loop: true,
         touchNavigation: true,
       });
+
+      // Ricollega tutti i link al lightbox per il primo click
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          lightbox.openAt(Array.from(links).indexOf(link));
+        });
+      });
     };
 
-    initLightbox();
+    // Piccolo delay per assicurarsi che il DOM sia completamente montato
+    const timeout = setTimeout(initLightbox, 50);
 
     return () => {
+      clearTimeout(timeout);
       if (lightbox) lightbox.destroy();
     };
   }, [pages]);
@@ -62,10 +77,6 @@ function DintorniPage({ pages, currentPage }) {
           __html: currentPage.content,
         }}
       />
-      {/* Widget traduzione solo se slug o campo meta soddisfa la condizione */}
-      <div className="my-10">
-        <GoogleTranslate pageLanguage="en" includedLanguages="bn,en" />
-      </div>
 
       <section className="my-20 grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
         {pages

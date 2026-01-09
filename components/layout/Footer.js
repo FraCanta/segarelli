@@ -35,7 +35,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/appartamenti"
+                    href="/mangiare-in-agriturismo"
                     className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
@@ -48,7 +48,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/appartamenti"
+                    href="/relax-e-natura-da-segarelli"
                     className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
@@ -61,7 +61,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/appartamenti"
+                    href="/scopri-i-dintorni"
                     className="text-white text-4xl lg:text-5xl 2xl:text-6xl"
                   >
                     <span className="split-hover flex flex-col justify-center">
