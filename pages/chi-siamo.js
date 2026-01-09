@@ -196,7 +196,7 @@ function ChiSiamo({ post }) {
           <SliderAppartamento slides={gallery} />
         </div>
       </div>
-      <div className="my-20 lg:text-center bg-primary/10 py-20 flex flex-col gap-4 px-4">
+      <div className="my-20 lg:text-center flex flex-col gap-4 px-4">
         <MaskText>
           <h2 className="text-blu text-3xl 2xl:text-[46px] leading-[1.2]">
             Oggi
