@@ -4,7 +4,7 @@ import Link from "next/link";
 function ButtonPrimaryOutline({ children, link, title, icon, target }) {
   return (
     <Link
-      className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 border border-primary rounded-full tracking-wide   text-primary xl:text-sm 2xl:text-base font-semibold  justify-center uppercase w-full lg:max-w-max flex items-center gap-2"
+      className="px-6 py-4 lg:px-6 lg:py-3 2xl:px-8 2xl:py-4 border border-primary rounded-full tracking-wide text-base  text-primary xl:text-sm 2xl:text-base font-semibold  justify-center uppercase w-full lg:max-w-max flex items-center gap-2"
       href={link}
       rel="noopener noreferrer"
       title={title}

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import ButtonSecondary from "./ButtonSecondary";
+import ButtonWhiteOutline from "./ButtonWhiteOutline";
+import ButtonPrimaryOutline from "./ButtonPrimaryOutline";
 
 function Mobile({ isDarkHero = true }) {
   const { locale, pathname } = useRouter();
@@ -166,7 +168,6 @@ function Mobile({ isDarkHero = true }) {
               )}
             </AnimatePresence>
           </li>
-
           {/* Altri link */}
           <li>
             <Link href="/chi-siamo" onClick={() => setShowMenu(false)}>
@@ -183,6 +184,19 @@ function Mobile({ isDarkHero = true }) {
               <span>Blog</span>
             </Link>
           </li>
+          <div className="flex flex-col gap-4 ">
+            <ButtonPrimaryOutline
+              link="https://wa.me/+393477447180"
+              icon="basil:whatsapp-outline"
+              target="_blank"
+            >
+              Chiamaci
+            </ButtonPrimaryOutline>
+
+            <ButtonSecondary onClick={() => setShowMenu(false)}>
+              Prenota
+            </ButtonSecondary>
+          </div>{" "}
         </ul>
 
         {/* Footer */}

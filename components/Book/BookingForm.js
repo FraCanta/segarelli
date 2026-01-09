@@ -115,7 +115,7 @@ export default function BookingForm({ lang = "it" }) {
   return (
     <form className="flex flex-col gap-6 mb-8" onSubmit={handleSubmit}>
       {/* Date pickers */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         <div>
           <label className="text-md font-medium mb-2 text-primary normal-case">
             {lang === "it" ? "Data di arrivo" : "Check-in Date"}
