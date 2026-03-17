@@ -13,6 +13,7 @@ import { ParagraphText } from "@/components/layout/ParagraphText";
 import Reviews from "@/components/Reviews";
 import homeIT from "../public/locales/it/home.json";
 import homeEN from "../public/locales/en/home.json";
+import { useRouter } from "next/router";
 
 function FeatureItem({ title, src, desktopOnly = false }) {
   return (
@@ -41,7 +42,7 @@ function FeatureItem({ title, src, desktopOnly = false }) {
 }
 
 export default function Home({ post, pages, translation }) {
-  console.log(translation);
+  const { locale } = useRouter();
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5], {
     clamp: true,
