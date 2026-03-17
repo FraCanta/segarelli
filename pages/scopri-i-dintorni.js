@@ -51,7 +51,11 @@ function Dintorni({ pages, post, translation }) {
         </motion.div>
       </div>
       <div className="py-10">
-        <AttivitaSection pages={pages} post={post} />
+        <AttivitaSection
+          pages={pages}
+          post={post}
+          translation={translation.activities}
+        />
       </div>
 
       <div className="py-20 flex flex-col gap-20 bg-primary/10">
@@ -79,9 +83,9 @@ function Dintorni({ pages, post, translation }) {
       </div>
 
       <SectionBreak />
-      <CategoriesCarousel />
+      <CategoriesCarousel translation={translation} />
       <div className="py-20">
-        <BlogSection post={post} />
+        <BlogSection post={post} translation={translation.blog} />
       </div>
     </>
   );

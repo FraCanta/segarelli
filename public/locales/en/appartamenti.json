@@ -2,44 +2,139 @@
   "appartamenti": {
     "title": "Sleep",
     "herobg": "/assets/sleep2.jpg",
-    "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
-    "subtitle1": "I nostri appartamenti",
-    "title1": "Un soggiorno da vivere, non solo da raccontare",
-    "paragraph1": "All’Agriturismo Segarelli accogliamo i nostri ospiti dal 2008, condividendo il piacere di una vacanza autentica in Toscana.\nTre appartamenti indipendenti, natura intorno e una storia che continua con chi sceglie di viverla\n",
+    "description": "Discover our spacious and welcoming apartments, ideal for a comfortable stay surrounded by nature.",
+    "subtitle1": "Our apartments",
+    "title1": "A stay to experience, not just to tell",
+    "paragraph1": "At Agriturismo Segarelli we have been welcoming our guests since 2008, sharing the pleasure of an authentic holiday in Tuscany.\nThree independent apartments, nature all around, and a story that continues with those who choose to live it\n",
+    "features": [
+      {
+        "title": ["Expansive", "Garden"],
+        "src": "/assets/garden.svg"
+      },
+      {
+        "title": ["Close to", "Attractions"],
+        "src": "/assets/attraction.svg"
+      },
+      {
+        "title": ["Timeless", "Design"],
+        "src": "/assets/design.svg"
+      },
+      {
+        "title": ["Eco-", "Friendly"],
+        "src": "/assets/green.svg"
+      },
+      {
+        "title": ["Loved by", "Locals"],
+        "src": "/assets/locals.svg"
+      }
+    ],
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural, and unpretentious experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the surroundings",
+        "text": "Walk, explore, relax: every corner has its surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Explore medieval villages and enjoy local events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Learn more"
+      }
+    ],
+    "reviewsTitle": "Experiences from Agriturismo Segarelli",
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Through Hills, Valleys and The Sea"
+      },
+      "description": "The guests can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Here throughout the summer, almost every Sunday, it takes place local festivals that are always accompanied by a tasting of local products. Also during the spring-summer-autumn  excursions, trekking and other activities are organized"
+    },
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    },
+    "othersTitle": "Discover our other apartments",
+    "accordionSection": "Useful information",
+    "accordionData": [
+      {
+        "title": "What makes Agriturismo Segarelli unique?",
+        "content": "At Agriturismo Segarelli you will find the sounds, colors, and scents typical of the Tuscan countryside. The blue sky reflecting in the pool water, the green of the meadow and the surrounding woods ensuring privacy and tranquility; the warm colors of the massive walls, which alone tell the story of this place, dating back at least to 1680; the deep red geraniums, carefully tended by Norma."
+      },
+      {
+        "title": "What activities are available nearby?",
+        "content": "Agriturismo Segarelli is in a strategic location, in the heart of Tuscany: 30 minutes from Volterra, one hour from Siena, just over an hour from Pisa or Lucca, and an hour and a half from Florence. In addition, in just half an hour you can reach the coast that was so cherished by the Etruscans."
+      },
+      {
+        "title": "Is the swimming pool available all year round?",
+        "content": "Unfortunately, no. The pool is open seasonally, generally from May to September, depending on weather conditions."
+      },
+      {
+        "title": "Are you open all year round?",
+        "content": "Yes, of course! Did you know that this area is historically famous for geothermal energy? Here, to keep warm, we use steam that is also used to produce electricity. So you can relax — in winter, it’s always cozy here."
+      }
+    ],
     "apartments": [
       {
         "name": "Acacia",
-        "description": "Appartamento ( 42mq ) raccolto e accogliente, pensato per coppie che desiderano un soggiorno pratico e rilassante, senza rinunciare a privacy e calore domestico",
+        "description": "A cozy and welcoming apartment (42 sqm), designed for couples who want a practical and relaxing stay without giving up privacy and a warm, homely atmosphere",
         "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
-        "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" }
+        "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
       },
       {
         "name": "Edera",
-        "description": "Ampio appartamento ( 70mq ) ideale per coppie, al piano superiore e con terrazzo panoramico sul parco di Monte Rufoli. Perfetto per chi cerca comfort, luminosità e momenti di relax con vista",
+        "description": "Spacious apartment (70 sqm) ideal for couples, located on the upper floor with a panoramic terrace overlooking Monte Rufoli park. Perfect for those looking for comfort, brightness and relaxing moments with a view",
         "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
-        "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" }
+        "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
       },
       {
         "name": "Gelsomino",
-        "description": "Un appartamento ( 80mq ) su due piani pensato per amici o famiglie, con soggiorno ampio e luminoso, cucina attrezzata e due camere matrimoniali. Ogni dettaglio è studiato per unire momenti di convivialità e spazi privati, per un soggiorno rilassante e senza stress",
+        "description": "An apartment (80 sqm) on two floors designed for friends or families, with a large and bright living room, equipped kitchen and two double bedrooms. Every detail is designed to combine shared moments and private spaces for a relaxing and stress-free stay",
         "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
         "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
-        "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" }
+        "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
       }
     ],
+    "check": "Check availability",
+
     "singleApartment": {
       "acacia": {
         "name": "Acacia",
-        "title": "Intimità e comfort in ogni angolo",
+        "title": "Intimacy and comfort in every corner",
         "img": "/assets/appartamenti/acacia/acacia.jpg",
         "SezionePiano0": {
-          "subTitle": "Zona giorno",
-          "title": "Un living caldo e luminoso",
-          "description": "Un ambiente unico con cucina e soggiorno e spazio esterno "
+          "subTitle": "Living area",
+          "title": "A warm and bright living space",
+          "description": "A single space with kitchen and living room and outdoor area"
         },
-
         "galleryPiano0": [
           { "src": "/assets/appartamenti/acacia/fuori.jpg" },
           { "src": "/assets/appartamenti/acacia/door2.jpg" },
@@ -54,11 +149,10 @@
           { "src": "/assets/appartamenti/acacia/gallery9.jpg" }
         ],
         "SezionePiano1": {
-          "subTitle": "Zona notte",
-          "title": "Camera matrimoniale e bagno privato",
-          "description": "Nell'appartamento Acacia troverai una camera matrimoniale accogliente e tranquilla, dove ti godrai sonni rigeneranti"
+          "subTitle": "Sleeping area",
+          "title": "Double bedroom and private bathroom",
+          "description": "In the Acacia apartment you will find a cozy and quiet double bedroom where you can enjoy restful nights"
         },
-
         "galleryPiano1": [
           { "src": "/assets/appartamenti/acacia/gallery10.jpg" },
           { "src": "/assets/appartamenti/acacia/gallery11.jpg" },
@@ -67,72 +161,50 @@
           { "src": "/assets/appartamenti/acacia/gallery14.jpg" },
           { "src": "/assets/appartamenti/acacia/gallery15.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Acacia",
-        "size": "42 mq · Appartamento per 2 persone",
+
+        "titleAmeneties": "What you will find",
+        "size": "42 sqm · Apartment for 2 people",
         "amenetiesItems": [
-          {
-            "name": "Bagno con box doccia",
-            "icon": "mdi:shower"
-          },
-          {
-            "name": "Ferro da stiro",
-            "icon": "lucide-lab:iron"
-          },
-          {
-            "name": "Stendibiancheria",
-            "icon": "game-icons:clothesline"
-          },
-          {
-            "name": "Frigorifero",
-            "icon": "solar:fridge-outline"
-          },
-          {
-            "name": "Microonde",
-            "icon": "streamline:microwave"
-          },
-          {
-            "name": "Divano",
-            "icon": "iconoir:sofa"
-          },
-          {
-            "name": "Wi-Fi",
-            "icon": "material-symbols:wifi"
-          }
+          { "name": "Bathroom with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
+          { "name": "Refrigerator", "icon": "solar:fridge-outline" },
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Sofa", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
         ],
         "prezzi": {
-          "title": "Tariffe Edera",
-          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "title": "Rates",
           "list": [
             {
-              "name": "Bassa stagione",
-              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
-              "nightTitle": "A notte",
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
               "price": "70€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "480€"
             },
-
             {
-              "name": "Alta stagione",
-              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
-              "nightTitle": "A notte",
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
               "price": "80€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "540€"
             }
           ]
         }
       },
+
       "edera": {
         "name": "Edera",
-        "title": "Luce, spazio e vista sul parco",
+        "title": "Light, space and park view",
         "img": "/assets/appartamenti/edera/edera.jpg",
         "SezionePiano0": {
-          "subTitle": "Momenti di relax",
-          "title": "Vivi la tua zona giorno",
-          "description": "Godetevi la quiete e la luce naturale mentre vi rilassate nel soggiorno e nella zona pranzo, con affaccio sul parco di Monte Rufoli"
+          "subTitle": "Moments of relaxation",
+          "title": "Enjoy your living area",
+          "description": "Enjoy the peace and natural light while relaxing in the living room and dining area overlooking Monte Rufoli park"
         },
-
         "galleryPiano0": [
           { "src": "/assets/appartamenti/edera/fuori2.jpg" },
 
@@ -149,11 +221,10 @@
           { "src": "/assets/appartamenti/edera/gallery4.jpg" }
         ],
         "SezionePiano1": {
-          "subTitle": "Intimità con vista",
-          "title": "La camera matrimoniale",
-          "description": "Un rifugio privato per la coppia, con panorama sul parco e atmosfera romantica, ideale per momenti di totale relax"
+          "subTitle": "Privacy with a view",
+          "title": "The double bedroom",
+          "description": "A private retreat for couples, with views over the park and a romantic atmosphere, perfect for moments of complete relaxation"
         },
-
         "galleryPiano1": [
           { "src": "/assets/appartamenti/edera/gallery5.jpg" },
           { "src": "/assets/appartamenti/edera/gallery6.jpg" },
@@ -162,84 +233,55 @@
           { "src": "/assets/appartamenti/edera/gallery9.jpg" },
           { "src": "/assets/appartamenti/edera/gallery10.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Edera",
-        "size": "70 mq · Appartamento per 2 persone",
+        "titleAmeneties": "What you will find",
+        "size": "70 sqm · Apartment for 2 people",
         "amenetiesItems": [
+          { "name": "Bathroom with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
           {
-            "name": "Bagno con box doccia",
-            "icon": "mdi:shower"
-          },
-          {
-            "name": "Ferro da stiro",
-            "icon": "lucide-lab:iron"
-          },
-          {
-            "name": "Stendibiancheria",
-            "icon": "game-icons:clothesline"
-          },
-          {
-            "name": "Frigorifero con congelatore",
+            "name": "Refrigerator with freezer",
             "icon": "solar:fridge-outline"
           },
-          {
-            "name": "Microonde",
-            "icon": "streamline:microwave"
-          },
-          {
-            "name": "Forno",
-            "icon": "fluent:oven-48-regular"
-          },
-          {
-            "name": "Lavastoviglie",
-            "icon": "iconoir:dishwasher"
-          },
-          {
-            "name": "Lavatrice",
-            "icon": "fluent:washer-32-regular"
-          },
-          {
-            "name": "Divano letto",
-            "icon": "iconoir:sofa"
-          },
-          {
-            "name": "Wi-Fi",
-            "icon": "material-symbols:wifi"
-          }
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Oven", "icon": "fluent:oven-48-regular" },
+          { "name": "Dishwasher", "icon": "iconoir:dishwasher" },
+          { "name": "Washing machine", "icon": "fluent:washer-32-regular" },
+          { "name": "Sofa bed", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
         ],
         "prezzi": {
-          "title": "Tariffe Edera",
-          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "title": "Rates",
           "list": [
             {
-              "name": "Bassa stagione",
-              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
-              "nightTitle": "A notte",
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
               "price": "90€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "610€"
             },
-
             {
-              "name": "Alta stagione",
-              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
-              "nightTitle": "A notte",
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
               "price": "100€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "680€"
             }
           ]
         }
       },
+
       "gelsomino": {
         "name": "Gelsomino",
-        "title": "Spazio e comfort per tutti",
+        "title": "Space and comfort for everyone",
         "img": "/assets/appartamenti/gelsomino/gelsomino.jpg",
         "SezionePiano0": {
-          "subTitle": "Vivi la tua zona giorno",
-          "title": "Spazi ampi e funzionali",
-          "description": "Al piano terra si trovano la cucina, la sala da pranzo e il soggiorno in un unico ambiente conviviale, un bagno di servizio con lavanderia e un comodo accesso al giardino privato"
+          "subTitle": "Enjoy your living area",
+          "title": "Spacious and functional spaces",
+          "description": "On the ground floor you will find the kitchen, dining room and living room in one welcoming shared space, a service bathroom with laundry and convenient access to the private garden"
         },
-
         "galleryPiano0": [
           { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
           { "src": "/assets/appartamenti/gelsomino/fuori2.jpg" },
@@ -260,11 +302,10 @@
           { "src": "/assets/appartamenti/gelsomino/gallery8.jpg" },
           { "src": "/assets/appartamenti/gelsomino/gallery9.jpg" }
         ],
-
         "SezionePiano1": {
-          "subTitle": "Zona notte",
-          "title": "Camere e bagni",
-          "description": "Al piano superiore sono presenti due camere da letto matrimoniali e due bagni, ideali per una gestione comoda e funzionale degli spazi"
+          "subTitle": "Sleeping area",
+          "title": "Bedrooms and bathrooms",
+          "description": "On the upper floor there are two double bedrooms and two bathrooms, ideal for a comfortable and functional use of space"
         },
         "galleryPiano1": [
           { "src": "/assets/appartamenti/gelsomino/door.jpg" },
@@ -287,57 +328,39 @@
           { "src": "/assets/appartamenti/gelsomino/gallery26.jpg" },
           { "src": "/assets/appartamenti/gelsomino/gallery27.jpg" }
         ],
-        "titleAmeneties": "Cosa troverai in Gelsomino",
-        "size": "80 mq · Appartamento per gruppi o famiglie",
+        "titleAmeneties": "What you will find",
+        "size": "80 sqm · Apartment for groups or families",
         "amenetiesItems": [
+          { "name": "Bathrooms with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
           {
-            "name": "Bagno con box doccia",
-            "icon": "mdi:shower"
-          },
-          {
-            "name": "Ferro da stiro",
-            "icon": "lucide-lab:iron"
-          },
-          {
-            "name": "Stendibiancheria",
-            "icon": "game-icons:clothesline"
-          },
-          {
-            "name": "Frigorifero",
+            "name": "Refrigerator with freezer",
             "icon": "solar:fridge-outline"
           },
-          {
-            "name": "Microonde",
-            "icon": "streamline:microwave"
-          },
-          {
-            "name": "Divano",
-            "icon": "iconoir:sofa"
-          },
-          {
-            "name": "Wi-Fi",
-            "icon": "material-symbols:wifi"
-          }
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Dishwasher", "icon": "iconoir:dishwasher" },
+          { "name": "Washing machine", "icon": "fluent:washer-32-regular" },
+          { "name": "Sofa", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
         ],
         "prezzi": {
-          "title": "Tariffe Edera",
-          "description": "I prezzi si intendono per appartamento a notte, con soggiorno minimo di 2 notti. I prezzi includono biancheria da letto e da bagno, pulizia finale, consumi di acqua, luce e gas, Wi-Fi e parcheggio.",
+          "title": "Rates",
           "list": [
             {
-              "name": "Bassa stagione",
-              "period": "Dal 7 Gennaio al 30 Giugno - Dal 1 Settembre al 22 Dicembre",
-              "nightTitle": "A notte",
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
               "price": "120€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "820€"
             },
-
             {
-              "name": "Alta stagione",
-              "period": "Dal 1 Luglio al 31 Agosto - dal 23 Dicembre al 6 Gennaio - Pasqua",
-              "nightTitle": "A notte",
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
               "price": "140€",
-              "weekTitle": "A settimana",
+              "weekTitle": "Per week",
               "weekPrice": "950€"
             }
           ]

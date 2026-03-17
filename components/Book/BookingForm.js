@@ -4,6 +4,7 @@ import "air-datepicker/air-datepicker.css";
 import localeIt from "air-datepicker/locale/it";
 import localeEn from "air-datepicker/locale/en";
 import { Icon } from "@iconify/react";
+import toast from "react-hot-toast";
 
 export default function BookingForm({ lang = "it" }) {
   const checkInRef = useRef(null);
@@ -73,8 +74,8 @@ export default function BookingForm({ lang = "it" }) {
     e.preventDefault();
 
     if (!email) {
-      alert(
-        lang === "it" ? "Inserisci un'email valida" : "Enter a valid email"
+      toast.error(
+        lang === "it" ? "Inserisci un'email valida" : "Enter a valid email",
       );
       return;
     }
@@ -92,12 +93,15 @@ export default function BookingForm({ lang = "it" }) {
           children,
           notes,
           email,
+          lang, // <- aggiungi la lingua qui
         }),
       });
 
       const data = await res.json();
       if (data.message) {
-        alert(lang === "it" ? "Prenotazione inviata!" : "Booking sent!");
+        toast.success(
+          lang === "it" ? "Prenotazione inviata!" : "Request sent!",
+        );
         setAdults(1);
         setChildren(0);
         setNotes("");
@@ -105,10 +109,12 @@ export default function BookingForm({ lang = "it" }) {
         setFirstName("");
         setPhone("");
       } else {
-        alert(lang === "it" ? "Errore nell'invio" : "Error sending booking");
+        toast.error(
+          lang === "it" ? "Errore nell'invio" : "Error sending booking",
+        );
       }
     } catch (error) {
-      alert(lang === "it" ? "Errore di connessione" : "Connection error");
+      toast.error(lang === "it" ? "Errore di connessione" : "Connection error");
     }
   };
 

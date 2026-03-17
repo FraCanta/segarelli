@@ -115,7 +115,7 @@ function ButtonSecondary({ children, onClick }) {
                           <h2>
                             {locale === "it"
                               ? "Richiesta di Prenotazione"
-                              : "Booking"}
+                              : "Reservation Request"}
                           </h2>
                         </div>
 
@@ -152,7 +152,7 @@ function ButtonSecondary({ children, onClick }) {
               </>
             )}
           </AnimatePresence>,
-          document.body
+          document.body,
         )}
     </>
   );

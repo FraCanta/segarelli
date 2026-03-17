@@ -1,0 +1,53 @@
+{
+  "contatti": {
+    "title": "Come raggiungerci e contattarci",
+    "address": "Indirizzo",
+    "phone": "Telefono",
+    "gps": "Coordinate GPS",
+    "accordion": [
+      {
+        "title": "Per chi arriva dal mare",
+        "text": "Uscire a Cecina e proseguire sulla ss 68 in direzione di Volterra per circa 30 km – Nel paese di Saline di Volterra, all´incrocio svoltare a destra, oltrepassare la ferrovia e proseguire in direzione di Pomarance per circa 10 km – Superare il paese di Pomarance proseguendo per circa 5 km in direzione di Larderello – 300 m prima del cartello di Montecerboli svoltare a destra e proseguire seguendo i cartelli dell´agriturismo per una strada in salita per circa 1 km – Mantenendosi sempre sulla strada principale si arriva all´agriturismo Segarelli."
+      },
+
+      {
+        "title": "Per chi arriva dalla A1",
+        "text": "A Firenze Nord uscire dall´autostrada e prendere la superstrada Fi-Pi-Li in direzione di Pisa – Uscire a Pontedera e proseguire in direzione di Volterra – A Saline di Volterra, nel centro del paese svoltare a sinistra, oltrepassare la ferrovia, e proseguire in direzione di Pomarance per circa 10 km – Superare il paese di Pomarance proseguendo per circa 5 km in direzione di Larderello – 300 m prima del cartello di Montecerboli svoltare a destra e proseguire seguendo i cartelli dell´agriturismo per una strada in salita per circa 1 km – Mantenendosi sempre sulla strada principale si arriva all´agriturismo Segarelli."
+      }
+    ],
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Dove il tempo rallenta",
+        "text": "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Eat",
+        "tagline": "La semplicità del buon cibo",
+        "text": "Un’esperienza autentica, naturale e senza fronzoli.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Play",
+        "tagline": "Vivi l’ambiente intorno a te",
+        "text": "Passeggia, scopri, rilassati: ogni angolo sorprende.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Non perdere l'occasione",
+        "text": "Scopri i borghi medievali e non perdere eventi tipici.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Scopri di più"
+      }
+    ]
+  }
+}

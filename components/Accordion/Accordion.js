@@ -1,35 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const accordionData = [
-  {
-    title: "Cosa rende l'Agriturismo Segarelli unico?",
-    content:
-      "All’Agriturismo Segarelli troverete i suoni, i colori e i profumi tipici della campagna toscana. L’azzurro del cielo che si riflette nell’acqua della piscina, il verde del prato e del bosco che circonda tutto il podere, garantendo privacy e tranquillità; i caldi colori dei muri possenti, che già da soli raccontano la storia di questo posto, iniziata almeno dal 1680; il rosso intenso dei gerani, che Norma coltiva con molta cura.",
-  },
-  {
-    title: "Quali attività sono disponibili nelle vicinanze?",
-    content:
-      "L’Agriturismo Segarelli si trova in una posizione strategica, nel cuore della Toscana: siamo a 30 minuti da Volterra, un’ora da Siena, poco più di un’ora da Pisa o da Lucca e un’ora e mezza da Firenze. In più, in mezz’ora arriverete sulla costa tanto cara agli Etruschi.",
-  },
-  {
-    title: "La piscina è disponibile tutto l'anno?",
-    content:
-      "Purtroppo no. La piscina è aperta stagionalmente, generalmente da maggio a settembre, a seconda delle condizioni meteorologiche.",
-  },
-  {
-    title: "Siete aperti tutto l'anno?",
-    content:
-      "Si certo! Lo sapevate che questo territorio è storicamente famoso per la geotermia? Qui, per riscaldarci, usiamo il vapore che viene anche usato per produrre energia elettrica. Quindi potete stare tranquilli, durante l’inverno qui si sta al calduccio. ",
-  },
-  {
-    title: "Offrite opzioni di ristorazione in loco?",
-    content:
-      "Mangiare in agriturismo si può e a  noi di Segarelli fa sempre molto piacere! Potrete deliziare il vostro palato con i prodotti dell’orto, che si trova a poca distanza dal podere, e di cui Enzo è molto orgoglioso. E non potete perdervi le torte e altri dolci fatti in casa per la vostra colazione! Se avete bisogno di informazioni e/o volete prenotare, parlerete con Luisa e Luigi: per telefono, mail o social, come preferite. ",
-  },
-];
-
-export default function Accordion() {
+export default function Accordion({ translation }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -38,7 +10,7 @@ export default function Accordion() {
 
   return (
     <div className="s-accordion w-full max-w-4xl mx-auto">
-      {accordionData.map((item, index) => (
+      {translation.map((item, index) => (
         <div key={index} className="accordion relative border-b border-blu/20">
           <div className="accordion-border absolute left-0 top-0 w-full h-full" />
 

@@ -17,31 +17,6 @@ import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import RevealImage from "@/components/layout/RevealImage";
 
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "/assets/garden.svg",
-  },
-
-  {
-    title: ["Vicino", "alle attrazioni"],
-    src: "/assets/attraction.svg",
-  },
-
-  {
-    title: ["Design", "senza tempo"],
-    src: "/assets/design.svg",
-  },
-  {
-    title: ["Eco", "friendly"],
-    src: "/assets/green.svg",
-  },
-  {
-    title: ["Amato", "dai locals"],
-    src: "/assets/locals.svg",
-  },
-];
-
 function FeatureItem({ title, src, desktopOnly = false }) {
   return (
     <div
@@ -122,7 +97,7 @@ function Appartamenti({ pages, post, translation }) {
             <ParagraphText>{translation?.paragraph1}</ParagraphText>
           </div>
           <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
-            {features.map((feature, index) => (
+            {translation.features.map((feature, index) => (
               <FeatureItem key={index} {...feature} />
             ))}
           </div>
@@ -144,13 +119,13 @@ function Appartamenti({ pages, post, translation }) {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-4">
-                <ButtonSecondary>Book Now</ButtonSecondary>
+                <ButtonSecondary>{apt?.ctaSecondary}</ButtonSecondary>
                 <ButtonPrimaryOutline
                   link={`/appartamenti/${apt.name.toLowerCase()}`}
                   title="Scopri di più"
                   target="_self"
                 >
-                  Scopri di più
+                  {apt?.ctaPrimary}
                 </ButtonPrimaryOutline>
               </div>
             </div>
@@ -194,13 +169,13 @@ function Appartamenti({ pages, post, translation }) {
         ))}
       </div>
 
-      <Reviews />
-      <AttivitaSection pages={pages} />
+      <Reviews translation={translation.reviewsTitle} />
+      <AttivitaSection pages={pages} translation={translation.activities} />
 
-      <CategoriesCarousel />
+      <CategoriesCarousel translation={translation} />
       <div className="bg-primary/10 w-full flex items-center py-8">
         {" "}
-        <BlogSection post={post} />
+        <BlogSection post={post} translation={translation.blog} />
       </div>
     </>
   );

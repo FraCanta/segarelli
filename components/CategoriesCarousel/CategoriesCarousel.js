@@ -4,49 +4,16 @@ import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import ButtonSecondary from "../layout/ButtonSecondary";
 import ButtonPrimary from "../layout/ButtonPrimary";
 
-const slides = [
-  {
-    title: "Sleep",
-    tagline: "Dove il tempo rallenta",
-    text: "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
-    bg: "/assets/sleep2.jpg",
-    link: "/appartamenti",
-    cta: "Scopri di più",
-  },
-  {
-    title: "Eat",
-    tagline: "La semplicità del buon cibo",
-    text: "Un’esperienza autentica, naturale e senza fronzoli.",
-    bg: "/assets/eat2.jpg",
-    link: "/mangiare-in-agriturismo",
-  },
-  {
-    title: "Play",
-    tagline: "Vivi l’ambiente intorno a te",
-    text: "Passeggia, scopri, rilassati: ogni angolo sorprende.",
-    bg: "/assets/pool3.jpg",
-    link: "/relax-e-natura-da-segarelli",
-  },
-  {
-    title: "Discover",
-    tagline: "Non perdere l'occasione",
-    text: "Scopri i borghi medievali e non perdere eventi tipici.",
-    bg: "/assets/meet.jpg",
-    link: "/scopri-i-dintorni",
-  },
-];
-
-export default function CategoriesCarousel() {
+export default function CategoriesCarousel({ translation }) {
   const [currentSlide, setCurrentSlide] = useState(1);
   const swiperRef = useRef(null);
 
   return (
     <div className="relative h-screen">
       {/* Background images */}
-      {slides.map((slide, index) => (
+      {translation.slides.map((slide, index) => (
         <div
           key={index}
           style={{ backgroundImage: `url(${slide.bg})` }}
@@ -75,7 +42,7 @@ export default function CategoriesCarousel() {
         }}
         className="relative z-10 h-full"
       >
-        {slides.map((slide, index) => (
+        {translation.slides.map((slide, index) => (
           <SwiperSlide
             key={index}
             className="!w-full lg:!w-[45%] h-full flex items-center justify-center px-4 lg:px-0"
@@ -101,7 +68,7 @@ export default function CategoriesCarousel() {
               </p>
 
               <ButtonPrimary link={slide.link} title={slide.title}>
-                {slide.cta || "Scopri di più"}
+                {slide.cta}
               </ButtonPrimary>
             </div>
           </SwiperSlide>
@@ -113,7 +80,7 @@ export default function CategoriesCarousel() {
       {/* Custom pagination */}
       <div className="swiper-pagination-wrapper light  absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6 z-20">
         <div className="swiper-pagination  flex gap-2">
-          {slides.map((_, index) => (
+          {translation.slides.map((_, index) => (
             <span
               key={index}
               className={`swiper-pagination-bullet ${
@@ -143,7 +110,9 @@ export default function CategoriesCarousel() {
         >
           <span className="swiper-numbers-current">{currentSlide}</span>
           <span className="slash">/</span>
-          <span className="swiper-numbers-total">{slides.length}</span>
+          <span className="swiper-numbers-total">
+            {translation.slides.length}
+          </span>
         </div>
       </div>
     </div>

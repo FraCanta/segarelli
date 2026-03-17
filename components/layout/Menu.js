@@ -9,7 +9,6 @@ import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import ButtonPrimaryOutline from "./ButtonPrimaryOutline";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
-import GoogleTranslate from "next-google-translate-widget";
 
 function Menu({ translation, isDarkHero = true }) {
   const { locale } = useRouter();
@@ -17,63 +16,33 @@ function Menu({ translation, isDarkHero = true }) {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
 
   const megaMenuRef = useRef(null);
-  const timeoutRef = useRef(null);
   const openTimer = useRef(null);
   const closeTimer = useRef(null);
 
-  // Impostazioni iniziali GSAP per evitare il flash
   useLayoutEffect(() => {
     if (megaMenuRef.current) {
-      gsap.set(megaMenuRef.current, {
-        display: "none",
-        height: 0,
-        opacity: 0,
-      });
+      gsap.set(megaMenuRef.current, { display: "none", height: 0, opacity: 0 });
     }
   }, []);
 
-  // Scroll handler
   useLayoutEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // inizializza correttamente al mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Megamenu animations
   useEffect(() => {
     const menu = megaMenuRef.current;
     if (!menu) return;
 
     if (showMegaMenu) {
-      clearTimeout(timeoutRef.current);
       gsap.killTweensOf(menu);
       gsap.set(menu, { display: "block" });
-
       gsap.fromTo(
         menu,
         { height: 0, opacity: 0 },
-        { height: 550, opacity: 1, duration: 0.5, ease: "power2.out" }
-      );
-
-      gsap.fromTo(
-        menu.querySelectorAll(".image-wrapper"),
-        { height: 0, opacity: 0 },
-        {
-          height: "100%",
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.1,
-        }
-      );
-
-      gsap.fromTo(
-        menu.querySelectorAll(".menu-item"),
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }
+        { height: 550, opacity: 1, duration: 0.5, ease: "power2.out" },
       );
     } else {
       gsap.killTweensOf(menu);
@@ -89,16 +58,12 @@ function Menu({ translation, isDarkHero = true }) {
 
   const handleEnter = () => {
     clearTimeout(closeTimer.current);
-    openTimer.current = setTimeout(() => {
-      setShowMegaMenu(true);
-    }, 180);
+    openTimer.current = setTimeout(() => setShowMegaMenu(true), 180);
   };
 
   const handleLeave = () => {
     clearTimeout(openTimer.current);
-    closeTimer.current = setTimeout(() => {
-      setShowMegaMenu(false);
-    }, 100);
+    closeTimer.current = setTimeout(() => setShowMegaMenu(false), 100);
   };
 
   const handleLinkClick = () => {
@@ -107,7 +72,6 @@ function Menu({ translation, isDarkHero = true }) {
     setShowMegaMenu(false);
   };
 
-  // Determina colori e logo in base a isDarkHero e scroll
   const logoSrc = isDarkHero ? (scrolled ? LogoBlack : LogoWhite) : LogoBlack;
   const textColorClass = isDarkHero
     ? scrolled
@@ -122,11 +86,11 @@ function Menu({ translation, isDarkHero = true }) {
 
   return (
     <div
-      className={`hidden lg:flex justify-between border-b px-10 items-center uppercase p-4 top-0 left-0 w-full fixed z-50 transition-all duration-500 ${menuBgClass} `}
+      className={`hidden lg:flex justify-between border-b px-10 items-center uppercase p-4 top-0 left-0 w-full fixed z-50 transition-all duration-500 ${menuBgClass}`}
     >
       {/* MENU */}
       <nav
-        className={`hidden text-sm 2xl:text-base  lg:flex flex-1 font-bold relative z-50 ${textColorClass}`}
+        className={`hidden text-sm 2xl:text-base lg:flex flex-1 font-bold relative z-50 ${textColorClass}`}
       >
         <ul className="flex gap-4 lg:gap-6 2xl:gap-10 items-center">
           {/* Appartamenti */}
@@ -140,9 +104,11 @@ function Menu({ translation, isDarkHero = true }) {
               className="flex items-center gap-2 tracking-wide"
             >
               <span className="split-hover flex flex-col justify-center">
-                <span className="line line-normal block">Appartamenti</span>
+                <span className="line line-normal block">
+                  {translation?.[locale]?.main?.apartments}
+                </span>
                 <span className="line line-hover block absolute top-0 left-0 w-full">
-                  Appartamenti
+                  {translation?.[locale]?.main?.apartments}
                 </span>
               </span>
               <Icon
@@ -152,17 +118,16 @@ function Menu({ translation, isDarkHero = true }) {
             </Link>
           </li>
 
-          {/* Altri menu */}
           <li className="flex">
             <Link
               href="/chi-siamo"
               className="split-hover block relative tracking-wide"
             >
               <span className="line line-normal block pl-[0.1rem]">
-                Chi siamo
+                {translation?.[locale]?.main?.about}
               </span>
               <span className="line line-hover block pl-[0.1rem]">
-                Chi siamo
+                {translation?.[locale]?.main?.about}
               </span>
             </Link>
           </li>
@@ -171,8 +136,12 @@ function Menu({ translation, isDarkHero = true }) {
               href="/contatti"
               className="split-hover block relative tracking-wide"
             >
-              <span className="line line-normal block">Contatti</span>
-              <span className="line line-hover block">Contatti</span>
+              <span className="line line-normal block">
+                {translation?.[locale]?.main?.contact}
+              </span>
+              <span className="line line-hover block">
+                {translation?.[locale]?.main?.contact}
+              </span>
             </Link>
           </li>
           <li className="flex">
@@ -180,12 +149,17 @@ function Menu({ translation, isDarkHero = true }) {
               href="/blog"
               className="split-hover block relative tracking-wide"
             >
-              <span className="line line-normal block">Blog</span>
-              <span className="line line-hover block">Blog</span>
+              <span className="line line-normal block">
+                {translation?.[locale]?.main?.blog}
+              </span>
+              <span className="line line-hover block">
+                {translation?.[locale]?.main?.blog}
+              </span>
             </Link>
           </li>
         </ul>
       </nav>
+
       {/* LOGO */}
       <Link
         href="/"
@@ -194,13 +168,10 @@ function Menu({ translation, isDarkHero = true }) {
         <Image
           src={logoSrc}
           alt="Logo"
-          className={`transition-all duration-500 ${
-            scrolled
-              ? "w-[150px] xl:w-[180px] 2xl:w-[200px]"
-              : "w-[180px] xl:w-[200px] 2xl:w-[240px]"
-          }`}
+          className={`transition-all duration-500 ${scrolled ? "w-[150px] xl:w-[180px] 2xl:w-[200px]" : "w-[180px] xl:w-[200px] 2xl:w-[240px]"}`}
         />
       </Link>
+
       {/* CTA */}
       <div className="hidden lg:flex items-center gap-4 flex-1 justify-end z-50">
         {isDarkHero && !scrolled ? (
@@ -209,7 +180,7 @@ function Menu({ translation, isDarkHero = true }) {
             link="https://wa.me/+393477447180"
             icon="basil:whatsapp-outline"
           >
-            Chiamaci
+            {translation?.[locale]?.cta?.call}
           </ButtonWhiteOutline>
         ) : (
           <ButtonPrimaryOutline
@@ -217,27 +188,28 @@ function Menu({ translation, isDarkHero = true }) {
             icon="basil:whatsapp-outline"
             target="_blank"
           >
-            Chiamaci
+            {translation?.[locale]?.cta?.call}
           </ButtonPrimaryOutline>
         )}
-        <ButtonSecondary>{translation?.[locale]?.book}</ButtonSecondary>
-      </div>{" "}
-      {/* Megamenu */}
+        <ButtonSecondary>{translation?.[locale]?.cta?.book}</ButtonSecondary>
+      </div>
+
+      {/* Megamenu e overlay rimangono invariati */}
       <div
         ref={megaMenuRef}
         className={`absolute top-0 left-0 right-0 w-full z-40 overflow-hidden hidden transition-colors duration-300 ${
           scrolled
             ? "bg-yellow text-blu"
             : isDarkHero
-            ? "bg-blu text-white"
-            : "bg-yellow text-blu"
+              ? "bg-blu text-white"
+              : "bg-yellow text-blu"
         }`}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
         <div className="flex justify-center items-start h-full w-full my-32 fxl:my-20">
           <div className="grid grid-cols-3 gap-6 px-6 pt-4 w-full">
-            {/* Colonna 1 */}
+            {/* Colonne degli appartamenti */}
             <div className="flex flex-col gap-2">
               <Link
                 href="/appartamenti/acacia"
@@ -254,20 +226,12 @@ function Menu({ translation, isDarkHero = true }) {
               </Link>
               <Link
                 href="/appartamenti/acacia"
-                className={`menu-item hover:underline ${
-                  isDarkHero
-                    ? scrolled
-                      ? "text-blu"
-                      : "text-white"
-                    : "text-blu"
-                }`}
+                className={`menu-item hover:underline ${textColorClass}`}
                 onClick={handleLinkClick}
               >
                 Acacia
               </Link>
             </div>
-
-            {/* Colonna 2 */}
             <div className="flex flex-col gap-2">
               <Link
                 href="/appartamenti/edera"
@@ -284,20 +248,12 @@ function Menu({ translation, isDarkHero = true }) {
               </Link>
               <Link
                 href="/appartamenti/edera"
-                className={`menu-item hover:underline ${
-                  isDarkHero
-                    ? scrolled
-                      ? "text-blu"
-                      : "text-white"
-                    : "text-blu"
-                }`}
+                className={`menu-item hover:underline ${textColorClass}`}
                 onClick={handleLinkClick}
               >
                 Edera
               </Link>
             </div>
-
-            {/* Colonna 3 */}
             <div className="flex flex-col gap-2">
               <Link
                 href="/appartamenti/gelsomino"
@@ -314,13 +270,7 @@ function Menu({ translation, isDarkHero = true }) {
               </Link>
               <Link
                 href="/appartamenti/gelsomino"
-                className={`menu-item hover:underline ${
-                  isDarkHero
-                    ? scrolled
-                      ? "text-blu"
-                      : "text-white"
-                    : "text-blu"
-                }`}
+                className={`menu-item hover:underline ${textColorClass}`}
                 onClick={handleLinkClick}
               >
                 Gelsomino
@@ -329,11 +279,9 @@ function Menu({ translation, isDarkHero = true }) {
           </div>
         </div>
       </div>
-      {/* Overlay */}
+
       <div
-        className={`fixed inset-0 bg-primary/30 transition-opacity duration-500 ${
-          showMegaMenu ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-primary/30 transition-opacity duration-500 ${showMegaMenu ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onMouseEnter={handleLeave}
       />
     </div>

@@ -5,7 +5,7 @@ import { getDate } from "@/utils/utils";
 import { Icon } from "@iconify/react";
 import RevealImage from "../layout/RevealImage";
 
-export default function PostSection({ post, featuredMedia }) {
+export default function PostSection({ post, featuredMedia, locale }) {
   const [minutiLettura, setMinutiLettura] = useState(0);
 
   useEffect(() => {
@@ -49,16 +49,12 @@ export default function PostSection({ post, featuredMedia }) {
           </Link>
 
           {/* Footer info */}
-          <div className="flex items-center  w-full pt-2">
-            <small className="text-blu/60 text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
-              {getDate(post?.date)}
-            </small>
-
-            <div className="flex items-center text-blu/60 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-lg  ml-6">
-              <span className="text-blu/60 text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl flex ">
-                &bull; {minutiLettura}min read
-              </span>
-            </div>
+          <div className="flex items-center w-full pt-4">
+            <span className="text-blu/70">
+              {getDate(post?.date, locale === "it" ? "it-IT" : "en-US")}
+            </span>
+            <span className="w-[0.3rem] h-[0.3rem] bg-blu/70 rounded-full mx-2"></span>
+            <span className="text-blu/70 flex">{minutiLettura} min read</span>
           </div>
         </div>
       </div>

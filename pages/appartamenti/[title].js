@@ -13,9 +13,10 @@ import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamen
 import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import { Icon } from "@iconify/react";
 import Accordion from "@/components/Accordion/Accordion";
+import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
+import { accordion } from "@material-tailwind/react";
 
-const AppartamentoPage = ({ appartamento, pages }) => {
-  console.log("appartamento:", appartamento);
+const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
   return (
     <>
       <div className="min-h-[100svh] lg:min-h-screen  flex flex-col items-center  lg:py-10">
@@ -27,7 +28,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </h1>
             </MaskText>
             <MaskText>
-              <h2 className="text-blu text-4xl sm:text-[2.5rem] xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden lg:max-w-xl lg:mx-auto">
+              <h2 className="text-blu text-4xl sm:text-[2.5rem] xl:text-5xl 2xl:text-[66px] text-center  leading-[1] py-2 overflow-hidden lg:max-w-xl lg:mx-auto">
                 {appartamento?.title}
               </h2>
             </MaskText>
@@ -128,7 +129,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </ParagraphText>
             </div>
             <div className="w-full flex justify-center mt-10 px-4">
-              <ButtonSecondary>Check Availability</ButtonSecondary>
+              <ButtonSecondary>{translations.check}</ButtonSecondary>
             </div>
           </div>
 
@@ -157,7 +158,7 @@ const AppartamentoPage = ({ appartamento, pages }) => {
               </ParagraphText>
             </div>
             <div className="w-full flex justify-center mt-10">
-              <ButtonSecondary>Check Availability</ButtonSecondary>
+              <ButtonSecondary>{translations.check}</ButtonSecondary>
             </div>
           </div>
           <SliderAppartamento slides={appartamento?.galleryPiano1} />
@@ -167,17 +168,39 @@ const AppartamentoPage = ({ appartamento, pages }) => {
       <div className="flex flex-col gap-20 py-20  px-4">
         <MaskText>
           <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-xl mx-auto">
-            Informazioni utili
+            {translations.accordionSection}
           </h2>
         </MaskText>
-        <Accordion />
+        <Accordion translation={translations.accordion} />
       </div>
 
       <SectionBreak />
-      <Reviews />
-      <AttivitaSection pages={pages} />
+      {others && (
+        <div className="flex flex-col gap-2 text-center px-4 py-10">
+          <MaskText>
+            <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden   mx-auto">
+              {translations.othersTitle}
+            </h2>
+          </MaskText>
+          <div className="flex flex-wrap justify-center gap-10 mt-10">
+            {others.map((apt, index) => (
+              <ButtonPrimaryOutline
+                key={index}
+                link={`/appartamenti/${apt.link}`}
+                title={apt.name}
+                target="_self"
+                icon={"prime:arrow-up-right"}
+              >
+                {apt.name}
+              </ButtonPrimaryOutline>
+            ))}
+          </div>
+        </div>
+      )}
+      <Reviews translation={translations.reviewsTitle} />
+      <AttivitaSection pages={pages} translation={translations.activities} />
 
-      <CategoriesCarousel />
+      <CategoriesCarousel translation={translations} />
     </>
   );
 };
@@ -189,7 +212,15 @@ export async function getStaticProps({ params, locale }) {
   const pages = await getPagesByIds(HOME_PAGE_IDS);
 
   const obj = locale === "en" ? appartamentiEN : appartamentiIT;
-
+  const commonSections = {
+    reviewsTitle: obj.appartamenti.reviewsTitle,
+    activities: obj.appartamenti.activities,
+    slides: obj.appartamenti.slides,
+    othersTitle: obj.appartamenti.othersTitle,
+    accordionSection: obj.appartamenti.accordionSection,
+    accordion: obj.appartamenti.accordionData,
+    check: obj.appartamenti.check,
+  };
   const apartments = obj?.appartamenti?.singleApartment || {};
   const targetObj = apartments[params.title];
 
@@ -209,7 +240,10 @@ export async function getStaticProps({ params, locale }) {
     props: {
       appartamento: targetObj,
       pages,
+      translations: commonSections,
+      others,
     },
+    revalidate: 60,
   };
 }
 

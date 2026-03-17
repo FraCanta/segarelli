@@ -26,6 +26,7 @@
     "nodemailer": "^7.0.12",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-hot-toast": "^2.6.0",
     "react-i18next": "^15.4.1",
     "react-intersection-observer": "^10.0.0",
     "swiper": "^12.0.3"

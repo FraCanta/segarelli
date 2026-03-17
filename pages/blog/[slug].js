@@ -17,8 +17,7 @@ import "glightbox/dist/css/glightbox.css";
 import ShareButtons from "@/components/ShareButtons/ShareButtons";
 import Image from "next/image";
 
-function PostPage({ post, featuredMedia, recent }) {
-  console.log(post);
+function PostPage({ post, featuredMedia, recent, locale }) {
   const [minutiLettura, setMinutiLettura] = useState(0);
 
   useEffect(() => {
@@ -40,7 +39,7 @@ function PostPage({ post, featuredMedia, recent }) {
 
       // Trova tutti i link delle gallerie
       const links = document.querySelectorAll(
-        ".gallery a, .wp-block-gallery a"
+        ".gallery a, .wp-block-gallery a",
       );
       if (!links.length) return;
 
@@ -77,8 +76,8 @@ function PostPage({ post, featuredMedia, recent }) {
 
   return (
     <>
-      <div className=" bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-y-10">
+      <div className=" bg-primary/70 flex items-center px-4 lg:px-10 w-full min-h-[90svh]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-10 lg:gap-20">
           <div className="h-full flex flex-col gap-10 justify-between">
             <div>
               <Link
@@ -92,30 +91,28 @@ function PostPage({ post, featuredMedia, recent }) {
                 Back
               </Link>
             </div>
-            <div>
+            <div className="flex flex-col gap-4">
               {" "}
               <h1
-                className="max-w-3xl text-3xl md:text-5xl 2xl:text-6xl text-white leading-none capitalize"
+                className="max-w-3xl text-4xl md:text-5xl 2xl:text-[3.2rem] text-white  capitalize"
                 dangerouslySetInnerHTML={{
                   __html: post.title.rendered,
                 }}
               ></h1>
               <div className="flex items-center  w-full pt-2">
-                <small className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
-                  {getDate(post?.date)}
-                </small>
-
-                <div className="flex items-center text-white text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-lg  ml-6">
-                  <span className=" text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl flex ">
-                    - {minutiLettura}min read
-                  </span>
-                </div>
+                <span className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.9rem]  3xl:text-2xl">
+                  {getDate(post?.date, locale === "it" ? "it-IT" : "en-US")}
+                </span>{" "}
+                <span className="w-[0.3rem] h-[0.3rem] bg-white rounded-full mx-2"></span>
+                <span className="text-white text-sm md:text-[2.5vw] xl:text-base 2xl:text-[0.9rem]  3xl:text-2xl">
+                  {minutiLettura}min read
+                </span>
               </div>
               <ShareButtons
                 title={post.title.rendered}
                 link={`https://agriturismosegarelli.it/blog/${post.slug.replace(
                   /^\/|\/$/g,
-                  ""
+                  "",
                 )}`}
               />
             </div>
@@ -187,9 +184,12 @@ function PostPage({ post, featuredMedia, recent }) {
                         <div className="w-full h-[1px] bg-second/30 "></div>
 
                         <div className="flex items-center justify-between w-full py-2">
-                          <small className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] fxl:text-lg 3xl:text-2xl">
-                            {getDate(p?.date)}
-                          </small>
+                          <span className="text-blu/70">
+                            {getDate(
+                              p?.date,
+                              locale === "it" ? "it-IT" : "en-US",
+                            )}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -201,7 +201,7 @@ function PostPage({ post, featuredMedia, recent }) {
         </div>
       </div>
       <SectionBreak />
-      <CategoriesCarousel />
+      {/* <CategoriesCarousel /> */}
     </>
   );
 }
@@ -215,7 +215,7 @@ export async function getStaticPaths() {
     slugs.map((p) => ({
       params: { slug: p.params.slug },
       locale,
-    }))
+    })),
   );
 
   return {
@@ -234,7 +234,7 @@ export async function getStaticProps({ params, locale }) {
 
   const modifiedContent = post?.content?.rendered?.replace(
     "data-src-fg",
-    "src"
+    "src",
   );
   const featuredMedia = post?.["_embedded"]?.["wp:featuredmedia"]?.[0] || null;
 
@@ -242,7 +242,7 @@ export async function getStaticProps({ params, locale }) {
   const category = await getCategories(locale);
 
   const postCategories = category?.filter((el) =>
-    post?.categories?.includes(el?.id)
+    post?.categories?.includes(el?.id),
   );
 
   return {

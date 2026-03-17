@@ -1,20 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const accordionData = [
-  {
-    title: "Per chi arriva dal mare",
-    content:
-      "Uscire a Cecina e proseguire sulla ss 68 in direzione di Volterra per circa 30 km – Nel paese di Saline di Volterra, all´incrocio svoltare a destra, oltrepassare la ferrovia e proseguire in direzione di Pomarance per circa 10 km – Superare il paese di Pomarance proseguendo per circa 5 km in direzione di Larderello – 300 m prima del cartello di Montecerboli svoltare a destra e proseguire seguendo i cartelli dell´agriturismo per una strada in salita per circa 1 km – Mantenendosi sempre sulla strada principale si arriva all´agriturismo Segarelli.",
-  },
-  {
-    title: "Per chi arriva dalla A1",
-    content:
-      " A Firenze Nord uscire dall´autostrada e prendere la superstrada Fi-Pi-Li in direzione di Pisa – Uscire a Pontedera e proseguire in direzione di Volterra – A Saline di Volterra, nel centro del paese svoltare a sinistra, oltrepassare la ferrovia, e proseguire in direzione di Pomarance per circa 10 km – Superare il paese di Pomarance proseguendo per circa 5 km in direzione di Larderello – 300 m prima del cartello di Montecerboli svoltare a destra e proseguire seguendo i cartelli dell´agriturismo per una strada in salita per circa 1 km – Mantenendosi sempre sulla strada principale si arriva all´agriturismo Segarelli.",
-  },
-];
 
-export default function AccordionContatti() {
+
+export default function AccordionContatti({ translation }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -23,7 +12,7 @@ export default function AccordionContatti() {
 
   return (
     <div className="s-accordion w-full max-w-4xl mx-auto">
-      {accordionData.map((item, index) => (
+      {translation.accordion.map((item, index) => (
         <div key={index} className="accordion relative border-b border-blu/20">
           <div className="accordion-border absolute left-0 top-0 w-full h-full" />
 
@@ -68,7 +57,7 @@ export default function AccordionContatti() {
                 className="accordion-body overflow-hidden  pb-4"
               >
                 <div className="accordion-text text-blu/80 text-base">
-                  <p>{item.content}</p>
+                  <p>{item.text}</p>
                 </div>
               </motion.div>
             )}

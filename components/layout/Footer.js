@@ -2,21 +2,22 @@ import { Icon } from "@iconify/react";
 import SectionBreakWhite from "../SectionBreak/SectionBreakWhite";
 import Link from "next/link";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
+import { useRouter } from "next/router";
 
-export default function Footer() {
+export default function Footer({ translation }) {
+  const { locale } = useRouter();
+
   return (
     <footer className="bg-primary text-white pt-12">
       <SectionBreakWhite />
       <div className="text-center mt-6  text-white/40 mb-20">
-        <h3 className="text-2xl lg:text-3xl">
-          Tradizione, comfort e natura nel cuore della Toscana
-        </h3>
+        <h3 className="text-2xl lg:text-3xl">{translation?.[locale].title}</h3>
       </div>
       <div className="container mx-auto px-4 lg:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div className="border-b border-r-0 lg:border-b-0 lg:border-r border-white/20 md:col-span-1">
             <h3 className="text-white/50 uppercase mb-4 text-base lg:text-sm 2xl:text-base">
-              Scopri l'Agriturismo Segarelli
+              {translation?.[locale].gridOne.title}
             </h3>
             <div>
               <ul className="grid grid-cols-2 lg:grid-cols-1 gap-y-6 pb-4">
@@ -114,7 +115,7 @@ export default function Footer() {
                     href="/mangiare-in-agriturismo"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Mangiare in Agriturismo
+                    {translation?.[locale].gridTwo.eat}
                   </Link>
                 </li>
               </ul>
@@ -127,7 +128,7 @@ export default function Footer() {
                     href="/relax-e-natura-da-segarelli"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Relax e natura da Segarelli
+                    {translation?.[locale].gridTwo.play}
                   </Link>
                 </li>
               </ul>
@@ -148,7 +149,7 @@ export default function Footer() {
                     href="/dintorni/luoghi-da-visitare"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Borghi
+                    {translation?.[locale].gridTwo.discover[1]}
                   </Link>
                 </li>
                 <li>
@@ -156,7 +157,7 @@ export default function Footer() {
                     href="/dintorni/escursioni-toscana"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Natura
+                    {translation?.[locale].gridTwo.discover[2]}
                   </Link>
                 </li>
                 <li>
@@ -164,33 +165,37 @@ export default function Footer() {
                     href="/dintorni/citta-da-visitare-toscana"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Città d'arte
+                    {translation?.[locale].gridTwo.discover[3]}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-white/50 uppercase mb-4">chi siamo</h3>
+              <h3 className="text-white/50 uppercase mb-4">
+                {translation?.[locale].gridTwo.about.title}
+              </h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
                   <Link
                     href="/chi-siamo"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    La nostra storia
+                    {translation?.[locale].gridTwo.about.cta}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-white/50 uppercase mb-4">Contatti</h3>
+              <h3 className="text-white/50 uppercase mb-4">
+                {translation?.[locale].gridTwo.contact.title}
+              </h3>
               <ul className="flex flex-col gap-2 pb-4">
                 <li>
                   <Link
                     href="/contatti"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Come contattarci e raggiungerci
+                    {translation?.[locale].gridTwo.contact.cta}
                   </Link>
                 </li>
               </ul>
@@ -203,7 +208,7 @@ export default function Footer() {
                     href="/blog"
                     className="text-white text-base 2xl:text-lg"
                   >
-                    Notizie e curiosità
+                    {translation?.[locale].gridTwo.blog}
                   </Link>
                 </li>
               </ul>
@@ -211,7 +216,9 @@ export default function Footer() {
           </div>
           <div className="flex flex-col gap-10 md:col-span-1">
             <div className="flex flex-col gap-2">
-              <h3 className="text-white/50 uppercase mb-4">Vieni a trovarci</h3>
+              <h3 className="text-white/50 uppercase mb-4">
+                {translation?.[locale].gridThree.title}
+              </h3>
               <p className="text-white text-base 2xl:text-lg">
                 Via Podere Segarelli n°6, <br /> 56045 Pomarance – Pisa (Italy)
               </p>
@@ -229,7 +236,7 @@ export default function Footer() {
               icon="mdi:email-outline"
               target="_self"
             >
-              Contattaci
+              {translation?.[locale].gridThree.cta}
             </ButtonWhiteOutline>
           </div>
         </div>
@@ -275,7 +282,30 @@ export default function Footer() {
               <span className="text-white/80 font-semibold ml-2">5.0</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
-              &bull; <span>Facebook</span> &bull; <span>Instagram</span>
+              &bull;{" "}
+              <Link
+                href="https://www.facebook.com/Segarelli"
+                className="hover:underline"
+                target="_blank"
+              >
+                Facebook
+              </Link>
+              &bull;{" "}
+              <Link
+                href="https://www.instagram.com/agriturismo_segarelli/"
+                className="hover:underline"
+                target="_blank"
+              >
+                Instagram
+              </Link>
+              &bull;{" "}
+              <Link
+                href="https://www.tripadvisor.it/Hotel_Review-g776018-d2063072-Reviews-Agriturismo_Segarelli-Pomarance_Province_of_Pisa_Tuscany.html"
+                target="_blank"
+                className="hover:underline"
+              >
+                TripAdvisor
+              </Link>
             </div>
           </div>
           <p className="text-white/80 text-sm">

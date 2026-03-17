@@ -11,32 +11,8 @@ import { MaskText } from "@/components/layout/MaskText";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import Reviews from "@/components/Reviews";
-import GoogleTranslate from "next-google-translate-widget";
-
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "/assets/garden.svg",
-  },
-
-  {
-    title: ["Vicino", "alle attrazioni"],
-    src: "/assets/attraction.svg",
-  },
-
-  {
-    title: ["Design", "senza tempo"],
-    src: "/assets/design.svg",
-  },
-  {
-    title: ["Eco", "friendly"],
-    src: "/assets/green.svg",
-  },
-  {
-    title: ["Amato", "dai locals"],
-    src: "/assets/locals.svg",
-  },
-];
+import homeIT from "../public/locales/it/home.json";
+import homeEN from "../public/locales/en/home.json";
 
 function FeatureItem({ title, src, desktopOnly = false }) {
   return (
@@ -64,8 +40,8 @@ function FeatureItem({ title, src, desktopOnly = false }) {
   );
 }
 
-export default function Home({ post, pages }) {
-  console.log(pages);
+export default function Home({ post, pages, translation }) {
+  console.log(translation);
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5], {
     clamp: true,
@@ -74,7 +50,7 @@ export default function Home({ post, pages }) {
   const spacerHeight = useTransform(
     scrollYProgress,
     [0, 0.4],
-    ["0px", "250px"]
+    ["0px", "250px"],
   );
   const titleOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0.35, 0.45], [40, 0]);
@@ -129,41 +105,39 @@ export default function Home({ post, pages }) {
             style={{ opacity: titleOpacity, y: titleY }}
             className="text-blu text-4xl lg:text-[46px] leading-[1.2]"
           >
-            Riscopri il piacere di fermarti
+            {translation.title}
           </h2>
         </MaskText>
 
-        <ParagraphText>
-          C’è un luogo nella campagna toscana dove i ritmi rallentano e tutto
-          diventa più semplice. All’Agriturismo Segarelli troverai natura, spazi
-          tranquilli e un’accoglienza genuina, fatta di condivisione e
-          attenzione. Un posto dove stare bene, prendersi il proprio tempo e
-          godersi ciò che c’è intorno
-        </ParagraphText>
+        <ParagraphText>{translation.description}</ParagraphText>
 
         <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
-          {features.map((feature, index) => (
+          {translation.features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
         </div>
       </section>
 
       <section>
-        <CategoriesCarousel />
+        <CategoriesCarousel translation={translation} />
       </section>
       <SectionBreak />
       <StaggerImages />
 
-      <Reviews />
+      <Reviews translation={translation.reviewsTitle} />
       <SectionBreak />
-      <div className="h-screen w-full relative">
-        <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" />
+      <div className="h-screen w-full relative bg-[url('/assets/segarelli_alto.jpg')] bg-cover bg-fixed bg-center">
+        {/* <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" /> */}
       </div>
       <SectionBreak />
-      <AttivitaSection pages={pages} />
+      <AttivitaSection pages={pages} translation={translation.activities} />
       <div className="bg-primary/10 w-full flex items-center py-8">
         {" "}
-        <BlogSection post={post} />
+        <BlogSection
+          post={post}
+          translation={translation.blog}
+          locale={locale}
+        />
       </div>
     </>
   );
@@ -174,8 +148,24 @@ export async function getStaticProps({ locale }) {
   const post = await getPosts(idLocale); //recupera post nella lingua attuale
   const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
   const pages = await getPagesByIds(HOME_PAGE_IDS);
+
+  let obj;
+  switch (locale) {
+    case "it":
+      obj = homeIT;
+      break;
+    case "en":
+      obj = homeEN;
+      break;
+    default:
+      obj = homeIT;
+      break;
+  }
+
   return {
     props: {
+      translation: obj?.home,
+
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
       // instagramPosts: posts,
       pages,

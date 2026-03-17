@@ -2,18 +2,39 @@
   "play": {
     "title": "Play",
     "herobg": "/assets/pool.jpg",
-    "description": "Mangiare bene, in un luogo pensato per stare bene.",
-    "subtitle1": "Relax in giardino e piscina",
-    "title1": "Offriamo qualcosa di raro",
-    "paragraph1": "Da noi puoi assaporare il gusto della vera vacanza immerso nella natura e nel silenzio della campagna toscana, fatta di convivialità e passeggiate",
+    "description": "Our invitation to stop, breathe and enjoy the moment. Let yourself be surprised by the beauty of simple things.",
+    "subtitle1": "Relax in the garden and pool",
+    "title1": "We offer something rare",
+    "paragraph1": "Here you can savor the taste of a true holiday immersed in nature and in the silence of the Tuscan countryside, made of conviviality and walks",
     "SezioneGallery": {
-      "subTitle": "Piscina nell'Aia",
-      "title": "Un tuffo nel relax",
+      "subTitle": "Pool in the Farmyard",
+      "title": "A dive into relaxation",
       "description": [
-        "La piscina si trova in quella parte del podere dove un tempo veniva lavorato il grano, l’Aia. E’ grande 12 metri x 6. Riservata solo ai nostri ospiti"
+        "The pool is located in the part of the estate where wheat was once processed, the farmyard. It is 12 meters by 6 meters large and reserved exclusively for our guests"
       ]
     },
-
+    "features": [
+      {
+        "title": ["Expansive", "Garden"],
+        "src": "/assets/garden.svg"
+      },
+      {
+        "title": ["Outdoor", "Pool"],
+        "src": "/assets/pool.svg"
+      },
+      {
+        "title": ["Enjoy", "the view"],
+        "src": "/assets/dining.svg"
+      },
+      {
+        "title": ["Close", "to attractions"],
+        "src": "/assets/attraction.svg"
+      },
+      {
+        "title": ["Loved", "by locals"],
+        "src": "/assets/locals.svg"
+      }
+    ],
     "gallery": [
       { "src": "/assets/pool.jpg" },
       { "src": "/assets/pool2.jpg" },
@@ -26,26 +47,69 @@
       { "src": "/assets/pool9.jpg" }
     ],
     "SezioneGallery2": {
-      "subTitle": "Passeggiate nel verde",
-      "title": "Il giardino e la campagna toscana",
+      "subTitle": "Walks in nature",
+      "title": "The garden and the Tuscan countryside",
       "description": [
-        "Non è una vera vacanza da noi se non ti immergi tra i profumi della campagna"
+        "It’s not a real holiday with us unless you immerse yourself in the scents of the countryside"
       ]
     },
-
     "gallery2": [
       { "src": "/assets/dintorni5.jpg" },
       { "src": "/assets/dintorni6.jpg" },
       { "src": "/assets/dintorni7.jpg" },
       { "src": "/assets/dintorni4.jpg" },
       { "src": "/assets/dintorni3.jpg" },
-
       { "src": "/assets/dintorni8.jpg" },
       { "src": "/assets/dintorni9.jpg" },
       { "src": "/assets/dintorni10.jpg" },
       { "src": "/assets/dintorni11.jpg" },
       { "src": "/assets/dintorni12.jpg" },
       { "src": "/assets/dintorni.jpg" }
-    ]
+    ],
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Among Hills, Valleys and Sea"
+      },
+      "description": "Guests of the agriturismo can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Throughout the summer, almost every Sunday, village festivals take place here, and historical reenactments are always accompanied by tastings of typical local products. During the spring–summer–autumn period they also organize excursions, trekking and other activities"
+    },
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet and welcoming spaces. Three apartments, some interconnected, to make you feel truly at home: Acacia, Edera and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural and uncomplicated experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the environment around you",
+        "text": "Walk, discover, relax: every corner surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Discover medieval villages and don't miss typical events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Discover more"
+      }
+    ],
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    }
   }
 }

@@ -1,12 +1,13 @@
 import { MaskText } from "@/components/layout/MaskText";
 import { getDate } from "@/utils/utils";
 import { getCategories, getPosts, getTagId } from "@/utils/wordpress";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 function Blog({ post, pages, currentP }) {
+  const { locale, query } = useRouter();
   function calcolaMinutiLettura(testo, velocitaLetturaMedia = 250) {
     const parole = (testo || "").split(" "); // fallback su stringa vuota
     const paroleLette = parole.filter((parola) => parola.trim() !== "").length;
@@ -18,14 +19,16 @@ function Blog({ post, pages, currentP }) {
       <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
-            <h1 className="text-white text-4xl xl:text-5xl 2xl:text-6xl text-center py-2 mt-20 ">
-              Il Blog dell'Agriturismo Segarelli
+            <h1 className="text-blu text-4xl xl:text-5xl 2xl:text-6xl text-center py-2 mt-20 ">
+              {locale === "it"
+                ? "Il Blog dell'Agriturismo Segarelli"
+                : "The Agriturismo Segarelli Blog"}
             </h1>
           </MaskText>
         </div>
       </div>
 
-      <div className="lg:w-[80%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-4">
+      <div className="lg:w-[90%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-x-6 gap-y-10">
         {post.map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -35,7 +38,8 @@ function Blog({ post, pages, currentP }) {
           const minutiLettura = calcolaMinutiLettura(testoSenzaTag);
 
           return (
-            <div key={i} className="w-full h-full">
+            <div key={i} className="flex flex-col min-h-full">
+              {/* Immagine */}
               <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
                 <figure>
                   <Image
@@ -46,31 +50,31 @@ function Blog({ post, pages, currentP }) {
                     width={461}
                     height={420}
                     alt={featuredMedia?.alt_text || p?.title?.rendered}
-                    className="object-cover w-full aspect-video"
+                    className="object-cover w-full aspect-square"
                     priority
                   />
                 </figure>
               </Link>
 
-              <div className="flex flex-col justify-between mt-4">
+              {/* Titolo */}
+              <div className="h-[4rem] flex items-start mt-2">
                 <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
                   <h3
-                    className="pb-2 text-xl capitalize  "
+                    className="text-lg fxl:text-[1.3rem] leading-[1.2] break-words"
                     dangerouslySetInnerHTML={{ __html: p?.title?.rendered }}
-                  ></h3>
+                  />
                 </Link>
+              </div>
 
-                <div className="w-full h-[1px] bg-second/30 "></div>
-
-                <div className="flex items-center justify-between w-full py-2">
-                  <small className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
-                    {getDate(p?.date)}
-                  </small>
-
-                  <span className=" text-blu/80 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-2xl flex">
-                    {minutiLettura} min read
-                  </span>
-                </div>
+              {/* Meta info */}
+              <div className="flex items-center w-full ">
+                <span className="text-blu/70">
+                  {getDate(p?.date, locale === "it" ? "it-IT" : "en-US")}
+                </span>
+                <span className="w-[0.3rem] h-[0.3rem] bg-blu/70 rounded-full mx-2"></span>
+                <span className="text-blu/70 flex">
+                  {minutiLettura} min read
+                </span>
               </div>
             </div>
           );
@@ -102,7 +106,7 @@ export async function getServerSideProps(context) {
 
   const paginationTrim = filteredPosts.slice(
     (page - 1) * itemPerPage,
-    itemPerPage * page
+    itemPerPage * page,
   );
 
   const category = await getCategories(locale);

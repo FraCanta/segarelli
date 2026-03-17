@@ -1,5 +1,74 @@
 {
   "home": {
-    "book": "Prenota"
+    "title": "Reconnect with the joy of slowing down",
+    "description": "There is a place in the Tuscan countryside where the pace slows down and everything becomes simpler. At Agriturismo Segarelli, you will find nature, peaceful spaces, and a warm, genuine welcome, full of sharing and care. A place to feel good, take your time, and enjoy everything around you",
+    "features": [
+      {
+        "title": ["Expansive", "Garden"],
+        "src": "/assets/garden.svg"
+      },
+      {
+        "title": ["Close to", "Attractions"],
+        "src": "/assets/attraction.svg"
+      },
+      {
+        "title": ["Timeless", "Design"],
+        "src": "/assets/design.svg"
+      },
+      {
+        "title": ["Eco-", "Friendly"],
+        "src": "/assets/green.svg"
+      },
+      {
+        "title": ["Loved by", "Locals"],
+        "src": "/assets/locals.svg"
+      }
+    ],
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural, and unpretentious experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the surroundings",
+        "text": "Walk, explore, relax: every corner has its surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Explore medieval villages and enjoy local events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Learn more"
+      }
+    ],
+    "reviewsTitle": "Experiences from Agriturismo Segarelli",
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Through Hills, Valleys and The Sea"
+      },
+      "description": "The guests can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Here throughout the summer, almost every Sunday, it takes place local festivals that are always accompanied by a tasting of local products. Also during the spring-summer-autumn  excursions, trekking and other activities are organized"
+    },
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    }
   }
 }

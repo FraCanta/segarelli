@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function ContattiForm() {
+function ContattiForm({ lang = "it" }) {
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -29,7 +29,7 @@ function ContattiForm() {
       const res = await fetch("/api/contatti", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, lang }),
       });
 
       const data = await res.json();
@@ -47,7 +47,7 @@ function ContattiForm() {
       setShowThankYou(true);
 
       // Nascondi messaggio dopo 5 secondi
-      setTimeout(() => setShowThankYou(false), 5000);
+      setTimeout(() => setShowThankYou(false), 3000);
     } catch (err) {
       console.error(err);
       setError(err.message);
@@ -69,10 +69,14 @@ function ContattiForm() {
             className="text-center py-20 bg-blu/10 rounded-xl"
           >
             <h2 className="text-3xl sm:text-5xl mb-4">
-              Grazie per il tuo messaggio!
+              {lang === "it"
+                ? "Grazie per averci contattati"
+                : "Thank you for contacting us"}
             </h2>
             <p className="text-lg sm:text-xl">
-              Ti risponderemo al più presto. 😊
+              {lang === "it"
+                ? "Risponderemo alla tua richiesta il prima possibile."
+                : "We will get back to you as soon as possible."}
             </p>
           </motion.div>
         ) : (
@@ -84,7 +88,7 @@ function ContattiForm() {
                   htmlFor="name"
                   className="block text-sm text-primary uppercase"
                 >
-                  Nome
+                  {lang === "it" ? "Nome" : "First Name"}
                 </label>
                 <input
                   type="text"
@@ -101,7 +105,7 @@ function ContattiForm() {
                   htmlFor="surname"
                   className="block text-sm text-primary uppercase"
                 >
-                  Cognome
+                  {lang === "it" ? "Cognome" : "Last Name"}
                 </label>
                 <input
                   type="text"
@@ -121,7 +125,7 @@ function ContattiForm() {
                 htmlFor="email"
                 className="block text-sm text-primary uppercase"
               >
-                Email
+                {lang === "it" ? "Email" : "Email"}
               </label>
               <input
                 type="email"
@@ -140,7 +144,9 @@ function ContattiForm() {
                 htmlFor="apartment"
                 className="block text-sm text-primary uppercase"
               >
-                Appartamento
+                {lang === "it"
+                  ? "Appartamento di interesse"
+                  : "Apartment of interest"}
               </label>
               <select
                 id="apartment"
@@ -151,7 +157,9 @@ function ContattiForm() {
                 required
               >
                 <option value="" disabled>
-                  Seleziona un appartamento
+                  {lang === "it"
+                    ? "Seleziona un appartamento"
+                    : "Select an apartment"}
                 </option>
                 <option value="acacia">Acacia</option>
                 <option value="edera">Edera</option>
@@ -165,7 +173,7 @@ function ContattiForm() {
                 htmlFor="subject"
                 className="block text-sm text-primary uppercase"
               >
-                Subject
+                {lang === "it" ? "Oggetto" : "Subject"}
               </label>
               <input
                 type="text"
@@ -184,7 +192,7 @@ function ContattiForm() {
                 htmlFor="message"
                 className="block text-sm text-primary uppercase"
               >
-                Messaggio
+                {lang === "it" ? "Messaggio" : "Message"}
               </label>
               <textarea
                 id="message"
@@ -204,15 +212,19 @@ function ContattiForm() {
               className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide text-base w-full flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
-                "Invio in corso..."
+                lang === "it" ? (
+                  "Invio in corso..."
+                ) : (
+                  "Sending..."
+                )
               ) : (
                 <>
                   <span className="split-hover flex flex-col justify-center relative">
                     <span className="line line-normal block p-1">
-                      Invia richiesta
+                      {lang === "it" ? "Invia richiesta" : "Submit Request"}
                     </span>
                     <span className="line line-hover block absolute top-0 left-0 w-full p-1">
-                      Invia richiesta
+                      {lang === "it" ? "Invia richiesta" : "Submit Request"}
                     </span>
                   </span>
                   <Icon icon="prime:arrow-up-right" width="24" height="24" />

@@ -5,7 +5,7 @@ export default async function contattiMailer(req, res) {
     return res.status(405).json({ error: "Metodo non consentito" });
   }
 
-  const { name, surname, email, apartment, subject, message } = req.body;
+  const { name, surname, email, apartment, subject, message, lang } = req.body;
 
   if (!name || !surname || !email || !apartment || !subject || !message) {
     return res.status(400).json({ error: "Tutti i campi sono obbligatori" });
@@ -24,7 +24,7 @@ export default async function contattiMailer(req, res) {
   const emailHtml = `
   <html lang="it">
     <body>
-      <h2>Nuovo messaggio dal form contatti</h2>
+      <h2>Richiesta informazioni</h2>
       <p><strong>Nome:</strong> ${name} ${surname}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Appartamento:</strong> ${apartment}</p>
@@ -34,21 +34,35 @@ export default async function contattiMailer(req, res) {
   </html>
   `;
 
-  const thankHtml = `
-  <html lang="it">
-    <body>
-      <h2>Grazie per averci contattato, ${name}!</h2>
-      <p>Abbiamo ricevuto il tuo messaggio riguardo <strong>${subject}</strong>.</p>
-      <p>Ti risponderemo al più presto all'indirizzo <strong>${email}</strong>.</p>
-      <p>Saluti,<br>Il team</p>
-    </body>
-  </html>
-  `;
+  const thankHtml =
+    lang === "it"
+      ? `
+      <html lang="it">
+        <body>
+          <h2>Grazie per il tuo messaggio, ${name}!</h2>
+          <p>Abbiamo ricevuto la tua richiesta per l'appartamento <strong>${apartment}</strong>.</p>
+          <p>Oggetto: <strong>${subject}</strong></p>
+          <p>Ti contatteremo al più presto all'indirizzo email fornito.</p>
+          <p>Saluti,<br>Il team</p>
+        </body>
+      </html>
+    `
+      : `
+      <html lang="en">
+        <body>
+          <h2>Thank you for your message, ${name}!</h2>
+          <p>We have received your request regarding the apartment <strong>${apartment}</strong>.</p>
+          <p>Subject: <strong>${subject}</strong></p>
+          <p>We will contact you shortly at the provided email address.</p>
+          <p>Best regards,<br>The team</p>
+        </body>
+      </html>
+    `;
 
   try {
     // Email a te (o al team)
     await transporter.sendMail({
-      from: `"Modulo Contatti" <info@thallion-dev.it>`,
+      from: `"Richiesta informazioni" <info@thallion-dev.it>`,
       to: ["fcantale14@gmail.com", "agriturismosegarelli@gmail.com"],
       subject: `Nuovo messaggio: ${subject}`,
       replyTo: email,
@@ -58,9 +72,12 @@ export default async function contattiMailer(req, res) {
     // Email di conferma all’utente
     if (email) {
       await transporter.sendMail({
-        from: `"Modulo Contatti" <info@thallion-dev.it>`,
+        from: `"Agriturismo Segarelli" <info@thallion-dev.it>`,
         to: email,
-        subject: "Conferma ricezione messaggio",
+        subject:
+          lang === "it"
+            ? "Grazie per il tuo messaggio"
+            : "Thank you for your message",
         html: thankHtml,
       });
     }

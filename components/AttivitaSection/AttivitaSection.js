@@ -10,7 +10,7 @@ import { ParagraphText } from "../layout/ParagraphText";
 import { MaskText } from "../layout/MaskText";
 import RevealImage from "../layout/RevealImage";
 
-function AttivitaSection({ pages }) {
+function AttivitaSection({ pages, translation }) {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -25,24 +25,18 @@ function AttivitaSection({ pages }) {
         <div>
           <MaskText>
             <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug lg:p-1">
-              Cultura:
+              {translation.title.title1}
             </h2>
           </MaskText>
           <MaskText>
             <h2 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl  leading-snug lg:p-1">
-              Tra Colli, Valli e Mare
+              {translation.title.title2}
             </h2>
           </MaskText>
         </div>
 
         <ParagraphText>
-          Gli ospiti dell’agriturismo possono visitare molti borghi medievali,
-          alcuni dei quali sono visibili in lontananza: Micciano, Libbiano,
-          Pomarance, Montecastelli e Radicondoli. Qui per tutta l’estate, quasi
-          ogni domenica, si svolgono le feste paesane e alle rievocazioni
-          storiche si accompagna sempre la degustazione dei prodotti tipici
-          locali. Inoltre durante il periodo primavera-estate-autunno
-          organizzano escursioni, trakking e altre attività
+          {translation.description}
         </ParagraphText>
         <div className="s-swiper-nav w-full flex gap-6 mt-4 lg:mt-10">
           <div

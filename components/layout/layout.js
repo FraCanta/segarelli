@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import LayoutTranslation from "../../public/locales/layout.json";
 import Mobile from "./Mobile";
 import { useRouter } from "next/router";
+import { Toaster } from "react-hot-toast";
 
 const Layout = (props) => {
   const { pathname } = useRouter();
@@ -24,11 +25,29 @@ const Layout = (props) => {
 
   return (
     <>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 3000,
+          success: {
+            iconTheme: {
+              primary: "#5cb4ad",
+              secondary: "white",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "red",
+              secondary: "black",
+            },
+          },
+        }}
+      />
       <LenisScroll />
       <Menu translation={LayoutTranslation?.menu} isDarkHero={isDarkHero} />
       <Mobile isDarkHero={isDarkHero} />
       <main>{props.children}</main>
-      <Footer />
+      <Footer translation={LayoutTranslation?.footer} />
     </>
   );
 };

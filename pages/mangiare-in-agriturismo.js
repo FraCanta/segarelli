@@ -14,30 +14,6 @@ import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import BlogSection from "@/components/blogSection/blogSection";
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "/assets/garden.svg",
-  },
-
-  {
-    title: ["Coffee", "time"],
-    src: "/assets/coffee.svg",
-  },
-
-  {
-    title: ["Godersi", "il panorama"],
-    src: "/assets/dining.svg",
-  },
-  {
-    title: ["Eco", "friendly"],
-    src: "/assets/green.svg",
-  },
-  {
-    title: ["Prodotti", "dell'orto"],
-    src: "/assets/orto.svg",
-  },
-];
 
 function FeatureItem({ title, src, desktopOnly = false }) {
   return (
@@ -102,11 +78,11 @@ function Mangiare({ pages, post, translation }) {
       </div>
       <div className="flex flex-col items-center">
         <div className="my-20 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2  gap-10">
-          <div className="relative">
+          <div className="relative  aspect-square ">
             <Image
               src="/assets/coffee.jpg"
               alt="Agriturismo Segarelli"
-              className="mx-auto mb-6 object-cover aspect-square"
+              className="mx-auto  object-cover  object-bottom px-4 lg:px-0"
               fill
             />
           </div>
@@ -126,7 +102,7 @@ function Mangiare({ pages, post, translation }) {
           </div>
         </div>
         <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
-          {features.map((feature, index) => (
+          {translation?.features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
         </div>
@@ -145,26 +121,27 @@ function Mangiare({ pages, post, translation }) {
           </MaskText>
           {translation.SezioneGallery.description.map((p, i) => {
             return (
-              <div key={i} className="text-center mx-auto">
+              <div key={i} className="text-center max-w-5xl mx-auto">
                 <ParagraphText>{p}</ParagraphText>
               </div>
             );
           })}
-          <div className="my-6 text-blu/80 uppercase">
-            <p>*{translation.SezioneGallery.nota}</p>
-          </div>
 
           <div className="w-full flex justify-center mt-10 px-4">
-            <ButtonSecondary>Prenota</ButtonSecondary>
+            <ButtonSecondary>{translation?.book}</ButtonSecondary>
           </div>
         </div>
 
         <SliderAppartamento slides={translation?.gallery} />
       </div>
       <SectionBreak />
-      <AttivitaSection pages={pages} post={post} />
-      <CategoriesCarousel />
-      <BlogSection post={post} />
+      <AttivitaSection
+        pages={pages}
+        post={post}
+        translation={translation?.activities}
+      />
+      <CategoriesCarousel translation={translation} />
+      <BlogSection post={post} translation={translation.blog} />
     </>
   );
 }
@@ -195,7 +172,6 @@ export async function getStaticProps({ locale }) {
       translation: obj?.mangiare,
 
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
-      // instagramPosts: posts,
       pages,
     },
     revalidate: 60,

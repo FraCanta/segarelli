@@ -62,7 +62,7 @@ export async function getTags() {
         {
           cache: "force-cache",
           revalidate: 900,
-        }
+        },
       );
       const parsedFetch = await newFetch.json();
       tags.push(...parsedFetch);
@@ -113,7 +113,7 @@ export async function getCategories(lang, onlyFull = true) {
 
   const filteredCategories = categories?.filter(
     (el) =>
-      el?.description.includes(lang) && el?.description.includes("thalliondev")
+      el?.description.includes(lang) && el?.description.includes("thalliondev"),
   );
 
   const fullCategories = onlyFull
@@ -147,7 +147,7 @@ export async function getUsers() {
 }
 
 export async function getPostsByLanguageAndBlogOwner(
-  blogOwner = "thalliondev"
+  blogOwner = "thalliondev",
 ) {
   const resObj = {};
   resObj.ownerId = await getTagId(blogOwner);
@@ -170,7 +170,7 @@ export async function getComments(postId) {
   if (!!postId) {
     const comments = await commentsRes.json();
     const filteredComments = comments?.filter(
-      (el) => el?.post === parseInt(postId)
+      (el) => el?.post === parseInt(postId),
     );
     return filteredComments;
   } else {

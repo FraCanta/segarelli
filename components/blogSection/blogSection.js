@@ -12,7 +12,7 @@ import ButtonPrimary from "../layout/ButtonPrimary";
 
 const PostSection = dynamic(() => import("./postSection"), { ssr: false });
 
-const BlogSection = ({ post }) => {
+const BlogSection = ({ post, translation, locale }) => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -25,7 +25,12 @@ const BlogSection = ({ post }) => {
 
     return (
       <SwiperSlide key={i}>
-        <PostSection post={p} featuredMedia={featuredMedia} id={p?.id} />
+        <PostSection
+          post={p}
+          featuredMedia={featuredMedia}
+          id={p?.id}
+          locale={locale}
+        />
       </SwiperSlide>
     );
   });
@@ -50,7 +55,7 @@ const BlogSection = ({ post }) => {
 
             <MaskText>
               <h3 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl text-center p-1">
-                Il Blog dell'Agriturismo Segarelli
+                {translation.title}
               </h3>
             </MaskText>
           </div>
@@ -107,8 +112,8 @@ const BlogSection = ({ post }) => {
         </div>
         <div className="pr-4">
           {" "}
-          <ButtonPrimary link="/blog" title="Leggi le nostre notizie">
-            Leggi tutti gli articoli
+          <ButtonPrimary link="/blog" title={translation.cta}>
+            {translation.cta}
           </ButtonPrimary>
         </div>
       </div>

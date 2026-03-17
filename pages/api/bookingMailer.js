@@ -3,7 +3,6 @@ import nodemailer from "nodemailer";
 export default async function bookingMailer(req, res) {
   const {
     firstName,
-    lastName,
     phone,
     checkIn,
     checkOut,
@@ -11,6 +10,7 @@ export default async function bookingMailer(req, res) {
     children,
     notes,
     email,
+    lang,
   } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ export default async function bookingMailer(req, res) {
   <html lang="it">
     <body>
       <h2>Nuova prenotazione</h2>
-      <p><strong>Nome:</strong> ${firstName} ${lastName}</p>
+      <p><strong>Nome:</strong> ${firstName} </p>
       <p><strong>Telefono:</strong> ${phone}</p>
       <p><strong>Check-in:</strong> ${checkIn}</p>
       <p><strong>Check-out:</strong> ${checkOut}</p>
@@ -38,23 +38,35 @@ export default async function bookingMailer(req, res) {
   </html>
 `;
 
-  const thankHtml = `
-  <html lang="it">
-    <body>
-      <h2>Grazie per la tua prenotazione, ${firstName}!</h2>
-      <p>Abbiamo ricevuto la tua richiesta per il periodo dal <strong>${checkIn}</strong> al <strong>${checkOut}</strong>.</p>
-      <p>Ti contatteremo a breve al numero <strong>${phone}</strong> per confermare la prenotazione.</p>
-      <p>Saluti,<br>Il team</p>
-    </body>
-  </html>
-`;
+  const thankHtml =
+    lang === "it"
+      ? `
+    <html lang="it">
+      <body>
+        <h2>Grazie per la tua prenotazione, ${firstName}!</h2>
+        <p>Abbiamo ricevuto la tua richiesta per il periodo dal <strong>${checkIn}</strong> al <strong>${checkOut}</strong>.</p>
+        <p>Ti contatteremo a breve al numero <strong>${phone}</strong> per confermare la prenotazione.</p>
+        <p>Saluti,<br>Il team</p>
+      </body>
+    </html>
+  `
+      : `
+    <html lang="en">
+      <body>
+        <h2>Thank you for your booking, ${firstName}!</h2>
+        <p>We have received your request for the period from <strong>${checkIn}</strong> to <strong>${checkOut}</strong>.</p>
+        <p>We will contact you shortly at <strong>${phone}</strong> to confirm your booking.</p>
+        <p>Best regards,<br>The team</p>
+      </body>
+    </html>
+  `;
 
   try {
     // Email a te
     await transporter.sendMail({
-      from: `"Booking Form" <info@thallion-dev.it>`,
+      from: `"Richiesta prenotazione" <info@thallion-dev.it>`,
       to: ["fcantale14@gmail.com", "agriturismosegarelli@gmail.com"],
-      subject: `Nuova prenotazione dal ${checkIn} al ${checkOut}`,
+      subject: `Nuova richiesta prenotazione dal ${checkIn} al ${checkOut}`,
       replyTo: email,
       html: emailHtml,
     });
@@ -62,9 +74,10 @@ export default async function bookingMailer(req, res) {
     // Email all’utente
     if (email) {
       await transporter.sendMail({
-        from: `"Booking Form" <info@thallion-dev.it>`,
+        from: `"Agriturismo Segarelli" <info@thallion-dev.it>`,
         to: email,
-        subject: "Conferma prenotazione",
+        subject:
+          lang === "it" ? "Richiesta di prenotazione" : "Booking Request",
         html: thankHtml,
       });
     }

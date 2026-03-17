@@ -14,30 +14,6 @@ import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import BlogSection from "@/components/blogSection/blogSection";
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "/assets/garden.svg",
-  },
-
-  {
-    title: ["Outdoor", "pool"],
-    src: "/assets/pool.svg",
-  },
-
-  {
-    title: ["Godersi", "il panorama"],
-    src: "/assets/dining.svg",
-  },
-  {
-    title: ["Vicino", "alle attrazioni"],
-    src: "/assets/attraction.svg",
-  },
-  {
-    title: ["Amato", "dai local"],
-    src: "/assets/locals.svg",
-  },
-];
 
 function FeatureItem({ title, src, desktopOnly = false }) {
   return (
@@ -118,7 +94,7 @@ function Piscina({ pages, post, translation }) {
           </div>
         </div>
         <div className="flex flex-wrap gap-8 lg:gap-0 w-full  mt-10 justify-center lg:justify-evenly">
-          {features.map((feature, index) => (
+          {translation?.features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
         </div>
@@ -172,9 +148,13 @@ function Piscina({ pages, post, translation }) {
         <SliderAppartamento slides={translation?.gallery2} />
       </div>
       <SectionBreak />
-      <AttivitaSection pages={pages} post={post} />
-      <CategoriesCarousel />
-      <BlogSection post={post} />
+      <AttivitaSection
+        pages={pages}
+        post={post}
+        translation={translation.activities}
+      />
+      <CategoriesCarousel translation={translation} />
+      <BlogSection post={post} translation={translation.blog} />
     </>
   );
 }
