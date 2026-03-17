@@ -5,7 +5,10 @@ import { getPagesByIds } from "@/utils/wordpress";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import "glightbox/dist/css/glightbox.css";
-function DintorniPage({ pages, currentPage }) {
+import dintorniIT from "../../public/locales/it/dintorni.json";
+import dintorniEN from "../../public/locales/en/dintorni.json";
+
+function DintorniPage({ pages, currentPage, translation }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -17,7 +20,7 @@ function DintorniPage({ pages, currentPage }) {
 
       // Trova tutti i link delle gallerie
       const links = document.querySelectorAll(
-        ".wp-block-gallery a, .gallery a"
+        ".wp-block-gallery a, .gallery a",
       );
       if (!links.length) return;
 
@@ -101,7 +104,7 @@ function DintorniPage({ pages, currentPage }) {
       </section>
 
       <SectionBreak />
-      <CategoriesCarousel />
+      <CategoriesCarousel translation={translation} />
     </>
   );
 }
@@ -117,7 +120,7 @@ export async function getStaticPaths() {
     pages.map((page) => ({
       params: { slug: page.slug },
       locale,
-    }))
+    })),
   );
 
   return {
@@ -129,7 +132,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
   const PAGE_IDS = [2248, 2026, 1997, 1957];
   const pages = await getPagesByIds(PAGE_IDS);
-
+  const obj = locale === "en" ? dintorniEN : dintorniIT;
+  const commonSections = {
+    slides: obj.dintorni.slides,
+  };
   const currentPage = pages.find((p) => p.slug === params.slug);
 
   if (!currentPage) {
@@ -141,6 +147,7 @@ export async function getStaticProps({ params, locale }) {
       pages,
       currentPage,
       lang: locale,
+      translation: commonSections,
     },
     revalidate: 60,
   };
