@@ -12,7 +12,7 @@
         "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, peaceful spaces, cozy apartments, authentic cuisine, and nearby medieval villages with local events and scenic trails.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en",
-        "image": "https://www.agriturismosegarelli.it/assets/og-image-en.jpg",
+        "image": "https://segarelli.vercel.app/assets/hero.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
         "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, peaceful spaces, cozy apartments, authentic cuisine, and nearby medieval villages with local events and scenic trails.",
-        "image": "https://www.agriturismosegarelli.it/assets/og-image-en.jpg"
+        "image": "https://segarelli.vercel.app/assets/hero.jpg"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/en",
-          "logo": "https://www.agriturismosegarelli.it/assets/logo.png",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
           "description": "Agriturismo Segarelli is a Tuscan countryside retreat offering nature, peaceful spaces, cozy apartments, authentic cuisine, and experiences in medieval villages and scenic trails."
         },
         "website": {
