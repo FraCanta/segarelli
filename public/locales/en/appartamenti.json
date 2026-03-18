@@ -169,6 +169,45 @@
 
     "singleApartment": {
       "acacia": {
+        "head": {
+          "title": "Agriturismo Segarelli | Acacia",
+          "description": "Cozy apartment for 2, perfect for a relaxing stay surrounded by nature in Tuscany.",
+          "keywords": "Acacia apartment, Agriturismo Segarelli, Tuscany stay, cozy apartment, countryside vacation",
+          "robots": "index, follow",
+          "canonical": "https://www.agriturismosegarelli.it/en/appartamenti/acacia",
+          "og": {
+            "title": "Agriturismo Segarelli | Acacia",
+            "description": "Cozy apartment for 2, perfect for a relaxing stay surrounded by nature in Tuscany.",
+            "type": "website",
+            "url": "https://www.agriturismosegarelli.it/en/appartamenti/acacia",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/acacia/fuori.jpg",
+            "site_name": "Agriturismo Segarelli"
+          },
+          "twitter": {
+            "card": "summary_large_image",
+            "title": "Agriturismo Segarelli | Acacia",
+            "description": "Cozy apartment for 2, perfect for a relaxing stay surrounded by nature in Tuscany.",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/acacia/fuori.jpg",
+            "creator": "@agriturismosegarelli",
+            "site": "@agriturismosegarelli"
+          },
+          "schema": {
+            "organization": {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/acacia",
+              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "description": "Acacia apartment at Agriturismo Segarelli: cozy, welcoming, and ideal for a relaxing stay in Tuscany."
+            },
+            "website": {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/acacia"
+            }
+          }
+        },
         "name": "Acacia",
         "title": "Intimacy and comfort in every corner",
         "img": "/assets/appartamenti/acacia/acacia.jpg",
@@ -239,6 +278,45 @@
       },
 
       "edera": {
+        "head": {
+          "title": "Agriturismo Segarelli | Edera",
+          "description": "Spacious apartment for 2 with terrace views over Monte Rufoli park, ideal for comfort and relaxation.",
+          "keywords": "Edera apartment, Agriturismo Segarelli, Tuscany stay, spacious apartment, countryside vacation",
+          "robots": "index, follow",
+          "canonical": "https://www.agriturismosegarelli.it/en/appartamenti/edera",
+          "og": {
+            "title": "Agriturismo Segarelli | Edera",
+            "description": "Spacious apartment for 2 with terrace views over Monte Rufoli park, ideal for comfort and relaxation.",
+            "type": "website",
+            "url": "https://www.agriturismosegarelli.it/en/appartamenti/edera",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/edera/fuori.jpg",
+            "site_name": "Agriturismo Segarelli"
+          },
+          "twitter": {
+            "card": "summary_large_image",
+            "title": "Agriturismo Segarelli | Edera",
+            "description": "Spacious apartment for 2 with terrace views over Monte Rufoli park, ideal for comfort and relaxation.",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/edera/fuori.jpg",
+            "creator": "@agriturismosegarelli",
+            "site": "@agriturismosegarelli"
+          },
+          "schema": {
+            "organization": {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/edera",
+              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "description": "Edera apartment at Agriturismo Segarelli: spacious, bright, and perfect for a relaxing stay with park views in Tuscany."
+            },
+            "website": {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/edera"
+            }
+          }
+        },
         "name": "Edera",
         "title": "Light, space and park view",
         "img": "/assets/appartamenti/edera/edera.jpg",
@@ -316,6 +394,45 @@
       },
 
       "gelsomino": {
+        "head": {
+          "title": "Agriturismo Segarelli | Gelsomino",
+          "description": "Two-floor apartment for friends or families, with living spaces and bedrooms designed for comfort and relaxation.",
+          "keywords": "Gelsomino apartment, Agriturismo Segarelli, Tuscany stay, family apartment, two-floor apartment, countryside vacation",
+          "robots": "index, follow",
+          "canonical": "https://www.agriturismosegarelli.it/en/appartamenti/gelsomino",
+          "og": {
+            "title": "Agriturismo Segarelli | Gelsomino",
+            "description": "Two-floor apartment for friends or families, with living spaces and bedrooms designed for comfort and relaxation.",
+            "type": "website",
+            "url": "https://www.agriturismosegarelli.it/en/appartamenti/gelsomino",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/gelsomino/fuori.jpg",
+            "site_name": "Agriturismo Segarelli"
+          },
+          "twitter": {
+            "card": "summary_large_image",
+            "title": "Agriturismo Segarelli | Gelsomino",
+            "description": "Two-floor apartment for friends or families, with living spaces and bedrooms designed for comfort and relaxation.",
+            "image": "https://segarelli.vercel.app/assets/appartamenti/gelsomino/fuori.jpg",
+            "creator": "@agriturismosegarelli",
+            "site": "@agriturismosegarelli"
+          },
+          "schema": {
+            "organization": {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/gelsomino",
+              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "description": "Gelsomino apartment at Agriturismo Segarelli: two floors, spacious and bright, perfect for families or friends in Tuscany."
+            },
+            "website": {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Agriturismo Segarelli",
+              "url": "https://www.agriturismosegarelli.it/en/appartamenti/gelsomino"
+            }
+          }
+        },
         "name": "Gelsomino",
         "title": "Space and comfort for everyone",
         "img": "/assets/appartamenti/gelsomino/gelsomino.jpg",
