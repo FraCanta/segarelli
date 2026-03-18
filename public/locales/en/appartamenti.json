@@ -1,5 +1,47 @@
 {
   "appartamenti": {
+    "head": {
+      "title": "Agriturismo Segarelli | Our Apartments",
+      "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+      "keywords": "Agriturismo Segarelli apartments, Tuscany apartments, countryside stay, agriturismo vacation, apartments with pool, apartments near Volterra, apartments near Pisa, apartments near Lucca, apartments near Siena",
+      "robots": "index, follow",
+      "canonical": "https://www.agriturismosegarelli.it/en/appartamenti",
+
+      "og": {
+        "title": "Agriturismo Segarelli | Our Apartments",
+        "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+        "type": "website",
+        "url": "https://www.agriturismosegarelli.it/en/appartamenti",
+        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "site_name": "Agriturismo Segarelli"
+      },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Agriturismo Segarelli | Our Apartments",
+        "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "creator": "@agriturismosegarelli",
+        "site": "@agriturismosegarelli"
+      },
+
+      "schema": {
+        "organization": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/appartamenti",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "description": "Agriturismo Segarelli offers spacious and cozy apartments surrounded by nature, perfect for a comfortable stay in Tuscany."
+        },
+        "website": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/appartamenti"
+        }
+      }
+    },
     "title": "Sleep",
     "herobg": "/assets/sleep2.jpg",
     "description": "Discover our spacious and welcoming apartments, ideal for a comfortable stay surrounded by nature.",
