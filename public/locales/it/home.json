@@ -1,15 +1,15 @@
 {
   "home": {
     "head": {
-      "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
-      "description": "C’è un luogo nella campagna toscana dove i ritmi rallentano e tutto diventa più semplice. All’Agriturismo Segarelli troverai natura, spazi tranquilli, appartamenti accoglienti, cibo autentico ed esperienze uniche tra borghi medievali e percorsi panoramici.",
+      "title": "Agriturismo Segarelli | Vacanze in Toscana",
+      "description": "C’è un luogo in Toscana dove il tempo rallenta: natura, appartamenti accoglienti, cibo autentico ed esperienze uniche.",
       "keywords": "Agriturismo Toscana, soggiorno rilassante Toscana, vacanza in campagna, agriturismo con piscina, borghi medievali Toscana, esperienze autentiche Toscana, agriturismo eco-friendly",
       "robots": "index, follow",
       "canonical": "https://www.agriturismosegarelli.it/",
 
       "og": {
-        "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
-        "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, spazi tranquilli, appartamenti accoglienti, cucina autentica e vicini borghi medievali con eventi locali e percorsi panoramici.",
+        "title": "Agriturismo Segarelli | Vacanze in Toscana",
+        "description": "C’è un luogo in Toscana dove il tempo rallenta: natura, appartamenti accoglienti, cibo autentico ed esperienze uniche.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/",
         "image": "https://segarelli.vercel.app/assets/hero.jpg",
@@ -18,8 +18,8 @@
 
       "twitter": {
         "card": "summary_large_image",
-        "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
-        "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, spazi tranquilli, appartamenti accoglienti, cucina autentica e vicini borghi medievali con eventi locali e percorsi panoramici.",
+        "title": "Agriturismo Segarelli | Vacanze in Toscana",
+        "description": "C’è un luogo in Toscana dove il tempo rallenta: natura, appartamenti accoglienti, cibo autentico ed esperienze uniche.",
         "image": "https://segarelli.vercel.app/assets/hero.jpg"
       },
 
