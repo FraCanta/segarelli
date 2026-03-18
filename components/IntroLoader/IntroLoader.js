@@ -18,7 +18,7 @@ export default function IntroLoader({ isVisible }) {
           opacity: 1,
           duration: 3.5,
           ease: "power2.out",
-        }
+        },
       );
     } else {
       gsap.to(loaderRef.current, {
@@ -40,8 +40,8 @@ export default function IntroLoader({ isVisible }) {
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M132.358 62.4233V65.5715H119.09V48.4815H132.043V51.6746H123.048V55.3625H130.963V58.4656H123.048V62.4233H132.358Z"
           fill="white"
         />
@@ -58,26 +58,26 @@ export default function IntroLoader({ isVisible }) {
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M204.135 62.4233V65.5715H190.913V48.4815H203.82V51.6746H194.825V55.3625H202.786V58.4656H194.825V62.4233H204.135Z"
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M207.283 48.4815H211.241V62.3783H219.831V65.5715H207.283V48.4815Z"
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M222.035 48.4815H225.993V62.3783H234.583V65.5715H222.035V48.4815Z"
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M236.786 48.4815H240.744V65.5715H236.786V48.4815Z"
           fill="white"
         />
@@ -94,20 +94,20 @@ export default function IntroLoader({ isVisible }) {
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M146.344 30.2672H147.693V42.9947H146.344V30.2672Z"
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M192.397 30.2672H193.746V42.9947H192.397V30.2672Z"
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M155.024 31.4365H150.527V30.2672H160.826V31.4365H156.373V42.9947H155.024V31.4365Z"
           fill="white"
         />
@@ -124,8 +124,8 @@ export default function IntroLoader({ isVisible }) {
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M223.743 30.2672V42.9947H222.439V32.8307L217.447 41.3757H216.817L211.78 32.8757V42.9947H210.521V30.2672H211.6L217.132 39.7117L222.619 30.2672H223.743Z"
           fill="white"
         />

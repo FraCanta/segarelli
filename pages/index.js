@@ -14,32 +14,7 @@ import Reviews from "@/components/Reviews";
 import homeIT from "../public/locales/it/home.json";
 import homeEN from "../public/locales/en/home.json";
 import { useRouter } from "next/router";
-
-function FeatureItem({ title, src, desktopOnly = false }) {
-  return (
-    <div
-      className={`flex flex-col items-center ${
-        desktopOnly ? "hidden lg:flex" : ""
-      }`}
-    >
-      <figure className="w-24 h-24 relative mb-4">
-        <Image
-          src={src}
-          alt={title.join(" ")}
-          fill
-          className="object-contain"
-        />
-      </figure>
-      <div className="text-center">
-        {title.map((line, i) => (
-          <div key={i} className="block">
-            <div className="inline-block text-sm">{line}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import FeatureItem from "@/components/FeatureItem/FeatureItem";
 
 export default function Home({ post, pages, translation }) {
   const { locale } = useRouter();
@@ -59,12 +34,33 @@ export default function Home({ post, pages, translation }) {
   return (
     <>
       <Head>
-        <title>Vacanze in Toscana - Agriturismo Segarelli</title>
+        <title>{translation.head.title}</title>
+        <meta name="description" content={translation.head.description} />
+        <meta name="keywords" content={translation.head.keywords} />
+        <meta name="robots" content={translation.head.robots} />
+        <link rel="canonical" href={translation.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={translation.head.og.title} />
         <meta
-          name="description"
-          content="Vacanze in Toscana - Agriturismo Segarelli. Conduzione familiare, vicino Volterra. Piscina, tre appartamenti indipendenti, colazione, free wi-fi."
+          property="og:description"
+          content={translation.head.og.description}
         />
-        <link rel="canonical" href="https://segarelli.vercel.app/" />
+        <meta property="og:type" content={translation.head.og.type} />
+        <meta property="og:url" content={translation.head.og.url} />
+        <meta property="og:image" content={translation.head.og.image} />
+        <meta property="og:site_name" content={translation.head.og.site_name} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={translation.head.twitter.card} />
+        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={translation.head.twitter.description}
+        />
+        <meta name="twitter:image" content={translation.head.twitter.image} />
+
+        {/* Favicon */}
         <link
           rel="icon"
           type="image/png"
@@ -73,6 +69,19 @@ export default function Home({ post, pages, translation }) {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                translation.head.schema.organization,
+                translation.head.schema.website,
+              ],
+            }),
+          }}
+        />
       </Head>
       {/* HERO SCROLL */}
       <section className="h-[140vh] lg:h-[200vh] relative">

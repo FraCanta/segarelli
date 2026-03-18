@@ -21,7 +21,7 @@ export default function PostSection({ post, featuredMedia, locale }) {
     "/assets/hero.jpg";
 
   return (
-    <div className="flex flex-col w-full h-[350px] lg:h-auto ">
+    <div className="flex flex-col w-full h-[340px] lg:h-auto ">
       {/* contenitore flessibile verticale che occupa tutta l’altezza */}
       <div className="flex flex-col h-full justify-between overflow-hidden ">
         {/* Immagine */}
@@ -43,13 +43,13 @@ export default function PostSection({ post, featuredMedia, locale }) {
         <div className="flex-grow flex flex-col justify-between pt-4">
           <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
             <h3
-              className="text-blu hover:underline text-xl  lg:text-[20px] leading-[120%] transition-all 3xl:text-3xl"
+              className="text-blu hover:underline text-base  lg:text-[20px] leading-[120%] transition-all 3xl:text-3xl"
               dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
             />
           </Link>
 
           {/* Footer info */}
-          <div className="flex items-center w-full pt-4">
+          <div className="flex items-center w-full lg:pt-4">
             <span className="text-blu/70">
               {getDate(post?.date, locale === "it" ? "it-IT" : "en-US")}
             </span>

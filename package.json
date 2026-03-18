@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "baseline-browser-mapping": "^2.10.8",
     "eslint": "^9",
     "eslint-config-next": "15.1.5",
     "postcss": "^8",

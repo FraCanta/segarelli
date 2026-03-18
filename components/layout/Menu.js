@@ -168,6 +168,7 @@ function Menu({ translation, isDarkHero = true }) {
         <Image
           src={logoSrc}
           alt="Logo"
+          priority
           className={`transition-all duration-500 ${scrolled ? "w-[150px] xl:w-[180px] 2xl:w-[200px]" : "w-[180px] xl:w-[200px] 2xl:w-[240px]"}`}
         />
       </Link>

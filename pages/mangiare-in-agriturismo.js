@@ -14,32 +14,8 @@ import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import BlogSection from "@/components/blogSection/blogSection";
+import FeatureItem from "@/components/FeatureItem/FeatureItem";
 
-function FeatureItem({ title, src, desktopOnly = false }) {
-  return (
-    <div
-      className={`flex flex-col items-center ${
-        desktopOnly ? "hidden lg:flex" : ""
-      }`}
-    >
-      <figure className="w-24 h-24 relative mb-4">
-        <Image
-          src={src}
-          alt={title.join(" ")}
-          fill
-          className="object-contain"
-        />
-      </figure>
-      <div className="text-center">
-        {title.map((line, i) => (
-          <div key={i} className="block">
-            <div className="inline-block text-sm">{line}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 function Mangiare({ pages, post, translation }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);

@@ -16,32 +16,7 @@ import Image from "next/image";
 import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import RevealImage from "@/components/layout/RevealImage";
-
-function FeatureItem({ title, src, desktopOnly = false }) {
-  return (
-    <div
-      className={`flex flex-col items-center ${
-        desktopOnly ? "hidden lg:flex" : ""
-      }`}
-    >
-      <figure className="w-24 h-24 relative mb-4">
-        <Image
-          src={src}
-          alt={title.join(" ")}
-          fill
-          className="object-contain"
-        />
-      </figure>
-      <div className="text-center">
-        {title.map((line, i) => (
-          <div key={i} className="block">
-            <div className="inline-block text-sm">{line}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import FeatureItem from "@/components/FeatureItem/FeatureItem";
 
 function Appartamenti({ pages, post, translation }) {
   const { scrollY } = useScroll();
