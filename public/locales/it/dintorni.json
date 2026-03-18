@@ -1,0 +1,70 @@
+{
+  "dintorni": {
+    "title": "Discover",
+    "herobg": "/assets/meet.jpg",
+    "description": "Un'esperienza fatta di emozioni e scoperte.",
+    "SezioneGallery": {
+      "subTitle": "Borghi, eventi e natura",
+      "title": "Una terra che non smette di sorprenderti",
+      "description": [
+        "L'Agriturismo Segarelli si trova in una posizione strategica dalla quale puoi raggiungere diverse località e saremo felici di guidarvi nel scegliere cosa fare e vedere"
+      ]
+    },
+    "activities": {
+      "title": {
+        "title1": "Cultura:",
+        "title2": "Tra Colli, Valli e Mare"
+      },
+      "description": "Gli ospiti dell’agriturismo possono visitare molti borghi medievali, alcuni dei quali sono visibili in lontananza: Micciano, Libbiano, Pomarance, Montecastelli e Radicondoli. Qui per tutta l’estate, quasi ogni domenica, si svolgono le feste paesane e alle rievocazioni storiche si accompagna sempre la degustazione dei prodotti tipici locali. Inoltre durante il periodo primavera-estate-autunno organizzano escursioni, trakking e altre attività"
+    },
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Dove il tempo rallenta",
+        "text": "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Eat",
+        "tagline": "La semplicità del buon cibo",
+        "text": "Un’esperienza autentica, naturale e senza fronzoli.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Play",
+        "tagline": "Vivi l’ambiente intorno a te",
+        "text": "Passeggia, scopri, rilassati: ogni angolo sorprende.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Scopri di più"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Non perdere l'occasione",
+        "text": "Scopri i borghi medievali e non perdere eventi tipici.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Scopri di più"
+      }
+    ],
+    "blog": {
+      "title": "Il Blog dell'Agriturismo Segarelli",
+      "cta": "Leggi tutti gli articoli"
+    },
+    "gallery": [
+      { "src": "/assets/pool.jpg" },
+      { "src": "/assets/pool2.jpg" },
+      { "src": "/assets/pool3.jpg" },
+      { "src": "/assets/pool4.jpg" },
+      { "src": "/assets/pool5.jpg" },
+      { "src": "/assets/pool6.jpg" },
+      { "src": "/assets/pool7.jpg" },
+      { "src": "/assets/pool8.jpg" },
+      { "src": "/assets/pool9.jpg" }
+    ]
+  }
+}

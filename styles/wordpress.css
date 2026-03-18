@@ -1,0 +1,146 @@
+iframe {
+  width: 100% !important;
+  height: 500px !important;
+  margin-top: 30px;
+}
+
+.wp-title h2 {
+  font-size: 35px;
+  text-transform: uppercase;
+  line-height: 120%;
+}
+
+.wp-title h3 {
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.wp-content .wp-image-2218 {
+  aspect-ratio: 1/1 !important;
+  height: 500px !important;
+  object-fit: cover !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+}
+
+.wp-content .wp-image-2213 {
+  aspect-ratio: 1/1 !important;
+  height: 500px !important;
+  object-fit: cover !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+}
+
+.wp-content .wp-image-2179 {
+  object-fit: cover !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.wp-content .wp-image-2178 {
+  object-fit: cover !important;
+  object-position: bottom !important;
+  margin-top: 20px;
+  margin-left: 0 !important;
+}
+
+.wp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.grid__item {
+  display: flex !important;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wp-block-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important; /* 3 colonne uguali */
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.wp-block-gallery figure > a > img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1/1 !important;
+  object-fit: cover !important;
+  gap: 20px;
+}
+
+#gallery-0 {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important; /* 3 colonne uguali */
+  width: 100%;
+  gap: 12px !important;
+}
+
+#gallery-1 {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important; /* 3 colonne uguali */
+  width: 100%;
+  gap: 12px !important;
+}
+
+#gallery-1 > .gallery-item {
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#gallery-1 > .gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#gallery-0 > .gallery-item {
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+#gallery-0 > .gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+figcaption {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  iframe {
+    height: 300px !important;
+  }
+  .wp-title h2 {
+    font-size: 25px;
+  }
+
+  #gallery-0 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 colonne uguali */
+    gap: 12px;
+    width: 100%;
+  }
+
+  #gallery-1 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 colonne uguali */
+    gap: 12px;
+    width: 100%;
+  }
+
+  .wp-content img {
+    aspect-ratio: 1/1 !important;
+    width: 100% !important;
+  }
+
+  .wp-block-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+  }
+}

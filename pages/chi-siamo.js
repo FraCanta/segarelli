@@ -1,7 +1,164 @@
+import BlogSection from "@/components/blogSection/blogSection";
+import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
+import { MaskText } from "@/components/layout/MaskText";
+import RevealImage from "@/components/layout/RevealImage";
+import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import chiSiamoIT from "../public/locales/it/chiSiamo.json";
+import chiSiamoEN from "../public/locales/en/chiSiamo.json";
+import { ParagraphText } from "@/components/layout/ParagraphText";
+import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
 
-function ChiSiamo() {
-  return <div className="h-screen bg-primary/60">ChiSiamo</div>;
+function ChiSiamo({ post, translation }) {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2, // 0.2s tra un'immagine e l'altra
+        ease: [0.33, 1, 0.68, 1],
+      },
+    },
+  };
+  return (
+    <div>
+      <div className="min-h-[80svh] lg:min-h-screen  flex flex-col items-center  lg:py-10">
+        <div className="text-center mt-20">
+          <div className="py-16 lg:pt-32 lg:pb-16 h-full">
+            <MaskText>
+              <h1 className="text-blu text-base lg:text-[1.5rem] uppercase lg:p-4">
+                {translation.title}
+              </h1>
+            </MaskText>
+            <MaskText>
+              <h2 className="text-blu text-4xl sm:text-[2.5rem] xl:text-5xl 2xl:text-7xl text-center  leading-[1] py-2 overflow-hidden lg:max-w-5xl lg:mx-auto">
+                {translation.secondTitle}
+              </h2>
+            </MaskText>
+          </div>
+
+          <div className="relative px-4 lg:px-0 lg:w-[calc(100vw-3rem)] aspect-video lg:aspect-square lg:h-[800px]  ">
+            <RevealImage
+              src="/assets/chisiamo_hero.webp"
+              alt="chi siamo"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto lg:my-20 lg:text-center px-4">
+        <ParagraphText>{translation?.firstParagraph}</ParagraphText>
+      </div>
+
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "show" : "hidden"}
+        className="flex flex-col lg:flex-row justify-center gap-6 min-h-[80vh]  items-center px-4 lg:px-6 my-20"
+      >
+        <RevealImage
+          src="/assets/storia/1.jpg"
+          alt="Left"
+          className="block flex-1 aspect-video"
+        />
+
+        <RevealImage
+          src="/assets/storia/3.jpg"
+          alt="Center"
+          className="flex-1 aspect-video lg:aspect-square"
+        />
+
+        <RevealImage
+          src="/assets/storia/2.jpg"
+          alt="Right"
+          className="block flex-1 aspect-video"
+        />
+      </motion.div>
+      <div className="my-20 lg:text-center  px-4 flex flex-col gap-4">
+        <MaskText>
+          <h2 className="text-blu text-3xl 2xl:text-[46px] leading-[1.2]">
+            {translation?.anni30?.title}
+          </h2>
+        </MaskText>
+        <div className="max-w-6xl mx-auto ">
+          <ParagraphText>{translation?.anni30?.description}</ParagraphText>
+        </div>
+        <div className="my-20">
+          {" "}
+          <SliderAppartamento slides={translation?.anni30?.gallery2} />
+        </div>
+      </div>
+      <div className="my-20 lg:text-center bg-primary/10 py-20 flex flex-col gap-4 px-4">
+        <MaskText>
+          <h2 className="text-blu text-3xl 2xl:text-[46px] leading-[1.2]">
+            {translation?.anni50?.title}
+          </h2>
+        </MaskText>
+        <div className="max-w-6xl mx-auto">
+          <ParagraphText>{translation?.anni50?.description}</ParagraphText>
+        </div>
+        <div className="my-20">
+          {" "}
+          <SliderAppartamento slides={translation?.anni50?.gallery} />
+        </div>
+      </div>
+      <div className="my-20 lg:text-center flex flex-col gap-4 px-4">
+        <MaskText>
+          <h2 className="text-blu text-3xl 2xl:text-[46px] leading-[1.2]">
+            {translation?.nowday?.title}
+          </h2>
+        </MaskText>
+        <div className="max-w-6xl mx-auto ">
+          <ParagraphText>{translation?.nowday?.description}</ParagraphText>
+        </div>
+        <div className="my-20">
+          {" "}
+          <SliderAppartamento slides={translation?.nowday?.gallery3} />
+        </div>
+      </div>
+      <CategoriesCarousel translation={translation} />
+      <div className=" w-full flex items-center py-8">
+        {" "}
+        <BlogSection post={post} translation={translation.blog} />
+      </div>
+    </div>
+  );
 }
 
 export default ChiSiamo;
+
+export async function getStaticProps({ locale }) {
+  const idLocale = await getTagId(locale); // recupera id della lingua attuale
+  const post = await getPosts(idLocale); //recupera post nella lingua attuale
+  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
+  const pages = await getPagesByIds(HOME_PAGE_IDS);
+  let obj;
+  switch (locale) {
+    case "it":
+      obj = chiSiamoIT;
+      break;
+    case "en":
+      obj = chiSiamoEN;
+      break;
+    default:
+      obj = chiSiamoIT;
+      break;
+  }
+  return {
+    props: {
+      translation: obj?.chiSiamo,
+
+      post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
+      // instagramPosts: posts,
+      pages,
+    },
+    revalidate: 60,
+  };
+}

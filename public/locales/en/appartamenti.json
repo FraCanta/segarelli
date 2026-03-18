@@ -1,0 +1,413 @@
+{
+  "appartamenti": {
+    "head": {
+      "title": "Agriturismo Segarelli | Our Apartments",
+      "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+      "keywords": "Agriturismo Segarelli apartments, Tuscany apartments, countryside stay, agriturismo vacation, apartments with pool, apartments near Volterra, apartments near Pisa, apartments near Lucca, apartments near Siena",
+      "robots": "index, follow",
+      "canonical": "https://www.agriturismosegarelli.it/en/appartamenti",
+
+      "og": {
+        "title": "Agriturismo Segarelli | Our Apartments",
+        "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+        "type": "website",
+        "url": "https://www.agriturismosegarelli.it/en/appartamenti",
+        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "site_name": "Agriturismo Segarelli"
+      },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Agriturismo Segarelli | Our Apartments",
+        "description": "Discover our spacious and cozy apartments, perfect for a comfortable stay surrounded by nature in Tuscany.",
+        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "creator": "@agriturismosegarelli",
+        "site": "@agriturismosegarelli"
+      },
+
+      "schema": {
+        "organization": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/appartamenti",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "description": "Agriturismo Segarelli offers spacious and cozy apartments surrounded by nature, perfect for a comfortable stay in Tuscany."
+        },
+        "website": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/appartamenti"
+        }
+      }
+    },
+    "title": "Sleep",
+    "herobg": "/assets/sleep2.jpg",
+    "description": "Discover our spacious and welcoming apartments, ideal for a comfortable stay surrounded by nature.",
+    "subtitle1": "Our apartments",
+    "title1": "A stay to experience, not just to tell",
+    "paragraph1": "At Agriturismo Segarelli we have been welcoming our guests since 2008, sharing the pleasure of an authentic holiday in Tuscany.\nThree independent apartments, nature all around, and a story that continues with those who choose to live it\n",
+    "features": [
+      {
+        "title": ["Expansive", "Garden"],
+        "src": "/assets/garden.svg"
+      },
+      {
+        "title": ["Close to", "Attractions"],
+        "src": "/assets/attraction.svg"
+      },
+      {
+        "title": ["Timeless", "Design"],
+        "src": "/assets/design.svg"
+      },
+      {
+        "title": ["Eco-", "Friendly"],
+        "src": "/assets/green.svg"
+      },
+      {
+        "title": ["Loved by", "Locals"],
+        "src": "/assets/locals.svg"
+      }
+    ],
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural, and unpretentious experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the surroundings",
+        "text": "Walk, explore, relax: every corner has its surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Explore medieval villages and enjoy local events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Learn more"
+      }
+    ],
+    "reviewsTitle": "Experiences from Agriturismo Segarelli",
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Through Hills, Valleys and The Sea"
+      },
+      "description": "The guests can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Here throughout the summer, almost every Sunday, it takes place local festivals that are always accompanied by a tasting of local products. Also during the spring-summer-autumn  excursions, trekking and other activities are organized"
+    },
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    },
+    "othersTitle": "Discover our other apartments",
+    "accordionSection": "Useful information",
+    "accordionData": [
+      {
+        "title": "What makes Agriturismo Segarelli unique?",
+        "content": "At Agriturismo Segarelli you will find the sounds, colors, and scents typical of the Tuscan countryside. The blue sky reflecting in the pool water, the green of the meadow and the surrounding woods ensuring privacy and tranquility; the warm colors of the massive walls, which alone tell the story of this place, dating back at least to 1680; the deep red geraniums, carefully tended by Norma."
+      },
+      {
+        "title": "What activities are available nearby?",
+        "content": "Agriturismo Segarelli is in a strategic location, in the heart of Tuscany: 30 minutes from Volterra, one hour from Siena, just over an hour from Pisa or Lucca, and an hour and a half from Florence. In addition, in just half an hour you can reach the coast that was so cherished by the Etruscans."
+      },
+      {
+        "title": "Is the swimming pool available all year round?",
+        "content": "Unfortunately, no. The pool is open seasonally, generally from May to September, depending on weather conditions."
+      },
+      {
+        "title": "Are you open all year round?",
+        "content": "Yes, of course! Did you know that this area is historically famous for geothermal energy? Here, to keep warm, we use steam that is also used to produce electricity. So you can relax — in winter, it’s always cozy here."
+      }
+    ],
+    "apartments": [
+      {
+        "name": "Acacia",
+        "description": "A cozy and welcoming apartment (42 sqm), designed for couples who want a practical and relaxing stay without giving up privacy and a warm, homely atmosphere",
+        "leftImg": { "src": "/assets/appartamenti/acacia/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/acacia/door2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
+      },
+      {
+        "name": "Edera",
+        "description": "Spacious apartment (70 sqm) ideal for couples, located on the upper floor with a panoramic terrace overlooking Monte Rufoli park. Perfect for those looking for comfort, brightness and relaxing moments with a view",
+        "leftImg": { "src": "/assets/appartamenti/edera/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/edera/fuori2.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/edera/edera.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
+      },
+      {
+        "name": "Gelsomino",
+        "description": "An apartment (80 sqm) on two floors designed for friends or families, with a large and bright living room, equipped kitchen and two double bedrooms. Every detail is designed to combine shared moments and private spaces for a relaxing and stress-free stay",
+        "leftImg": { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
+        "centerImg": { "src": "/assets/appartamenti/gelsomino/door.jpg" },
+        "rightImg": { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" },
+        "ctaSecondary": "Book now",
+        "ctaPrimary": "Discover more"
+      }
+    ],
+    "check": "Check availability",
+
+    "singleApartment": {
+      "acacia": {
+        "name": "Acacia",
+        "title": "Intimacy and comfort in every corner",
+        "img": "/assets/appartamenti/acacia/acacia.jpg",
+        "SezionePiano0": {
+          "subTitle": "Living area",
+          "title": "A warm and bright living space",
+          "description": "A single space with kitchen and living room and outdoor area"
+        },
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/acacia/fuori.jpg" },
+          { "src": "/assets/appartamenti/acacia/door2.jpg" },
+          { "src": "/assets/appartamenti/acacia/cucina-sala.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery1.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery2.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery4.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery5.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery6.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery7.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery8.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery9.jpg" }
+        ],
+        "SezionePiano1": {
+          "subTitle": "Sleeping area",
+          "title": "Double bedroom and private bathroom",
+          "description": "In the Acacia apartment you will find a cozy and quiet double bedroom where you can enjoy restful nights"
+        },
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/acacia/gallery10.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery11.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery12.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery13.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery14.jpg" },
+          { "src": "/assets/appartamenti/acacia/gallery15.jpg" }
+        ],
+
+        "titleAmeneties": "What you will find",
+        "size": "42 sqm · Apartment for 2 people",
+        "amenetiesItems": [
+          { "name": "Bathroom with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
+          { "name": "Refrigerator", "icon": "solar:fridge-outline" },
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Sofa", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
+        ],
+        "prezzi": {
+          "title": "Rates",
+          "list": [
+            {
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
+              "price": "70€",
+              "weekTitle": "Per week",
+              "weekPrice": "480€"
+            },
+            {
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
+              "price": "80€",
+              "weekTitle": "Per week",
+              "weekPrice": "540€"
+            }
+          ]
+        }
+      },
+
+      "edera": {
+        "name": "Edera",
+        "title": "Light, space and park view",
+        "img": "/assets/appartamenti/edera/edera.jpg",
+        "SezionePiano0": {
+          "subTitle": "Moments of relaxation",
+          "title": "Enjoy your living area",
+          "description": "Enjoy the peace and natural light while relaxing in the living room and dining area overlooking Monte Rufoli park"
+        },
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/edera/fuori2.jpg" },
+
+          { "src": "/assets/appartamenti/edera/fuori3.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori4.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori5.jpg" },
+          { "src": "/assets/appartamenti/edera/fuori6.jpg" },
+          { "src": "/assets/appartamenti/edera/edera.jpg" },
+
+          { "src": "/assets/appartamenti/edera/gallery1.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery2.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery3.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery4.jpg" }
+        ],
+        "SezionePiano1": {
+          "subTitle": "Privacy with a view",
+          "title": "The double bedroom",
+          "description": "A private retreat for couples, with views over the park and a romantic atmosphere, perfect for moments of complete relaxation"
+        },
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/edera/gallery5.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery6.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery7.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery8.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery9.jpg" },
+          { "src": "/assets/appartamenti/edera/gallery10.jpg" }
+        ],
+        "titleAmeneties": "What you will find",
+        "size": "70 sqm · Apartment for 2 people",
+        "amenetiesItems": [
+          { "name": "Bathroom with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
+          {
+            "name": "Refrigerator with freezer",
+            "icon": "solar:fridge-outline"
+          },
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Oven", "icon": "fluent:oven-48-regular" },
+          { "name": "Dishwasher", "icon": "iconoir:dishwasher" },
+          { "name": "Washing machine", "icon": "fluent:washer-32-regular" },
+          { "name": "Sofa bed", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
+        ],
+        "prezzi": {
+          "title": "Rates",
+          "list": [
+            {
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
+              "price": "90€",
+              "weekTitle": "Per week",
+              "weekPrice": "610€"
+            },
+            {
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
+              "price": "100€",
+              "weekTitle": "Per week",
+              "weekPrice": "680€"
+            }
+          ]
+        }
+      },
+
+      "gelsomino": {
+        "name": "Gelsomino",
+        "title": "Space and comfort for everyone",
+        "img": "/assets/appartamenti/gelsomino/gelsomino.jpg",
+        "SezionePiano0": {
+          "subTitle": "Enjoy your living area",
+          "title": "Spacious and functional spaces",
+          "description": "On the ground floor you will find the kitchen, dining room and living room in one welcoming shared space, a service bathroom with laundry and convenient access to the private garden"
+        },
+        "galleryPiano0": [
+          { "src": "/assets/appartamenti/gelsomino/fuori.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori2.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori3.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori4.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori5.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/fuori6.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gelsomino.jpg" },
+
+          { "src": "/assets/appartamenti/gelsomino/gallery1.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery2.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery3.jpg" },
+
+          { "src": "/assets/appartamenti/gelsomino/gallery4.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery5.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery6.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery7.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery8.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery9.jpg" }
+        ],
+        "SezionePiano1": {
+          "subTitle": "Sleeping area",
+          "title": "Bedrooms and bathrooms",
+          "description": "On the upper floor there are two double bedrooms and two bathrooms, ideal for a comfortable and functional use of space"
+        },
+        "galleryPiano1": [
+          { "src": "/assets/appartamenti/gelsomino/door.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery10.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery11.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery12.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery13.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery14.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery15.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery16.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery17.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery18.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery19.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery20.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery21.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery22.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery23.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery24.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery25.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery26.jpg" },
+          { "src": "/assets/appartamenti/gelsomino/gallery27.jpg" }
+        ],
+        "titleAmeneties": "What you will find",
+        "size": "80 sqm · Apartment for groups or families",
+        "amenetiesItems": [
+          { "name": "Bathrooms with shower", "icon": "mdi:shower" },
+          { "name": "Iron", "icon": "lucide-lab:iron" },
+          { "name": "Clothes drying rack", "icon": "game-icons:clothesline" },
+          {
+            "name": "Refrigerator with freezer",
+            "icon": "solar:fridge-outline"
+          },
+          { "name": "Microwave", "icon": "streamline:microwave" },
+          { "name": "Dishwasher", "icon": "iconoir:dishwasher" },
+          { "name": "Washing machine", "icon": "fluent:washer-32-regular" },
+          { "name": "Sofa", "icon": "iconoir:sofa" },
+          { "name": "Wi-Fi", "icon": "material-symbols:wifi" }
+        ],
+        "prezzi": {
+          "title": "Rates",
+          "list": [
+            {
+              "name": "Low season",
+              "period": "From January 7 to June 30 - From September 1 to December 22",
+              "nightTitle": "Per night",
+              "price": "120€",
+              "weekTitle": "Per week",
+              "weekPrice": "820€"
+            },
+            {
+              "name": "High season",
+              "period": "From July 1 to August 31 - From December 23 to January 6 - Easter",
+              "nightTitle": "Per night",
+              "price": "140€",
+              "weekTitle": "Per week",
+              "weekPrice": "950€"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

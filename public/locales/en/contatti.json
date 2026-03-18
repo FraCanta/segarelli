@@ -1,0 +1,52 @@
+{
+  "contatti": {
+    "title": "How to reach us and contact us",
+    "address": "Address",
+    "phone": "Phone",
+    "gps": "GPS Coordinates",
+    "accordion": [
+      {
+        "title": "For those arriving from the sea",
+        "text": "Take Cecina exit and continue on the SS 68 in the direction of Volterra for about 30 km – In the town of Volterra, at the junction turn right, cross the railway and continue towards Pomarance for about 10 km – Cross the town of Pomarance and continue for about 5 km direction Larderello – 300 m before the Montecerboli sign turn right and follow the signs to the agritourism an uphill road for about 1 km – Always keeping on the main road you arrive at the farm Segarelli."
+      },
+      {
+        "title": "Coming from A1",
+        "text": "In Florence North exit the highway and take the freeway Fi-Pi-Li, direction Pisa – Exit at Pontedera and continue towards Volterra – At Saline di Volterra, in the town center turn left, cross the railway and continue towards Pomarance for about 10 km – Across the town of Pomarance continuing for about 5 km direction Larderello – 300 m before the Montecerboli sign turn right and follow the signs to the agritourism an uphill road for about 1 km – Always keeping on the main road you arrive at the farm Segarelli."
+      }
+    ],
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural, and unpretentious experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the surroundings",
+        "text": "Walk, explore, relax: every corner has its surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Explore medieval villages and enjoy local events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Learn more"
+      }
+    ]
+  }
+}

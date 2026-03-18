@@ -8,10 +8,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { Icon } from "@iconify/react";
+import ButtonPrimary from "../layout/ButtonPrimary";
 
 const PostSection = dynamic(() => import("./postSection"), { ssr: false });
 
-const BlogSection = ({ post }) => {
+const BlogSection = ({ post, translation, locale }) => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -24,7 +25,12 @@ const BlogSection = ({ post }) => {
 
     return (
       <SwiperSlide key={i}>
-        <PostSection post={p} featuredMedia={featuredMedia} id={p?.id} />
+        <PostSection
+          post={p}
+          featuredMedia={featuredMedia}
+          id={p?.id}
+          locale={locale}
+        />
       </SwiperSlide>
     );
   });
@@ -35,8 +41,8 @@ const BlogSection = ({ post }) => {
   };
 
   return (
-    <div className="px-4 lg:px-6 w-full flex flex-col justify-center items-center my-10">
-      <div className="flex flex-col w-full h-full gap-10 fxl:gap-20 lg:items-center">
+    <div className="pl-4 lg:px-6 w-full flex flex-col justify-center items-center my-10">
+      <div className="flex flex-col w-full h-full gap-10 2xl:gap-20 lg:items-center">
         <div className="flex flex-col items-end justify-between w-full lg:flex-row">
           <div className="flex flex-col gap-3 items-center w-full justify-center relative">
             <div className="relative h-[100px] w-[100px]">
@@ -48,8 +54,8 @@ const BlogSection = ({ post }) => {
             </div>
 
             <MaskText>
-              <h3 className="text-blu text-3xl lg:text-5xl text-center p-1">
-                Il Blog dell'Agriturismo Segarelli
+              <h3 className="text-blu text-3xl xl:text-4xl 2xl:text-5xl text-center p-1">
+                {translation.title}
               </h3>
             </MaskText>
           </div>
@@ -71,7 +77,7 @@ const BlogSection = ({ post }) => {
               280: { slidesPerView: 1.25, spaceBetween: 20 },
               768: { slidesPerView: 1.25, spaceBetween: 40 },
               1024: { slidesPerView: 1, spaceBetween: 20 },
-              1280: { slidesPerView: 3, spaceBetween: 20 },
+              1280: { slidesPerView: 3, spaceBetween: 30 },
             }}
           >
             {jsxPosts}
@@ -104,8 +110,12 @@ const BlogSection = ({ post }) => {
             </div>
           </div>
         </div>
-
-        <ButtonSecondary>Leggi tutti gli articoli</ButtonSecondary>
+        <div className="pr-4">
+          {" "}
+          <ButtonPrimary link="/blog" title={translation.cta}>
+            {translation.cta}
+          </ButtonPrimary>
+        </div>
       </div>
     </div>
   );

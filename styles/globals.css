@@ -9,6 +9,10 @@ body,
   margin: 0;
 }
 
+.air-input {
+  background: transparent !important;
+}
+
 :root {
   --backgroundColor: #f8f6ec;
   --primaryColor: #5f6738;
@@ -27,9 +31,10 @@ body {
 h1,
 h2,
 h3,
+h4,
 span,
 small {
-  font-family: "Optima";
+  font-family: "Opulent Regular", serif;
 }
 
 button,
@@ -40,13 +45,10 @@ a {
 }
 
 @font-face {
-  font-family: "Optima";
-  src: url("/fonts/optimaBold.TTF") format("truetype");
-}
-
-@font-face {
-  font-family: "Optima";
-  src: url("/fonts/optima.TTF") format("truetype");
+  font-family: "Opulent Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/OPN.woff") format("woff");
 }
 
 html::-webkit-scrollbar {
@@ -60,4 +62,53 @@ html::-webkit-scrollbar {
 }
 .dsYFYq {
   text-transform: capitalize;
+}
+
+/*   Menu mobile    */
+
+.nav__burger {
+  z-index: 10;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__burger__line {
+  height: 2px;
+  width: 0; /* inizialmente */
+  background-color: #1e211e;
+  transition: all 0.5s ease;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.nav__burger__line:first-child {
+  transition-delay: 0.2s;
+}
+
+.nav__burger__line:last-child {
+  transition-delay: 0.22s;
+}
+
+.nav__burger__line__fill {
+  background-color: #1e211e;
+  width: 100%;
+  height: 100%;
+}
+
+.width-20 {
+  width: 23px;
+  opacity: 1;
+}
+
+.opacity-100 {
+  opacity: 1;
 }

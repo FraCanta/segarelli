@@ -4,43 +4,16 @@ import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import ButtonSecondary from "../layout/ButtonSecondary";
+import ButtonPrimary from "../layout/ButtonPrimary";
 
-const slides = [
-  {
-    title: "Sleep",
-    tagline: "Your oasis of calm in Cape Town",
-    text: "Nature, luxury, and service beyond expectation come together at The Vineyard.",
-    bg: "/assets/sleep2.jpg",
-  },
-  {
-    title: "Eat",
-    tagline: "Food is our love language",
-    text: "Seasonally driven, carefully considered, generously presented, and served with pride and purpose.",
-    bg: "/assets/eat2.jpg",
-  },
-  {
-    title: "Play",
-    tagline: "Share in your surroundings",
-    text: "Lose track of time amid the lush greenery and unexpected corners.",
-    bg: "/assets/pool3.jpg",
-  },
-  {
-    title: "Meet",
-    tagline: "Versatile venues for every occasion",
-    text: "Host your next event in a space where creativity flows, ideas thrive, and connections come standard.",
-    bg: "/assets/meet.jpg",
-  },
-];
-
-export default function CategoriesCarousel() {
+export default function CategoriesCarousel({ translation }) {
   const [currentSlide, setCurrentSlide] = useState(1);
   const swiperRef = useRef(null);
 
   return (
     <div className="relative h-screen">
       {/* Background images */}
-      {slides.map((slide, index) => (
+      {translation.slides.map((slide, index) => (
         <div
           key={index}
           style={{ backgroundImage: `url(${slide.bg})` }}
@@ -69,10 +42,10 @@ export default function CategoriesCarousel() {
         }}
         className="relative z-10 h-full"
       >
-        {slides.map((slide, index) => (
+        {translation.slides.map((slide, index) => (
           <SwiperSlide
             key={index}
-            className="!w-full lg:!w-[45%] h-full flex items-center justify-center"
+            className="!w-full lg:!w-[45%] h-full flex items-center justify-center px-4 lg:px-0"
           >
             <div
               className="
@@ -81,7 +54,7 @@ export default function CategoriesCarousel() {
         mx-auto
         text-center
         flex flex-col items-center gap-4 h-full justify-center
-        transition-opacity duration-700
+        transition-opacity duration-700 px-4
       "
             >
               <h2 className="text-5xl md:text-7xl font-light tracking-wide text-white">
@@ -94,7 +67,9 @@ export default function CategoriesCarousel() {
                 {slide.text}
               </p>
 
-              <ButtonSecondary>Scopri i nostri appartamenti</ButtonSecondary>
+              <ButtonPrimary link={slide.link} title={slide.title}>
+                {slide.cta}
+              </ButtonPrimary>
             </div>
           </SwiperSlide>
         ))}
@@ -103,9 +78,9 @@ export default function CategoriesCarousel() {
       </Swiper>
 
       {/* Custom pagination */}
-      <div className="swiper-pagination-wrapper light  absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 z-20">
+      <div className="swiper-pagination-wrapper light  absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6 z-20">
         <div className="swiper-pagination  flex gap-2">
-          {slides.map((_, index) => (
+          {translation.slides.map((_, index) => (
             <span
               key={index}
               className={`swiper-pagination-bullet ${
@@ -127,10 +102,17 @@ export default function CategoriesCarousel() {
           ))}
         </div>
 
-        <div className="swiper-numbers flex items-center gap-2 text-white text-lg md:text-xl font-medium">
+        <div
+          className="swiper-numbers flex items-center gap-2 text-white text-lg md:text-xl font-medium"
+          style={{
+            marginTop: "60px",
+          }}
+        >
           <span className="swiper-numbers-current">{currentSlide}</span>
           <span className="slash">/</span>
-          <span className="swiper-numbers-total">{slides.length}</span>
+          <span className="swiper-numbers-total">
+            {translation.slides.length}
+          </span>
         </div>
       </div>
     </div>

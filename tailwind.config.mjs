@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -7,38 +7,27 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        sm: "640px",
-        // => @media (min-width: 640px) { ... }
-
+        xs: "360px",
+        "2xs": "375px",
+        sm: "400px",
+        sms: "500px",
         md: "768px",
-        // => @media (min-width: 768px) { ... }
-
         lg: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
         xl: "1280px",
-        // => @media (min-width: 1280px) { ... }
-
         "2xl": "1500px",
-        // => @media (min-width: 1536px) { ... }
         "2xla": "1650px",
-        // => @media (min-width: 1680px) { ... }
         fxl: "1920px",
-        // => @media (min-width: 1920px) { ... }
-
         "3xl": "2560px",
-        // => @media (min-width: 2560px) { ... }
         "4xl": "3840px",
-        // => @media (min-width: 3840px) { ... }
       },
-    },
-    colors: {
-      primary: "#5F6738",
-      body: "#8F8F8F",
-      white: "#ffffff",
-      siena: "#BF7116",
-      blu: "#151D25",
-      yellow: "#f8f6ec",
+      colors: {
+        primary: "#5F6738",
+        body: "#8F8F8F",
+        white: "#ffffff",
+        siena: "#BF7116",
+        blu: "#151D25",
+        yellow: "#f8f6ec",
+      },
     },
   },
   plugins: [],

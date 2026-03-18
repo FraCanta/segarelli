@@ -1,0 +1,86 @@
+{
+  "chiSiamo": {
+    "title": "About Us",
+    "secondTitle": "The Story of Agriturismo Segarelli",
+    "firstParagraph": "Segarelli is an ancient farmhouse located on a hill, surrounded by cultivated fields and woods, at 520 meters above sea level. The construction of the first residential nucleus dates back to the early 1600s, and the current structure, whose layout is recorded on the maps of the Leopoldine Cadastre, is undoubtedly older than 1800. The farmhouse was renovated over 40 years ago, but it has retained many of its original architectural features. Before that, Segarelli was a typical farmhouse where tenant farmers lived, working for a noble local family, the Bicocchi",
+    "anni30": {
+      "title": "Late 1930s",
+      "description": "In 1890 my paternal great-grandfather Luigi Fulceri was born within these walls and lived here with his family until 1938. Coincidentally, the same year, my maternal great-grandfather Giovanni Cucini, together with his wife Armida and their children Nello, Amato, and Federigo, moved here to Segarelli. With the outbreak of World War II, my grandfather Nello and his brothers were called to arms. Even before the war ended, brothers Amato and Federigo managed to return home but found it occupied by a German outpost, forcing them to hide in the woods around Segarelli. My grandfather Nello, on the other hand, was captured in 1943 and deported to Mauthausen in Austria",
+      "gallery2": [
+        { "src": "/assets/storia/10.jpg" },
+        { "src": "/assets/storia/11.jpg" },
+        { "src": "/assets/storia/12.jpg" },
+        { "src": "/assets/storia/13.jpg" },
+        { "src": "/assets/storia/14.jpg" },
+        { "src": "/assets/storia/15.jpg" },
+        { "src": "/assets/storia/16.jpg" },
+        { "src": "/assets/storia/17.jpg" },
+        { "src": "/assets/storia/18.jpg" }
+      ]
+    },
+    "anni50": {
+      "title": "After World War II",
+      "description": "After the war, he returned home and married his fiancée Bruna, a farmer who lived not far from Segarelli together with her sister Rosa. On October 10, 1945, Nello married Bruna, Rosa married Amato, and they all came to live in Segarelli. In 1947 my mother Norma was born and remained the only daughter and granddaughter for almost 12 years until Donatella, the daughter of my great-uncles Amato and Rosa, was born. With the economic boom of the 1960s, Amato and Federigo decided to seek financial security and moved to the province of Siena, in Colle Val d’Elsa, in 1966. By then, only Nello, Bruna, and Norma remained in Segarelli. My mother became engaged in 1962 to my father Enzo (childhood friend and neighbor). They married in 1968 and also decided to continue living in Segarelli. However, the farmhouse needed restoration. For over 40 years, whenever economic conditions allowed, my family carried out restoration works, ensuring respect for the style and tradition of Segarelli and Tuscany in general",
+      "gallery": [
+        { "src": "/assets/storia/4.jpg" },
+        { "src": "/assets/storia/5.jpg" },
+        { "src": "/assets/storia/6.jpg" },
+        { "src": "/assets/storia/7.jpg" },
+        { "src": "/assets/storia/8.jpg" },
+        { "src": "/assets/storia/9.jpg" }
+      ]
+    },
+    "nowday": {
+      "title": "Today",
+      "description": "I was born in 1979, Luigi, and together with my family, in 2008 we decided to transform part of Segarelli into an agriturismo, which I now manage with my partner Luisa. Since then, everyone who has visited us has been able to enjoy the greenery and tranquility that have always characterized Segarelli, to learn about and appreciate its long and fascinating history, to meet our family, and most importantly, to taste the products of our land. Therefore, I want to say that for us, Segarelli is not only a summer holiday residence but also the home that has welcomed my family for over a century. Here, not only do my roots live on, but also a small piece of history that has contributed in its own way to the local culture",
+      "gallery3": [
+        { "src": "/assets/storia/19.jpg" },
+        { "src": "/assets/storia/20.jpg" },
+        { "src": "/assets/storia/21.jpg" },
+        { "src": "/assets/storia/22.jpg" },
+        { "src": "/assets/storia/23.jpg" },
+        { "src": "/assets/storia/24.jpg" },
+        { "src": "/assets/storia/25.jpg" },
+        { "src": "/assets/storia/26.jpg" }
+      ]
+    },
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural, and unpretentious experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the surroundings",
+        "text": "Walk, explore, relax: every corner has its surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Learn more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Explore medieval villages and enjoy local events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Learn more"
+      }
+    ],
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    }
+  }
+}

@@ -1,10 +1,86 @@
 {
   "menu": {
     "it": {
-      "book": "Prenota"
+      "main": {
+        "apartments": "Appartamenti",
+        "about": "Chi siamo",
+        "contact": "Contatti",
+        "blog": "Blog"
+      },
+      "cta": {
+        "call": "Chiamaci",
+        "book": "Prenota"
+      }
     },
     "en": {
-      "book": "Book now"
+      "main": {
+        "apartments": "Apartments",
+        "about": "About us",
+        "contact": "Contact",
+        "blog": "Blog"
+      },
+      "cta": {
+        "call": "Call us",
+        "book": "Book now"
+      }
+    }
+  },
+  "footer": {
+    "it": {
+      "title": "Tradizione, comfort e natura nel cuore della Toscana",
+      "gridOne": {
+        "title": "Scopri L'Agriturismo Segarelli"
+      },
+      "gridTwo": {
+        "sleep": ["Acacia", "Edera", "Gelsomino"],
+        "eat": ["Mangiare in Agriturismo"],
+        "play": ["Relax e Natura da Segarelli"],
+        "discover": ["Relax", "Borghi", "Natura", "Città d'arte"],
+        "about": {
+          "title": "Chi Siamo",
+          "cta": "La nostra storia"
+        },
+        "contact": {
+          "title": "Contatti",
+          "cta": "Come contattarci e raggiungerci"
+        },
+        "blog": "Notizie e curiosità"
+      },
+      "gridThree": {
+        "title": "Vieni a trovarci",
+        "address": "Via Podere Segarelli n°6, 56045 Pomarance - Pisa (Italy)",
+        "email": "agriturismosegarelli@gmail.com",
+        "phone": "t: +39 347 7447180",
+        "cta": "Contattaci"
+      }
+    },
+    "en": {
+      "title": "Tradition, comfort and nature in the heart of Tuscany",
+      "gridOne": {
+        "title": "Discover Agriturismo Segarelli"
+      },
+      "gridTwo": {
+        "sleep": ["Acacia", "Edera", "Gelsomino"],
+        "eat": ["Dining at the Agriturismo"],
+        "play": ["Relaxation and Nature at Segarelli"],
+        "discover": ["Relax", "Villages", "Nature", "Art Cities"],
+        "about": {
+          "title": "About Us",
+          "cta": "Our story"
+        },
+        "contact": {
+          "title": "Contacts",
+          "cta": "How to contact us and reach us"
+        },
+        "blog": "News and curiosities"
+      },
+      "gridThree": {
+        "title": "Come visit us",
+        "address": "Via Podere Segarelli n°6, 56045 Pomarance - Pisa (Italy)",
+        "email": "agriturismosegarelli@gmail.com",
+        "phone": "t: +39 347 7447180",
+        "cta": "Contact us"
+      }
     }
   }
 }

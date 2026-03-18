@@ -1,0 +1,70 @@
+{
+  "dintorni": {
+    "title": "Discover",
+    "herobg": "/assets/meet.jpg",
+    "description": "An experience made of emotions and discoveries.",
+    "SezioneGallery": {
+      "subTitle": "Villages, events and nature",
+      "title": "A land that never stops surprising you",
+      "description": [
+        "Agriturismo Segarelli is located in a strategic position from which you can reach many destinations, and we will be happy to guide you in choosing what to do and see"
+      ]
+    },
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Among Hills, Valleys and Sea"
+      },
+      "description": "Guests of the agriturismo can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Throughout the summer, almost every Sunday, village festivals take place here, and historical reenactments are always accompanied by tastings of typical local products. During the spring–summer–autumn period they also organize excursions, trekking and other activities"
+    },
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet and welcoming spaces. Three apartments, some interconnected, to make you feel truly at home: Acacia, Edera and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural and uncomplicated experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the environment around you",
+        "text": "Walk, discover, relax: every corner surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Discover medieval villages and don't miss typical events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Discover more"
+      }
+    ],
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    },
+    "gallery": [
+      { "src": "/assets/pool.jpg" },
+      { "src": "/assets/pool2.jpg" },
+      { "src": "/assets/pool3.jpg" },
+      { "src": "/assets/pool4.jpg" },
+      { "src": "/assets/pool5.jpg" },
+      { "src": "/assets/pool6.jpg" },
+      { "src": "/assets/pool7.jpg" },
+      { "src": "/assets/pool8.jpg" },
+      { "src": "/assets/pool9.jpg" }
+    ]
+  }
+}

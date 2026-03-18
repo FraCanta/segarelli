@@ -3,8 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { getDate } from "@/utils/utils";
 import { Icon } from "@iconify/react";
+import RevealImage from "../layout/RevealImage";
 
-export default function PostSection({ post, featuredMedia }) {
+export default function PostSection({ post, featuredMedia, locale }) {
   const [minutiLettura, setMinutiLettura] = useState(0);
 
   useEffect(() => {
@@ -20,18 +21,18 @@ export default function PostSection({ post, featuredMedia }) {
     "/assets/hero.jpg";
 
   return (
-    <div className="flex flex-col w-full h-auto fxl:h-[380px]  ">
+    <div className="flex flex-col w-full h-[340px] lg:h-auto ">
       {/* contenitore flessibile verticale che occupa tutta l’altezza */}
       <div className="flex flex-col h-full justify-between overflow-hidden ">
         {/* Immagine */}
-        <Link href={`/posts/${post?.slug}`} title={post?.title?.rendered}>
+        <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
           <figure className="flex-shrink-0">
-            <Image
+            <RevealImage
               src={imageUrl}
               width={461}
               height={420}
               alt={featuredMedia?.alt_text || "Don't Call It Blog"}
-              className="w-full h-[240px] md:h-[350px] lg:h-[300px] 3xl:h-[380px] object-cover"
+              className="w-full h-[240px] md:h-[350px] lg:h-[375px] 3xl:h-[380px] object-cover"
               priority
               quality={70}
             />
@@ -40,24 +41,20 @@ export default function PostSection({ post, featuredMedia }) {
 
         {/* Titolo */}
         <div className="flex-grow flex flex-col justify-between pt-4">
-          <Link href={`/posts/${post?.slug}`} title={post?.title?.rendered}>
+          <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
             <h3
-              className="text-blu hover:underline text-base  lg:text-[22px] leading-[120%] transition-all 3xl:text-3xl"
+              className="text-blu hover:underline text-base  lg:text-[20px] leading-[120%] transition-all 3xl:text-3xl"
               dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
             />
           </Link>
 
           {/* Footer info */}
-          <div className="flex items-center  w-full pt-2">
-            <small className="text-blu/60 text-xs md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl">
-              {getDate(post?.date)}
-            </small>
-
-            <div className="flex items-center text-blu/60 text-md md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw] 3xl:text-lg  ml-6">
-              <span className="text-blu/60 text-xs md:text-[2.5vw] xl:text-base 2xl:text-[0.8vw]  3xl:text-2xl flex ">
-                &bull; {minutiLettura}min read
-              </span>
-            </div>
+          <div className="flex items-center w-full lg:pt-4">
+            <span className="text-blu/70">
+              {getDate(post?.date, locale === "it" ? "it-IT" : "en-US")}
+            </span>
+            <span className="w-[0.3rem] h-[0.3rem] bg-blu/70 rounded-full mx-2"></span>
+            <span className="text-blu/70 flex">{minutiLettura} min read</span>
           </div>
         </div>
       </div>

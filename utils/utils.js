@@ -1,10 +1,11 @@
 // Funzione per ottenere la data formattata con zeri iniziali
 export function getDate(date, locale = "it-IT") {
-  return new Date(date).toLocaleDateString(locale, {
-    day: "2-digit", // Assicura due cifre per il giorno
-    month: "2-digit", // Assicura due cifre per il mese
-    year: "numeric",
-  });
+  const d = new Date(date);
+  const day = d.toLocaleString(locale, { day: "numeric" });
+  const month = d.toLocaleString(locale, { month: "long" });
+  const year = d.toLocaleString(locale, { year: "numeric" });
+
+  return `${day} ${month} ${year}`;
 }
 
 // Funzione per ottenere l'ora, considerando un eventuale offset

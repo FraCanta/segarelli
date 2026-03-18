@@ -60,7 +60,7 @@ export function MaskText({ children }) {
         initial="initial"
         animate={animate ? "enter" : "initial"}
         custom={i}
-        className="inline-block mr-2"
+        className="inline-block mr-3"
       >
         {word}
       </motion.span>

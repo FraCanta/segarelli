@@ -1,0 +1,122 @@
+import { MaskText } from "@/components/layout/MaskText";
+import { getDate } from "@/utils/utils";
+import { getCategories, getPosts, getTagId } from "@/utils/wordpress";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+
+function Blog({ post, pages, currentP }) {
+  const { locale, query } = useRouter();
+  function calcolaMinutiLettura(testo, velocitaLetturaMedia = 250) {
+    const parole = (testo || "").split(" "); // fallback su stringa vuota
+    const paroleLette = parole.filter((parola) => parola.trim() !== "").length;
+    return Math.ceil(paroleLette / velocitaLetturaMedia);
+  }
+
+  return (
+    <>
+      <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
+        <div className="flex flex-col gap-3 items-center w-full justify-center relative">
+          <MaskText>
+            <h1 className="text-blu text-4xl xl:text-5xl 2xl:text-6xl text-center py-2 mt-20 ">
+              {locale === "it"
+                ? "Il Blog dell'Agriturismo Segarelli"
+                : "The Agriturismo Segarelli Blog"}
+            </h1>
+          </MaskText>
+        </div>
+      </div>
+
+      <div className="lg:w-[90%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-x-6 gap-y-10">
+        {post.map((p, i) => {
+          const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
+
+          // Calcolo minuti di lettura per ogni post
+          const testoSenzaTag =
+            p?.content?.rendered?.replace(/(<([^>]+)>)/gi, "") || "";
+          const minutiLettura = calcolaMinutiLettura(testoSenzaTag);
+
+          return (
+            <div key={i} className="flex flex-col min-h-full">
+              {/* Immagine */}
+              <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
+                <figure>
+                  <Image
+                    src={
+                      featuredMedia?.media_details?.sizes?.full?.source_url ||
+                      "/assets/hero.jpg"
+                    }
+                    width={461}
+                    height={420}
+                    alt={featuredMedia?.alt_text || p?.title?.rendered}
+                    className="object-cover w-full aspect-square"
+                    priority
+                  />
+                </figure>
+              </Link>
+
+              {/* Titolo */}
+              <div className="h-[4rem] flex items-start mt-2">
+                <Link href={`/blog/${p?.slug}`} title={`${p?.title?.rendered}`}>
+                  <h3
+                    className="text-lg fxl:text-[1.3rem] leading-[1.2] break-words"
+                    dangerouslySetInnerHTML={{ __html: p?.title?.rendered }}
+                  />
+                </Link>
+              </div>
+
+              {/* Meta info */}
+              <div className="flex items-center w-full ">
+                <span className="text-blu/70">
+                  {getDate(p?.date, locale === "it" ? "it-IT" : "en-US")}
+                </span>
+                <span className="w-[0.3rem] h-[0.3rem] bg-blu/70 rounded-full mx-2"></span>
+                <span className="text-blu/70 flex">
+                  {minutiLettura} min read
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Blog;
+
+export async function getServerSideProps(context) {
+  const { locale, query, res } = context;
+  res.setHeader("Cache-Control", "public, stale-while-revalidate");
+
+  let { page = 1, categories = 0, search = null } = query;
+  page = page || 1;
+  categories = categories || 0;
+  const itemPerPage = 10;
+
+  const idLocale = await getTagId(locale); // es. "it" -> 123
+  const post = (await getPosts(idLocale, search)) || [];
+
+  const filteredPosts = post.filter((el) => {
+    return parseInt(categories) !== 0
+      ? el?.categories.includes(parseInt(categories))
+      : true;
+  });
+
+  const paginationTrim = filteredPosts.slice(
+    (page - 1) * itemPerPage,
+    itemPerPage * page,
+  );
+
+  const category = await getCategories(locale);
+
+  return {
+    props: {
+      post: paginationTrim || [],
+      pages: Math.ceil(filteredPosts.length / itemPerPage),
+      category,
+      currentP: page,
+    },
+  };
+}

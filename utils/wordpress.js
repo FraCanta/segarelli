@@ -62,7 +62,7 @@ export async function getTags() {
         {
           cache: "force-cache",
           revalidate: 900,
-        }
+        },
       );
       const parsedFetch = await newFetch.json();
       tags.push(...parsedFetch);
@@ -113,7 +113,7 @@ export async function getCategories(lang, onlyFull = true) {
 
   const filteredCategories = categories?.filter(
     (el) =>
-      el?.description.includes(lang) && el?.description.includes("thalliondev")
+      el?.description.includes(lang) && el?.description.includes("thalliondev"),
   );
 
   const fullCategories = onlyFull
@@ -126,17 +126,14 @@ export async function getCategories(lang, onlyFull = true) {
 export async function getSlugs(type) {
   let elements = [];
   elements = await getPosts();
-  const myTag = await getTagId("thalliondev"); //prendo id del tag sideffect
   // const myTag = 133; //provvisorio da cambiare
-  const elementsIds = elements
-    .filter((el) => el?.tags?.includes(myTag)) //filtro solo quelli che contengono il mytag
-    .map((element) => {
-      return {
-        params: {
-          slug: element.slug,
-        },
-      };
-    });
+  const elementsIds = elements.map((element) => {
+    return {
+      params: {
+        slug: element.slug,
+      },
+    };
+  });
   return elementsIds;
 }
 
@@ -150,7 +147,7 @@ export async function getUsers() {
 }
 
 export async function getPostsByLanguageAndBlogOwner(
-  blogOwner = "thalliondev"
+  blogOwner = "thalliondev",
 ) {
   const resObj = {};
   resObj.ownerId = await getTagId(blogOwner);
@@ -173,7 +170,7 @@ export async function getComments(postId) {
   if (!!postId) {
     const comments = await commentsRes.json();
     const filteredComments = comments?.filter(
-      (el) => el?.post === parseInt(postId)
+      (el) => el?.post === parseInt(postId),
     );
     return filteredComments;
   } else {
@@ -201,4 +198,43 @@ export function listToTree(list) {
   } else {
     return null;
   }
+}
+
+export async function getPagesByIds(ids = []) {
+  if (!ids.length) return [];
+
+  const res = await fetch(`${BASE_URL}/pages?include=${ids.join(",")}&_embed`, {
+    cache: "force-cache",
+    next: { revalidate: 900 },
+  });
+
+  // Mappa ID -> immagine di fallback
+  const fallbackImages = {
+    2026: "/assets/borghi.jpg",
+    1997: "/assets/natura.jpg",
+  };
+
+  const pages = await res.json();
+
+  return ids.map((id) => {
+    const p = pages.find((el) => el.id === id);
+
+    if (!p) return { id, title: "", image: null, alt: "" };
+
+    const media = p._embedded?.["wp:featuredmedia"]?.[0];
+
+    return {
+      id,
+      title: p.title?.rendered || "",
+      image:
+        media?.media_details?.sizes?.large?.source_url ||
+        media?.source_url ||
+        fallbackImages[id] || // fallback specifico per quell'ID
+        null,
+      alt: media?.alt_text || "",
+      content: p.content.rendered,
+      excerpt: p.excerpt.rendered,
+      slug: p.slug,
+    };
+  });
 }

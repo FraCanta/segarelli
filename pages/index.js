@@ -3,97 +3,21 @@ import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
-import { getPosts, getTagId } from "../utils/wordpress";
+import { getPagesByIds, getPosts, getTagId } from "../utils/wordpress";
 import BlogSection from "@/components/blogSection/blogSection";
 import { StaggerImages } from "@/components/StaggerImages";
 import React from "react";
 import { MaskText } from "@/components/layout/MaskText";
+import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
+import { ParagraphText } from "@/components/layout/ParagraphText";
+import Reviews from "@/components/Reviews";
+import homeIT from "../public/locales/it/home.json";
+import homeEN from "../public/locales/en/home.json";
+import { useRouter } from "next/router";
+import FeatureItem from "@/components/FeatureItem/FeatureItem";
 
-const features = [
-  {
-    title: ["Grande", "Giardino"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Expansive-Gardens-icon.svg",
-  },
-
-  {
-    title: ["Vicino", "alle attrazioni"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Close-to-Attractions-icon.svg",
-  },
-
-  {
-    title: ["Design", "senza tempo"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/TIme-Honouored-Design-icon.svg",
-  },
-  {
-    title: ["Amato", "dai locals"],
-    src: "https://www.vineyard.co.za/wp-content/uploads/2025/07/Loved-By-Locals-icon.svg",
-  },
-];
-
-function FeatureItem({ title, src, desktopOnly = false }) {
-  return (
-    <div
-      className={`flex flex-col items-center ${
-        desktopOnly ? "hidden lg:flex" : ""
-      }`}
-    >
-      <figure className="w-24 h-24 relative mb-4">
-        <Image
-          src={src}
-          alt={title.join(" ")}
-          fill
-          className="object-contain"
-        />
-      </figure>
-      <div className="text-center">
-        {title.map((line, i) => (
-          <div key={i} className="block">
-            <div className="inline-block text-sm">{line}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Paragrafo animato
-export function ParagraphText({ children }) {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
-  const animate = inView || isMobile;
-
-  const animation = {
-    initial: { y: "100%", opacity: 0 },
-    enter: (i) => ({
-      y: "0%",
-      opacity: 1,
-      transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1], delay: 0.05 * i },
-    }),
-  };
-
-  const lines = children.split(". ");
-
-  return (
-    <div ref={ref} className="overflow-hidden">
-      {lines.map((line, i) => (
-        <motion.p
-          key={i}
-          variants={animation}
-          initial="initial"
-          animate={animate ? "enter" : "initial"}
-          custom={i}
-          className="max-w-4xl p-2 lg:mt-4 text-sm text-center lg:text-lg text-blu/80"
-        >
-          {line.trim()}.
-        </motion.p>
-      ))}
-    </div>
-  );
-}
-
-export default function Home({ post }) {
-  console.log(post);
+export default function Home({ post, pages, translation }) {
+  const { locale } = useRouter();
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5], {
     clamp: true,
@@ -102,7 +26,7 @@ export default function Home({ post }) {
   const spacerHeight = useTransform(
     scrollYProgress,
     [0, 0.4],
-    ["0px", "300px"]
+    ["0px", "250px"],
   );
   const titleOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0.35, 0.45], [40, 0]);
@@ -110,12 +34,33 @@ export default function Home({ post }) {
   return (
     <>
       <Head>
-        <title>Vacanze in Toscana - Agriturismo Segarelli</title>
+        <title>{translation.head.title}</title>
+        <meta name="description" content={translation.head.description} />
+        <meta name="keywords" content={translation.head.keywords} />
+        <meta name="robots" content={translation.head.robots} />
+        <link rel="canonical" href={translation.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={translation.head.og.title} />
         <meta
-          name="description"
-          content="Vacanze in Toscana - Agriturismo Segarelli. Conduzione familiare, vicino Volterra. Piscina, tre appartamenti indipendenti, colazione, free wi-fi."
+          property="og:description"
+          content={translation.head.og.description}
         />
-        <link rel="canonical" href="https://segarelli.vercel.app/" />
+        <meta property="og:type" content={translation.head.og.type} />
+        <meta property="og:url" content={translation.head.og.url} />
+        <meta property="og:image" content={translation.head.og.image} />
+        <meta property="og:site_name" content={translation.head.og.site_name} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={translation.head.twitter.card} />
+        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={translation.head.twitter.description}
+        />
+        <meta name="twitter:image" content={translation.head.twitter.image} />
+
+        {/* Favicon */}
         <link
           rel="icon"
           type="image/png"
@@ -124,12 +69,25 @@ export default function Home({ post }) {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                translation.head.schema.organization,
+                translation.head.schema.website,
+              ],
+            }),
+          }}
+        />
       </Head>
       {/* HERO SCROLL */}
-      <section className="h-[200vh] relative">
+      <section className="h-[140vh] lg:h-[200vh] relative">
         <motion.div
           style={{ scale, y }}
-          className="sticky top-0 h-screen w-full lg:aspect-video"
+          className="sticky top-0 h-screen w-full lg:aspect-video  overflow-x-hidden"
         >
           <Image
             src="/assets/hero.jpg"
@@ -147,7 +105,7 @@ export default function Home({ post }) {
         <MaskText>
           <h1
             style={{ opacity: titleOpacity, y: titleY }}
-            className="text-blu text-sm lg:text-[1.2rem] uppercase"
+            className="text-blu text-base lg:text-[1.2rem] uppercase"
           >
             Agriturismo Segarelli
           </h1>
@@ -155,53 +113,41 @@ export default function Home({ post }) {
         <MaskText>
           <h2
             style={{ opacity: titleOpacity, y: titleY }}
-            className="text-blu text-4xl lg:text-[46px]"
+            className="text-blu text-4xl lg:text-[46px] leading-[1.2]"
           >
-            Riscopri il piacere di fermarti
+            {translation.title}
           </h2>
         </MaskText>
 
-        <ParagraphText>
-          C’è un luogo nella campagna toscana dove i ritmi rallentano e tutto
-          diventa più semplice. All’Agriturismo Segarelli troverai natura, spazi
-          tranquilli e un’accoglienza genuina, fatta di condivisione e
-          attenzione. Un posto dove stare bene, prendersi il proprio tempo e
-          godersi ciò che c’è intorno
-        </ParagraphText>
+        <ParagraphText>{translation.description}</ParagraphText>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full justify-evenly max-w-6xl mt-10 ">
-          {features.map((feature, index) => (
+        <div className="flex flex-wrap gap-8 lg:gap-0 w-full max-w-6xl mt-10 justify-center lg:justify-evenly">
+          {translation.features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
         </div>
       </section>
+
       <section>
-        <CategoriesCarousel />
+        <CategoriesCarousel translation={translation} />
       </section>
       <SectionBreak />
       <StaggerImages />
 
-      <section className="bg-primary/30  w-full flex flex-col gap-10 items-center my-10 justify-center py-8 lg:py-20 px-8 lg:px-10">
-        <MaskText>
-          <h2 className="text-blu text-3xl lg:text-5xl lg:my-10 leading-snug p-1">
-            Esperienze all'Agriturismo Segarelli
-          </h2>
-        </MaskText>
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div
-          class="elfsight-app-89aabd6e-f658-4c8a-84c4-59bc7c67227e"
-          data-elfsight-app-lazy
-        ></div>
-      </section>
+      <Reviews translation={translation.reviewsTitle} />
       <SectionBreak />
-      <div className="h-screen w-full relative">
-        <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" />
+      <div className="h-screen w-full relative bg-[url('/assets/segarelli_alto.jpg')] bg-cover bg-fixed bg-center">
+        {/* <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" /> */}
       </div>
       <SectionBreak />
-      <div className="h-screen"></div>
+      <AttivitaSection pages={pages} translation={translation.activities} />
       <div className="bg-primary/10 w-full flex items-center py-8">
         {" "}
-        <BlogSection post={post} />
+        <BlogSection
+          post={post}
+          translation={translation.blog}
+          locale={locale}
+        />
       </div>
     </>
   );
@@ -210,11 +156,29 @@ export default function Home({ post }) {
 export async function getStaticProps({ locale }) {
   const idLocale = await getTagId(locale); // recupera id della lingua attuale
   const post = await getPosts(idLocale); //recupera post nella lingua attuale
+  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
+  const pages = await getPagesByIds(HOME_PAGE_IDS);
+
+  let obj;
+  switch (locale) {
+    case "it":
+      obj = homeIT;
+      break;
+    case "en":
+      obj = homeEN;
+      break;
+    default:
+      obj = homeIT;
+      break;
+  }
 
   return {
     props: {
+      translation: obj?.home,
+
       post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
       // instagramPosts: posts,
+      pages,
     },
     revalidate: 60,
   };

@@ -1,0 +1,95 @@
+{
+  "mangiare": {
+    "title": "Eat",
+    "herobg": "/assets/eat2.jpg",
+    "description": "Eat well, in a place designed for well-being.",
+    "subtitle1": "Dining at the Agriturismo",
+    "title1": "The simple taste of the Tuscan countryside",
+    "paragraph1": "Breakfast is prepared, upon request, only for agriturismo guests. It is a typical Italian breakfast with milk and coffee (barley and/or cocoa), biscuits, rusks with jam, butter to spread, homemade cake, orange juice and yogurt. In addition, we offer our guests products from our garden, such as potatoes, zucchini, eggplants and other seasonal vegetables and fruits",
+    "features": [
+      {
+        "title": ["Expansive", "Garden"],
+        "src": "/assets/garden.svg"
+      },
+      {
+        "title": ["Coffee", "time"],
+        "src": "/assets/coffee.svg"
+      },
+      {
+        "title": ["Enjoy", "the view"],
+        "src": "/assets/dining.svg"
+      },
+      {
+        "title": ["Eco", "friendly"],
+        "src": "/assets/green.svg"
+      },
+      {
+        "title": ["Garden", "products"],
+        "src": "/assets/orto.svg"
+      }
+    ],
+    "SezioneGallery": {
+      "subTitle": "Refreshment and relaxation area",
+      "title": "Hut, fireplace and conviviality",
+      "description": [
+        "At Agriturismo Segarelli you will find a characteristic hut and a new canopy, perfect for relaxing outdoors. You can enjoy a coffee, tea, an aperitif or prepare your own food in total freedom, using the fireplace for meat, vegetables or grilled dishes, with the fresh aromas of our garden. A welcoming space to be together and enjoy the moment, without having to go out"
+      ]
+    },
+    "gallery": [
+      { "src": "/assets/eat1.jpg" },
+      { "src": "/assets/eat2.jpg" },
+      { "src": "/assets/eat3.jpg" },
+      { "src": "/assets/eat4.jpg" },
+      { "src": "/assets/eat5.jpg" },
+      { "src": "/assets/eat6.jpg" },
+      { "src": "/assets/eat7.jpg" },
+      { "src": "/assets/eat8.jpg" }
+    ],
+    "activities": {
+      "title": {
+        "title1": "Culture:",
+        "title2": "Among Hills, Valleys and Sea"
+      },
+      "description": "Guests of the agriturismo can visit many medieval villages, some of which are visible in the distance: Micciano, Libbiano, Pomarance, Montecastelli and Radicondoli. Throughout the summer, almost every Sunday, local village festivals take place here, and historical reenactments are always accompanied by tastings of typical local products. During the spring-summer-autumn period they also organize excursions, trekking and other activities"
+    },
+    "slides": [
+      {
+        "title": "Sleep",
+        "tagline": "Where time slows down",
+        "text": "Spacious, quiet and welcoming spaces. Three apartments, some interconnected, to make you feel truly at home: Acacia, Edera and Gelsomino.",
+        "bg": "/assets/sleep2.jpg",
+        "link": "/appartamenti",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Eat",
+        "tagline": "The simplicity of good food",
+        "text": "An authentic, natural and uncomplicated experience.",
+        "bg": "/assets/eat2.jpg",
+        "link": "/mangiare-in-agriturismo",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Play",
+        "tagline": "Experience the environment around you",
+        "text": "Walk, discover, relax: every corner surprises.",
+        "bg": "/assets/pool3.jpg",
+        "link": "/relax-e-natura-da-segarelli",
+        "cta": "Discover more"
+      },
+      {
+        "title": "Discover",
+        "tagline": "Don't miss the opportunity",
+        "text": "Discover medieval villages and don't miss typical events.",
+        "bg": "/assets/meet.jpg",
+        "link": "/scopri-i-dintorni",
+        "cta": "Discover more"
+      }
+    ],
+    "book": "Book now",
+    "blog": {
+      "title": "The Agriturismo Segarelli Blog",
+      "cta": "Read all articles"
+    }
+  }
+}
