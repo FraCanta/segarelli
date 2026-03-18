@@ -1,14 +1,14 @@
 {
   "home": {
     "head": {
-      "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
+      "title": "Agriturismo Segarelli | Vacanze in Toscana",
       "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, appartamenti accoglienti, cucina autentica e borghi medievali.",
       "keywords": "Agriturismo Toscana, soggiorno rilassante Toscana, vacanza in campagna, agriturismo con piscina, borghi medievali Toscana, esperienze autentiche Toscana, agriturismo eco-friendly",
       "robots": "index, follow",
       "canonical": "https://www.agriturismosegarelli.it/",
 
       "og": {
-        "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
+        "title": "Agriturismo Segarelli | Vacanze in Toscana",
         "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, appartamenti accoglienti, cucina autentica e borghi medievali.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/",
@@ -18,7 +18,7 @@
 
       "twitter": {
         "card": "summary_large_image",
-        "title": "Agriturismo Segarelli | Riscopri il piacere di fermarti in Toscana",
+        "title": "Agriturismo Segarelli | Vacanze in Toscana",
         "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, appartamenti accoglienti, cucina autentica e borghi medievali.",
         "image": "https://segarelli.vercel.app/assets/hero.jpg"
       },

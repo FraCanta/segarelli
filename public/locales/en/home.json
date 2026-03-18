@@ -1,14 +1,14 @@
 {
   "home": {
     "head": {
-      "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
+      "title": "Agriturismo Segarelli | Holiday in Tuscany",
       "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
       "keywords": "Tuscany agriturismo, relaxing stay Tuscany, countryside vacation, agriturismo with pool, medieval villages Tuscany, authentic Tuscany experiences, eco-friendly agriturismo",
       "robots": "index, follow",
       "canonical": "https://www.agriturismosegarelli.it/en",
 
       "og": {
-        "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
+        "title": "Agriturismo Segarelli | Holiday in Tuscany",
         "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en",
@@ -18,7 +18,7 @@
 
       "twitter": {
         "card": "summary_large_image",
-        "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
+        "title": "Agriturismo Segarelli | Holiday in Tuscany",
         "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
         "image": "https://segarelli.vercel.app/assets/hero.jpg"
       },
