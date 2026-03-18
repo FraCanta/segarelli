@@ -2,14 +2,14 @@
   "home": {
     "head": {
       "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
-      "description": "There is a place in the Tuscan countryside where the pace slows down and everything becomes simpler. At Agriturismo Segarelli, you will find nature, peaceful spaces, cozy apartments, authentic food, and local experiences exploring medieval villages and scenic trails.",
+      "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
       "keywords": "Tuscany agriturismo, relaxing stay Tuscany, countryside vacation, agriturismo with pool, medieval villages Tuscany, authentic Tuscany experiences, eco-friendly agriturismo",
       "robots": "index, follow",
       "canonical": "https://www.agriturismosegarelli.it/en",
 
       "og": {
         "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
-        "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, peaceful spaces, cozy apartments, authentic cuisine, and nearby medieval villages with local events and scenic trails.",
+        "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en",
         "image": "https://segarelli.vercel.app/assets/hero.jpg",
@@ -19,7 +19,7 @@
       "twitter": {
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Reconnect with the Joy of Slowing Down in Tuscany",
-        "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, peaceful spaces, cozy apartments, authentic cuisine, and nearby medieval villages with local events and scenic trails.",
+        "description": "Experience the Tuscan countryside at Agriturismo Segarelli: nature, cozy apartments, authentic food, and nearby medieval villages.",
         "image": "https://segarelli.vercel.app/assets/hero.jpg"
       },
 
