@@ -15,10 +15,64 @@ import { Icon } from "@iconify/react";
 import Accordion from "@/components/Accordion/Accordion";
 import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import { accordion } from "@material-tailwind/react";
+import Head from "next/head";
 
 const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
   return (
     <>
+      <Head>
+        <title>{appartamento.head.title}</title>
+        <meta name="description" content={appartamento.head.description} />
+        <meta name="keywords" content={appartamento.head.keywords} />
+        <meta name="robots" content={appartamento.head.robots} />
+        <link rel="canonical" href={appartamento.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={appartamento.head.og.title} />
+        <meta
+          property="og:description"
+          content={appartamento.head.og.description}
+        />
+        <meta property="og:type" content={appartamento.head.og.type} />
+        <meta property="og:url" content={appartamento.head.og.url} />
+        <meta property="og:image" content={appartamento.head.og.image} />
+        <meta
+          property="og:site_name"
+          content={appartamento.head.og.site_name}
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={appartamento.head.twitter.card} />
+        <meta name="twitter:title" content={appartamento.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={appartamento.head.twitter.description}
+        />
+        <meta name="twitter:image" content={appartamento.head.twitter.image} />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                appartamento.head.schema.organization,
+                appartamento.head.schema.website,
+              ],
+            }),
+          }}
+        />
+      </Head>
       <div className="min-h-[100svh] lg:min-h-screen  flex flex-col items-center  lg:py-10">
         <div className="text-center mt-20">
           <div className="py-16 lg:py-32 h-full">
