@@ -7,8 +7,11 @@ import React, { useEffect } from "react";
 import "glightbox/dist/css/glightbox.css";
 import dintorniIT from "../../public/locales/it/dintorni.json";
 import dintorniEN from "../../public/locales/en/dintorni.json";
+import Head from "next/head";
 
 function DintorniPage({ pages, currentPage, translation }) {
+  console.log(currentPage);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -55,8 +58,36 @@ function DintorniPage({ pages, currentPage, translation }) {
     };
   }, [pages]);
 
+  const cleanHtml = (html) => html?.replace(/(<([^>]+)>)/gi, "").trim() || "";
+  const cleanTitle = cleanHtml(currentPage.title);
+  const cleanDescription = cleanHtml(currentPage.excerpt);
+
   return (
     <>
+      <Head>
+        <title>Agriturismo Segarelli | {cleanTitle}</title>
+        <meta name="description" content={cleanDescription} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={cleanTitle} />
+        <meta property="og:description" content={cleanDescription} />
+        <meta property="og:image" content={currentPage.image} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:title" content={cleanTitle} />
+        <meta name="twitter:description" content={cleanDescription} />
+        <meta name="twitter:image" content={currentPage.image} />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <div className=" bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-y-10">
           <h1

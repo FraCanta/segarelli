@@ -1,5 +1,47 @@
 {
   "dintorni": {
+    "head": {
+      "title": "Agriturismo Segarelli | Scopri i dintorni",
+      "description": "Vivi la Toscana più autentica all’Agriturismo Segarelli: borghi medievali, feste locali, natura incontaminata e percorsi tra colli e valli ti aspettano per emozioni uniche.",
+      "keywords": "agriturismo Segarelli, vacanza in Toscana, borghi medievali, eventi locali, natura, escursioni, trekking, cultura e tradizione, scopri i dintorni, esperienza autentica",
+      "robots": "index, follow",
+      "canonical": "https://www.agriturismosegarelli.it/scopri-i-dintorni",
+
+      "og": {
+        "title": "Agriturismo Segarelli | Scopri i dintorni",
+        "description": "Vivi la Toscana più autentica all’Agriturismo Segarelli: borghi medievali, feste locali, natura incontaminata e percorsi tra colli e valli ti aspettano per emozioni uniche.",
+        "type": "website",
+        "url": "https://www.agriturismosegarelli.it/scopri-i-dintorni",
+        "image": "https://segarelli.vercel.app/assets/meet.jpg",
+        "site_name": "Agriturismo Segarelli"
+      },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Agriturismo Segarelli | Scopri i dintorni",
+        "description": "Vivi la Toscana più autentica all’Agriturismo Segarelli: borghi medievali, feste locali, natura incontaminata e percorsi tra colli e valli ti aspettano per emozioni uniche.",
+        "image": "https://segarelli.vercel.app/assets/meet.jpg",
+        "creator": "@agriturismosegarelli",
+        "site": "@agriturismosegarelli"
+      },
+
+      "schema": {
+        "organization": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/scopri-i-dintorni",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "description": "Agriturismo Segarelli ti guida alla scoperta della Toscana autentica: borghi medievali, eventi locali, natura incontaminata e percorsi tra colline e valli per vivere esperienze indimenticabili."
+        },
+        "website": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/scopri-i-dintorni"
+        }
+      }
+    },
     "title": "Discover",
     "herobg": "/assets/meet.jpg",
     "description": "Un'esperienza fatta di emozioni e scoperte.",

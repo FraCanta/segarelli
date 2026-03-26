@@ -1,5 +1,47 @@
 {
   "dintorni": {
+    "head": {
+      "title": "Agriturismo Segarelli | Discover the Surroundings",
+      "description": "Experience the most authentic Tuscany at Agriturismo Segarelli: medieval villages, local festivals, unspoiled nature, and trails across hills and valleys await for unforgettable moments.",
+      "keywords": "Segarelli agriturismo, Tuscany vacation, medieval villages, local events, nature, hiking, trekking, culture and tradition, discover the surroundings, authentic experience",
+      "robots": "index, follow",
+      "canonical": "https://www.agriturismosegarelli.it/en/scopri-i-dintorni",
+
+      "og": {
+        "title": "Agriturismo Segarelli | Discover the Surroundings",
+        "description": "Experience the most authentic Tuscany at Agriturismo Segarelli: medieval villages, local festivals, unspoiled nature, and trails across hills and valleys await for unforgettable moments.",
+        "type": "website",
+        "url": "https://www.agriturismosegarelli.it/en/scopri-i-dintorni",
+        "image": "https://segarelli.vercel.app/assets/meet.jpg",
+        "site_name": "Agriturismo Segarelli"
+      },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Agriturismo Segarelli | Discover the Surroundings",
+        "description": "Experience the most authentic Tuscany at Agriturismo Segarelli: medieval villages, local festivals, unspoiled nature, and trails across hills and valleys await for unforgettable moments.",
+        "image": "https://segarelli.vercel.app/assets/meet.jpg",
+        "creator": "@agriturismosegarelli",
+        "site": "@agriturismosegarelli"
+      },
+
+      "schema": {
+        "organization": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/scopri-i-dintorni",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "description": "Agriturismo Segarelli guides you to discover authentic Tuscany: medieval villages, local events, unspoiled nature, and trails through hills and valleys for unforgettable experiences."
+        },
+        "website": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/scopri-i-dintorni"
+        }
+      }
+    },
     "title": "Discover",
     "herobg": "/assets/meet.jpg",
     "description": "An experience made of emotions and discoveries.",

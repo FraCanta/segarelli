@@ -16,8 +16,10 @@ import React, { useEffect, useState } from "react";
 import "glightbox/dist/css/glightbox.css";
 import ShareButtons from "@/components/ShareButtons/ShareButtons";
 import Image from "next/image";
+import Head from "next/head";
 
 function PostPage({ post, featuredMedia, recent, locale }) {
+  console.log(post);
   const [minutiLettura, setMinutiLettura] = useState(0);
 
   useEffect(() => {
@@ -74,8 +76,43 @@ function PostPage({ post, featuredMedia, recent, locale }) {
     };
   }, [post]);
 
+  // Funzione per pulire HTML
+  const cleanHtml = (html) => html?.replace(/(<([^>]+)>)/gi, "").trim() || "";
+  const cleanTitle = cleanHtml(post.title.rendered);
+  const cleanDescription = cleanHtml(post.excerpt.rendered);
   return (
     <>
+      {" "}
+      <Head>
+        <title>Agriturismo Segarelli | {cleanTitle}</title>
+        <meta name="description" content={cleanDescription} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={cleanTitle} />
+        <meta property="og:description" content={cleanDescription} />
+        <meta
+          property="og:image"
+          content={featuredMedia?.source_url || "/assets/hero.jpg"}
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:title" content={cleanTitle} />
+        <meta name="twitter:description" content={cleanDescription} />
+        <meta
+          name="twitter:image"
+          content={featuredMedia?.source_url || "/assets/hero.jpg"}
+        />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <div className=" bg-primary/70 flex items-center px-4 lg:px-10 w-full min-h-[90svh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-10 lg:gap-20">
           <div className="h-full flex flex-col gap-10 justify-between">
@@ -133,7 +170,6 @@ function PostPage({ post, featuredMedia, recent, locale }) {
           __html: post.content.rendered,
         }}
       ></div>
-
       <div className="px-4 lg:px-6 my-20 ">
         <div>
           {recent.length > 0 && (
