@@ -166,7 +166,7 @@ function Contatti({ translation }) {
           <AccordionContatti translation={translation} />
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2905.98057101759!2d10.86625!3d43.251829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1329f6398dc1cb93%3A0xdc3344ec38b9bd12!2sAgriturismo%20Segarelli!5e0!3m2!1sen!2sus!4v1766761445966!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21151.126956936132!2d10.855290149752639!3d43.25177972877499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1329f6398dc1cb93%3A0xdc3344ec38b9bd12!2sAgriturismo%20Segarelli!5e0!3m2!1sen!2sus!4v1774551309711!5m2!1sen!2sus"
           width="600"
           height="850"
           style={{ border: "0" }}
