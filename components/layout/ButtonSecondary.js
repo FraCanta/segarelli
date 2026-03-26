@@ -108,7 +108,7 @@ function ButtonSecondary({ children, onClick }) {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 mt-24 lg:my-32 mx-4 lg:mx-6 overflow-y-auto min-h-0 overscroll-contain">
+                  <div className="flex-1 mt-24 2xl:my-32 mx-4 lg:mx-6 overflow-y-auto min-h-0 overscroll-contain">
                     {activeTab === "sleep" && (
                       <>
                         <div className="text-2xl sm:text-3xl normal-case mb-8 text-left">
