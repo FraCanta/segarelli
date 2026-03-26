@@ -1,5 +1,45 @@
 {
   "chiSiamo": {
+    "head": {
+      "title": "Agriturismo Segarelli | About Us",
+      "description": "Tuscan tradition - The history of Agriturismo Segarelli. Photos of the historical members of the family living at Agriturismo Segarelli.",
+      "keywords": "Tuscany agriturismo, relaxing stay Tuscany, countryside holiday, agriturismo with pool, medieval villages Tuscany, authentic Tuscany experiences, eco-friendly agriturismo",
+      "robots": "index, follow",
+      "canonical": "https://www.agriturismosegarelli.it/en/chi-siamo",
+
+      "og": {
+        "title": "Agriturismo Segarelli | About Us",
+        "description": "Tuscan tradition - The history of Agriturismo Segarelli. Photos of the historical members of the family living at Agriturismo Segarelli.",
+        "type": "website",
+        "url": "https://www.agriturismosegarelli.it/en/chi-siamo",
+        "image": "https://segarelli.vercel.app/assets/chisiamo_hero.webp",
+        "site_name": "Agriturismo Segarelli"
+      },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Agriturismo Segarelli | About Us",
+        "description": "Tuscan tradition - The history of Agriturismo Segarelli. Photos of the historical members of the family living at Agriturismo Segarelli.",
+        "image": "https://segarelli.vercel.app/assets/chisiamo_hero.webp"
+      },
+
+      "schema": {
+        "organization": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/chi-siamo",
+          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "description": "Tuscan tradition - The history of Agriturismo Segarelli. Photos of the historical members of the family living at Agriturismo Segarelli."
+        },
+        "website": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Agriturismo Segarelli",
+          "url": "https://www.agriturismosegarelli.it/en/chi-siamo"
+        }
+      }
+    },
     "title": "About Us",
     "secondTitle": "The Story of Agriturismo Segarelli",
     "firstParagraph": "Segarelli is an ancient farmhouse located on a hill, surrounded by cultivated fields and woods, at 520 meters above sea level. The construction of the first residential nucleus dates back to the early 1600s, and the current structure, whose layout is recorded on the maps of the Leopoldine Cadastre, is undoubtedly older than 1800. The farmhouse was renovated over 40 years ago, but it has retained many of its original architectural features. Before that, Segarelli was a typical farmhouse where tenant farmers lived, working for a noble local family, the Bicocchi",

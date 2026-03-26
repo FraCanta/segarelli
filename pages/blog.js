@@ -1,12 +1,15 @@
 import { MaskText } from "@/components/layout/MaskText";
 import { getDate } from "@/utils/utils";
 import { getCategories, getPosts, getTagId } from "@/utils/wordpress";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import blogIT from "../public/locales/it/blog.json";
+import blogEN from "../public/locales/en/blog.json";
 
-function Blog({ post, pages, currentP }) {
+function Blog({ post, pages, currentP, translation }) {
   const { locale, query } = useRouter();
   function calcolaMinutiLettura(testo, velocitaLetturaMedia = 250) {
     const parole = (testo || "").split(" "); // fallback su stringa vuota
@@ -16,6 +19,56 @@ function Blog({ post, pages, currentP }) {
 
   return (
     <>
+      <Head>
+        <title>{translation.head.title}</title>
+        <meta name="description" content={translation.head.description} />
+        <meta name="keywords" content={translation.head.keywords} />
+        <meta name="robots" content={translation.head.robots} />
+        <link rel="canonical" href={translation.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={translation.head.og.title} />
+        <meta
+          property="og:description"
+          content={translation.head.og.description}
+        />
+        <meta property="og:type" content={translation.head.og.type} />
+        <meta property="og:url" content={translation.head.og.url} />
+        <meta property="og:image" content={translation.head.og.image} />
+        <meta property="og:site_name" content={translation.head.og.site_name} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={translation.head.twitter.card} />
+        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={translation.head.twitter.description}
+        />
+        <meta name="twitter:image" content={translation.head.twitter.image} />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                translation.head.schema.organization,
+                translation.head.schema.website,
+              ],
+            }),
+          }}
+        />
+      </Head>
       <div className="h-[40svh] lg:h-[60svh] bg-primary/60 flex items-center">
         <div className="flex flex-col gap-3 items-center w-full justify-center relative">
           <MaskText>
@@ -111,8 +164,22 @@ export async function getServerSideProps(context) {
 
   const category = await getCategories(locale);
 
+  let obj;
+  switch (locale) {
+    case "it":
+      obj = blogIT;
+      break;
+    case "en":
+      obj = blogEN;
+      break;
+    default:
+      obj = blogIT;
+      break;
+  }
+
   return {
     props: {
+      translation: obj?.blog,
       post: paginationTrim || [],
       pages: Math.ceil(filteredPosts.length / itemPerPage),
       category,

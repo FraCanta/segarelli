@@ -45,7 +45,7 @@ const Layout = (props) => {
       />
       <LenisScroll />
       <Menu translation={LayoutTranslation?.menu} isDarkHero={isDarkHero} />
-      <Mobile isDarkHero={isDarkHero} />
+      <Mobile translation={LayoutTranslation?.menu} isDarkHero={isDarkHero} />
       <main>{props.children}</main>
       <Footer translation={LayoutTranslation?.footer} />
     </>

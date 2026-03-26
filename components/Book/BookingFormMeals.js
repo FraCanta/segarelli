@@ -9,7 +9,6 @@ export default function BookingFormMeals({ lang = "it" }) {
     breakfast: false,
     notes: "",
   };
-
   const [form, setForm] = useState(initialForm);
 
   const handleChange = (e) => {
@@ -35,7 +34,7 @@ Note: ${form.notes || "-"}
     // apre WhatsApp
     window.open(
       `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
 
     // resetta tutti i campi del form

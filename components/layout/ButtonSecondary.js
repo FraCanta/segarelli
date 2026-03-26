@@ -144,7 +144,9 @@ function ButtonSecondary({ children, onClick }) {
                             : "Breakfast is only for guests and must be booked by 5 PM the day before."}
                         </p>
 
-                        <BookingFormMeals />
+                        <BookingFormMeals
+                          lang={locale === "it" ? "it" : "en"}
+                        />
                       </>
                     )}
                   </div>

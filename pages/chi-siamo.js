@@ -10,6 +10,7 @@ import chiSiamoIT from "../public/locales/it/chiSiamo.json";
 import chiSiamoEN from "../public/locales/en/chiSiamo.json";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
+import Head from "next/head";
 
 function ChiSiamo({ post, translation }) {
   const { ref, inView } = useInView({
@@ -28,6 +29,56 @@ function ChiSiamo({ post, translation }) {
   };
   return (
     <div>
+      <Head>
+        <title>{translation.head.title}</title>
+        <meta name="description" content={translation.head.description} />
+        <meta name="keywords" content={translation.head.keywords} />
+        <meta name="robots" content={translation.head.robots} />
+        <link rel="canonical" href={translation.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={translation.head.og.title} />
+        <meta
+          property="og:description"
+          content={translation.head.og.description}
+        />
+        <meta property="og:type" content={translation.head.og.type} />
+        <meta property="og:url" content={translation.head.og.url} />
+        <meta property="og:image" content={translation.head.og.image} />
+        <meta property="og:site_name" content={translation.head.og.site_name} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={translation.head.twitter.card} />
+        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={translation.head.twitter.description}
+        />
+        <meta name="twitter:image" content={translation.head.twitter.image} />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                translation.head.schema.organization,
+                translation.head.schema.website,
+              ],
+            }),
+          }}
+        />
+      </Head>
       <div className="min-h-[80svh] lg:min-h-screen  flex flex-col items-center  lg:py-10">
         <div className="text-center mt-20">
           <div className="py-16 lg:pt-32 lg:pb-16 h-full">

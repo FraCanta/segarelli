@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import contattiIT from "../public/locales/it/contatti.json";
 import contattiEN from "../public/locales/en/contatti.json";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function Contatti({ translation }) {
   const { locale, pathname } = useRouter();
@@ -60,11 +61,59 @@ function Contatti({ translation }) {
 
   return (
     <div>
+      <Head>
+        <title>{translation.head.title}</title>
+        <meta name="description" content={translation.head.description} />
+        <meta name="keywords" content={translation.head.keywords} />
+        <meta name="robots" content={translation.head.robots} />
+        <link rel="canonical" href={translation.head.canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={translation.head.og.title} />
+        <meta
+          property="og:description"
+          content={translation.head.og.description}
+        />
+        <meta property="og:type" content={translation.head.og.type} />
+        <meta property="og:url" content={translation.head.og.url} />
+        <meta property="og:image" content={translation.head.og.image} />
+        <meta property="og:site_name" content={translation.head.og.site_name} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={translation.head.twitter.card} />
+        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={translation.head.twitter.description}
+        />
+        <meta name="twitter:image" content={translation.head.twitter.image} />
+
+        {/* Favicon */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@graph": [
+                translation.head.schema.organization,
+                translation.head.schema.website,
+              ],
+            }),
+          }}
+        />
+      </Head>
       <div className="my-20 lg:my-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="p-6 lg:p-10 flex flex-col gap-4">
-          <h1 className="text-4xl lg:text-5xl  mb-6">
-            {translation.title}
-          </h1>
+          <h1 className="text-4xl lg:text-5xl  mb-6">{translation.title}</h1>
           <div className="flex gap-4">
             <Icon
               icon="jam:map-marker-f"
@@ -90,7 +139,7 @@ function Contatti({ translation }) {
             />
             <div className="flex flex-col gap-2">
               <h3 className="text-primary text-xl font-bold leading-none">
-               {translation.phone}
+                {translation.phone}
               </h3>
               <p className="mb-4 text-blu/80 text-base">
                 Luigi: +39 347 7447180
@@ -106,7 +155,7 @@ function Contatti({ translation }) {
             />
             <div className="flex flex-col gap-2">
               <h3 className="text-primary text-xl font-bold leading-none">
-               {translation.gps}
+                {translation.gps}
               </h3>
               <p className="mb-4 text-blu/80 text-base">
                 Podere Segarelli, Pomarance N 43.25153° E 10.86636°

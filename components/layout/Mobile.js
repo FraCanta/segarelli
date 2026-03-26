@@ -10,7 +10,7 @@ import ButtonSecondary from "./ButtonSecondary";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
 import ButtonPrimaryOutline from "./ButtonPrimaryOutline";
 
-function Mobile({ isDarkHero = true }) {
+function Mobile({ translation, isDarkHero = true }) {
   const { locale, pathname } = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -112,7 +112,7 @@ function Mobile({ isDarkHero = true }) {
                 onClick={() => setShowMenu(false)}
                 className="flex-1"
               >
-                <span>Appartamenti</span>
+                <span> {translation?.[locale]?.main?.apartments}</span>
               </Link>
 
               <button
@@ -171,17 +171,17 @@ function Mobile({ isDarkHero = true }) {
           {/* Altri link */}
           <li>
             <Link href="/chi-siamo" onClick={() => setShowMenu(false)}>
-              <span>Chi siamo</span>
+              <span>{translation?.[locale]?.main?.about}</span>
             </Link>
           </li>
           <li>
             <Link href="/contatti" onClick={() => setShowMenu(false)}>
-              <span>Contatti</span>
+              <span>{translation?.[locale]?.main?.contact}</span>
             </Link>
           </li>
           <li>
             <Link href="/blog" onClick={() => setShowMenu(false)}>
-              <span>Blog</span>
+              <span>{translation?.[locale]?.main?.blog}</span>
             </Link>
           </li>
           <div className="flex flex-col gap-4 ">
@@ -190,11 +190,11 @@ function Mobile({ isDarkHero = true }) {
               icon="basil:whatsapp-outline"
               target="_blank"
             >
-              Chiamaci
+              {translation?.[locale]?.cta?.call}
             </ButtonPrimaryOutline>
 
             <ButtonSecondary onClick={() => setShowMenu(false)}>
-              Prenota
+              {translation?.[locale]?.cta?.book}
             </ButtonSecondary>
           </div>{" "}
         </ul>
