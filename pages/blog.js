@@ -141,57 +141,70 @@ function Blog({ post = [], pages, currentP, translation }) {
 export default Blog;
 
 export async function getServerSideProps(context) {
-  const { locale, query, res } = context;
-  res.setHeader("Cache-Control", "public, stale-while-revalidate");
-
-  let { page = 1, categories = 0, search = null } = query;
-  page = Number.parseInt(page, 10) || 1;
-  categories = Number.parseInt(categories, 10) || 0;
-  const itemPerPage = 10;
-
-  let post = [];
-  let category = [];
-  let filteredPosts = [];
-
   try {
-    const idLocale = await getTagId(locale); // es. "it" -> 123
-    post = (await getPosts(idLocale, search)) || [];
-    category = (await getCategories(locale)) || [];
+    const { locale, query, res } = context;
+    res.setHeader("Cache-Control", "public, stale-while-revalidate");
 
-    filteredPosts = post.filter((el) => {
-      return categories !== 0 ? el?.categories?.includes(categories) : true;
-    });
+    let { page = 1, categories = 0, search = null } = query;
+    page = Number.parseInt(page, 10) || 1;
+    categories = Number.parseInt(categories, 10) || 0;
+    const itemPerPage = 10;
+
+    let post = [];
+    let category = [];
+    let filteredPosts = [];
+
+    try {
+      const idLocale = await getTagId(locale); // es. "it" -> 123
+      post = (await getPosts(idLocale, search)) || [];
+      category = (await getCategories(locale)) || [];
+
+      filteredPosts = post.filter((el) => {
+        return categories !== 0 ? el?.categories?.includes(categories) : true;
+      });
+    } catch (error) {
+      console.error("Blog getServerSideProps data error:", error);
+      filteredPosts = [];
+      category = [];
+    }
+
+    const paginationTrim = filteredPosts.slice(
+      (page - 1) * itemPerPage,
+      itemPerPage * page,
+    );
+
+    let obj;
+    switch (locale) {
+      case "it":
+        obj = blogIT;
+        break;
+      case "en":
+        obj = blogEN;
+        break;
+      default:
+        obj = blogIT;
+        break;
+    }
+
+    return {
+      props: {
+        translation: obj?.blog || blogIT.blog,
+        post: paginationTrim || [],
+        pages: Math.ceil(filteredPosts.length / itemPerPage),
+        category,
+        currentP: page,
+      },
+    };
   } catch (error) {
-    console.error("Blog getServerSideProps error:", error);
-    filteredPosts = [];
-    category = [];
+    console.error("Blog getServerSideProps fatal error:", error);
+    return {
+      props: {
+        translation: blogIT.blog,
+        post: [],
+        pages: 0,
+        category: [],
+        currentP: 1,
+      },
+    };
   }
-
-  const paginationTrim = filteredPosts.slice(
-    (page - 1) * itemPerPage,
-    itemPerPage * page,
-  );
-
-  let obj;
-  switch (locale) {
-    case "it":
-      obj = blogIT;
-      break;
-    case "en":
-      obj = blogEN;
-      break;
-    default:
-      obj = blogIT;
-      break;
-  }
-
-  return {
-    props: {
-      translation: obj?.blog,
-      post: paginationTrim || [],
-      pages: Math.ceil(filteredPosts.length / itemPerPage),
-      category,
-      currentP: page,
-    },
-  };
 }

@@ -73,7 +73,12 @@ export default function BookingForm({ lang = "it" }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email) {
+    const formData = new FormData(e.currentTarget);
+    const submittedEmail = (formData.get("booking_email") || "")
+      .toString()
+      .trim();
+
+    if (!submittedEmail) {
       toast.error(
         lang === "it" ? "Inserisci un'email valida" : "Enter a valid email",
       );
@@ -92,7 +97,7 @@ export default function BookingForm({ lang = "it" }) {
           adults,
           children,
           notes,
-          email,
+          email: submittedEmail,
           lang, // <- aggiungi la lingua qui
         }),
       });
@@ -223,6 +228,7 @@ export default function BookingForm({ lang = "it" }) {
 
             <input
               type="email"
+              name="booking_email"
               placeholder="Email*"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

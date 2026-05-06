@@ -16,8 +16,8 @@ export default async function contattiMailer(req, res) {
     port: 465,
     secure: true,
     auth: {
-      user: "info@thallion-dev.it", // tua email
-      pass: "Sari_male84?!?", // password
+      user: process.env.SMTP_USER, // tua email
+      pass: process.env.SMTP_PASS, // password
     },
   });
 
@@ -63,7 +63,7 @@ export default async function contattiMailer(req, res) {
     // Email a te (o al team)
     await transporter.sendMail({
       from: `"Richiesta informazioni" <info@thallion-dev.it>`,
-      to: ["fcantale14@gmail.com", "agriturismosegarelli@gmail.com"],
+      to: ["agriturismosegarelli@gmail.com"],
       subject: `Nuovo messaggio: ${subject}`,
       replyTo: email,
       html: emailHtml,
