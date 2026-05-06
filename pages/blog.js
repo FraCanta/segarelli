@@ -9,8 +9,9 @@ import React from "react";
 import blogIT from "../public/locales/it/blog.json";
 import blogEN from "../public/locales/en/blog.json";
 
-function Blog({ post, pages, currentP, translation }) {
+function Blog({ post = [], pages, currentP, translation }) {
   const { locale, query } = useRouter();
+  const t = translation || blogIT.blog;
   function calcolaMinutiLettura(testo, velocitaLetturaMedia = 250) {
     const parole = (testo || "").split(" "); // fallback su stringa vuota
     const paroleLette = parole.filter((parola) => parola.trim() !== "").length;
@@ -20,31 +21,31 @@ function Blog({ post, pages, currentP, translation }) {
   return (
     <>
       <Head>
-        <title>{translation.head.title}</title>
-        <meta name="description" content={translation.head.description} />
-        <meta name="keywords" content={translation.head.keywords} />
-        <meta name="robots" content={translation.head.robots} />
-        <link rel="canonical" href={translation.head.canonical} />
+        <title>{t?.head?.title || "Agriturismo Segarelli | Blog"}</title>
+        <meta name="description" content={t?.head?.description || ""} />
+        <meta name="keywords" content={t?.head?.keywords || ""} />
+        <meta name="robots" content={t?.head?.robots || "index,follow"} />
+        <link rel="canonical" href={t?.head?.canonical || ""} />
 
         {/* Open Graph */}
-        <meta property="og:title" content={translation.head.og.title} />
+        <meta property="og:title" content={t?.head?.og?.title || ""} />
         <meta
           property="og:description"
-          content={translation.head.og.description}
+          content={t?.head?.og?.description || ""}
         />
-        <meta property="og:type" content={translation.head.og.type} />
-        <meta property="og:url" content={translation.head.og.url} />
-        <meta property="og:image" content={translation.head.og.image} />
-        <meta property="og:site_name" content={translation.head.og.site_name} />
+        <meta property="og:type" content={t?.head?.og?.type || "website"} />
+        <meta property="og:url" content={t?.head?.og?.url || ""} />
+        <meta property="og:image" content={t?.head?.og?.image || ""} />
+        <meta property="og:site_name" content={t?.head?.og?.site_name || ""} />
 
         {/* Twitter Card */}
-        <meta name="twitter:card" content={translation.head.twitter.card} />
-        <meta name="twitter:title" content={translation.head.twitter.title} />
+        <meta name="twitter:card" content={t?.head?.twitter?.card || "summary_large_image"} />
+        <meta name="twitter:title" content={t?.head?.twitter?.title || ""} />
         <meta
           name="twitter:description"
-          content={translation.head.twitter.description}
+          content={t?.head?.twitter?.description || ""}
         />
-        <meta name="twitter:image" content={translation.head.twitter.image} />
+        <meta name="twitter:image" content={t?.head?.twitter?.image || ""} />
 
         {/* Favicon */}
         <link
@@ -62,8 +63,8 @@ function Blog({ post, pages, currentP, translation }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@graph": [
-                translation.head.schema.organization,
-                translation.head.schema.website,
+                t?.head?.schema?.organization || {},
+                t?.head?.schema?.website || {},
               ],
             }),
           }}
@@ -82,7 +83,7 @@ function Blog({ post, pages, currentP, translation }) {
       </div>
 
       <div className="lg:w-[90%] mx-auto grid lg:grid-cols-4 px-4 lg:px-6 my-20 gap-x-6 gap-y-10">
-        {post.map((p, i) => {
+        {(Array.isArray(post) ? post : []).map((p, i) => {
           const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0];
 
           // Calcolo minuti di lettura per ogni post
