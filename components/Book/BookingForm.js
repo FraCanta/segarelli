@@ -98,7 +98,7 @@ export default function BookingForm({ lang = "it" }) {
       });
 
       const data = await res.json();
-      if (data.message) {
+      if (res.ok && data.message) {
         toast.success(
           lang === "it" ? "Prenotazione inviata!" : "Request sent!",
         );
@@ -109,9 +109,7 @@ export default function BookingForm({ lang = "it" }) {
         setFirstName("");
         setPhone("");
       } else {
-        toast.error(
-          lang === "it" ? "Errore nell'invio" : "Error sending booking",
-        );
+        toast.error(data?.error || (lang === "it" ? "Errore nell'invio" : "Error sending booking"));
       }
     } catch (error) {
       toast.error(lang === "it" ? "Errore di connessione" : "Connection error");

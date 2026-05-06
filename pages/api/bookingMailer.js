@@ -1,6 +1,10 @@
 import nodemailer from "nodemailer";
 
 export default async function bookingMailer(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Metodo non consentito" });
+  }
+
   const {
     firstName,
     phone,
@@ -13,13 +17,20 @@ export default async function bookingMailer(req, res) {
     lang,
   } = req.body;
 
+  if (!firstName || !phone || !email || !checkIn || !checkOut || !adults) {
+    return res.status(400).json({ error: "Campi obbligatori mancanti" });
+  }
+
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+
   const transporter = nodemailer.createTransport({
     host: "smtp.ionos.it",
     port: 465,
     secure: true,
     auth: {
-      user: "info@thallion-dev.it",
-      pass: "Sari_male84?!?",
+      user: smtpUser,
+      pass: smtpPass,
     },
   });
 
@@ -43,7 +54,7 @@ Nuova richiesta di soggiorno ricevuta
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://segarelli.vercel.app/assets/logo_segarelli.svg" style="height:55px;">
+<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg" style="height:55px;">
 </td>
 </tr>
 
@@ -150,7 +161,7 @@ Richiesta di soggiorno ricevuta - Agriturismo Segarelli
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://segarelli.vercel.app/assets/logo_segarelli.svg"
+<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg"
 style="height:55px;">
 </td>
 </tr>
@@ -221,7 +232,7 @@ Speriamo di accoglierti presto per un soggiorno tra natura, relax e tradizione.
 <tr>
 <td align="center" style="padding:0 40px 30px 40px;">
 
-<a href="https://segarelli.vercel.app/"
+<a href="https://agriturismosegarelli.it/"
 style="display:inline-block;padding:14px 32px;background:#BF7116;color:#ffffff;text-decoration:none;border-radius:999px;font-weight:600;text-transform:uppercase;font-size:14px;">
 Visita il sito
 </a>
@@ -249,18 +260,18 @@ agriturismosegarelli@gmail.com
 <tr>
 <td style="padding:0 5px;">
 <a href="https://www.facebook.com/Segarelli" target="_blank">
-<img src="https://segarelli.vercel.app/assets/facebook.png" width="24" height="24" alt="Facebook">
+<img src="https://agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.instagram.com/agriturismo_segarelli/" target="_blank">
-<img src="https://segarelli.vercel.app/assets/instagram.png" width="24" height="24" alt="Instagram">
+<img src="https://agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
 </a>
 </td>
 
 <td style="padding:0 5px;">
 <a href="https://www.tripadvisor.it/Hotel_Review-g776018-d2063072-Reviews-Agriturismo_Segarelli-Pomarance_Province_of_Pisa_Tuscany.html" target="_blank">
-<img src="https://segarelli.vercel.app/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
+<img src="https://agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
 </a>
 </td>
 </tr>
@@ -294,7 +305,7 @@ Your stay request at Agriturismo Segarelli has been received
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://segarelli.vercel.app/assets/logo_segarelli.svg"
+<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg"
 style="height:55px;">
 </td>
 </tr>
@@ -365,7 +376,7 @@ We look forward to welcoming you for a relaxing stay surrounded by nature.
 <tr>
 <td align="center" style="padding:0 40px 30px 40px;">
 
-<a href="https://segarelli.vercel.app/en"
+<a href="https://agriturismosegarelli.it/en"
 style="display:inline-block;padding:14px 32px;background:#BF7116;color:#ffffff;text-decoration:none;border-radius:999px;font-weight:600;text-transform:uppercase;font-size:14px;">
 Visit our website
 </a>
@@ -393,17 +404,17 @@ agriturismosegarelli@gmail.com
 <tr>
 <td style="padding:0 5px;">
 <a href="https://www.facebook.com/Segarelli" target="_blank">
-<img src="https://segarelli.vercel.app/assets/facebook.png" width="24" height="24" alt="Facebook">
+<img src="https://agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.instagram.com/agriturismo_segarelli/" target="_blank">
-<img src="https://segarelli.vercel.app/assets/instagram.png" width="24" height="24" alt="Instagram">
+<img src="https://agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.tripadvisor.it/Hotel_Review-g776018-d2063072-Reviews-Agriturismo_Segarelli-Pomarance_Province_of_Pisa_Tuscany.html" target="_blank">
-<img src="https://segarelli.vercel.app/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
+<img src="https://agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
 </a>
 </td>
 </tr>
@@ -419,8 +430,8 @@ agriturismosegarelli@gmail.com
   try {
     // Email a te
     await transporter.sendMail({
-      from: `"Richiesta prenotazione" <info@thallion-dev.it>`,
-      to: ["fcantale14@gmail.com"],
+      from: `"Richiesta prenotazione" <${smtpUser}>`,
+      to: ["fcantale14@gmail.com", "agriturismosegarelli@gmail.com"],
       subject: `Nuova richiesta prenotazione dal ${checkIn} al ${checkOut}`,
       replyTo: email,
       html: emailHtml,
@@ -429,7 +440,7 @@ agriturismosegarelli@gmail.com
     // Email all’utente
     if (email) {
       await transporter.sendMail({
-        from: `"Agriturismo Segarelli" <info@thallion-dev.it>`,
+        from: `"Agriturismo Segarelli" <${smtpUser}>`,
         to: email,
         subject:
           lang === "it" ? "Richiesta di prenotazione" : "Booking Request",
@@ -442,6 +453,6 @@ agriturismosegarelli@gmail.com
     console.error("Errore nell'invio dell'email:", error);
     return res
       .status(500)
-      .json({ error: error.message || "Errore nell'invio dell'email" });
+      .json({ error: error?.message || "Errore nell'invio dell'email" });
   }
 }
