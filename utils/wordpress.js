@@ -56,16 +56,55 @@ export async function getPosts(lang, search = "") {
   const queryParams = new URLSearchParams({
     _embed: "true",
     per_page: "50",
+    page: "1",
   });
 
   if (search) {
     queryParams.append("search", search);
   }
 
-  const posts = await fetchArray(`${BASE_URL}/posts?${queryParams.toString()}`, {
-    cache: "force-cache",
-    next: { revalidate: 900 },
-  });
+  let posts = [];
+  let totalPages = 1;
+
+  try {
+    const firstPageRes = await fetch(`${BASE_URL}/posts?${queryParams.toString()}`, {
+      cache: "force-cache",
+      next: { revalidate: 900 },
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "SegarelliSite/1.0 (+https://agriturismosegarelli.it)",
+      },
+    });
+
+    const contentType = firstPageRes.headers.get("content-type") || "";
+    if (!firstPageRes.ok || !contentType.toLowerCase().includes("application/json")) {
+      const bodyPreview = (await firstPageRes.text()).slice(0, 120);
+      console.error(
+        `WordPress posts request failed: ${firstPageRes.status} ${BASE_URL}/posts | body: ${bodyPreview}`,
+      );
+      return [];
+    }
+
+    totalPages = parseInt(firstPageRes.headers.get("x-wp-totalpages")) || 1;
+    const firstPagePosts = await firstPageRes.json();
+    posts = Array.isArray(firstPagePosts) ? firstPagePosts : [];
+  } catch (error) {
+    console.error("WordPress posts first page request error", error);
+    return [];
+  }
+
+  // Recupera tutte le altre pagine oltre la prima
+  if (totalPages > 1) {
+    for (let page = 2; page <= totalPages; page++) {
+      const nextParams = new URLSearchParams(queryParams);
+      nextParams.set("page", String(page));
+      const pagePosts = await fetchArray(`${BASE_URL}/posts?${nextParams.toString()}`, {
+        cache: "force-cache",
+        next: { revalidate: 900 },
+      });
+      posts.push(...pagePosts);
+    }
+  }
 
   // Filtra per tag lingua, se presente
   const lngPost = posts.filter((p) => {
