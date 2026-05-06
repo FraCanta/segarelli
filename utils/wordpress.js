@@ -1,15 +1,43 @@
 const BASE_URL = "https://agriturismosegarelli.it/wp-json/wp/v2";
 
-async function fetchArray(url, options = {}) {
+async function fetchJson(url, options = {}, fallbackValue = null) {
   try {
-    const res = await fetch(url, options);
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "SegarelliSite/1.0 (+https://agriturismosegarelli.it)",
+        ...(options.headers || {}),
+      },
+    });
 
     if (!res.ok) {
-      console.error(`WordPress request failed: ${res.status} ${url}`);
-      return [];
+      const bodyPreview = (await res.text()).slice(0, 120);
+      console.error(
+        `WordPress request failed: ${res.status} ${url} | body: ${bodyPreview}`,
+      );
+      return fallbackValue;
     }
 
-    const data = await res.json();
+    const contentType = res.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes("application/json")) {
+      const bodyPreview = (await res.text()).slice(0, 120);
+      console.error(
+        `WordPress response is not JSON: ${url} | content-type: ${contentType} | body: ${bodyPreview}`,
+      );
+      return fallbackValue;
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error(`WordPress request error: ${url}`, error);
+    return fallbackValue;
+  }
+}
+
+async function fetchArray(url, options = {}) {
+  try {
+    const data = await fetchJson(url, options, []);
 
     if (!Array.isArray(data)) {
       console.error(`WordPress response is not an array: ${url}`);
@@ -72,10 +100,18 @@ export async function getTags() {
     const tagsRes = await fetch(BASE_URL + `/tags?per_page=50&page=1`, {
       cache: "force-cache",
       revalidate: 900,
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "SegarelliSite/1.0 (+https://agriturismosegarelli.it)",
+      },
     });
 
-    if (!tagsRes.ok) {
-      console.error(`WordPress tags request failed: ${tagsRes.status}`);
+    const contentType = tagsRes.headers.get("content-type") || "";
+    if (!tagsRes.ok || !contentType.toLowerCase().includes("application/json")) {
+      const bodyPreview = (await tagsRes.text()).slice(0, 120);
+      console.error(
+        `WordPress tags request failed: ${tagsRes.status} ${BASE_URL}/tags | body: ${bodyPreview}`,
+      );
       return [];
     }
 
@@ -125,12 +161,10 @@ export async function getPost(slug) {
 }
 
 export async function getMedia() {
-  const mediaRes = await fetch(BASE_URL + "/media", {
+  const media = await fetchArray(BASE_URL + "/media", {
     cache: "force-cache",
     revalidate: 900,
   });
-
-  const media = await mediaRes.json();
   return media;
 }
 
@@ -168,11 +202,10 @@ export async function getSlugs(type) {
 }
 
 export async function getUsers() {
-  const userRes = await fetch(BASE_URL + "/users", {
+  const users = await fetchArray(BASE_URL + "/users", {
     cache: "force-cache",
     revalidate: 900,
   });
-  const users = await userRes.json();
   return users;
 }
 
@@ -192,13 +225,12 @@ export async function getPostsByLanguageAndBlogOwner(
 }
 
 export async function getComments(postId) {
-  const commentsRes = await fetch(BASE_URL + `/comments/`, {
+  const comments = await fetchArray(BASE_URL + `/comments/`, {
     cache: "no-store",
     // cache: "force-cache",
     // revalidate: 900,
   });
   if (!!postId) {
-    const comments = await commentsRes.json();
     const filteredComments = comments?.filter(
       (el) => el?.post === parseInt(postId),
     );
@@ -233,7 +265,7 @@ export function listToTree(list) {
 export async function getPagesByIds(ids = []) {
   if (!ids.length) return [];
 
-  const res = await fetch(`${BASE_URL}/pages?include=${ids.join(",")}&_embed`, {
+  const pages = await fetchArray(`${BASE_URL}/pages?include=${ids.join(",")}&_embed`, {
     cache: "force-cache",
     next: { revalidate: 900 },
   });
@@ -243,8 +275,6 @@ export async function getPagesByIds(ids = []) {
     2026: "/assets/borghi.jpg",
     1997: "/assets/natura.jpg",
   };
-
-  const pages = await res.json();
 
   return ids.map((id) => {
     const p = pages.find((el) => el.id === id);
