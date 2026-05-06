@@ -146,9 +146,12 @@ export async function getStaticPaths() {
   const locales = ["it", "en"];
   const PAGE_IDS = [2248, 2026, 1997, 1957];
   const pages = await getPagesByIds(PAGE_IDS);
+  const validPages = pages.filter(
+    (page) => typeof page?.slug === "string" && page.slug.length > 0,
+  );
 
   const paths = locales.flatMap((locale) =>
-    pages.map((page) => ({
+    validPages.map((page) => ({
       params: { slug: page.slug },
       locale,
     })),
@@ -167,7 +170,9 @@ export async function getStaticProps({ params, locale }) {
   const commonSections = {
     slides: obj.dintorni.slides,
   };
-  const currentPage = pages.find((p) => p.slug === params.slug);
+  const currentPage = pages.find(
+    (p) => typeof p?.slug === "string" && p.slug === params.slug,
+  );
 
   if (!currentPage) {
     return { notFound: true };
