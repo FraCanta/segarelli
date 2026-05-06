@@ -237,8 +237,10 @@ function Mobile({ translation, isDarkHero = true }) {
                 />
                 <span className="text-blu font-semibold ml-2">5.0</span>
               </div>
+              
               <div className="flex items-center gap-2">
                 &bull; <span>Facebook</span> &bull; <span>Instagram</span>
+                
               </div>
             </div>
             <p className="text-sm">

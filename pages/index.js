@@ -135,10 +135,10 @@ export default function Home({ post, pages, translation }) {
       <StaggerImages />
 
       <Reviews translation={translation.reviewsTitle} />
-      <SectionBreak />
-      <div className="h-screen w-full relative bg-[url('/assets/segarelli_alto.jpg')] bg-cover bg-fixed bg-center">
+      {/* <SectionBreak /> */}
+      {/* <div className="h-screen w-full relative bg-[url('/assets/segarelli_alto.jpg')] bg-cover bg-fixed bg-center"> */}
         {/* <Image src="/assets/segarelli_alto.jpg" fill className="object-cover" /> */}
-      </div>
+      {/* </div> */}
       <SectionBreak />
       <AttivitaSection pages={pages} translation={translation.activities} />
       <div className="bg-primary/10 w-full flex items-center py-8">

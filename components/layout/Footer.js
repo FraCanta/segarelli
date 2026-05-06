@@ -3,6 +3,7 @@ import SectionBreakWhite from "../SectionBreak/SectionBreakWhite";
 import Link from "next/link";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
 import { useRouter } from "next/router";
+import Weather from "../Weather/Weather";
 
 export default function Footer({ translation }) {
   const { locale } = useRouter();
@@ -308,11 +309,14 @@ export default function Footer({ translation }) {
               </Link>
             </div>
           </div>
-          <p className="text-white/80 text-sm">
-            <span>
-              &copy; {new Date().getFullYear()} Agriturismo Segarelli.
-            </span>
-          </p>
+          <div className="flex flex-col lg:flex-row gap-y-2 lg:items-center ">
+            <Weather />
+            <p className="text-white/80 text-sm">
+              <span>
+                &copy; {new Date().getFullYear()} Agriturismo Segarelli.
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
