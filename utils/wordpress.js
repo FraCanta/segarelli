@@ -1,5 +1,28 @@
 const BASE_URL = "https://agriturismosegarelli.it/wp-json/wp/v2";
 
+async function fetchArray(url, options = {}) {
+  try {
+    const res = await fetch(url, options);
+
+    if (!res.ok) {
+      console.error(`WordPress request failed: ${res.status} ${url}`);
+      return [];
+    }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      console.error(`WordPress response is not an array: ${url}`);
+      return [];
+    }
+
+    return data;
+  } catch (error) {
+    console.error(`WordPress request error: ${url}`, error);
+    return [];
+  }
+}
+
 export async function getPosts(lang, search = "") {
   // Costruisci i parametri della query
   const queryParams = new URLSearchParams({
@@ -11,12 +34,10 @@ export async function getPosts(lang, search = "") {
     queryParams.append("search", search);
   }
 
-  const postsRes = await fetch(`${BASE_URL}/posts?${queryParams.toString()}`, {
+  const posts = await fetchArray(`${BASE_URL}/posts?${queryParams.toString()}`, {
     cache: "force-cache",
     next: { revalidate: 900 },
   });
-
-  const posts = await postsRes.json();
 
   // Filtra per tag lingua, se presente
   const lngPost = posts.filter((p) => {
@@ -47,24 +68,34 @@ export async function getPosts(lang, search = "") {
 export async function getTags() {
   let pages = 1;
   let tags = [];
-  const tagsRes = await fetch(BASE_URL + `/tags?per_page=50&page=1`, {
-    cache: "force-cache",
-    revalidate: 900,
-  });
-  pages = parseInt(tagsRes.headers.get("x-wp-totalpages"));
-  const arr = await tagsRes.json();
-  tags.push(...arr);
+  try {
+    const tagsRes = await fetch(BASE_URL + `/tags?per_page=50&page=1`, {
+      cache: "force-cache",
+      revalidate: 900,
+    });
+
+    if (!tagsRes.ok) {
+      console.error(`WordPress tags request failed: ${tagsRes.status}`);
+      return [];
+    }
+
+    pages = parseInt(tagsRes.headers.get("x-wp-totalpages")) || 1;
+    const arr = await tagsRes.json();
+    tags.push(...(Array.isArray(arr) ? arr : []));
+  } catch (error) {
+    console.error("WordPress tags request error", error);
+    return [];
+  }
 
   if (pages > 1) {
     for (let i = 1; i < pages; i++) {
-      const newFetch = await fetch(
+      const parsedFetch = await fetchArray(
         BASE_URL + `/tags?per_page=50&page=${i + 1}`,
         {
           cache: "force-cache",
           revalidate: 900,
         },
       );
-      const parsedFetch = await newFetch.json();
       tags.push(...parsedFetch);
     }
   }
@@ -105,11 +136,10 @@ export async function getMedia() {
 
 // /wp/v2/categories per le categorie
 export async function getCategories(lang, onlyFull = true) {
-  const categoriesRes = await fetch(BASE_URL + "/categories?per_page=100", {
+  const categories = await fetchArray(BASE_URL + "/categories?per_page=100", {
     cache: "force-cache",
     revalidate: 900,
   });
-  const categories = await categoriesRes.json();
 
   const filteredCategories = categories?.filter(
     (el) =>
