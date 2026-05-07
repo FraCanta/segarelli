@@ -10,7 +10,7 @@ import { ParagraphText } from "../layout/ParagraphText";
 import { MaskText } from "../layout/MaskText";
 import RevealImage from "../layout/RevealImage";
 
-function AttivitaSection({ pages, translation }) {
+function AttivitaSection({ pages = [], translation, locale = "it" }) {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -19,6 +19,66 @@ function AttivitaSection({ pages, translation }) {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
+  const fallbackCards =
+    locale === "en"
+      ? [
+          {
+            id: "discover",
+            title: "Discover the Surroundings",
+            image: "/assets/meet.jpg",
+            imageAlt: "Tuscan surroundings",
+            link: "/scopri-i-dintorni",
+          },
+          {
+            id: "nature",
+            title: "Relax and Nature",
+            image: "/assets/pool3.jpg",
+            imageAlt: "Nature and relax",
+            link: "/relax-e-natura-da-segarelli",
+          },
+          {
+            id: "food",
+            title: "Eat at the Agriturismo",
+            image: "/assets/eat2.jpg",
+            imageAlt: "Local food",
+            link: "/mangiare-in-agriturismo",
+          },
+        ]
+      : [
+          {
+            id: "discover",
+            title: "Scopri i dintorni",
+            image: "/assets/meet.jpg",
+            imageAlt: "Dintorni toscani",
+            link: "/scopri-i-dintorni",
+          },
+          {
+            id: "nature",
+            title: "Relax e natura",
+            image: "/assets/pool3.jpg",
+            imageAlt: "Relax nella natura",
+            link: "/relax-e-natura-da-segarelli",
+          },
+          {
+            id: "food",
+            title: "Mangiare in agriturismo",
+            image: "/assets/eat2.jpg",
+            imageAlt: "Cucina locale",
+            link: "/mangiare-in-agriturismo",
+          },
+        ];
+
+  const cards =
+    Array.isArray(pages) && pages.length > 0
+      ? pages.map((p, index) => ({
+          id: p.id || `${p.slug || "page"}-${index}`,
+          title: p.title,
+          image: p.image,
+          imageAlt: p.imageAlt || p.alt || p.title,
+          link: p.link || `/dintorni/${p.slug}`,
+        }))
+      : fallbackCards;
+
   return (
     <section className="flex flex-wrap 2xl:flex-nowrap  w-full justify-between gap-20 mb-20 lg:my-32 pl-4 lg:pl-6">
       <div className="2xl:max-w-4xl xl:w-full 2xl:w-1/2 flex flex-col gap-6 h-full">
@@ -82,10 +142,10 @@ function AttivitaSection({ pages, translation }) {
           1280: { slidesPerView: 2.5, spaceBetween: 20 },
         }}
       >
-        {pages.map((p) => (
+        {cards.map((p) => (
           <SwiperSlide key={p.id}>
-            <Link href={`/dintorni/${p.slug}`}>
-              {p.image && (
+            <Link href={p.link}>
+              {p.image ? (
                 <div className="relative h-[20rem] 2xl:h-[30rem]  w-full mb-6">
                   <RevealImage
                     src={p.image}
@@ -94,7 +154,7 @@ function AttivitaSection({ pages, translation }) {
                     className="object-cover h-full"
                   />
                 </div>
-              )}
+              ) : null}
               <h3
                 dangerouslySetInnerHTML={{ __html: p.title }}
                 className="text-xl g:text-3xl"

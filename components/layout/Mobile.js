@@ -179,11 +179,6 @@ function Mobile({ translation, isDarkHero = true }) {
               <span>{translation?.[locale]?.main?.contact}</span>
             </Link>
           </li>
-          <li>
-            <Link href="/blog" onClick={() => setShowMenu(false)}>
-              <span>{translation?.[locale]?.main?.blog}</span>
-            </Link>
-          </li>
           <div className="flex flex-col gap-4 ">
             <ButtonPrimaryOutline
               link="https://wa.me/+393477447180"

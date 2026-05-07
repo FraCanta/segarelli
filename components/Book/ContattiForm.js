@@ -10,14 +10,18 @@ function ContattiForm({ lang = "it" }) {
     apartment: "",
     subject: "",
     message: "",
+    privacyConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -43,6 +47,7 @@ function ContattiForm({ lang = "it" }) {
         apartment: "",
         subject: "",
         message: "",
+        privacyConsent: false,
       });
       setShowThankYou(true);
 
@@ -205,11 +210,27 @@ function ContattiForm({ lang = "it" }) {
               />
             </div>
 
+            <label className="flex items-start gap-3 text-sm text-blu/70">
+              <input
+                type="checkbox"
+                name="privacyConsent"
+                checked={formData.privacyConsent}
+                onChange={handleChange}
+                className="mt-1 h-4 w-4 accent-primary"
+                required
+              />
+              <span>
+                {lang === "it"
+                  ? "Acconsento al trattamento dei dati personali inviati tramite questo form per ricevere risposta alla mia richiesta.*"
+                  : "I consent to the processing of the personal data submitted through this form in order to receive a reply to my request.*"}
+              </span>
+            </label>
+
             {/* CTA */}
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide text-base w-full flex items-center justify-center gap-2"
+              disabled={isSubmitting || !formData.privacyConsent}
+              className="px-8 py-4 bg-siena rounded-full text-white uppercase tracking-wide text-base w-full flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 lang === "it" ? (

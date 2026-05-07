@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "slug": "welcome-to-segarelli",
+      "title": "Welcome to Agriturismo Segarelli",
+      "excerpt": "A first glimpse of Segarelli, its atmosphere and the countryside around it.",
+      "date": "2026-05-01",
+      "image": "/assets/hero.jpg",
+      "imageAlt": "Agriturismo Segarelli",
+      "content": "<p>Welcome to Agriturismo Segarelli, an ancient farmhouse surrounded by Tuscan countryside, cultivated fields, woods and hills. Here, time slows down: guests come to rest, enjoy the open air, discover an authentic territory and rediscover the pleasure of simple things.</p><p>Segarelli is not only a place to stay. It is a family home, a place shaped by memories, stories and daily care. Every apartment, every stone wall and every view over the landscape tells of a deep bond with this land.</p><iframe title=\"Agriturismo Segarelli video\" src=\"https://www.youtube-nocookie.com/embed/wMb4eWhhrDU?start=4\" loading=\"lazy\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>We look forward to welcoming you for a stay made of quiet moments, nature, villages to discover, good food and small memories that last.</p>"
+    },
+    {
+      "slug": "it-can-be-done-experiences-at-the-agriturismo",
+      "title": "It could Work!",
+      "excerpt": "Our first experiment with experiences at the agriturismo: meditation, nature, geothermal energy and new ideas for the area.",
+      "date": "2016-09-27",
+      "image": "/assets/sipuofare.webp",
+      "imageAlt": "Experiences at Agriturismo Segarelli",
+      "content": "<h2>Experiences at the Agriturismo</h2><p>Today we borrow a little enthusiasm from the great Gene Wilder and that scene everyone knows: <strong>it can be done!</strong></p><figure class=\"wp-single-media\"><img src=\"/assets/sipuofaregif.gif\" alt=\"It can be done, Gene Wilder in Young Frankenstein\" loading=\"lazy\" /></figure><h3>Looking for new experiences</h3><p>For some time Luigi and I had been thinking about enriching what we offer during a stay here. This way we could extend the season a little, which certainly does not hurt, and we could also use these experiences to meet new people and discover new realities.</p><p>First of all, we thought it would be a good idea to travel around the Val di Cecina and beyond, and tell, from our point of view, about places and people worth knowing that might interest our guests during their stay with us.</p><p>We also thought it would not be a bad idea to bring other experiences directly to the agriturismo, so we started offering our home as a location for these activities, or at least for part of them.</p><h3>The first experiment...</h3><p>Well, this weekend we managed to do it, not without some difficulties, but it was definitely worth it.</p><p>From Friday to Sunday we were pleasantly invaded by a group that chose our area to carry out meditative activities in nature. By nature we do not only mean our green spaces, where they practised yoga and other techniques, but also the natural beauty around us, which they discovered and enjoyed.</p><p>I cannot go into the details of this group's programme because we did not personally take part in the activities, so I would not know how to describe them... you should have come to find out! In any case, it worked well.</p><p>As far as we are concerned, they appreciated the place, learned more about geothermal energy, mostly ate products from our own production and we talked about the many resources we have, resources that not all of us fully recognise yet.</p><h3>So many ideas in mind...</h3><p>Running an accommodation business, we already knew this: people are many and above all different, more and more so. Meeting realities different from ours always makes us reflect and gives us new motivation to improve, both as a business and as people.</p><p>So now we are sure: <strong>IT CAN BE DONE!</strong> We can organise many other activities, involve different skills and passions, and above all involve anyone in the area who has ideas, energy and the desire to get involved.</p><p>Come on! We have a whole winter to talk about it!</p>"
+    },
+    {
+      "slug": "the-soldiers-of-segarelli-remembrance-day",
+      "title": "The Soldiers of Segarelli. Remembrance of the Fallen, November 4",
+      "excerpt": "The plaques dedicated to Giuseppe Potestà and Giulio Fulceri, young farmers from Segarelli who died during the First World War.",
+      "date": "2016-11-07",
+      "image": "/assets/segarelli_novembre.jpg",
+      "imageAlt": "Historical photo of Podere Segarelli",
+      "content": "<blockquote><p>“Ma sono mille papaveri rossi.”</p><cite>Fabrizio De André</cite></blockquote><p>Do you see these plaques? They commemorate the death of Giuseppe Potestà and Giulio Fulceri, the latter certainly a relative of ours, two young farmers who lived here at Segarelli at the beginning of the last century. Called to fight during the First World War, they both died in 1918, when the war was almost over...</p><p>The plaques were a tribute from the Bicocchi family, who at that time owned the land and farmhouses.</p><p>In the old photos of Podere Segarelli, visible in our history gallery, the plaques can still be seen on the two walls of the two main houses that formed the farmhouse. During the restoration works carried out in the 1970s, they were removed, preserved and later donated to the Municipality of Pomarance.</p><p>The collaboration of some local associations, including the Combattenti e Reduci association, and the Municipality of Pomarance gave life to the initiative <strong>\"Le Pietre Parlano Ancora\"</strong>, aimed especially at younger generations so that the memory of those who gave their lives for their country may remain alive.</p><p>These plaques, together with others collected from farmhouses near ours, were placed along the wall surrounding the small and evocative cemetery of Sant'Ippolito.</p><p>With this short post, in our own small way, we wanted to help commemorate these young victims who were part of the history of Segarelli.</p>"
+    }
+  ]
+}

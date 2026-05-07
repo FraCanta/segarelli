@@ -2,12 +2,13 @@ import BlogSection from "@/components/blogSection/blogSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import { MaskText } from "@/components/layout/MaskText";
 import RevealImage from "@/components/layout/RevealImage";
-import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import chiSiamoIT from "../public/locales/it/chiSiamo.json";
 import chiSiamoEN from "../public/locales/en/chiSiamo.json";
+import blogPostsIT from "../public/locales/it/blogPosts.json";
+import blogPostsEN from "../public/locales/en/blogPosts.json";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
 import Head from "next/head";
@@ -186,10 +187,6 @@ function ChiSiamo({ post, translation }) {
 export default ChiSiamo;
 
 export async function getStaticProps({ locale }) {
-  const idLocale = await getTagId(locale); // recupera id della lingua attuale
-  const post = await getPosts(idLocale); //recupera post nella lingua attuale
-  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(HOME_PAGE_IDS);
   let obj;
   switch (locale) {
     case "it":
@@ -202,13 +199,13 @@ export async function getStaticProps({ locale }) {
       obj = chiSiamoIT;
       break;
   }
+
   return {
     props: {
       translation: obj?.chiSiamo,
-
-      post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
-      // instagramPosts: posts,
-      pages,
+      post: ((locale === "en" ? blogPostsEN.posts : blogPostsIT.posts) || [])
+        .sort((a, b) => new Date(b?.date || 0) - new Date(a?.date || 0))
+        .slice(0, 3),
     },
     revalidate: 60,
   };

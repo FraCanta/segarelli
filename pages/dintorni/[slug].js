@@ -1,105 +1,92 @@
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import RevealImage from "@/components/layout/RevealImage";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
-import { getPagesByIds } from "@/utils/wordpress";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import "glightbox/dist/css/glightbox.css";
+import { useRouter } from "next/router";
+import { useCookieConsent } from "@/components/CookieConsent/CookieBanner";
+import ThirdPartyPlaceholder from "@/components/CookieConsent/ThirdPartyPlaceholder";
 import dintorniIT from "../../public/locales/it/dintorni.json";
 import dintorniEN from "../../public/locales/en/dintorni.json";
+import dintorniPagesIT from "../../public/locales/it/dintorniPages.json";
+import dintorniPagesEN from "../../public/locales/en/dintorniPages.json";
 import Head from "next/head";
 
 function DintorniPage({ pages, currentPage, translation }) {
-  console.log(currentPage);
+  const { locale } = useRouter();
+  const cookieConsent = useCookieConsent();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") return undefined;
 
     let lightbox;
-
     const initLightbox = async () => {
+      const links = document.querySelectorAll(".wp-block-gallery a, .gallery a");
+      if (!links.length) return;
+
       const GLightbox = (await import("glightbox")).default;
       await import("glightbox/dist/css/glightbox.css");
 
-      // Trova tutti i link delle gallerie
-      const links = document.querySelectorAll(
-        ".wp-block-gallery a, .gallery a",
-      );
-      if (!links.length) return;
-
-      // Assicura che abbiano la classe glightbox
       links.forEach((link) => link.classList.add("glightbox"));
-
-      // Distruggi eventuali lightbox già inizializzati
       if (lightbox) lightbox.destroy();
 
-      // Inizializza GLightbox con la classe corretta
       lightbox = GLightbox({
         selector: ".glightbox",
         loop: true,
         touchNavigation: true,
       });
 
-      // Ricollega tutti i link al lightbox per il primo click
-      links.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          lightbox.openAt(Array.from(links).indexOf(link));
+      links.forEach((link, index) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          lightbox.openAt(index);
         });
       });
     };
 
-    // Piccolo delay per assicurarsi che il DOM sia completamente montato
     const timeout = setTimeout(initLightbox, 50);
-
     return () => {
       clearTimeout(timeout);
       if (lightbox) lightbox.destroy();
     };
-  }, [pages]);
+  }, [currentPage]);
 
   const cleanHtml = (html) => html?.replace(/(<([^>]+)>)/gi, "").trim() || "";
   const cleanTitle = cleanHtml(currentPage.title);
-  const cleanDescription = cleanHtml(currentPage.excerpt);
+  const cleanDescription = cleanHtml(currentPage.excerpt || currentPage.content);
+  const contentWithoutIframes = currentPage.content?.replace(
+    /<iframe[\s\S]*?<\/iframe>/gi,
+    "",
+  );
+  const iframeMatch = currentPage.content?.match(/<iframe[\s\S]*?<\/iframe>/i);
 
   return (
     <>
       <Head>
         <title>Agriturismo Segarelli | {cleanTitle}</title>
         <meta name="description" content={cleanDescription} />
-
-        {/* Open Graph */}
         <meta property="og:title" content={cleanTitle} />
         <meta property="og:description" content={cleanDescription} />
         <meta property="og:image" content={currentPage.image} />
-
-        {/* Twitter Card */}
         <meta name="twitter:title" content={cleanTitle} />
         <meta name="twitter:description" content={cleanDescription} />
         <meta name="twitter:image" content={currentPage.image} />
-
-        {/* Favicon */}
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-        />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <div className=" bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
+      <div className="bg-primary/70 flex items-center px-4 lg:px-20 w-full min-h-[80svh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-end justify-between w-full mt-32 mb-10 gap-y-10">
           <h1
             className="max-w-3xl text-3xl md:text-5xl 2xl:text-6xl text-white leading-none capitalize"
             dangerouslySetInnerHTML={{ __html: currentPage.title }}
           />
-          <div className="relative aspect-square xl:aspect-video h-auto xl:h-[400px]  fxl:h-[500px] w-full fxl:w-2/3  ml-auto">
+          <div className="relative aspect-square xl:aspect-video h-auto xl:h-[400px] fxl:h-[500px] w-full fxl:w-2/3 ml-auto">
             <RevealImage
               fill
               className="object-cover h-full"
               src={currentPage.image}
-              alt={currentPage.alt}
+              alt={currentPage.imageAlt || currentPage.title}
             />
           </div>
         </div>
@@ -107,31 +94,53 @@ function DintorniPage({ pages, currentPage, translation }) {
 
       <div
         className="px-4 lg:px-0 lg:w-[70%] mx-auto my-20 wp-content text-blu wp-title"
-        dangerouslySetInnerHTML={{
-          __html: currentPage.content,
-        }}
+        dangerouslySetInnerHTML={{ __html: contentWithoutIframes }}
       />
 
-      <section className="my-20 grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+      {iframeMatch && (
+        <div className="px-4 lg:px-0 lg:w-[70%] mx-auto mb-20 wp-content">
+          {cookieConsent?.thirdParty ? (
+            <div dangerouslySetInnerHTML={{ __html: iframeMatch[0] }} />
+          ) : (
+            <ThirdPartyPlaceholder
+              title={locale === "en" ? "Map blocked" : "Mappa bloccata"}
+              description={
+                locale === "en"
+                  ? "Google Maps is a third-party service. Accept third-party services to view the route."
+                  : "Google Maps e un servizio di terze parti. Accetta i servizi di terze parti per visualizzare il percorso."
+              }
+              buttonLabel={locale === "en" ? "Manage preferences" : "Gestisci preferenze"}
+            />
+          )}
+        </div>
+      )}
+
+      <SectionBreak />
+
+      <section className="my-20 px-6">
+        <h2 className="text-primary text-center text-3xl lg:text-4xl 2xl:text-5xl mb-10">
+          {locale === "en" ? "Discover More Nearby" : "Scopri anche nei dintorni"}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {pages
-          .filter((p) => p.id !== currentPage.id) // esclude la pagina corrente
+          .filter((p) => p.slug !== currentPage.slug)
           .map((p) => (
-            <Link href={`/dintorni/${p.slug}`} key={p.id} className="group">
-              <div>
+            <Link href={`/dintorni/${p.slug}`} key={p.slug} className="group">
+              <div className="relative aspect-video">
                 <RevealImage
                   src={p.image}
-                  alt={p.alt}
+                  alt={p.imageAlt || p.title}
                   fill
-                  className="object-cover w-full aspect-video"
+                  className="object-cover w-full h-full"
                 />
               </div>
-
               <h3
                 className="pt-2 text-xl capitalize"
                 dangerouslySetInnerHTML={{ __html: p.title }}
               />
             </Link>
           ))}
+        </div>
       </section>
 
       <SectionBreak />
@@ -144,46 +153,30 @@ export default DintorniPage;
 
 export async function getStaticPaths() {
   const locales = ["it", "en"];
-  const PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(PAGE_IDS);
-  const validPages = pages.filter(
-    (page) => typeof page?.slug === "string" && page.slug.length > 0,
-  );
-
-  const paths = locales.flatMap((locale) =>
-    validPages.map((page) => ({
+  const paths = locales.flatMap((locale) => {
+    const pages = locale === "en" ? dintorniPagesEN.pages : dintorniPagesIT.pages;
+    return pages.map((page) => ({
       params: { slug: page.slug },
       locale,
-    })),
-  );
+    }));
+  });
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params, locale }) {
-  const PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(PAGE_IDS);
-  const obj = locale === "en" ? dintorniEN : dintorniIT;
-  const commonSections = {
-    slides: obj.dintorni.slides,
-  };
-  const currentPage = pages.find(
-    (p) => typeof p?.slug === "string" && p.slug === params.slug,
-  );
-
-  if (!currentPage) {
-    return { notFound: true };
-  }
+  const pages = locale === "en" ? dintorniPagesEN.pages : dintorniPagesIT.pages;
+  const currentPage = pages.find((p) => p.slug === params.slug);
+  if (!currentPage) return { notFound: true };
 
   return {
     props: {
       pages,
       currentPage,
-      lang: locale,
-      translation: commonSections,
+      translation: (locale === "en" ? dintorniEN : dintorniIT).dintorni,
     },
     revalidate: 60,
   };

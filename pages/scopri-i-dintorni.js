@@ -4,18 +4,21 @@ import dintorniEN from "../public/locales/en/dintorni.json";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskText } from "@/components/layout/MaskText";
 import { ParagraphText } from "@/components/layout/ParagraphText";
-import Image from "next/image";
-import Link from "next/link";
-import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import { Icon } from "@iconify/react";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
-import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
-import BlogSection from "@/components/blogSection/blogSection";
 import Head from "next/head";
+import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
+import BlogSection from "@/components/blogSection/blogSection";
+import { useRouter } from "next/router";
+import dintorniPagesIT from "../public/locales/it/dintorniPages.json";
+import dintorniPagesEN from "../public/locales/en/dintorniPages.json";
+import blogPostsIT from "../public/locales/it/blogPosts.json";
+import blogPostsEN from "../public/locales/en/blogPosts.json";
 
-function Dintorni({ pages, post, translation }) {
+function Dintorni({ translation, pages, post }) {
+  const { locale } = useRouter();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);
 
@@ -27,19 +30,12 @@ function Dintorni({ pages, post, translation }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
-
-        {/* Open Graph */}
         <meta property="og:title" content={translation.head.og.title} />
-        <meta
-          property="og:description"
-          content={translation.head.og.description}
-        />
+        <meta property="og:description" content={translation.head.og.description} />
         <meta property="og:type" content={translation.head.og.type} />
         <meta property="og:url" content={translation.head.og.url} />
         <meta property="og:image" content={translation.head.og.image} />
         <meta property="og:site_name" content={translation.head.og.site_name} />
-
-        {/* Twitter Card */}
         <meta name="twitter:card" content={translation.head.twitter.card} />
         <meta name="twitter:title" content={translation.head.twitter.title} />
         <meta
@@ -47,18 +43,9 @@ function Dintorni({ pages, post, translation }) {
           content={translation.head.twitter.description}
         />
         <meta name="twitter:image" content={translation.head.twitter.image} />
-
-        {/* Favicon */}
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-        />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
-
-        {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -71,17 +58,14 @@ function Dintorni({ pages, post, translation }) {
           }}
         />
       </Head>
-      <div className="relative  h-screen overflow-hidden">
+      <div className="relative h-screen overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center flex items-center justify-center"
-          style={{
-            y,
-            backgroundImage: `url(${translation?.herobg})`,
-          }}
+          style={{ y, backgroundImage: `url(${translation?.herobg})` }}
         >
           <div className="z-40 flex flex-col items-center justify-center text-center px-4 gap-4">
             <MaskText>
-              <h2 className="text-white text-6xl  md:text-5xl lg:text-[92px] 2xl:text-[128px]   px-4 py-2 rounded">
+              <h2 className="text-white text-6xl md:text-5xl lg:text-[92px] 2xl:text-[128px] px-4 py-2 rounded">
                 {translation?.title}
               </h2>
             </MaskText>
@@ -97,15 +81,15 @@ function Dintorni({ pages, post, translation }) {
               style={{ color: "#fff" }}
             />
           </div>
-
           <div className="absolute inset-0 w-full h-full bg-blu/30"></div>
         </motion.div>
       </div>
+
       <div className="py-10">
         <AttivitaSection
           pages={pages}
-          post={post}
           translation={translation.activities}
+          locale={locale}
         />
       </div>
 
@@ -117,26 +101,23 @@ function Dintorni({ pages, post, translation }) {
             </h3>
           </MaskText>
           <MaskText>
-            <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center  lg:leading-[1] py-2 overflow-hidden  lg:max-w-3xl mx-auto">
+            <h2 className="text-blu text-3xl lg:text-4xl 2xl:text-5xl text-center lg:leading-[1] py-2 overflow-hidden lg:max-w-3xl mx-auto">
               {translation.SezioneGallery.title}
             </h2>
           </MaskText>
-          {translation.SezioneGallery.description.map((p, i) => {
-            return (
-              <div key={i} className="text-center max-w-3xl  mx-auto">
-                <ParagraphText>{p}</ParagraphText>
-              </div>
-            );
-          })}
+          {translation.SezioneGallery.description.map((p, i) => (
+            <div key={i} className="text-center max-w-3xl mx-auto">
+              <ParagraphText>{p}</ParagraphText>
+            </div>
+          ))}
         </div>
-
         <SliderAppartamento slides={translation?.gallery} />
       </div>
 
       <SectionBreak />
       <CategoriesCarousel translation={translation} />
       <div className="py-20">
-        <BlogSection post={post} translation={translation.blog} />
+        <BlogSection post={post} translation={translation.blog} locale={locale} />
       </div>
     </>
   );
@@ -145,31 +126,18 @@ function Dintorni({ pages, post, translation }) {
 export default Dintorni;
 
 export async function getStaticProps({ locale }) {
-  const idLocale = await getTagId(locale); // recupera id della lingua attuale
-  const post = await getPosts(idLocale); //recupera post nella lingua attuale
-  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(HOME_PAGE_IDS);
-
-  let obj;
-  switch (locale) {
-    case "it":
-      obj = dintorniIT;
-      break;
-    case "en":
-      obj = dintorniEN;
-      break;
-    default:
-      obj = dintorniIT;
-      break;
-  }
-
+  const isEn = locale === "en";
+  const obj = isEn ? dintorniEN : dintorniIT;
+  const rawPages = isEn ? dintorniPagesEN.pages : dintorniPagesIT.pages;
+  const pages = rawPages.map((p) => ({
+    ...p,
+    link: `/dintorni/${p.slug}`,
+  }));
   return {
     props: {
       translation: obj?.dintorni,
-
-      post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
-      // instagramPosts: posts,
       pages,
+      post: ((isEn ? blogPostsEN.posts : blogPostsIT.posts) || []).slice(0, 3),
     },
     revalidate: 60,
   };

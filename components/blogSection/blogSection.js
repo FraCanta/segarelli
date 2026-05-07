@@ -17,10 +17,17 @@ const BlogSection = ({ post, translation, locale }) => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const jsxPosts = post.map((p, i) => {
+  const jsxPosts = (post || []).map((p, i) => {
     const featuredMedia = p?._embedded?.["wp:featuredmedia"]?.[0] || {
-      source_url: "/assets/hero.jpg",
-      alt_text: "Immagine di default",
+      source_url: p?.image || "/assets/hero.jpg",
+      media_details: {
+        sizes: {
+          full: {
+            source_url: p?.image || "/assets/hero.jpg",
+          },
+        },
+      },
+      alt_text: p?.imageAlt || p?.title || "Immagine articolo",
     };
 
     return (

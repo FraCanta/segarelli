@@ -9,15 +9,19 @@ export default function PostSection({ post, featuredMedia, locale }) {
   const [minutiLettura, setMinutiLettura] = useState(0);
 
   useEffect(() => {
-    const testoSenzaTag = post?.content?.rendered.replace(/(<([^>]+)>)/gi, "");
+    const content = post?.content?.rendered || post?.content || "";
+    const testoSenzaTag = content.replace(/(<([^>]+)>)/gi, "");
     const parole = testoSenzaTag
       .split(" ")
       .filter((p) => p.trim() !== "").length;
-    setMinutiLettura(Math.ceil(parole / 250));
+    setMinutiLettura(Math.max(1, Math.ceil(parole / 250)));
   }, [post]);
 
+  const title = post?.title?.rendered || post?.title || "";
   const imageUrl =
     featuredMedia?.["media_details"]?.sizes?.full?.["source_url"] ||
+    featuredMedia?.source_url ||
+    post?.image ||
     "/assets/hero.jpg";
 
   return (
@@ -25,13 +29,13 @@ export default function PostSection({ post, featuredMedia, locale }) {
       {/* contenitore flessibile verticale che occupa tutta l’altezza */}
       <div className="flex flex-col h-full justify-between overflow-hidden ">
         {/* Immagine */}
-        <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
+        <Link href={`/blog/${post?.slug}`} title={title}>
           <figure className="flex-shrink-0">
             <RevealImage
               src={imageUrl}
               width={461}
               height={420}
-              alt={featuredMedia?.alt_text || "Don't Call It Blog"}
+              alt={featuredMedia?.alt_text || title || "Don't Call It Blog"}
               className="w-full h-[240px] md:h-[350px] lg:h-[375px] 3xl:h-[380px] object-cover"
               priority
               quality={70}
@@ -41,10 +45,10 @@ export default function PostSection({ post, featuredMedia, locale }) {
 
         {/* Titolo */}
         <div className="flex-grow flex flex-col justify-between pt-4">
-          <Link href={`/blog/${post?.slug}`} title={post?.title?.rendered}>
+          <Link href={`/blog/${post?.slug}`} title={title}>
             <h3
               className="text-blu hover:underline text-base  lg:text-[20px] leading-[120%] transition-all 3xl:text-3xl"
-              dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
+              dangerouslySetInnerHTML={{ __html: title }}
             />
           </Link>
 

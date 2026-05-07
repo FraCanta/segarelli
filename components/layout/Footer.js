@@ -4,6 +4,7 @@ import Link from "next/link";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
 import { useRouter } from "next/router";
 import Weather from "../Weather/Weather";
+import { openCookiePreferences } from "../CookieConsent/CookieBanner";
 
 export default function Footer({ translation }) {
   const { locale } = useRouter();
@@ -243,8 +244,8 @@ export default function Footer({ translation }) {
         </div>
 
         <div className="bg-white/20 w-full px-4 lg:px-6 h-[0.9px] mt-10"></div>
-        <div className="flex flex-wrap items-center w-full px-0 lg:px-6 py-6 justify-between gap-2">
-          <div className="flex flex-col lg:flex-row items-center gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 items-center w-full px-0 lg:px-6 py-6 gap-4">
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:justify-start">
             {" "}
             <div className="flex items-center gap-2 ">
               {/* 5 stelle piene */}
@@ -309,7 +310,24 @@ export default function Footer({ translation }) {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-y-2 lg:items-center ">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-white/80 text-sm">
+            <Link href="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <span>&bull;</span>
+            <Link href="/cookie-policy" className="hover:underline">
+              Cookie Policy
+            </Link>
+            <span>&bull;</span>
+            <button
+              type="button"
+              onClick={openCookiePreferences}
+              className="hover:underline"
+            >
+              {locale === "en" ? "Cookie preferences" : "Preferenze cookie"}
+            </button>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-y-2 lg:items-center lg:justify-end">
             <Weather />
             <p className="text-white/80 text-sm">
               <span>

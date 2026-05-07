@@ -12,13 +12,27 @@ export default async function bookingMailer(req, res) {
     checkOut,
     adults,
     children,
+    apartment,
     notes,
     email,
+    privacyConsent,
     lang,
   } = req.body;
 
-  if (!firstName || !phone || !email || !checkIn || !checkOut || !adults) {
+  if (
+    !firstName ||
+    !phone ||
+    !email ||
+    !checkIn ||
+    !checkOut ||
+    !adults ||
+    !apartment
+  ) {
     return res.status(400).json({ error: "Campi obbligatori mancanti" });
+  }
+
+  if (privacyConsent !== true) {
+    return res.status(400).json({ error: "Consenso privacy obbligatorio" });
   }
 
   const smtpUser = process.env.SMTP_USER;
@@ -110,6 +124,20 @@ ${adults} adulti ${children ? `• ${children} bambini` : ""}
 
 <tr>
 <td colspan="2" style="padding-top:15px;">
+<div style="font-size:12px;color:#8F8F8F;">APPARTAMENTO</div>
+<div style="font-size:17px;color:#151D25;font-weight:600;text-transform:capitalize;">${apartment}</div>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="padding-top:15px;">
+<div style="font-size:12px;color:#8F8F8F;">CONSENSO PRIVACY</div>
+<div style="font-size:17px;color:#151D25;font-weight:600;">Accettato</div>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="padding-top:15px;">
 <div style="font-size:12px;color:#8F8F8F;">NOTE</div>
 <div style="font-size:17px;color:#151D25;font-weight:600;">${notes || "Nessuna"}</div>
 </td>
@@ -174,6 +202,9 @@ Grazie per averci contattato, <br/>${firstName}
 
 <p style="color:#8F8F8F;font-size:16px;margin-top:10px;">
 Abbiamo ricevuto la tua richiesta di soggiorno.
+</p>
+<p style="color:#151D25;font-size:15px;margin-top:8px;">
+Appartamento richiesto: <strong style="text-transform:capitalize;">${apartment}</strong>
 </p>
 </td>
 </tr>
@@ -319,6 +350,9 @@ Thank you for contacting us,<br/> ${firstName}
 <p style="color:#8F8F8F;font-size:16px;margin-top:10px;">
 We have received your stay request.
 </p>
+<p style="color:#151D25;font-size:15px;margin-top:8px;">
+Requested apartment: <strong style="text-transform:capitalize;">${apartment}</strong>
+</p>
 </td>
 </tr>
 
@@ -432,7 +466,7 @@ agriturismosegarelli@gmail.com
     await transporter.sendMail({
       from: `"Richiesta prenotazione" <${smtpUser}>`,
       to: ["fcantale14@gmail.com", "agriturismosegarelli@gmail.com"],
-      subject: `Nuova richiesta prenotazione dal ${checkIn} al ${checkOut}`,
+      subject: `Nuova richiesta ${apartment} dal ${checkIn} al ${checkOut}`,
       replyTo: email,
       html: emailHtml,
     });

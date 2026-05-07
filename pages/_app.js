@@ -10,10 +10,12 @@ import { useRouter } from "next/router";
 
 import IntroLoader from "@/components/IntroLoader/IntroLoader";
 import Script from "next/script";
+import CookieBanner, { useCookieConsent } from "@/components/CookieConsent/CookieBanner";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const cookieConsent = useCookieConsent();
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -49,11 +51,14 @@ function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
 
-      <Script
-        src="https://elfsightcdn.com/platform.js"
-        data-use-service-core
-        strategy="afterInteractive"
-      ></Script>
+      {cookieConsent?.thirdParty && (
+        <Script
+          src="https://elfsightcdn.com/platform.js"
+          data-use-service-core
+          strategy="afterInteractive"
+        />
+      )}
+      <CookieBanner />
     </>
   );
 }

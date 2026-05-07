@@ -51,6 +51,42 @@ iframe {
   gap: 1.5rem;
 }
 
+.wp-content a {
+  color: var(--primaryTextColor);
+  text-decoration: underline;
+}
+
+.wp-content blockquote {
+  border-left: 4px solid var(--primaryTextColor);
+  margin: 0 0 1rem;
+  padding: 1rem 0 1rem 1.5rem;
+  color: var(--primaryTextColor);
+}
+
+.wp-content blockquote p {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  font-style: italic;
+}
+
+.wp-content blockquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  color: rgb(21 29 37 / 70%);
+  font-style: normal;
+}
+
+.wp-single-media {
+  margin: 0 auto;
+  width: min(100%, 620px);
+}
+
+.wp-single-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .grid__item {
   display: flex !important;
   flex-direction: column;
@@ -113,6 +149,31 @@ figcaption {
   display: none !important;
 }
 
+.wp-city-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.wp-city-gallery figure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wp-city-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.wp-city-gallery figcaption {
+  display: block !important;
+  font-size: 0.875rem;
+  color: rgb(21 29 37 / 70%);
+}
+
 @media screen and (max-width: 768px) {
   iframe {
     height: 300px !important;
@@ -142,5 +203,9 @@ figcaption {
 
   .wp-block-gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+  }
+
+  .wp-city-gallery {
+    grid-template-columns: 1fr;
   }
 }

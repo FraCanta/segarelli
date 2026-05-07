@@ -6,7 +6,20 @@ import localeEn from "air-datepicker/locale/en";
 import { Icon } from "@iconify/react";
 import toast from "react-hot-toast";
 
-export default function BookingForm({ lang = "it" }) {
+const APARTMENT_OPTIONS = [
+  { value: "acacia", label: "Acacia" },
+  { value: "edera", label: "Edera" },
+  { value: "gelsomino", label: "Gelsomino" },
+];
+
+const normalizeApartment = (value = "") => {
+  const normalized = value.toString().trim().toLowerCase();
+  return APARTMENT_OPTIONS.some((opt) => opt.value === normalized)
+    ? normalized
+    : "";
+};
+
+export default function BookingForm({ lang = "it", apartmentName = "" }) {
   const checkInRef = useRef(null);
   const checkOutRef = useRef(null);
   const dpInRef = useRef(null);
@@ -20,7 +33,18 @@ export default function BookingForm({ lang = "it" }) {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [phone, setPhone] = useState("");
+  const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [apartment, setApartment] = useState(normalizeApartment(apartmentName));
+  const [blockedDates, setBlockedDates] = useState([]);
   const [contactOpen, setContactOpen] = useState(false);
+  const blockedDatesRef = useRef(new Set());
+
+  const formatDateKey = (date) => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  };
 
   /* Datepicker setup */
   useEffect(() => {
@@ -33,6 +57,13 @@ export default function BookingForm({ lang = "it" }) {
       selectedDates: [today],
       locale,
       autoClose: true,
+      onRenderCell({ date, cellType }) {
+        if (cellType !== "day") return;
+        const key = formatDateKey(date);
+        if (blockedDatesRef.current.has(key)) {
+          return { disabled: true };
+        }
+      },
       onSelect({ date }) {
         if (!date) return;
         const nextDay = new Date(date);
@@ -47,6 +78,13 @@ export default function BookingForm({ lang = "it" }) {
       selectedDates: [tomorrow],
       locale,
       autoClose: true,
+      onRenderCell({ date, cellType }) {
+        if (cellType !== "day") return;
+        const key = formatDateKey(date);
+        if (blockedDatesRef.current.has(key)) {
+          return { disabled: true };
+        }
+      },
     });
 
     return () => {
@@ -59,6 +97,35 @@ export default function BookingForm({ lang = "it" }) {
     dpInRef.current?.update({ locale });
     dpOutRef.current?.update({ locale });
   }, [lang]);
+
+  useEffect(() => {
+    setApartment(normalizeApartment(apartmentName));
+  }, [apartmentName]);
+
+  useEffect(() => {
+    blockedDatesRef.current = new Set(blockedDates);
+    dpInRef.current?.update({});
+    dpOutRef.current?.update({});
+  }, [blockedDates]);
+
+  useEffect(() => {
+    if (!apartment) {
+      setBlockedDates([]);
+      return;
+    }
+
+    const loadAvailability = async () => {
+      try {
+        const res = await fetch(`/api/availability?apartment=${apartment}`);
+        const data = await res.json();
+        setBlockedDates(Array.isArray(data?.blockedDates) ? data.blockedDates : []);
+      } catch (error) {
+        setBlockedDates([]);
+      }
+    };
+
+    loadAvailability();
+  }, [apartment]);
 
   const increment = (type) => {
     if (type === "adults") setAdults((p) => p + 1);
@@ -78,6 +145,15 @@ export default function BookingForm({ lang = "it" }) {
       .toString()
       .trim();
 
+    if (!apartment) {
+      toast.error(
+        lang === "it"
+          ? "Seleziona l'appartamento"
+          : "Select the apartment",
+      );
+      return;
+    }
+
     if (!submittedEmail) {
       toast.error(
         lang === "it" ? "Inserisci un'email valida" : "Enter a valid email",
@@ -96,8 +172,10 @@ export default function BookingForm({ lang = "it" }) {
           checkOut: checkOutRef.current.value,
           adults,
           children,
+          apartment,
           notes,
           email: submittedEmail,
+          privacyConsent,
           lang, // <- aggiungi la lingua qui
         }),
       });
@@ -113,6 +191,8 @@ export default function BookingForm({ lang = "it" }) {
         setEmail("");
         setFirstName("");
         setPhone("");
+        setPrivacyConsent(false);
+        setApartment(normalizeApartment(apartmentName));
       } else {
         toast.error(data?.error || (lang === "it" ? "Errore nell'invio" : "Error sending booking"));
       }
@@ -146,6 +226,31 @@ export default function BookingForm({ lang = "it" }) {
         </div>
       </div>
       <div className="w-full bg-primary/30 h-[0.1px]" />
+
+      {/* Apartment */}
+      <div>
+        <label className="text-md font-medium mb-2 text-primary normal-case">
+          {lang === "it" ? "Appartamento" : "Apartment"}
+        </label>
+        <select
+          value={apartment}
+          onChange={(e) => setApartment(e.target.value)}
+          className="w-full border border-blu/20 p-2 air-input"
+          required
+        >
+          <option value="">
+            {lang === "it"
+              ? "Seleziona appartamento"
+              : "Select apartment"}
+          </option>
+          {APARTMENT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
       {/* Guests */}
       <div className="space-y-6">
         {[
@@ -248,10 +353,26 @@ export default function BookingForm({ lang = "it" }) {
         onChange={(e) => setNotes(e.target.value)}
       />
 
+      <label className="flex items-start gap-3 text-sm text-blu/70">
+        <input
+          type="checkbox"
+          checked={privacyConsent}
+          onChange={(e) => setPrivacyConsent(e.target.checked)}
+          className="mt-1 h-4 w-4 accent-primary"
+          required
+        />
+        <span>
+          {lang === "it"
+            ? "Acconsento al trattamento dei dati personali inviati tramite questo form per ricevere risposta alla mia richiesta di prenotazione.*"
+            : "I consent to the processing of the personal data submitted through this form in order to receive a reply to my booking request.*"}
+        </span>
+      </label>
+
       {/* Submit */}
       <button
         type="submit"
-        className="px-6 py-4 bg-siena rounded-full text-white uppercase flex justify-center gap-2"
+        disabled={!privacyConsent}
+        className="px-6 py-4 bg-siena rounded-full text-white uppercase flex justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
       >
         {lang === "it" ? "Prenota" : "Book"}
         <Icon icon="prime:arrow-up-right" width="24" />

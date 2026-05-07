@@ -4,7 +4,6 @@ import appartamentiEN from "../../public/locales/en/appartamenti.json";
 import Reviews from "@/components/Reviews";
 import RevealImage from "@/components/layout/RevealImage";
 import { MaskText } from "@/components/layout/MaskText";
-import { getPagesByIds } from "@/utils/wordpress";
 import AttivitaSection from "@/components/AttivitaSection/AttivitaSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
@@ -124,7 +123,9 @@ const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
                 {appartamento.prezzi.title}
               </h2>
             </MaskText>
-            <ButtonSecondary>Prenota </ButtonSecondary>
+            <ButtonSecondary apartmentName={appartamento.name}>
+              Prenota
+            </ButtonSecondary>
           </div>
 
           <div className="grid gap-6 mt-6">
@@ -183,7 +184,9 @@ const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
               </ParagraphText>
             </div>
             <div className="w-full flex justify-center mt-10 px-4">
-              <ButtonSecondary>{translations.check}</ButtonSecondary>
+              <ButtonSecondary apartmentName={appartamento.name}>
+                {translations.check}
+              </ButtonSecondary>
             </div>
           </div>
 
@@ -212,7 +215,9 @@ const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
               </ParagraphText>
             </div>
             <div className="w-full flex justify-center mt-10">
-              <ButtonSecondary>{translations.check}</ButtonSecondary>
+              <ButtonSecondary apartmentName={appartamento.name}>
+                {translations.check}
+              </ButtonSecondary>
             </div>
           </div>
           <SliderAppartamento slides={appartamento?.galleryPiano1} />
@@ -262,9 +267,6 @@ const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
 export default AppartamentoPage;
 
 export async function getStaticProps({ params, locale }) {
-  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(HOME_PAGE_IDS);
-
   const obj = locale === "en" ? appartamentiEN : appartamentiIT;
   const commonSections = {
     reviewsTitle: obj.appartamenti.reviewsTitle,
@@ -293,7 +295,7 @@ export async function getStaticProps({ params, locale }) {
   return {
     props: {
       appartamento: targetObj,
-      pages,
+      pages: [],
       translations: commonSections,
       others,
     },

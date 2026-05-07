@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 import BookingForm from "../Book/BookingForm";
 import BookingFormMeals from "../Book/BookingFormMeals";
 
-function ButtonSecondary({ children, onClick }) {
+function ButtonSecondary({ children, onClick, apartmentName = "" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("sleep");
   const { locale, pathname } = useRouter();
@@ -122,6 +122,7 @@ function ButtonSecondary({ children, onClick }) {
                         <BookingForm
                           range={true}
                           lang={locale === "it" ? "it" : "en"}
+                          apartmentName={apartmentName}
                         />
                       </>
                     )}

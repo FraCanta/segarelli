@@ -1,0 +1,36 @@
+{
+  "pages": [
+    {
+      "slug": "relax",
+      "title": "Relax",
+      "excerpt": "Trails, landscapes, and quiet moments near Segarelli.",
+      "image": "/assets/terme_sassetta.webp",
+      "imageAlt": "Relax in Tuscan nature",
+      "content": "<h2 class=\"text-primary\">Terme di Sassetta</h2><p>Terme di Sassetta is a natural wellness center, deeply connected to Tuscany and to the fruits of its land and woods.</p><p>It is 36.7 km from our agriturismo. To get there, you will drive through the local woods, right in the heart of the geothermal area.</p><p>When staying with us, you can also enjoy a discount on admission to the thermal baths.</p><iframe title=\"Route from Agriturismo Segarelli to Terme di Sassetta\" src=\"https://www.google.com/maps?f=d&source=s_d&saddr=Agriturismo%20Segarelli%2C%20Pomarance&daddr=Terme%20di%20Sassetta&output=embed\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe><p>Driving directions Agriturismo Segarelli - Terme di Sassetta</p>"
+    },
+    {
+      "slug": "luoghi-da-visitare",
+      "title": "Villages",
+      "excerpt": "The most beautiful villages and must-see spots nearby.",
+      "image": "/assets/borghi.jpg",
+      "imageAlt": "Tuscan villages",
+      "content": "<p>Places to visit page placeholder content. Add your HTML text here.</p>"
+    },
+    {
+      "slug": "escursioni-toscana",
+      "title": "Nature",
+      "excerpt": "Trails, trekking, and open-air days across Tuscany.",
+      "image": "/assets/toscana.jpg",
+      "imageAlt": "Nature in Tuscany",
+      "content": "<p>Excursions page placeholder content. Add your HTML text here.</p>"
+    },
+    {
+      "slug": "citta-da-visitare-toscana",
+      "title": "Art Cities",
+      "excerpt": "Art, history, and old towns perfect for day trips.",
+      "image": "/assets/citta_darte.webp",
+      "imageAlt": "Tuscan cities",
+      "content": "<p>Cities to visit page placeholder content. Add your HTML text here.</p>"
+    }
+  ]
+}

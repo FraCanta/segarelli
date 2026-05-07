@@ -8,9 +8,12 @@ import contattiIT from "../public/locales/it/contatti.json";
 import contattiEN from "../public/locales/en/contatti.json";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { useCookieConsent } from "@/components/CookieConsent/CookieBanner";
+import ThirdPartyPlaceholder from "@/components/CookieConsent/ThirdPartyPlaceholder";
 
 function Contatti({ translation }) {
   const { locale, pathname } = useRouter();
+  const cookieConsent = useCookieConsent();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -165,16 +168,28 @@ function Contatti({ translation }) {
 
           <AccordionContatti translation={translation} />
         </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21151.126956936132!2d10.855290149752639!3d43.25177972877499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1329f6398dc1cb93%3A0xdc3344ec38b9bd12!2sAgriturismo%20Segarelli!5e0!3m2!1sen!2sus!4v1774551309711!5m2!1sen!2sus"
-          width="600"
-          height="850"
-          style={{ border: "0" }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="!h-[650px] grayscale hover:grayscale-0 transition-all duration-700"
-        ></iframe>
+        {cookieConsent?.thirdParty ? (
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21151.126956936132!2d10.855290149752639!3d43.25177972877499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1329f6398dc1cb93%3A0xdc3344ec38b9bd12!2sAgriturismo%20Segarelli!5e0!3m2!1sen!2sus!4v1774551309711!5m2!1sen!2sus"
+            width="600"
+            height="850"
+            style={{ border: "0" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="!h-[650px] grayscale hover:grayscale-0 transition-all duration-700"
+          ></iframe>
+        ) : (
+          <ThirdPartyPlaceholder
+            title={locale === "en" ? "Map blocked" : "Mappa bloccata"}
+            description={
+              locale === "en"
+                ? "Google Maps is a third-party service. Accept third-party services to view the map."
+                : "Google Maps e un servizio di terze parti. Accetta i servizi di terze parti per visualizzare la mappa."
+            }
+            buttonLabel={locale === "en" ? "Manage preferences" : "Gestisci preferenze"}
+          />
+        )}
       </div>
 
       <SectionBreak />

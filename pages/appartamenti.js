@@ -3,10 +3,11 @@ import BlogSection from "@/components/blogSection/blogSection";
 import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarousel";
 import Reviews from "@/components/Reviews";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
-import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import React from "react";
 import appartamentiIT from "../public/locales/it/appartamenti.json";
 import appartamentiEN from "../public/locales/en/appartamenti.json";
+import blogPostsIT from "../public/locales/it/blogPosts.json";
+import blogPostsEN from "../public/locales/en/blogPosts.json";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -145,7 +146,9 @@ function Appartamenti({ pages, post, translation }) {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-4">
-                <ButtonSecondary>{apt?.ctaSecondary}</ButtonSecondary>
+                <ButtonSecondary apartmentName={apt.name}>
+                  {apt?.ctaSecondary}
+                </ButtonSecondary>
                 <ButtonPrimaryOutline
                   link={`/appartamenti/${apt.name.toLowerCase()}`}
                   title="Scopri di più"
@@ -210,11 +213,6 @@ function Appartamenti({ pages, post, translation }) {
 export default Appartamenti;
 
 export async function getStaticProps({ locale }) {
-  const idLocale = await getTagId(locale); // recupera id della lingua attuale
-  const post = await getPosts(idLocale); //recupera post nella lingua attuale
-  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(HOME_PAGE_IDS);
-
   let obj;
   switch (locale) {
     case "it":
@@ -231,10 +229,10 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       translation: obj?.appartamenti,
-
-      post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
-      // instagramPosts: posts,
-      pages,
+      post: ((locale === "en" ? blogPostsEN.posts : blogPostsIT.posts) || [])
+        .sort((a, b) => new Date(b?.date || 0) - new Date(a?.date || 0))
+        .slice(0, 3),
+      pages: [],
     },
     revalidate: 60,
   };

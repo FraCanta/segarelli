@@ -5,10 +5,23 @@ export default async function contattiMailer(req, res) {
     return res.status(405).json({ error: "Metodo non consentito" });
   }
 
-  const { name, surname, email, apartment, subject, message, lang } = req.body;
+  const {
+    name,
+    surname,
+    email,
+    apartment,
+    subject,
+    message,
+    privacyConsent,
+    lang,
+  } = req.body;
 
   if (!name || !surname || !email || !apartment || !subject || !message) {
     return res.status(400).json({ error: "Tutti i campi sono obbligatori" });
+  }
+
+  if (privacyConsent !== true) {
+    return res.status(400).json({ error: "Consenso privacy obbligatorio" });
   }
 
   const transporter = nodemailer.createTransport({
@@ -30,6 +43,7 @@ export default async function contattiMailer(req, res) {
       <p><strong>Appartamento:</strong> ${apartment}</p>
       <p><strong>Subject:</strong> ${subject}</p>
       <p><strong>Messaggio:</strong><br>${message}</p>
+      <p><strong>Consenso privacy:</strong> Accettato</p>
     </body>
   </html>
   `;

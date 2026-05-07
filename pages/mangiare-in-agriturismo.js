@@ -6,7 +6,6 @@ import { MaskText } from "@/components/layout/MaskText";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import Image from "next/image";
 import Link from "next/link";
-import { getPagesByIds, getPosts, getTagId } from "@/utils/wordpress";
 import { Icon } from "@iconify/react";
 import SectionBreak from "@/components/SectionBreak/SectionBreak";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
@@ -16,6 +15,8 @@ import CategoriesCarousel from "@/components/CategoriesCarousel/CategoriesCarous
 import BlogSection from "@/components/blogSection/blogSection";
 import FeatureItem from "@/components/FeatureItem/FeatureItem";
 import Head from "next/head";
+import blogPostsIT from "../public/locales/it/blogPosts.json";
+import blogPostsEN from "../public/locales/en/blogPosts.json";
 
 function Mangiare({ pages, post, translation }) {
   const { scrollY } = useScroll();
@@ -176,11 +177,6 @@ function Mangiare({ pages, post, translation }) {
 export default Mangiare;
 
 export async function getStaticProps({ locale }) {
-  const idLocale = await getTagId(locale); // recupera id della lingua attuale
-  const post = await getPosts(idLocale); //recupera post nella lingua attuale
-  const HOME_PAGE_IDS = [2248, 2026, 1997, 1957];
-  const pages = await getPagesByIds(HOME_PAGE_IDS);
-
   let obj;
   switch (locale) {
     case "it":
@@ -197,9 +193,10 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       translation: obj?.mangiare,
-
-      post: post.sort((a, b) => a?.date > b?.date).filter((el, i) => i < 3), //elimino i post per sideeffect
-      pages,
+      post: ((locale === "en" ? blogPostsEN.posts : blogPostsIT.posts) || [])
+        .sort((a, b) => new Date(b?.date || 0) - new Date(a?.date || 0))
+        .slice(0, 3),
+      pages: [],
     },
     revalidate: 60,
   };
