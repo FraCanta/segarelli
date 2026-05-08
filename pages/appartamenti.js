@@ -8,6 +8,8 @@ import appartamentiIT from "../public/locales/it/appartamenti.json";
 import appartamentiEN from "../public/locales/en/appartamenti.json";
 import blogPostsIT from "../public/locales/it/blogPosts.json";
 import blogPostsEN from "../public/locales/en/blogPosts.json";
+import dintorniPagesIT from "../public/locales/it/dintorniPages.json";
+import dintorniPagesEN from "../public/locales/en/dintorniPages.json";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -20,7 +22,7 @@ import RevealImage from "@/components/layout/RevealImage";
 import FeatureItem from "@/components/FeatureItem/FeatureItem";
 import Head from "next/head";
 
-function Appartamenti({ pages, post, translation }) {
+function Appartamenti({ pages, post, translation, locale }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);
   return (
@@ -199,7 +201,11 @@ function Appartamenti({ pages, post, translation }) {
       </div>
 
       <Reviews translation={translation.reviewsTitle} />
-      <AttivitaSection pages={pages} translation={translation.activities} />
+      <AttivitaSection
+        pages={pages}
+        translation={translation.activities}
+        locale={locale}
+      />
 
       <CategoriesCarousel translation={translation} />
       <div className="bg-primary/10 w-full flex items-center py-8">
@@ -225,6 +231,12 @@ export async function getStaticProps({ locale }) {
       obj = appartamentiIT;
       break;
   }
+  const rawPages =
+    locale === "en" ? dintorniPagesEN.pages || [] : dintorniPagesIT.pages || [];
+  const pages = rawPages.map((p) => ({
+    ...p,
+    link: `/dintorni/${p.slug}`,
+  }));
 
   return {
     props: {
@@ -232,7 +244,8 @@ export async function getStaticProps({ locale }) {
       post: ((locale === "en" ? blogPostsEN.posts : blogPostsIT.posts) || [])
         .sort((a, b) => new Date(b?.date || 0) - new Date(a?.date || 0))
         .slice(0, 3),
-      pages: [],
+      pages,
+      locale,
     },
     revalidate: 60,
   };
