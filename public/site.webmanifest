@@ -1,21 +1,30 @@
 {
   "name": "Agriturismo Segarelli",
-  "short_name": "Agriturismo Segarelli",
+  "short_name": "Segarelli",
+  "description": "Agriturismo Segarelli: appartamenti, natura e ospitalita nel cuore della Toscana.",
+  "lang": "it",
+  "dir": "ltr",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#f8f6ec",
   "background_color": "#f8f6ec",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["travel", "lifestyle"],
+  "prefer_related_applications": false
 }
