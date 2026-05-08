@@ -123,8 +123,8 @@ export default function CookieBanner() {
             </h2>
             <p className="text-sm leading-relaxed text-blu/75">
               {isEn
-                ? "We use technical storage needed for the website and, only with your consent, third-party services such as maps and embedded widgets."
-                : "Usiamo memorizzazioni tecniche necessarie al funzionamento del sito e, solo con il tuo consenso, servizi di terze parti come mappe e widget incorporati."}
+                ? "We use technical storage needed for the website and, only with your consent, third-party services such as Google Analytics, maps and embedded widgets."
+                : "Usiamo memorizzazioni tecniche necessarie al funzionamento del sito e, solo con il tuo consenso, servizi di terze parti come Google Analytics, mappe e widget incorporati."}
             </p>
             <div className="flex flex-wrap gap-3 text-sm">
               <Link href="/privacy-policy" className="text-primary underline">
@@ -169,8 +169,8 @@ export default function CookieBanner() {
                   </span>
                   <span className="block text-sm text-blu/70">
                     {isEn
-                      ? "Google Maps and embedded external widgets may process data according to their own policies."
-                      : "Google Maps e widget esterni incorporati possono trattare dati secondo le rispettive informative."}
+                      ? "Google Analytics, Google Maps and embedded external widgets may process data according to their own policies."
+                      : "Google Analytics, Google Maps e widget esterni incorporati possono trattare dati secondo le rispettive informative."}
                   </span>
                 </span>
               </label>

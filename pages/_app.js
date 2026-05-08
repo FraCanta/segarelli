@@ -16,6 +16,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const cookieConsent = useCookieConsent();
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-RTGN7ESFZD";
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -52,11 +53,29 @@ function App({ Component, pageProps }) {
       </Layout>
 
       {cookieConsent?.thirdParty && (
-        <Script
-          src="https://elfsightcdn.com/platform.js"
-          data-use-service-core
-          strategy="afterInteractive"
-        />
+        <>
+          {gaId && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', { anonymize_ip: true });
+                `}
+              </Script>
+            </>
+          )}
+          <Script
+            src="https://elfsightcdn.com/platform.js"
+            data-use-service-core
+            strategy="afterInteractive"
+          />
+        </>
       )}
       <CookieBanner />
     </>

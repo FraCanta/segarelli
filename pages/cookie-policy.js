@@ -65,9 +65,11 @@ export default function CookiePolicy() {
 
             <Section title="Third-Party Services">
               <p>
-                With your consent, the website may load Google Maps embeds and
-                Elfsight external widgets. These services may set cookies or use
-                other tracking technologies according to their own policies.
+                With your consent, the website may load Google Analytics,
+                Google Maps embeds and Elfsight external widgets. These services
+                may set cookies or use other tracking technologies according to
+                their own policies. Google Analytics is used only after consent
+                and is configured with IP anonymization.
               </p>
               <p>
                 Links to Facebook, Instagram, TripAdvisor and WhatsApp are simple
@@ -117,10 +119,12 @@ export default function CookiePolicy() {
 
             <Section title="Servizi di terze parti">
               <p>
-                Con il tuo consenso il sito puo caricare incorporamenti Google
-                Maps e widget esterni Elfsight. Questi servizi possono impostare
-                cookie o usare altri strumenti di tracciamento secondo le proprie
-                informative.
+                Con il tuo consenso il sito puo caricare Google Analytics,
+                incorporamenti Google Maps e widget esterni Elfsight. Questi
+                servizi possono impostare cookie o usare altri strumenti di
+                tracciamento secondo le proprie informative. Google Analytics
+                viene usato solo dopo il consenso ed e configurato con
+                anonimizzazione IP.
               </p>
               <p>
                 I link a Facebook, Instagram, TripAdvisor e WhatsApp sono

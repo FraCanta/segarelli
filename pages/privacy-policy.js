@@ -88,12 +88,13 @@ export default function PrivacyPolicy() {
 
             <Section title="Recipients and Third Parties">
               <p>
-                Data may be processed by hosting, email and technical service
-                providers. The website uses Google Maps embeds, Elfsight widgets,
-                iCal availability sources, WhatsApp links, and links to social
-                networks or review platforms. These third parties may process
-                data according to their own policies when you interact with them
-                or consent to their loading.
+                Data may be processed by hosting providers, including Vercel,
+                email and technical service providers. The website may use
+                Google Analytics for statistics, Google Maps embeds, Elfsight
+                widgets, iCal availability sources, WhatsApp links, and links to
+                social networks or review platforms. These third parties may
+                process data according to their own policies when you interact
+                with them or consent to their loading.
               </p>
             </Section>
 
@@ -159,11 +160,12 @@ export default function PrivacyPolicy() {
 
             <Section title="Destinatari e terze parti">
               <p>
-                I dati possono essere trattati da fornitori tecnici, hosting e
-                servizi email. Il sito usa incorporamenti Google Maps, widget
-                Elfsight, fonti iCal per disponibilita, link WhatsApp e link a
-                social network o piattaforme di recensioni. Queste terze parti
-                possono trattare dati secondo le proprie informative quando
+                I dati possono essere trattati da fornitori di hosting, incluso
+                Vercel, fornitori tecnici e servizi email. Il sito puo usare
+                Google Analytics per statistiche, incorporamenti Google Maps,
+                widget Elfsight, fonti iCal per disponibilita, link WhatsApp e
+                link a social network o piattaforme di recensioni. Queste terze
+                parti possono trattare dati secondo le proprie informative quando
                 interagisci con loro o acconsenti al caricamento.
               </p>
             </Section>
