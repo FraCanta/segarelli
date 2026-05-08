@@ -11,6 +11,9 @@ import dintorniEN from "../../public/locales/en/dintorni.json";
 import dintorniPagesIT from "../../public/locales/it/dintorniPages.json";
 import dintorniPagesEN from "../../public/locales/en/dintorniPages.json";
 import Head from "next/head";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
+
+const SITE_URL = "https://www.agriturismosegarelli.it";
 
 function DintorniPage({ pages, currentPage, translation }) {
   const { locale } = useRouter();
@@ -54,6 +57,10 @@ function DintorniPage({ pages, currentPage, translation }) {
   const cleanHtml = (html) => html?.replace(/(<([^>]+)>)/gi, "").trim() || "";
   const cleanTitle = cleanHtml(currentPage.title);
   const cleanDescription = cleanHtml(currentPage.excerpt || currentPage.content);
+  const pageUrl = `${SITE_URL}${locale === "en" ? "/en" : ""}/dintorni/${currentPage.slug}`;
+  const imageUrl = currentPage.image?.startsWith("http")
+    ? currentPage.image
+    : `${SITE_URL}${currentPage.image}`;
   const contentWithoutIframes = currentPage.content?.replace(
     /<iframe[\s\S]*?<\/iframe>/gi,
     "",
@@ -65,12 +72,22 @@ function DintorniPage({ pages, currentPage, translation }) {
       <Head>
         <title>Agriturismo Segarelli | {cleanTitle}</title>
         <meta name="description" content={cleanDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={pageUrl} />
+        <HreflangLinks
+          it={`/dintorni/${currentPage.slug}`}
+          en={`/en/dintorni/${currentPage.slug}`}
+        />
         <meta property="og:title" content={cleanTitle} />
         <meta property="og:description" content={cleanDescription} />
-        <meta property="og:image" content={currentPage.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="Agriturismo Segarelli" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={cleanTitle} />
         <meta name="twitter:description" content={cleanDescription} />
-        <meta name="twitter:image" content={currentPage.image} />
+        <meta name="twitter:image" content={imageUrl} />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />

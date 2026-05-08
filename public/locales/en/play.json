@@ -12,7 +12,7 @@
         "description": "Stop, breathe and enjoy the moment at Agriturismo Segarelli: relax in the garden, take a dip in the pool, and immerse yourself in the beauty of the Tuscan countryside.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en/relax-e-natura-da-segarelli",
-        "image": "https://segarelli.vercel.app/assets/pool.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/pool.jpg",
         "site_name": "Agriturismo Segarelli | Relax in the Garden and Pool"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Relax in the Garden and Pool",
         "description": "Stop, breathe and enjoy the moment at Agriturismo Segarelli: relax in the garden, take a dip in the pool, and immerse yourself in the beauty of the Tuscan countryside.",
-        "image": "https://segarelli.vercel.app/assets/pool.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/pool.jpg",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -31,7 +31,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/en/relax-e-natura-da-segarelli",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Agriturismo Segarelli offers a serene Tuscan experience with a relaxing garden, private pool, and opportunities to enjoy nature and the countryside."
         },
         "website": {

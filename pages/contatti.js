@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { useCookieConsent } from "@/components/CookieConsent/CookieBanner";
 import ThirdPartyPlaceholder from "@/components/CookieConsent/ThirdPartyPlaceholder";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 function Contatti({ translation }) {
   const { locale, pathname } = useRouter();
@@ -70,6 +71,7 @@ function Contatti({ translation }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks it="/contatti" en="/en/contatti" />
 
         {/* Open Graph */}
         <meta property="og:title" content={translation.head.og.title} />

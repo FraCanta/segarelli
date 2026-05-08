@@ -12,6 +12,7 @@ import blogPostsEN from "../public/locales/en/blogPosts.json";
 import { ParagraphText } from "@/components/layout/ParagraphText";
 import SliderAppartamento from "@/components/SliderAppartamento/SliderAppartamento";
 import Head from "next/head";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 function ChiSiamo({ post, translation }) {
   const { ref, inView } = useInView({
@@ -36,6 +37,7 @@ function ChiSiamo({ post, translation }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks it="/chi-siamo" en="/en/chi-siamo" />
 
         {/* Open Graph */}
         <meta property="og:title" content={translation.head.og.title} />

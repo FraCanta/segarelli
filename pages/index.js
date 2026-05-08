@@ -18,6 +18,7 @@ import dintorniPagesIT from "../public/locales/it/dintorniPages.json";
 import dintorniPagesEN from "../public/locales/en/dintorniPages.json";
 import { useRouter } from "next/router";
 import FeatureItem from "@/components/FeatureItem/FeatureItem";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 export default function Home({ post, pages, translation }) {
   const { locale } = useRouter();
@@ -42,6 +43,7 @@ export default function Home({ post, pages, translation }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks it="/" en="/en" />
         <meta property="og:title" content={translation.head.og.title} />
         <meta
           property="og:description"

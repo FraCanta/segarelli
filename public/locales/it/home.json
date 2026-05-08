@@ -12,7 +12,7 @@
         "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, appartamenti accoglienti, cucina autentica e borghi medievali.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Vacanze in Toscana",
         "description": "Vivi la campagna toscana all’Agriturismo Segarelli: natura, appartamenti accoglienti, cucina autentica e borghi medievali.",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg"
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "L’Agriturismo Segarelli è un rifugio nella campagna toscana che offre natura, spazi tranquilli, appartamenti accoglienti, cucina autentica ed esperienze tra borghi medievali e percorsi panoramici."
         },
         "website": {

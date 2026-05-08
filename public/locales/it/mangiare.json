@@ -12,7 +12,7 @@
         "description": "Gusta la semplicità del buon cibo toscano all’Agriturismo Segarelli: colazioni tipiche italiane, prodotti freschi dell’orto e spazi accoglienti per mangiare e rilassarsi immersi nella natura.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/mangiare-in-agriturismo",
-        "image": "https://segarelli.vercel.app/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Mangiare in Agriturismo",
         "description": "Gusta la semplicità del buon cibo toscano all’Agriturismo Segarelli: colazioni tipiche italiane, prodotti freschi dell’orto e spazi accoglienti per mangiare e rilassarsi immersi nella natura.",
-        "image": "https://segarelli.vercel.app/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -31,7 +31,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/mangiare-in-agriturismo",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Agriturismo Segarelli offre un’esperienza culinaria autentica in Toscana, con colazioni tipiche, prodotti freschi dell’orto e spazi accoglienti immersi nella natura."
         },
         "website": {

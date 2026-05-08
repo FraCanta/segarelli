@@ -16,6 +16,7 @@ import dintorniPagesIT from "../public/locales/it/dintorniPages.json";
 import dintorniPagesEN from "../public/locales/en/dintorniPages.json";
 import blogPostsIT from "../public/locales/it/blogPosts.json";
 import blogPostsEN from "../public/locales/en/blogPosts.json";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 function Dintorni({ translation, pages, post }) {
   const { locale } = useRouter();
@@ -30,6 +31,7 @@ function Dintorni({ translation, pages, post }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks it="/scopri-i-dintorni" en="/en/scopri-i-dintorni" />
         <meta property="og:title" content={translation.head.og.title} />
         <meta property="og:description" content={translation.head.og.description} />
         <meta property="og:type" content={translation.head.og.type} />

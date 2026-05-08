@@ -21,6 +21,7 @@ import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import RevealImage from "@/components/layout/RevealImage";
 import FeatureItem from "@/components/FeatureItem/FeatureItem";
 import Head from "next/head";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 function Appartamenti({ pages, post, translation, locale }) {
   const { scrollY } = useScroll();
@@ -33,6 +34,7 @@ function Appartamenti({ pages, post, translation, locale }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks it="/appartamenti" en="/en/appartamenti" />
 
         {/* Open Graph */}
         <meta property="og:title" content={translation.head.og.title} />

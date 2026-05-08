@@ -12,7 +12,7 @@
         "description": "Contatta l'Agriturismo Segarelli per prenotazioni, informazioni e indicazioni. Organizza il tuo soggiorno rilassante nella campagna toscana.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/contatti",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Contatti",
         "description": "Contatta l'Agriturismo Segarelli per prenotazioni, informazioni e indicazioni. Organizza il tuo soggiorno rilassante nella campagna toscana.",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg"
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/contatti",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Contatta l'Agriturismo Segarelli per prenotazioni, informazioni e indicazioni. Organizza il tuo soggiorno rilassante nella campagna toscana."
         },
         "website": {

@@ -12,7 +12,7 @@
         "description": "Tradizione Toscana - Storia dell' Agriturismo Segarelli. Foto dei personaggi storici della famiglia che vive nell' Agriturismo Segarelli.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/chi-siamo",
-        "image": "https://segarelli.vercel.app/assets/chisiamo_hero.webp",
+        "image": "https://www.agriturismosegarelli.it/assets/chisiamo_hero.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Chi siamo",
         "description": "Tradizione Toscana - Storia dell' Agriturismo Segarelli. Foto dei personaggi storici della famiglia che vive nell' Agriturismo Segarelli.",
-        "image": "https://segarelli.vercel.app/assets/chisiamo_hero.webp"
+        "image": "https://www.agriturismosegarelli.it/assets/chisiamo_hero.webp"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/chi-siamo",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Tradizione Toscana - Storia dell' Agriturismo Segarelli. Foto dei personaggi storici della famiglia che vive nell' Agriturismo Segarelli."
         },
         "website": {

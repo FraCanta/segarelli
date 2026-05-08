@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 const owner = {
   name: "Agriturismo Segarelli",
@@ -37,8 +38,13 @@ export default function PrivacyPolicy() {
             isEn
               ? "Privacy information for Agriturismo Segarelli website users."
               : "Informativa privacy per gli utenti del sito Agriturismo Segarelli."
-          }
+            }
         />
+        <link
+          rel="canonical"
+          href={`https://www.agriturismosegarelli.it${isEn ? "/en" : ""}/privacy-policy`}
+        />
+        <HreflangLinks it="/privacy-policy" en="/en/privacy-policy" />
       </Head>
 
       <main className="px-4 lg:px-0 lg:w-[70%] mx-auto my-32 flex flex-col gap-10">

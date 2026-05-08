@@ -12,7 +12,7 @@
         "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/appartamenti",
-        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/sleep2.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | I nostri appartamenti",
         "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
-        "image": "https://segarelli.vercel.app/assets/sleep2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/sleep2.jpg",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -31,7 +31,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/appartamenti",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Agriturismo Segarelli offre appartamenti spaziosi e accoglienti immersi nella natura, ideali per un soggiorno confortevole in Toscana."
         },
         "website": {
@@ -183,14 +183,14 @@
             "description": "Appartamento accogliente per 2 persone, ideale per un soggiorno rilassante immersi nella natura.",
             "type": "website",
             "url": "https://www.agriturismosegarelli.it/appartamenti/acacia",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/acacia/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/acacia/fuori.jpg",
             "site_name": "Agriturismo Segarelli"
           },
           "twitter": {
             "card": "summary_large_image",
             "title": "Agriturismo Segarelli | Acacia",
             "description": "Appartamento accogliente per 2 persone, ideale per un soggiorno rilassante immersi nella natura.",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/acacia/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/acacia/fuori.jpg",
             "creator": "@agriturismosegarelli",
             "site": "@agriturismosegarelli"
           },
@@ -200,7 +200,7 @@
               "@type": "Organization",
               "name": "Agriturismo Segarelli",
               "url": "https://www.agriturismosegarelli.it/appartamenti/acacia",
-              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
               "description": "Appartamento Acacia: accogliente e intimo, perfetto per un soggiorno rilassante in Toscana."
             },
             "website": {
@@ -314,14 +314,14 @@
             "description": "Appartamento spazioso per 2 persone con terrazza e vista sul parco, ideale per relax e comfort.",
             "type": "website",
             "url": "https://www.agriturismosegarelli.it/appartamenti/edera",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/edera/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/edera/fuori.jpg",
             "site_name": "Agriturismo Segarelli"
           },
           "twitter": {
             "card": "summary_large_image",
             "title": "Agriturismo Segarelli | Edera",
             "description": "Appartamento spazioso per 2 persone con terrazza e vista sul parco, ideale per relax e comfort.",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/edera/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/edera/fuori.jpg",
             "creator": "@agriturismosegarelli",
             "site": "@agriturismosegarelli"
           },
@@ -331,7 +331,7 @@
               "@type": "Organization",
               "name": "Agriturismo Segarelli",
               "url": "https://www.agriturismosegarelli.it/appartamenti/edera",
-              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
               "description": "Appartamento Edera: spazioso e luminoso, con terrazza e vista sul parco di Monte Rufoli, perfetto per rilassarsi."
             },
             "website": {
@@ -459,14 +459,14 @@
             "description": "Appartamento su due piani per famiglie o amici, con spazi ampi e confortevoli per un soggiorno rilassante.",
             "type": "website",
             "url": "https://www.agriturismosegarelli.it/appartamenti/gelsomino",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/gelsomino/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/gelsomino/fuori.jpg",
             "site_name": "Agriturismo Segarelli"
           },
           "twitter": {
             "card": "summary_large_image",
             "title": "Agriturismo Segarelli | Gelsomino",
             "description": "Appartamento su due piani per famiglie o amici, con spazi ampi e confortevoli per un soggiorno rilassante.",
-            "image": "https://segarelli.vercel.app/assets/appartamenti/gelsomino/fuori.jpg",
+            "image": "https://www.agriturismosegarelli.it/assets/appartamenti/gelsomino/fuori.jpg",
             "creator": "@agriturismosegarelli",
             "site": "@agriturismosegarelli"
           },
@@ -476,7 +476,7 @@
               "@type": "Organization",
               "name": "Agriturismo Segarelli",
               "url": "https://www.agriturismosegarelli.it/appartamenti/gelsomino",
-              "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+              "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
               "description": "Appartamento Gelsomino: due piani, spazioso e luminoso, ideale per famiglie o amici per un soggiorno rilassante in Toscana."
             },
             "website": {

@@ -68,7 +68,7 @@ Nuova richiesta di soggiorno ricevuta
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg" style="height:55px;">
+<img src="https://www.agriturismosegarelli.it/assets/logo_segarelli.svg" style="height:55px;">
 </td>
 </tr>
 
@@ -189,7 +189,7 @@ Richiesta di soggiorno ricevuta - Agriturismo Segarelli
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg"
+<img src="https://www.agriturismosegarelli.it/assets/logo_segarelli.svg"
 style="height:55px;">
 </td>
 </tr>
@@ -263,7 +263,7 @@ Speriamo di accoglierti presto per un soggiorno tra natura, relax e tradizione.
 <tr>
 <td align="center" style="padding:0 40px 30px 40px;">
 
-<a href="https://agriturismosegarelli.it/"
+<a href="https://www.agriturismosegarelli.it/"
 style="display:inline-block;padding:14px 32px;background:#BF7116;color:#ffffff;text-decoration:none;border-radius:999px;font-weight:600;text-transform:uppercase;font-size:14px;">
 Visita il sito
 </a>
@@ -291,18 +291,18 @@ agriturismosegarelli@gmail.com
 <tr>
 <td style="padding:0 5px;">
 <a href="https://www.facebook.com/Segarelli" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
+<img src="https://www.agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.instagram.com/agriturismo_segarelli/" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
+<img src="https://www.agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
 </a>
 </td>
 
 <td style="padding:0 5px;">
 <a href="https://www.tripadvisor.it/Hotel_Review-g776018-d2063072-Reviews-Agriturismo_Segarelli-Pomarance_Province_of_Pisa_Tuscany.html" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
+<img src="https://www.agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
 </a>
 </td>
 </tr>
@@ -336,7 +336,7 @@ Your stay request at Agriturismo Segarelli has been received
 
 <tr>
 <td align="center" style="padding:30px 40px 10px 40px;">
-<img src="https://agriturismosegarelli.it/assets/logo_segarelli.svg"
+<img src="https://www.agriturismosegarelli.it/assets/logo_segarelli.svg"
 style="height:55px;">
 </td>
 </tr>
@@ -410,7 +410,7 @@ We look forward to welcoming you for a relaxing stay surrounded by nature.
 <tr>
 <td align="center" style="padding:0 40px 30px 40px;">
 
-<a href="https://agriturismosegarelli.it/en"
+<a href="https://www.agriturismosegarelli.it/en"
 style="display:inline-block;padding:14px 32px;background:#BF7116;color:#ffffff;text-decoration:none;border-radius:999px;font-weight:600;text-transform:uppercase;font-size:14px;">
 Visit our website
 </a>
@@ -438,17 +438,17 @@ agriturismosegarelli@gmail.com
 <tr>
 <td style="padding:0 5px;">
 <a href="https://www.facebook.com/Segarelli" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
+<img src="https://www.agriturismosegarelli.it/assets/facebook.png" width="24" height="24" alt="Facebook">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.instagram.com/agriturismo_segarelli/" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
+<img src="https://www.agriturismosegarelli.it/assets/instagram.png" width="24" height="24" alt="Instagram">
 </a>
 </td>
 <td style="padding:0 5px;">
 <a href="https://www.tripadvisor.it/Hotel_Review-g776018-d2063072-Reviews-Agriturismo_Segarelli-Pomarance_Province_of_Pisa_Tuscany.html" target="_blank">
-<img src="https://agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
+<img src="https://www.agriturismosegarelli.it/assets/tripadvisor.png" width="24" height="24" alt="TripAdvisor">
 </a>
 </td>
 </tr>

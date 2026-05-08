@@ -9,6 +9,7 @@ import blogIT from "../public/locales/it/blog.json";
 import blogEN from "../public/locales/en/blog.json";
 import blogPostsIT from "../public/locales/it/blogPosts.json";
 import blogPostsEN from "../public/locales/en/blogPosts.json";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
 function Blog({ posts, translation }) {
   const { locale } = useRouter();
@@ -28,6 +29,7 @@ function Blog({ posts, translation }) {
         <meta name="keywords" content={t?.head?.keywords || ""} />
         <meta name="robots" content={t?.head?.robots || "index,follow"} />
         <link rel="canonical" href={t?.head?.canonical || ""} />
+        <HreflangLinks it="/blog" en="/en/blog" />
         <meta property="og:title" content={t?.head?.og?.title || ""} />
         <meta property="og:description" content={t?.head?.og?.description || ""} />
         <meta property="og:type" content={t?.head?.og?.type || "website"} />

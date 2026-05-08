@@ -9,11 +9,18 @@ import Image from "next/image";
 import Head from "next/head";
 import blogPostsIT from "../../public/locales/it/blogPosts.json";
 import blogPostsEN from "../../public/locales/en/blogPosts.json";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
-function PostPage({ post, recent, locale }) {
+const SITE_URL = "https://www.agriturismosegarelli.it";
+
+function PostPage({ post, recent, locale, alternateSlug }) {
   const cleanHtml = (html) => html?.replace(/(<([^>]+)>)/gi, "").trim() || "";
   const cleanTitle = cleanHtml(post.title);
   const cleanDescription = cleanHtml(post.excerpt || post.content);
+  const pageUrl = `${SITE_URL}${locale === "en" ? "/en" : ""}/blog/${post.slug}`;
+  const imageUrl = post.image?.startsWith("http")
+    ? post.image
+    : `${SITE_URL}${post.image || "/assets/hero.jpg"}`;
 
   const minutiLettura = useMemo(() => {
     const testoSenzaTag = (post?.content || "").replace(/(<([^>]+)>)/gi, "");
@@ -61,12 +68,24 @@ function PostPage({ post, recent, locale }) {
       <Head>
         <title>Agriturismo Segarelli | {cleanTitle}</title>
         <meta name="description" content={cleanDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={pageUrl} />
+        {alternateSlug && (
+          <HreflangLinks
+            it={`/blog/${locale === "it" ? post.slug : alternateSlug}`}
+            en={`/en/blog/${locale === "en" ? post.slug : alternateSlug}`}
+          />
+        )}
         <meta property="og:title" content={cleanTitle} />
         <meta property="og:description" content={cleanDescription} />
-        <meta property="og:image" content={post.image || "/assets/hero.jpg"} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="Agriturismo Segarelli" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={cleanTitle} />
         <meta name="twitter:description" content={cleanDescription} />
-        <meta name="twitter:image" content={post.image || "/assets/hero.jpg"} />
+        <meta name="twitter:image" content={imageUrl} />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -99,7 +118,7 @@ function PostPage({ post, recent, locale }) {
               </div>
               <ShareButtons
                 title={post.title}
-                link={`https://agriturismosegarelli.it/blog/${post.slug}`}
+                link={pageUrl}
               />
             </div>
           </div>
@@ -176,11 +195,14 @@ export async function getStaticProps({ params, locale }) {
   const posts = locale === "en" ? blogPostsEN.posts : blogPostsIT.posts;
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { notFound: true };
+  const postIndex = posts.findIndex((p) => p.slug === params.slug);
+  const alternatePosts = locale === "en" ? blogPostsIT.posts : blogPostsEN.posts;
+  const alternateSlug = alternatePosts[postIndex]?.slug || null;
 
   const recent = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return {
-    props: { post, recent, locale },
+    props: { post, recent, locale, alternateSlug },
     revalidate: 60,
   };
 }

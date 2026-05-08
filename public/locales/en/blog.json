@@ -12,7 +12,7 @@
         "description": "Agriturismo in Tuscany - The Agriturismo Segarelli Blog. Follow the latest news from Segarelli. Come and meet us and enjoy your Tuscan holidays.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en/blog",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | The Agriturismo Segarelli Blog",
         "description": "Agriturismo in Tuscany - The Agriturismo Segarelli Blog. Follow the latest news from Segarelli. Come and meet us and enjoy your Tuscan holidays.",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg"
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/en/blog",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Agriturismo in Tuscany - The Agriturismo Segarelli Blog. Follow the latest news from Segarelli. Come and meet us and enjoy your Tuscan holidays."
         },
         "website": {

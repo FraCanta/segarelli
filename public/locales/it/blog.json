@@ -12,7 +12,7 @@
         "description": "Agriturismo in Toscana - Il Blog dell' Agriturismo Segarelli. Segui le ultime novità di Segarelli. Vieni a conoscerci e vivi le tue vacanze toscane.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/blog",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Il Blog dell'Agriturismo Segarelli",
         "description": "Agriturismo in Toscana - Il Blog dell' Agriturismo Segarelli. Segui le ultime novità di Segarelli. Vieni a conoscerci e vivi le tue vacanze toscane.",
-        "image": "https://segarelli.vercel.app/assets/hero.jpg"
+        "image": "https://www.agriturismosegarelli.it/assets/hero.jpg"
       },
 
       "schema": {
@@ -29,7 +29,7 @@
           "@type": "Organization",
           "name": "Agriturismo Segarelli",
           "url": "https://www.agriturismosegarelli.it/blog",
-          "logo": "https://segarelli.vercel.app/assets/logo_segarelli.svg",
+          "logo": "https://www.agriturismosegarelli.it/assets/logo_segarelli.svg",
           "description": "Agriturismo in Toscana - Il Blog dell' Agriturismo Segarelli. Segui le ultime novità di Segarelli. Vieni a conoscerci e vivi le tue vacanze toscane."
         },
         "website": {

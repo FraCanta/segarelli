@@ -17,8 +17,11 @@ import FeatureItem from "@/components/FeatureItem/FeatureItem";
 import Head from "next/head";
 import blogPostsIT from "../public/locales/it/blogPosts.json";
 import blogPostsEN from "../public/locales/en/blogPosts.json";
+import dintorniPagesIT from "../public/locales/it/dintorniPages.json";
+import dintorniPagesEN from "../public/locales/en/dintorniPages.json";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
-function Piscina({ pages, post, translation }) {
+function Piscina({ pages, post, translation, locale }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, 80]);
 
@@ -30,6 +33,10 @@ function Piscina({ pages, post, translation }) {
         <meta name="keywords" content={translation.head.keywords} />
         <meta name="robots" content={translation.head.robots} />
         <link rel="canonical" href={translation.head.canonical} />
+        <HreflangLinks
+          it="/relax-e-natura-da-segarelli"
+          en="/en/relax-e-natura-da-segarelli"
+        />
 
         {/* Open Graph */}
         <meta property="og:title" content={translation.head.og.title} />
@@ -180,6 +187,7 @@ function Piscina({ pages, post, translation }) {
         pages={pages}
         post={post}
         translation={translation.activities}
+        locale={locale}
       />
       <CategoriesCarousel translation={translation} />
       <BlogSection post={post} translation={translation.blog} />
@@ -202,6 +210,12 @@ export async function getStaticProps({ locale }) {
       obj = playIT;
       break;
   }
+  const rawPages =
+    locale === "en" ? dintorniPagesEN.pages || [] : dintorniPagesIT.pages || [];
+  const pages = rawPages.map((p) => ({
+    ...p,
+    link: `/dintorni/${p.slug}`,
+  }));
 
   return {
     props: {
@@ -209,7 +223,8 @@ export async function getStaticProps({ locale }) {
       post: ((locale === "en" ? blogPostsEN.posts : blogPostsIT.posts) || [])
         .sort((a, b) => new Date(b?.date || 0) - new Date(a?.date || 0))
         .slice(0, 3),
-      pages: [],
+      pages,
+      locale,
     },
     revalidate: 60,
   };

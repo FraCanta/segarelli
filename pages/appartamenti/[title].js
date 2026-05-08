@@ -17,8 +17,16 @@ import Accordion from "@/components/Accordion/Accordion";
 import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import { accordion } from "@material-tailwind/react";
 import Head from "next/head";
+import HreflangLinks from "@/components/SEO/HreflangLinks";
 
-const AppartamentoPage = ({ appartamento, pages, translations, others, locale }) => {
+const AppartamentoPage = ({
+  appartamento,
+  pages,
+  translations,
+  others,
+  locale,
+  slug,
+}) => {
   return (
     <>
       <Head>
@@ -27,6 +35,10 @@ const AppartamentoPage = ({ appartamento, pages, translations, others, locale })
         <meta name="keywords" content={appartamento.head.keywords} />
         <meta name="robots" content={appartamento.head.robots} />
         <link rel="canonical" href={appartamento.head.canonical} />
+        <HreflangLinks
+          it={`/appartamenti/${slug}`}
+          en={`/en/appartamenti/${slug}`}
+        />
 
         {/* Open Graph */}
         <meta property="og:title" content={appartamento.head.og.title} />
@@ -311,6 +323,7 @@ export async function getStaticProps({ params, locale }) {
       translations: commonSections,
       others,
       locale,
+      slug: params.title,
     },
     revalidate: 60,
   };
