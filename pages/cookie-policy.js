@@ -72,6 +72,13 @@ export default function CookiePolicy() {
                 and is configured with IP anonymization.
               </p>
               <p>
+                Google Analytics may use cookies such as <code>_ga</code> and
+                related identifiers to collect aggregated statistics about pages
+                visited and interactions with the website. Google Search Console
+                verification is performed through a meta tag and does not load
+                cookies on the user's device.
+              </p>
+              <p>
                 Links to Facebook, Instagram, TripAdvisor and WhatsApp are simple
                 outbound links until you click them. After clicking, the
                 destination service applies its own rules.
@@ -125,6 +132,13 @@ export default function CookiePolicy() {
                 tracciamento secondo le proprie informative. Google Analytics
                 viene usato solo dopo il consenso ed e configurato con
                 anonimizzazione IP.
+              </p>
+              <p>
+                Google Analytics puo usare cookie come <code>_ga</code> e
+                identificatori collegati per raccogliere statistiche aggregate
+                sulle pagine visitate e sulle interazioni con il sito. La
+                verifica di Google Search Console avviene tramite meta tag e non
+                carica cookie sul dispositivo dell'utente.
               </p>
               <p>
                 I link a Facebook, Instagram, TripAdvisor e WhatsApp sono

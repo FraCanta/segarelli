@@ -127,7 +127,7 @@ export default function Home({ post, pages, translation }) {
       <StaggerImages />
       <Reviews translation={translation.reviewsTitle} />
       <SectionBreak />
-      <div className="h-screen mx-10  relative bg-[url('/assets/drone2.webp')] bg-cover bg-fixed bg-center" />
+      <div className="h-[42vh] min-h-[260px] w-full relative bg-[url('/assets/drone2.webp')] bg-cover bg-center lg:h-[70vh] lg:bg-fixed" />
       <SectionBreak />
       <AttivitaSection
         pages={pages}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import localeIt from "air-datepicker/locale/it";
@@ -362,9 +363,27 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
           required
         />
         <span>
-          {lang === "it"
-            ? "Acconsento al trattamento dei dati personali inviati tramite questo form per ricevere risposta alla mia richiesta di prenotazione.*"
-            : "I consent to the processing of the personal data submitted through this form in order to receive a reply to my booking request.*"}
+          {lang === "it" ? (
+            <>
+              Acconsento al trattamento dei dati personali inviati tramite
+              questo form per ricevere risposta alla mia richiesta di
+              prenotazione, ai sensi del GDPR. Ho letto la{" "}
+              <Link href="/privacy-policy" className="underline">
+                Privacy Policy
+              </Link>
+              .*
+            </>
+          ) : (
+            <>
+              I consent to the processing of the personal data submitted through
+              this form in order to receive a reply to my booking request, in
+              accordance with the GDPR. I have read the{" "}
+              <Link href="/privacy-policy" className="underline">
+                Privacy Policy
+              </Link>
+              .*
+            </>
+          )}
         </span>
       </label>
 

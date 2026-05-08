@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function BookingFormMeals({ lang = "it" }) {
   // stato iniziale del form
@@ -8,6 +9,7 @@ export default function BookingFormMeals({ lang = "it" }) {
     phone: "",
     breakfast: false,
     notes: "",
+    privacyConsent: false,
   };
   const [form, setForm] = useState(initialForm);
 
@@ -101,10 +103,45 @@ Note: ${form.notes || "-"}
         rows={3}
       />
 
+      <label className="flex items-start gap-3 text-sm text-blu/70">
+        <input
+          type="checkbox"
+          name="privacyConsent"
+          checked={form.privacyConsent}
+          onChange={handleChange}
+          className="mt-1 h-4 w-4 accent-primary"
+          required
+        />
+        <span>
+          {lang === "it" ? (
+            <>
+              Acconsento al trattamento dei dati personali inviati tramite
+              questo form per gestire la richiesta pasto, ai sensi del GDPR. Ho
+              letto la{" "}
+              <Link href="/privacy-policy" className="underline">
+                Privacy Policy
+              </Link>
+              .*
+            </>
+          ) : (
+            <>
+              I consent to the processing of the personal data submitted through
+              this form in order to manage my meal request, in accordance with
+              the GDPR. I have read the{" "}
+              <Link href="/privacy-policy" className="underline">
+                Privacy Policy
+              </Link>
+              .*
+            </>
+          )}
+        </span>
+      </label>
+
       {/* Submit */}
       <button
         type="submit"
-        className="mt-4 px-6 py-3 bg-siena text-white rounded-full uppercase tracking-wide"
+        disabled={!form.privacyConsent}
+        className="mt-4 px-6 py-3 bg-siena text-white rounded-full uppercase tracking-wide disabled:opacity-40 disabled:cursor-not-allowed"
       >
         {lang === "it" ? "Prenota pasto" : "Book meal"}
       </button>

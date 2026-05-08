@@ -106,7 +106,7 @@ export default function CookieBanner() {
           setCustomize(true);
           setVisible(true);
         }}
-        className="fixed bottom-4 left-4 z-[9997] h-12 w-12 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:bg-siena transition-colors"
+        className="fixed bottom-4 right-4 z-[9997] h-11 w-11 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:bg-siena transition-colors sm:h-12 sm:w-12"
         aria-label={isEn ? "Open cookie preferences" : "Apri preferenze cookie"}
         title={isEn ? "Cookie preferences" : "Preferenze cookie"}
       >

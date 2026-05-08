@@ -90,11 +90,19 @@ export default function PrivacyPolicy() {
               <p>
                 Data may be processed by hosting providers, including Vercel,
                 email and technical service providers. The website may use
-                Google Analytics for statistics, Google Maps embeds, Elfsight
-                widgets, iCal availability sources, WhatsApp links, and links to
-                social networks or review platforms. These third parties may
-                process data according to their own policies when you interact
-                with them or consent to their loading.
+                Google Analytics for statistics, Google Search Console for site
+                ownership verification and search performance information,
+                Google Maps embeds, Elfsight widgets, iCal availability sources,
+                WhatsApp links, and links to social networks or review
+                platforms. These third parties may process data according to
+                their own policies when you interact with them or consent to
+                their loading.
+              </p>
+              <p>
+                Google Analytics is loaded only after consent to optional
+                third-party services. Google Search Console verification is
+                implemented through a static meta tag and does not, by itself,
+                set cookies in the user's browser.
               </p>
             </Section>
 
@@ -162,11 +170,19 @@ export default function PrivacyPolicy() {
               <p>
                 I dati possono essere trattati da fornitori di hosting, incluso
                 Vercel, fornitori tecnici e servizi email. Il sito puo usare
-                Google Analytics per statistiche, incorporamenti Google Maps,
-                widget Elfsight, fonti iCal per disponibilita, link WhatsApp e
-                link a social network o piattaforme di recensioni. Queste terze
-                parti possono trattare dati secondo le proprie informative quando
+                Google Analytics per statistiche, Google Search Console per la
+                verifica della proprieta del sito e le informazioni sulle
+                prestazioni nella ricerca, incorporamenti Google Maps, widget
+                Elfsight, fonti iCal per disponibilita, link WhatsApp e link a
+                social network o piattaforme di recensioni. Queste terze parti
+                possono trattare dati secondo le proprie informative quando
                 interagisci con loro o acconsenti al caricamento.
+              </p>
+              <p>
+                Google Analytics viene caricato solo dopo il consenso ai servizi
+                facoltativi di terze parti. La verifica di Google Search Console
+                e implementata tramite un meta tag statico e, da sola, non
+                imposta cookie nel browser dell'utente.
               </p>
             </Section>
 

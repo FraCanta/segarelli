@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -220,9 +221,27 @@ function ContattiForm({ lang = "it" }) {
                 required
               />
               <span>
-                {lang === "it"
-                  ? "Acconsento al trattamento dei dati personali inviati tramite questo form per ricevere risposta alla mia richiesta.*"
-                  : "I consent to the processing of the personal data submitted through this form in order to receive a reply to my request.*"}
+                {lang === "it" ? (
+                  <>
+                    Acconsento al trattamento dei dati personali inviati tramite
+                    questo form per ricevere risposta alla mia richiesta, ai
+                    sensi del GDPR. Ho letto la{" "}
+                    <Link href="/privacy-policy" className="underline">
+                      Privacy Policy
+                    </Link>
+                    .*
+                  </>
+                ) : (
+                  <>
+                    I consent to the processing of the personal data submitted
+                    through this form in order to receive a reply to my request,
+                    in accordance with the GDPR. I have read the{" "}
+                    <Link href="/privacy-policy" className="underline">
+                      Privacy Policy
+                    </Link>
+                    .*
+                  </>
+                )}
               </span>
             </label>
 

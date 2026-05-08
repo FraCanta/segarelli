@@ -12,7 +12,7 @@ export default function Footer({ translation }) {
   return (
     <footer className="bg-primary text-white pt-12">
       <SectionBreakWhite />
-      <div className="text-center mt-6  text-white/40 mb-20">
+      <div className="text-left md:text-center mt-6 text-white/40 mb-20 px-4 lg:px-0">
         <h3 className="text-2xl lg:text-3xl">{translation?.[locale].title}</h3>
       </div>
       <div className="container mx-auto px-4 lg:px-6">
@@ -244,8 +244,8 @@ export default function Footer({ translation }) {
         </div>
 
         <div className="bg-white/20 w-full px-4 lg:px-6 h-[0.9px] mt-10"></div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 items-center w-full px-0 lg:px-6 py-6 gap-4">
-          <div className="flex flex-col lg:flex-row items-center gap-4 lg:justify-start">
+        <div className="grid grid-cols-1 items-start w-full px-0 py-6 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center">
+          <div className="flex flex-col lg:flex-row items-start gap-4 lg:justify-start lg:min-w-0">
             {" "}
             <div className="flex items-center gap-2 ">
               {/* 5 stelle piene */}
@@ -283,7 +283,7 @@ export default function Footer({ translation }) {
               {/* Valutazione numerica */}
               <span className="text-white/80 font-semibold ml-2">5.0</span>
             </div>
-            <div className="flex items-center gap-2 text-white/80">
+            <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-white/80 lg:flex-nowrap lg:whitespace-nowrap">
               &bull;{" "}
               <Link
                 href="https://www.facebook.com/Segarelli"
@@ -310,7 +310,7 @@ export default function Footer({ translation }) {
               </Link>
             </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-white/80 text-sm">
+          <div className="flex flex-wrap items-center justify-start lg:justify-center gap-x-3 gap-y-1 text-white/80 text-sm">
             <Link href="/privacy-policy" className="hover:underline">
               Privacy Policy
             </Link>
@@ -327,12 +327,23 @@ export default function Footer({ translation }) {
               {locale === "en" ? "Cookie preferences" : "Preferenze cookie"}
             </button>
           </div>
-          <div className="flex flex-col lg:flex-row gap-y-2 lg:items-center lg:justify-end">
+          <div className="flex flex-col lg:flex-row items-start gap-y-2 lg:gap-x-2 lg:items-center lg:justify-end lg:whitespace-nowrap">
             <Weather />
             <p className="text-white/80 text-sm">
               <span>
                 &copy; {new Date().getFullYear()} Agriturismo Segarelli.
               </span>
+            </p>
+            <span className="hidden text-white/80 lg:inline">&bull;</span>
+            <p className="text-white/80 text-sm">
+              <Link
+                href="https://www.thallion-dev.it/"
+                target="_blank"
+                title="Thallion Dev"
+                className="hover:underline"
+              >
+                Credits
+              </Link>
             </p>
           </div>
         </div>

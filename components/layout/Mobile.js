@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ButtonSecondary from "./ButtonSecondary";
 import ButtonWhiteOutline from "./ButtonWhiteOutline";
 import ButtonPrimaryOutline from "./ButtonPrimaryOutline";
+import Weather from "../Weather/Weather";
 
 function Mobile({ translation, isDarkHero = true }) {
   const { locale, pathname } = useRouter();
@@ -53,7 +54,7 @@ function Mobile({ translation, isDarkHero = true }) {
     : "text-blu";
 
   return (
-    <div className="lg:hidden fixed top-0 left-0 w-full z-50">
+    <div className="lg:hidden fixed top-0 left-0 w-full z-[9998]">
       {/* Navbar */}
       <div
         className={`flex justify-between border-b px-4 items-center w-full uppercase p-4 transition-all duration-500 ${navbarBgClass} ${navbarBorderClass}`}
@@ -97,8 +98,10 @@ function Mobile({ translation, isDarkHero = true }) {
 
       {/* Menu Fullscreen */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen ${navbarBgClass} ${textColorClass} flex flex-col items-start justify-between transform transition-transform duration-500 ${
-          showMenu ? "translate-y-0" : "-translate-y-full"
+        className={`fixed top-0 left-0 w-full h-[100dvh] ${navbarBgClass} ${textColorClass} flex flex-col items-start justify-between transform transition-all duration-500 ${
+          showMenu
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-[120%] opacity-0"
         }`}
       >
         <ul
@@ -179,6 +182,11 @@ function Mobile({ translation, isDarkHero = true }) {
               <span>{translation?.[locale]?.main?.contact}</span>
             </Link>
           </li>
+          <li>
+            <Link href="/blog" onClick={() => setShowMenu(false)}>
+              <span>{translation?.[locale]?.main?.blog}</span>
+            </Link>
+          </li>
           <div className="flex flex-col gap-4 ">
             <ButtonPrimaryOutline
               link="https://wa.me/+393477447180"
@@ -197,8 +205,8 @@ function Mobile({ translation, isDarkHero = true }) {
         {/* Footer */}
         <div className="px-6 mb-6 w-full">
           <div className="bg-white/20 w-full px-4 h-[1px] mt-10"></div>
-          <div className="flex flex-wrap items-center w-full px-0 py-6 justify-between gap-2">
-            <div className="flex flex-col lg:flex-row items-center gap-4">
+          <div className="flex flex-col items-start w-full px-0 py-6 gap-3">
+            <div className="flex flex-col items-start gap-3">
               <div className="flex items-center gap-2">
                 <Icon
                   className="text-siena"
@@ -232,14 +240,23 @@ function Mobile({ translation, isDarkHero = true }) {
                 />
                 <span className="text-blu font-semibold ml-2">5.0</span>
               </div>
-              
               <div className="flex items-center gap-2">
                 &bull; <span>Facebook</span> &bull; <span>Instagram</span>
-                
               </div>
+              <Weather variant="accent" />
             </div>
             <p className="text-sm">
               &copy; {new Date().getFullYear()} Agriturismo Segarelli.
+            </p>
+            <p className="text-sm">
+              <Link
+                href="https://www.thallion-dev.it/"
+                target="_blank"
+                title="Thallion Dev"
+                onClick={() => setShowMenu(false)}
+              >
+                Credits
+              </Link>
             </p>
           </div>
         </div>
