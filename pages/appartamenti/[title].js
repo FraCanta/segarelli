@@ -1,6 +1,8 @@
 import React from "react";
 import appartamentiIT from "../../public/locales/it/appartamenti.json";
 import appartamentiEN from "../../public/locales/en/appartamenti.json";
+import dintorniPagesIT from "../../public/locales/it/dintorniPages.json";
+import dintorniPagesEN from "../../public/locales/en/dintorniPages.json";
 import Reviews from "@/components/Reviews";
 import RevealImage from "@/components/layout/RevealImage";
 import { MaskText } from "@/components/layout/MaskText";
@@ -16,7 +18,7 @@ import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
 import { accordion } from "@material-tailwind/react";
 import Head from "next/head";
 
-const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
+const AppartamentoPage = ({ appartamento, pages, translations, others, locale }) => {
   return (
     <>
       <Head>
@@ -257,7 +259,11 @@ const AppartamentoPage = ({ appartamento, pages, translations, others }) => {
         </div>
       )}
       <Reviews translation={translations.reviewsTitle} />
-      <AttivitaSection pages={pages} translation={translations.activities} />
+      <AttivitaSection
+        pages={pages}
+        translation={translations.activities}
+        locale={locale}
+      />
 
       <CategoriesCarousel translation={translations} />
     </>
@@ -268,6 +274,12 @@ export default AppartamentoPage;
 
 export async function getStaticProps({ params, locale }) {
   const obj = locale === "en" ? appartamentiEN : appartamentiIT;
+  const rawPages =
+    locale === "en" ? dintorniPagesEN.pages || [] : dintorniPagesIT.pages || [];
+  const pages = rawPages.map((p) => ({
+    ...p,
+    link: `/dintorni/${p.slug}`,
+  }));
   const commonSections = {
     reviewsTitle: obj.appartamenti.reviewsTitle,
     activities: obj.appartamenti.activities,
@@ -295,9 +307,10 @@ export async function getStaticProps({ params, locale }) {
   return {
     props: {
       appartamento: targetObj,
-      pages: [],
+      pages,
       translations: commonSections,
       others,
+      locale,
     },
     revalidate: 60,
   };
