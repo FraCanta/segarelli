@@ -225,45 +225,6 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
 
   return (
     <form className="flex flex-col gap-6 mb-8" onSubmit={handleSubmit}>
-      {/* Date pickers */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-        <div>
-          <label className="text-md font-medium mb-2 text-primary normal-case">
-            {lang === "it" ? "Data di arrivo" : "Check-in Date"}
-          </label>
-          <div className="flex items-center border border-blu/20 px-2">
-            <input ref={checkInRef} className="flex-1 py-2 air-input" />
-            <Icon icon="clarity:calendar-line" width="18" />
-          </div>
-        </div>
-
-        <div>
-          <label className="text-md font-medium mb-2 text-primary normal-case">
-            {lang === "it" ? "Data di partenza" : "Check-out Date"}
-          </label>
-          <div className="flex items-center border border-blu/20 px-2">
-            <input ref={checkOutRef} className="flex-1 py-2 air-input" />
-            <Icon icon="clarity:calendar-line" width="18" />
-          </div>
-        </div>
-      </div>
-      {apartment && (
-        <p className="text-sm text-blu/60 -mt-4">
-          {availabilityLoading
-            ? lang === "it"
-              ? "Caricamento disponibilità..."
-              : "Loading availability..."
-            : blockedDates.length > 0
-              ? lang === "it"
-                ? "Le date non disponibili sono evidenziate in rosso."
-                : "Unavailable dates are highlighted in red."
-              : lang === "it"
-                ? "Nessuna data non disponibile ricevuta per questo appartamento."
-                : "No unavailable dates received for this apartment."}
-        </p>
-      )}
-      <div className="w-full bg-primary/30 h-[0.1px]" />
-
       {/* Apartment */}
       <div>
         <label className="text-md font-medium mb-2 text-primary normal-case">
@@ -287,6 +248,48 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
           ))}
         </select>
       </div>
+
+      {apartment && (
+        <p className="text-sm text-blu/60 -mt-4">
+          {availabilityLoading
+            ? lang === "it"
+              ? "Caricamento disponibilità..."
+              : "Loading availability..."
+            : blockedDates.length > 0
+              ? lang === "it"
+                ? "Le date non disponibili sono evidenziate in rosso."
+                : "Unavailable dates are highlighted in red."
+              : lang === "it"
+                ? "Nessuna data non disponibile ricevuta per questo appartamento."
+                : "No unavailable dates received for this apartment."}
+        </p>
+      )}
+
+      <div className="w-full bg-primary/30 h-[0.1px]" />
+
+      {/* Date pickers */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div>
+          <label className="text-md font-medium mb-2 text-primary normal-case">
+            {lang === "it" ? "Data di arrivo" : "Check-in Date"}
+          </label>
+          <div className="flex items-center border border-blu/20 px-2">
+            <input ref={checkInRef} className="flex-1 py-2 air-input" />
+            <Icon icon="clarity:calendar-line" width="18" />
+          </div>
+        </div>
+
+        <div>
+          <label className="text-md font-medium mb-2 text-primary normal-case">
+            {lang === "it" ? "Data di partenza" : "Check-out Date"}
+          </label>
+          <div className="flex items-center border border-blu/20 px-2">
+            <input ref={checkOutRef} className="flex-1 py-2 air-input" />
+            <Icon icon="clarity:calendar-line" width="18" />
+          </div>
+        </div>
+      </div>
+      <div className="w-full bg-primary/30 h-[0.1px]" />
 
       {/* Guests */}
       <div className="space-y-6">
