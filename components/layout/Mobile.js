@@ -196,7 +196,10 @@ function Mobile({ translation, isDarkHero = true }) {
               {translation?.[locale]?.cta?.call}
             </ButtonPrimaryOutline>
 
-            <ButtonSecondary onClick={() => setShowMenu(false)}>
+            <ButtonSecondary
+              onClick={() => setShowMenu(false)}
+              onClose={() => setShowMenu(true)}
+            >
               {translation?.[locale]?.cta?.book}
             </ButtonSecondary>
           </div>{" "}

@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 import BookingForm from "../Book/BookingForm";
 import BookingFormMeals from "../Book/BookingFormMeals";
 
-function ButtonSecondary({ children, onClick, apartmentName = "" }) {
+function ButtonSecondary({ children, onClick, onClose, apartmentName = "" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("sleep");
   const { locale, pathname } = useRouter();
@@ -27,6 +27,11 @@ function ButtonSecondary({ children, onClick, apartmentName = "" }) {
     }
 
     setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose?.();
   };
 
   return (
@@ -51,16 +56,16 @@ function ButtonSecondary({ children, onClick, apartmentName = "" }) {
               <>
                 {/* Overlay */}
                 <motion.div
-                  className="fixed inset-0 bg-blu/40 z-[90]"
+                  className="fixed inset-0 bg-blu/40 z-[9999]"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                 />
 
                 {/* Drawer */}
                 <motion.div
-                  className="fixed top-0 right-0 h-full w-full md:w-[500px] bg-[#f8f6ec] z-[100] shadow-xl flex flex-col overflow-hidden"
+                  className="fixed top-0 right-0 h-full w-full md:w-[500px] bg-[#f8f6ec] z-[10000] shadow-xl flex flex-col overflow-hidden"
                   initial={{ x: "100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
@@ -68,7 +73,7 @@ function ButtonSecondary({ children, onClick, apartmentName = "" }) {
                   onClick={(e) => e.stopPropagation()}
                 >
                   {/* Header */}
-                  <div className="absolute top-6 lg:top-10 w-full z-10 bg-[#f8f6ec]">
+                  <div className="absolute top-6 lg:top-10 w-full z-[10001] bg-[#f8f6ec]">
                     <div className="mx-4 lg:mx-6 flex items-center justify-between">
                       <div className="flex gap-3">
                         <button
@@ -96,7 +101,7 @@ function ButtonSecondary({ children, onClick, apartmentName = "" }) {
 
                       <button
                         className="text-blu"
-                        onClick={() => setIsOpen(false)}
+                        onClick={handleClose}
                       >
                         <Icon
                           icon="material-symbols-light:close-rounded"
