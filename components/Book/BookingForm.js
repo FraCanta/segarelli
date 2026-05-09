@@ -37,6 +37,8 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [apartment, setApartment] = useState(normalizeApartment(apartmentName));
   const [blockedDates, setBlockedDates] = useState([]);
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
   const [availabilityLoading, setAvailabilityLoading] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const blockedDatesRef = useRef(new Set());
@@ -53,6 +55,8 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
+    setCheckInDate(today);
+    setCheckOutDate(tomorrow);
 
     dpInRef.current = new AirDatepicker(checkInRef.current, {
       minDate: today,
@@ -76,6 +80,8 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
         if (!date) return;
         const nextDay = new Date(date);
         nextDay.setDate(nextDay.getDate() + 1);
+        setCheckInDate(date);
+        setCheckOutDate(nextDay);
         dpOutRef.current.update({ minDate: nextDay });
         dpOutRef.current.selectDate(nextDay);
       },
@@ -86,6 +92,10 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
       selectedDates: [tomorrow],
       locale,
       autoClose: true,
+      onSelect({ date }) {
+        if (!date) return;
+        setCheckOutDate(date);
+      },
       onRenderCell({ date, cellType }) {
         if (cellType !== "day") return;
         const key = formatDateKey(date);
@@ -159,6 +169,25 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
     if (type === "children") setChildren((p) => Math.max(0, p - 1));
   };
 
+  const hasBlockedDateInStay = () => {
+    if (!checkInDate || !checkOutDate) return false;
+
+    const cursor = new Date(checkInDate);
+    cursor.setHours(0, 0, 0, 0);
+
+    const end = new Date(checkOutDate);
+    end.setHours(0, 0, 0, 0);
+
+    while (cursor < end) {
+      if (blockedDatesRef.current.has(formatDateKey(cursor))) {
+        return true;
+      }
+      cursor.setDate(cursor.getDate() + 1);
+    }
+
+    return false;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -172,6 +201,15 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
         lang === "it"
           ? "Seleziona l'appartamento"
           : "Select the apartment",
+      );
+      return;
+    }
+
+    if (hasBlockedDateInStay()) {
+      toast.error(
+        lang === "it"
+          ? "Le date selezionate includono giorni non disponibili"
+          : "The selected stay includes unavailable dates",
       );
       return;
     }
