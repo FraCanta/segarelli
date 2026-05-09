@@ -37,6 +37,7 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [apartment, setApartment] = useState(normalizeApartment(apartmentName));
   const [blockedDates, setBlockedDates] = useState([]);
+  const [availabilityLoading, setAvailabilityLoading] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const blockedDatesRef = useRef(new Set());
 
@@ -62,7 +63,13 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
         if (cellType !== "day") return;
         const key = formatDateKey(date);
         if (blockedDatesRef.current.has(key)) {
-          return { disabled: true };
+          return {
+            disabled: true,
+            classes: "air-date-blocked",
+            attrs: {
+              title: lang === "it" ? "Non disponibile" : "Unavailable",
+            },
+          };
         }
       },
       onSelect({ date }) {
@@ -83,7 +90,13 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
         if (cellType !== "day") return;
         const key = formatDateKey(date);
         if (blockedDatesRef.current.has(key)) {
-          return { disabled: true };
+          return {
+            disabled: true,
+            classes: "air-date-blocked",
+            attrs: {
+              title: lang === "it" ? "Non disponibile" : "Unavailable",
+            },
+          };
         }
       },
     });
@@ -112,16 +125,24 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
   useEffect(() => {
     if (!apartment) {
       setBlockedDates([]);
+      setAvailabilityLoading(false);
       return;
     }
 
     const loadAvailability = async () => {
+      setAvailabilityLoading(true);
       try {
         const res = await fetch(`/api/availability?apartment=${apartment}`);
+        if (!res.ok) {
+          setBlockedDates([]);
+          return;
+        }
         const data = await res.json();
         setBlockedDates(Array.isArray(data?.blockedDates) ? data.blockedDates : []);
       } catch (error) {
         setBlockedDates([]);
+      } finally {
+        setAvailabilityLoading(false);
       }
     };
 
@@ -226,6 +247,21 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
           </div>
         </div>
       </div>
+      {apartment && (
+        <p className="text-sm text-blu/60 -mt-4">
+          {availabilityLoading
+            ? lang === "it"
+              ? "Caricamento disponibilità..."
+              : "Loading availability..."
+            : blockedDates.length > 0
+              ? lang === "it"
+                ? "Le date non disponibili sono evidenziate in rosso."
+                : "Unavailable dates are highlighted in red."
+              : lang === "it"
+                ? "Nessuna data non disponibile ricevuta per questo appartamento."
+                : "No unavailable dates received for this apartment."}
+        </p>
+      )}
       <div className="w-full bg-primary/30 h-[0.1px]" />
 
       {/* Apartment */}

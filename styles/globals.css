@@ -13,6 +13,17 @@ body,
   background: transparent !important;
 }
 
+.air-datepicker-cell.-disabled-.air-date-blocked {
+  background-color: rgba(154, 59, 35, 0.16) !important;
+  color: #9a3b23 !important;
+  text-decoration: line-through;
+  opacity: 1;
+}
+
+.air-datepicker-cell.-disabled-.air-date-blocked:hover {
+  background-color: rgba(154, 59, 35, 0.22) !important;
+}
+
 :root {
   --backgroundColor: #f8f6ec;
   --primaryColor: #5f6738;
