@@ -311,8 +311,15 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
           <label className="text-md font-medium mb-2 text-primary normal-case">
             {lang === "it" ? "Data di arrivo" : "Check-in Date"}
           </label>
-          <div className="flex items-center border border-blu/20 px-2">
-            <input ref={checkInRef} className="flex-1 py-2 air-input" />
+          <div
+            className="flex items-center border border-blu/20 px-2 cursor-pointer"
+            onClick={() => dpInRef.current?.show()}
+          >
+            <input
+              ref={checkInRef}
+              className="flex-1 py-2 air-input cursor-pointer"
+              readOnly
+            />
             <Icon icon="clarity:calendar-line" width="18" />
           </div>
         </div>
@@ -321,8 +328,15 @@ export default function BookingForm({ lang = "it", apartmentName = "" }) {
           <label className="text-md font-medium mb-2 text-primary normal-case">
             {lang === "it" ? "Data di partenza" : "Check-out Date"}
           </label>
-          <div className="flex items-center border border-blu/20 px-2">
-            <input ref={checkOutRef} className="flex-1 py-2 air-input" />
+          <div
+            className="flex items-center border border-blu/20 px-2 cursor-pointer"
+            onClick={() => dpOutRef.current?.show()}
+          >
+            <input
+              ref={checkOutRef}
+              className="flex-1 py-2 air-input cursor-pointer"
+              readOnly
+            />
             <Icon icon="clarity:calendar-line" width="18" />
           </div>
         </div>
