@@ -20,6 +20,7 @@ function FeatureItem({ title, src, desktopOnly = false }) {
           src={src}
           alt={title.join(" ")}
           fill
+          sizes="96px"
           className="object-contain"
         />
       </motion.figure>

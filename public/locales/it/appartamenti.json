@@ -12,7 +12,7 @@
         "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/appartamenti",
-        "image": "https://www.agriturismosegarelli.it/assets/sleep2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/sleep2.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | I nostri appartamenti",
         "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
-        "image": "https://www.agriturismosegarelli.it/assets/sleep2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/sleep2.webp",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -43,7 +43,7 @@
       }
     },
     "title": "Sleep",
-    "herobg": "/assets/sleep2.jpg",
+    "herobg": "/assets/optimized/backgrounds/sleep2.webp",
     "description": "Scopri i nostri appartamenti spaziosi e accoglienti, ideali per un soggiorno confortevole immerso nella natura.",
     "subtitle1": "I nostri appartamenti",
     "title1": "Un soggiorno da vivere, non solo da raccontare",
@@ -77,7 +77,7 @@
         "title": "Sleep",
         "tagline": "Dove il tempo rallenta",
         "text": "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Scopri di più"
       },
@@ -85,7 +85,7 @@
         "title": "Eat",
         "tagline": "La semplicità del buon cibo",
         "text": "Un’esperienza autentica, naturale e senza fronzoli.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Scopri di più"
       },
@@ -93,7 +93,7 @@
         "title": "Play",
         "tagline": "Vivi l’ambiente intorno a te",
         "text": "Passeggia, scopri, rilassati: ogni angolo sorprende.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Scopri di più"
       },
@@ -101,7 +101,7 @@
         "title": "Discover",
         "tagline": "Non perdere l'occasione",
         "text": "Scopri i borghi medievali e non perdere eventi tipici.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Scopri di più"
       }

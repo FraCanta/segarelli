@@ -52,6 +52,7 @@ export default function SliderAppartamento({ slides }) {
                     src={slide.src}
                     alt={`Slide ${index + 1}`}
                     fill
+                    sizes="(max-width: 359px) 100vw, (max-width: 767px) 82vw, (max-width: 1023px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </figure>

@@ -101,6 +101,8 @@ function ChiSiamo({ post, translation }) {
             <RevealImage
               src="/assets/chisiamo_hero.webp"
               alt="chi siamo"
+              sizes="(max-width: 1023px) 100vw, 95vw"
+              priority
               className="object-cover w-full h-full"
             />
           </div>

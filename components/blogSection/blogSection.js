@@ -55,7 +55,10 @@ const BlogSection = ({ post, translation, locale }) => {
             <div className="relative h-[100px] w-[100px]">
               <Image
                 src="/assets/book.svg"
+                alt=""
+                aria-hidden="true"
                 fill
+                sizes="100px"
                 className="object-cover h-full w-full"
               />
             </div>

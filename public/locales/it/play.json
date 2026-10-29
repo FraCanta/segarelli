@@ -12,7 +12,7 @@
         "description": "Fermati, respira e goditi il momento all’Agriturismo Segarelli: rilassati nel giardino, fai un tuffo in piscina e immergiti nella bellezza della campagna toscana.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/relax-e-natura-da-segarelli",
-        "image": "https://www.agriturismosegarelli.it/assets/pool.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/pool.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Relax in giardino e piscina",
         "description": "Fermati, respira e goditi il momento all’Agriturismo Segarelli: rilassati nel giardino, fai un tuffo in piscina e immergiti nella bellezza della campagna toscana.",
-        "image": "https://www.agriturismosegarelli.it/assets/pool.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/pool.webp",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -43,7 +43,7 @@
       }
     },
     "title": "Play",
-    "herobg": "/assets/pool.jpg",
+    "herobg": "/assets/optimized/backgrounds/pool.webp",
     "description": "Il nostro invito a fermarti. respirare, goderti il momento. Lasciati sorprendere dalla bellezza delle cose semplici. ",
     "subtitle1": "Relax in giardino e piscina",
     "title1": "Offriamo qualcosa di raro",
@@ -80,9 +80,9 @@
       }
     ],
     "gallery": [
-      { "src": "/assets/pool.jpg" },
+      { "src": "/assets/optimized/backgrounds/pool.webp" },
       { "src": "/assets/pool2.jpg" },
-      { "src": "/assets/pool3.jpg" },
+      { "src": "/assets/optimized/backgrounds/pool3.webp" },
       { "src": "/assets/pool4.jpg" },
       { "src": "/assets/pool5.jpg" },
       { "src": "/assets/pool6.jpg" },
@@ -124,7 +124,7 @@
         "title": "Sleep",
         "tagline": "Dove il tempo rallenta",
         "text": "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Scopri di più"
       },
@@ -132,7 +132,7 @@
         "title": "Eat",
         "tagline": "La semplicità del buon cibo",
         "text": "Un’esperienza autentica, naturale e senza fronzoli.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Scopri di più"
       },
@@ -140,7 +140,7 @@
         "title": "Play",
         "tagline": "Vivi l’ambiente intorno a te",
         "text": "Passeggia, scopri, rilassati: ogni angolo sorprende.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Scopri di più"
       },
@@ -148,7 +148,7 @@
         "title": "Discover",
         "tagline": "Non perdere l'occasione",
         "text": "Scopri i borghi medievali e non perdere eventi tipici.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Scopri di più"
       }

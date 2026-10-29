@@ -91,6 +91,7 @@ function Blog({ posts, translation }) {
                     height={420}
                     alt={p.imageAlt || p.title}
                     className="object-cover w-full aspect-square"
+                    sizes="(max-width: 1023px) 100vw, 30vw"
                     priority={i < 3}
                   />
                 </figure>

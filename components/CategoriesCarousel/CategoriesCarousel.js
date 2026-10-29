@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectFade, Autoplay } from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
@@ -16,12 +17,20 @@ export default function CategoriesCarousel({ translation }) {
       {translation.slides.map((slide, index) => (
         <div
           key={index}
-          style={{ backgroundImage: `url(${slide.bg})` }}
-          className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
             index === 0 ? "opacity-100" : "opacity-0"
           }`}
           data-bg-index={index}
-        />
+        >
+          <Image
+            src={slide.bg}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
       ))}
 
       <Swiper

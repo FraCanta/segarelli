@@ -33,7 +33,9 @@ function PostPage({ post, recent, locale, alternateSlug }) {
 
     let lightbox;
     const initLightbox = async () => {
-      const links = document.querySelectorAll(".gallery a, .wp-block-gallery a");
+      const links = document.querySelectorAll(
+        ".gallery a, .wp-block-gallery a, .blog-article-gallery a",
+      );
       if (!links.length) return;
 
       const GLightbox = (await import("glightbox")).default;
@@ -66,7 +68,7 @@ function PostPage({ post, recent, locale, alternateSlug }) {
   return (
     <>
       <Head>
-        <title>Agriturismo Segarelli | {cleanTitle}</title>
+        <title>{`Agriturismo Segarelli | ${cleanTitle}`}</title>
         <meta name="description" content={cleanDescription} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={pageUrl} />
@@ -127,6 +129,8 @@ function PostPage({ post, recent, locale, alternateSlug }) {
               src={post.image || "/assets/hero.jpg"}
               alt={post.imageAlt || post.title}
               fill
+              sizes="(max-width: 1023px) 100vw, (max-width: 1535px) 50vw, 33vw"
+              priority
               className="object-cover h-full"
             />
           </div>
@@ -152,6 +156,7 @@ function PostPage({ post, recent, locale, alternateSlug }) {
                       height={420}
                       alt={p.imageAlt || p.title}
                       className="object-cover w-full aspect-video"
+                      sizes="(max-width: 1023px) 100vw, 30vw"
                     />
                   </figure>
                 </Link>
@@ -195,9 +200,10 @@ export async function getStaticProps({ params, locale }) {
   const posts = locale === "en" ? blogPostsEN.posts : blogPostsIT.posts;
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { notFound: true };
-  const postIndex = posts.findIndex((p) => p.slug === params.slug);
   const alternatePosts = locale === "en" ? blogPostsIT.posts : blogPostsEN.posts;
-  const alternateSlug = alternatePosts[postIndex]?.slug || null;
+  const alternateSlug = post.translationId
+    ? alternatePosts.find((p) => p.translationId === post.translationId)?.slug || null
+    : null;
 
   const recent = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 

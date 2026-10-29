@@ -101,6 +101,8 @@ function DintorniPage({ pages, currentPage, translation }) {
           <div className="relative aspect-square xl:aspect-video h-auto xl:h-[400px] fxl:h-[500px] w-full fxl:w-2/3 ml-auto">
             <RevealImage
               fill
+              sizes="(max-width: 1023px) 100vw, (max-width: 1535px) 50vw, 33vw"
+              priority
               className="object-cover h-full"
               src={currentPage.image}
               alt={currentPage.imageAlt || currentPage.title}
@@ -148,6 +150,7 @@ function DintorniPage({ pages, currentPage, translation }) {
                   src={p.image}
                   alt={p.imageAlt || p.title}
                   fill
+                  sizes="(max-width: 1023px) 100vw, 30vw"
                   className="object-cover w-full h-full"
                 />
               </div>

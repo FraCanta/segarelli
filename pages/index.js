@@ -90,6 +90,7 @@ export default function Home({ post, pages, translation }) {
             fill
             className="object-cover object-top"
             alt="Hero"
+            sizes="100vw"
             priority
           />
           <div className="absolute inset-0 bg-primary/20" />

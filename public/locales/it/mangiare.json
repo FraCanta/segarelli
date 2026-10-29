@@ -12,7 +12,7 @@
         "description": "Gusta la semplicità del buon cibo toscano all’Agriturismo Segarelli: colazioni tipiche italiane, prodotti freschi dell’orto e spazi accoglienti per mangiare e rilassarsi immersi nella natura.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/mangiare-in-agriturismo",
-        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/eat2.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Mangiare in Agriturismo",
         "description": "Gusta la semplicità del buon cibo toscano all’Agriturismo Segarelli: colazioni tipiche italiane, prodotti freschi dell’orto e spazi accoglienti per mangiare e rilassarsi immersi nella natura.",
-        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/eat2.webp",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -43,7 +43,7 @@
       }
     },
     "title": "Eat",
-    "herobg": "/assets/eat2.jpg",
+    "herobg": "/assets/optimized/backgrounds/eat2.webp",
     "description": "Mangiare bene, in un luogo pensato per stare bene.",
     "subtitle1": "Mangiare in Agriturismo",
     "title1": "Il gusto semplice della campagna toscana",
@@ -83,7 +83,7 @@
 
     "gallery": [
       { "src": "/assets/eat1.jpg" },
-      { "src": "/assets/eat2.jpg" },
+      { "src": "/assets/optimized/backgrounds/eat2.webp" },
       { "src": "/assets/eat3.jpg" },
       { "src": "/assets/eat4.jpg" },
       { "src": "/assets/eat5.jpg" },
@@ -103,7 +103,7 @@
         "title": "Sleep",
         "tagline": "Dove il tempo rallenta",
         "text": "Spazi ampi, silenziosi e accoglienti. Tre appartamenti, alcuni comunicanti, per sentirti davvero a casa: Acacia, Edera e Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Scopri di più"
       },
@@ -111,7 +111,7 @@
         "title": "Eat",
         "tagline": "La semplicità del buon cibo",
         "text": "Un’esperienza autentica, naturale e senza fronzoli.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Scopri di più"
       },
@@ -119,7 +119,7 @@
         "title": "Play",
         "tagline": "Vivi l’ambiente intorno a te",
         "text": "Passeggia, scopri, rilassati: ogni angolo sorprende.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Scopri di più"
       },
@@ -127,7 +127,7 @@
         "title": "Discover",
         "tagline": "Non perdere l'occasione",
         "text": "Scopri i borghi medievali e non perdere eventi tipici.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Scopri di più"
       }

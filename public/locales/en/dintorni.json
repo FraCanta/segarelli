@@ -12,7 +12,7 @@
         "description": "Experience the most authentic Tuscany at Agriturismo Segarelli: medieval villages, local festivals, unspoiled nature, and trails across hills and valleys await for unforgettable moments.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en/scopri-i-dintorni",
-        "image": "https://www.agriturismosegarelli.it/assets/meet.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/meet.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Discover the Surroundings",
         "description": "Experience the most authentic Tuscany at Agriturismo Segarelli: medieval villages, local festivals, unspoiled nature, and trails across hills and valleys await for unforgettable moments.",
-        "image": "https://www.agriturismosegarelli.it/assets/meet.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/meet.webp",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -43,7 +43,7 @@
       }
     },
     "title": "Discover",
-    "herobg": "/assets/meet.jpg",
+    "herobg": "/assets/optimized/backgrounds/meet.webp",
     "description": "An experience made of emotions and discoveries.",
     "SezioneGallery": {
       "subTitle": "Villages, events and nature",
@@ -64,7 +64,7 @@
         "title": "Sleep",
         "tagline": "Where time slows down",
         "text": "Spacious, quiet and welcoming spaces. Three apartments, some interconnected, to make you feel truly at home: Acacia, Edera and Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Discover more"
       },
@@ -72,7 +72,7 @@
         "title": "Eat",
         "tagline": "The simplicity of good food",
         "text": "An authentic, natural and uncomplicated experience.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Discover more"
       },
@@ -80,7 +80,7 @@
         "title": "Play",
         "tagline": "Experience the environment around you",
         "text": "Walk, discover, relax: every corner surprises.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Discover more"
       },
@@ -88,7 +88,7 @@
         "title": "Discover",
         "tagline": "Don't miss the opportunity",
         "text": "Discover medieval villages and don't miss typical events.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Discover more"
       }

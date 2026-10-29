@@ -59,7 +59,7 @@
         "title": "Sleep",
         "tagline": "Where time slows down",
         "text": "Spacious, quiet, and welcoming spaces. Three apartments, some connected, so you can truly feel at home: Acacia, Edera, and Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Learn more"
       },
@@ -67,7 +67,7 @@
         "title": "Eat",
         "tagline": "The simplicity of good food",
         "text": "An authentic, natural, and unpretentious experience.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Learn more"
       },
@@ -75,7 +75,7 @@
         "title": "Play",
         "tagline": "Experience the surroundings",
         "text": "Walk, explore, relax: every corner has its surprises.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Learn more"
       },
@@ -83,7 +83,7 @@
         "title": "Discover",
         "tagline": "Don't miss the opportunity",
         "text": "Explore medieval villages and enjoy local events.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Learn more"
       }

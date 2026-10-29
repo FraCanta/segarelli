@@ -69,6 +69,7 @@ function ScrollSection() {
               src="/assets/segarelli.jpg"
               alt="Segarelli"
               fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
               className="object-cover object-top rounded-tl-[600px]"
             />
             <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>
@@ -93,6 +94,7 @@ function ScrollSection() {
               src="/assets/appartamenti.jpg"
               alt="appartamenti"
               fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
               className="object-cover object-top rounded-tl-[600px]"
             />
             <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>
@@ -117,6 +119,7 @@ function ScrollSection() {
               src="/assets/toscana.jpg"
               alt="appartamenti"
               fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
               className="object-cover object-top rounded-tl-[600px]"
             />
             <div className="absolute inset-0 bg-primary/35 rounded-tl-[600px]"></div>

@@ -37,8 +37,8 @@ export default function PostSection({ post, featuredMedia, locale }) {
               height={420}
               alt={featuredMedia?.alt_text || title || "Don't Call It Blog"}
               className="w-full h-[240px] md:h-[350px] lg:h-[375px] 3xl:h-[380px] object-cover"
-              priority
               quality={70}
+              sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
             />
           </figure>
         </Link>

@@ -2,7 +2,14 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-function RevealImage({ src, alt, className = "" }) {
+function RevealImage({
+  src,
+  alt,
+  className = "",
+  sizes = "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw",
+  priority = false,
+  quality,
+}) {
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -23,7 +30,15 @@ function RevealImage({ src, alt, className = "" }) {
         }}
         className="absolute inset-0"
       >
-        <Image src={src} alt={alt} fill className="object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          quality={quality}
+          className="object-cover"
+        />
       </motion.div>
     </div>
   );

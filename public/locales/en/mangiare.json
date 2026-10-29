@@ -12,7 +12,7 @@
         "description": "Enjoy the simplicity of authentic Tuscan cuisine at Agriturismo Segarelli: traditional Italian breakfasts, fresh produce from our garden, and welcoming spaces to eat and relax immersed in nature.",
         "type": "website",
         "url": "https://www.agriturismosegarelli.it/en/mangiare-in-agriturismo",
-        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/eat2.webp",
         "site_name": "Agriturismo Segarelli"
       },
 
@@ -20,7 +20,7 @@
         "card": "summary_large_image",
         "title": "Agriturismo Segarelli | Dining in Agriturismo",
         "description": "Enjoy the simplicity of authentic Tuscan cuisine at Agriturismo Segarelli: traditional Italian breakfasts, fresh produce from our garden, and welcoming spaces to eat and relax immersed in nature.",
-        "image": "https://www.agriturismosegarelli.it/assets/eat2.jpg",
+        "image": "https://www.agriturismosegarelli.it/assets/optimized/backgrounds/eat2.webp",
         "creator": "@agriturismosegarelli",
         "site": "@agriturismosegarelli"
       },
@@ -43,7 +43,7 @@
       }
     },
     "title": "Eat",
-    "herobg": "/assets/eat2.jpg",
+    "herobg": "/assets/optimized/backgrounds/eat2.webp",
     "description": "Eat well, in a place designed for well-being.",
     "subtitle1": "Dining at the Agriturismo",
     "title1": "The simple taste of the Tuscan countryside",
@@ -79,7 +79,7 @@
     },
     "gallery": [
       { "src": "/assets/eat1.jpg" },
-      { "src": "/assets/eat2.jpg" },
+      { "src": "/assets/optimized/backgrounds/eat2.webp" },
       { "src": "/assets/eat3.jpg" },
       { "src": "/assets/eat4.jpg" },
       { "src": "/assets/eat5.jpg" },
@@ -99,7 +99,7 @@
         "title": "Sleep",
         "tagline": "Where time slows down",
         "text": "Spacious, quiet and welcoming spaces. Three apartments, some interconnected, to make you feel truly at home: Acacia, Edera and Gelsomino.",
-        "bg": "/assets/sleep2.jpg",
+        "bg": "/assets/optimized/backgrounds/sleep2.webp",
         "link": "/appartamenti",
         "cta": "Discover more"
       },
@@ -107,7 +107,7 @@
         "title": "Eat",
         "tagline": "The simplicity of good food",
         "text": "An authentic, natural and uncomplicated experience.",
-        "bg": "/assets/eat2.jpg",
+        "bg": "/assets/optimized/backgrounds/eat2.webp",
         "link": "/mangiare-in-agriturismo",
         "cta": "Discover more"
       },
@@ -115,7 +115,7 @@
         "title": "Play",
         "tagline": "Experience the environment around you",
         "text": "Walk, discover, relax: every corner surprises.",
-        "bg": "/assets/pool3.jpg",
+        "bg": "/assets/optimized/backgrounds/pool3.webp",
         "link": "/relax-e-natura-da-segarelli",
         "cta": "Discover more"
       },
@@ -123,7 +123,7 @@
         "title": "Discover",
         "tagline": "Don't miss the opportunity",
         "text": "Discover medieval villages and don't miss typical events.",
-        "bg": "/assets/meet.jpg",
+        "bg": "/assets/optimized/backgrounds/meet.webp",
         "link": "/scopri-i-dintorni",
         "cta": "Discover more"
       }

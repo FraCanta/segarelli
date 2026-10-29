@@ -119,6 +119,7 @@ function Mangiare({ pages, post, translation, locale }) {
               alt="Agriturismo Segarelli"
               className="mx-auto  object-cover  object-bottom px-4 lg:px-0"
               fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
             />
           </div>
           <div className="flex flex-col  justify-center gap-4 px-4">

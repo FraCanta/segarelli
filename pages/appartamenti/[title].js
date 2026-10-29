@@ -15,7 +15,6 @@ import ButtonSecondary from "@/components/layout/ButtonSecondary";
 import { Icon } from "@iconify/react";
 import Accordion from "@/components/Accordion/Accordion";
 import ButtonPrimaryOutline from "@/components/layout/ButtonPrimaryOutline";
-import { accordion } from "@material-tailwind/react";
 import Head from "next/head";
 import HreflangLinks from "@/components/SEO/HreflangLinks";
 
@@ -105,6 +104,8 @@ const AppartamentoPage = ({
             <RevealImage
               src={appartamento.img}
               alt={appartamento.name}
+              sizes="(max-width: 1023px) 100vw, 95vw"
+              priority
               className="object-cover w-full h-full"
             />
           </div>
